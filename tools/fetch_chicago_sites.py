@@ -40,7 +40,7 @@ DATASETS = {
     "cooling_centers": ("msrk-w9ih", "Cooling Centers",
                         ["site_type", "site_name", "address", "city", "state", "zip", "phone", "hours_of_operation"]),
     "libraries": ("x8fc-8rcq", "Libraries - Locations, Contact Information, and Usual Hours of Service",
-                  ["name_", "address", "city", "state", "zip", "phone", "hours_of_operation", "website"]),
+                  ["branch_", "address", "city", "state", "zip", "phone", "service_hours", "website", "branch_email"]),
     "police_stations": ("z8bn-74gv", "Police Stations",
                         ["district", "district_name", "address", "city", "state", "zip", "phone", "fax", "tty", "website"]),
     "senior_centers": ("qhfc-4cw2", "Senior Centers",
