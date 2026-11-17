@@ -1,10 +1,13 @@
 # Re-fetch the City of Chicago site snapshots in data/chicago/sites/ (tools/fetch_chicago_sites.py).
-# Manual only (Actions tab -> "Fetch Chicago sites" -> Run workflow). On a feature branch it commits the
-# refreshed CSVs to that branch; on main it never commits (team rule: no direct commits to main) and
-# uploads the files as a workflow artifact instead.
+# Runs when the fetch tool changes on a non-main branch, or manually (Actions tab -> "Fetch Chicago sites"
+# -> Run workflow, once this file is on main). On a feature branch it commits the refreshed CSVs to that
+# branch; on main it never commits (team rule: no direct commits to main) and uploads an artifact instead.
 name: Fetch Chicago sites
 on:
   workflow_dispatch:
+  push:
+    branches-ignore: [main]
+    paths: [tools/fetch_chicago_sites.py, .github/workflows/fetch-chicago-sites.yml]
 permissions:
   contents: write
 jobs:
