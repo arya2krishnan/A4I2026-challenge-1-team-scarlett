@@ -24,3 +24,17 @@ file's executable bit survived however your copy of this repo was created.
 
 Every table is fully replaced, never appended to. So if you cancel it halfway through, or you
 aren't sure whether it finished, just run it again—the end state is the same either way.
+
+## Chicago enrichment snapshots
+
+`make enrich-data` downloads additional public datasets into git-ignored
+`data/enrichment/`: ACS social vulnerability and matching Chicago tract geometry,
+NWS hourly/overnight forecasts, CTA scheduled transit, the published cooling
+inventory, tree canopy/rental housing burden, and a bounded Loop walking-network pilot. Source manifests record
+coverage, retrieval time, vintage and terms.
+
+See [DATA_ENRICHMENT.md](../docs/DATA_ENRICHMENT.md) for counts, limitations,
+standalone setup and upload commands. `load_enrichment_snapshots.py --dry-run`
+validates acquired files locally; its actual upload targets fixed enrichment
+table names. County ACS, canopy and housing enrichment append snapshots; the other acquired
+enrichment tables replace their snapshots on refresh.

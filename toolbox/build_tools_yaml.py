@@ -57,6 +57,11 @@ P_SPACING = {
     "description": ("Keep only the best cell per square block of this many grid cells (1 cell = ~330 m), so stops are "
                     "spread across the city instead of clustered. Default 5 = ~1.7 km apart."),
 }
+P_MIN_OFFSET = {
+    "name": "min_offset", "type": "float", "default": -99, "minValue": -99, "maxValue": 10,
+    "description": "Hot cutoff: only consider places whose predicted_offset_f (degrees F vs the city average) is at least "
+                   "this. Default -99 = no cutoff. The dispatch console passes the operator's cutoff here.",
+}
 P_LAT = {"name": "latitude", "type": "float", "minValue": 41.0, "maxValue": 43.0,
          "description": "Latitude in decimal degrees (Chicago is about 41.6 to 42.1)."}
 P_LON = {"name": "longitude", "type": "float", "minValue": -89.0, "maxValue": -87.0,
@@ -93,7 +98,7 @@ ranked AS (
 spaced AS (
   SELECT r.*
   FROM ranked AS r
-  WHERE TRUE
+  WHERE r.predicted_offset_f >= @min_offset
   QUALIFY ROW_NUMBER() OVER (
     PARTITION BY CAST(FLOOR(r.lat_i / @spacing_cells) AS INT64), CAST(FLOOR(r.lon_i / @spacing_cells) AS INT64)
     ORDER BY r.priority_score DESC) = 1
@@ -159,7 +164,7 @@ def build() -> list[dict]:
     docs.append({
         "kind": "source", "name": "heat-bq", "type": "bigquery",
         "project": "${GOOGLE_CLOUD_PROJECT}", "location": "${BQ_LOCATION:US}",
-        "maxQueryResultRows": 200, "maximumBytesBilled": 10737418240,
+        "maxQueryResultRows": 2000, "maximumBytesBilled": 10737418240,
     })
 
     docs.append(tool(
@@ -174,7 +179,7 @@ def build() -> list[dict]:
         measured_readings = 0 means no Heat Watch car ever drove there: the number is a pure model prediction.
         """,
         f"{SCORED_SITES}\nSELECT {SITE_COLUMNS}\nFROM spaced\nORDER BY priority_score DESC\nLIMIT @limit",
-        [p_limit(8), P_HEAT_WEIGHT, P_MIN_DENSITY, P_SPACING],
+        [p_limit(8, 50), P_HEAT_WEIGHT, P_MIN_DENSITY, P_SPACING, P_MIN_OFFSET],
     ))
 
     docs.append(tool(
@@ -227,10 +232,11 @@ SELECT
 FROM (
   SELECT *, (@heat_weight * heat_percentile + (1 - @heat_weight) * vulnerability_index) AS priority_score
   FROM ranked
+  WHERE predicted_offset_f >= @min_offset
 )
 ORDER BY priority_score DESC
 LIMIT @limit""",
-        [p_limit(10), P_HEAT_WEIGHT, P_MIN_DENSITY],
+        [p_limit(10, 150), P_HEAT_WEIGHT, P_MIN_DENSITY, P_MIN_OFFSET],
     ))
 
     docs.append(tool(
@@ -376,7 +382,7 @@ picked AS (
 {agg_block('recommended_sites', 'picked')}
 UNION ALL
 {agg_block('citywide', 'modelled')}""",
-        [p_limit(8), P_HEAT_WEIGHT, P_MIN_DENSITY, P_SPACING],
+        [p_limit(8, 50), P_HEAT_WEIGHT, P_MIN_DENSITY, P_SPACING, P_MIN_OFFSET],
     ))
 
     docs.append(tool(
@@ -409,6 +415,101 @@ FROM holdout""",
         """,
         f"SELECT feature, ROUND(attribution, 3) AS mean_abs_contribution_f\nFROM ML.GLOBAL_EXPLAIN(MODEL {MODEL})\nORDER BY attribution DESC",
         [],
+    ))
+
+    docs.append(tool(
+        "tract_map_layer",
+        """
+        One row per modelled Chicago census tract, for the dispatch console's map lenses. Runs ML.EXPLAIN_PREDICT over
+        every grid cell (no density floor) and averages predicted_offset_f per tract; adds the measured Heat Watch offset
+        where the tract was driven, ACS people counts (total, 65+, poverty, no car, income), the vulnerability index,
+        the nearest current indoor air-conditioned cooling site (City of Chicago, chi_site_candidate_sites) from the tract
+        centre, and the tract outline as simplified GeoJSON (US Census TIGER via bigquery-public-data). Use for maps and
+        city-wide summaries, not for choosing where a truck parks (use rank_priority_sites).
+        """,
+        f"""
+WITH pred AS (
+  SELECT tract_geo_id, community_area, predicted_offset_f, n_obs, offset_f
+  FROM ML.EXPLAIN_PREDICT(MODEL {MODEL}, (SELECT * FROM {tbl('site_context')}), STRUCT(1 AS top_k_features))
+),
+tract AS (
+  SELECT
+    tract_geo_id,
+    APPROX_TOP_COUNT(community_area, 1)[OFFSET(0)].value AS neighborhood,
+    AVG(predicted_offset_f) AS predicted_offset_f,
+    COUNT(*) AS cells,
+    SUM(IFNULL(n_obs, 0)) AS measured_readings,
+    SAFE_DIVIDE(SUM(IF(n_obs >= {MIN_OBS}, offset_f * n_obs, 0)), SUM(IF(n_obs >= {MIN_OBS}, n_obs, 0)))
+      AS measured_offset_f
+  FROM pred
+  GROUP BY tract_geo_id
+),
+ac AS (
+  SELECT site_name, site_category, ST_GEOGPOINT(longitude, latitude) AS pt
+  FROM {tbl('chi_site_candidate_sites')}
+  WHERE is_current_cooling_site AND indoor_air_conditioned
+),
+nearest_ac AS (
+  SELECT v.geo_id,
+    ARRAY_AGG(STRUCT(a.site_name AS name, a.site_category AS category,
+                     ST_DISTANCE(ST_GEOGPOINT(v.tract_lon, v.tract_lat), a.pt) / 1000 AS km)
+              ORDER BY ST_DISTANCE(ST_GEOGPOINT(v.tract_lon, v.tract_lat), a.pt) LIMIT 1)[OFFSET(0)] AS best
+  FROM {tbl('tract_vulnerability')} AS v CROSS JOIN ac AS a
+  WHERE v.geo_id IN (SELECT tract_geo_id FROM tract)
+  GROUP BY v.geo_id
+),
+geo AS (
+  SELECT geo_id, tract_geom
+  FROM `bigquery-public-data.geo_census_tracts.census_tracts_illinois`
+  WHERE geo_id IN (SELECT tract_geo_id FROM tract)
+)
+SELECT
+  t.tract_geo_id, t.neighborhood,
+  ROUND(v.tract_lat, 5) AS latitude, ROUND(v.tract_lon, 5) AS longitude,
+  ROUND(t.predicted_offset_f, 2) AS predicted_offset_f,
+  t.measured_readings, ROUND(t.measured_offset_f, 2) AS measured_offset_f, t.cells,
+  CAST(ROUND(v.total_pop) AS INT64) AS total_pop,
+  CAST(ROUND(v.pop_65_plus) AS INT64) AS pop_65_plus,
+  ROUND(v.pct_65_plus, 3) AS pct_65_plus,
+  ROUND(v.poverty_rate, 3) AS poverty_rate,
+  ROUND(v.no_vehicle_rate, 3) AS no_vehicle_rate,
+  CAST(ROUND(v.no_car_households) AS INT64) AS households_without_car,
+  ROUND(v.median_income, 0) AS median_income,
+  ROUND(v.vulnerability_index, 3) AS vulnerability_index,
+  ROUND(ST_AREA(g.tract_geom) / 1e6, 3) AS area_km2,
+  n.best.name AS nearest_ac_name, n.best.category AS nearest_ac_category, ROUND(n.best.km, 2) AS km_to_ac,
+  ST_ASGEOJSON(ST_SIMPLIFY(g.tract_geom, 15)) AS geometry
+FROM tract AS t
+JOIN {tbl('tract_vulnerability')} AS v ON v.geo_id = t.tract_geo_id
+LEFT JOIN geo AS g ON g.geo_id = t.tract_geo_id
+LEFT JOIN nearest_ac AS n ON n.geo_id = t.tract_geo_id
+ORDER BY t.tract_geo_id""",
+        [],
+    ))
+
+    docs.append(tool(
+        "list_sites",
+        """
+        Every place in Chicago that serves, or could serve, as a heat-relief site (City of Chicago open data snapshot,
+        chi_site_candidate_sites): libraries, air-conditioned Park District facilities, splash pads, police districts
+        (open 24/7), senior centers, City Colleges, community service centers, and CPS high schools. CPS high schools have
+        is_current_cooling_site = false: they are CANDIDATES only, not part of the City's cooling plan. Libraries carry
+        weekly service_hours from the Chicago Public Library dataset. Hours are a snapshot: confirm before publishing.
+        category 'any' returns all sites; otherwise one exact site_category, e.g. 'Library'.
+        """,
+        f"""
+SELECT
+  s.site_key, s.site_name, s.site_category, s.operator, s.address,
+  ROUND(s.latitude, 5) AS latitude, ROUND(s.longitude, 5) AS longitude,
+  s.is_current_cooling_site, s.indoor_air_conditioned, s.open_24_7, s.hours_of_operation,
+  l.service_hours, l.phone
+FROM {tbl('chi_site_candidate_sites')} AS s
+LEFT JOIN {tbl('chi_site_libraries')} AS l
+  ON s.site_category = 'Library' AND LOWER(TRIM(l.branch_)) = LOWER(TRIM(s.site_name))
+WHERE @category = 'any' OR s.site_category = @category
+ORDER BY s.site_category, s.site_name""",
+        [{"name": "category", "type": "string", "default": "any",
+          "description": "'any' for every site, or one exact site_category such as 'Library' or 'Police District'."}],
     ))
 
     names = [d["name"] for d in docs if d["kind"] == "tool"]

@@ -1,0 +1,8 @@
+[
+  {"name": "version", "type": "INT64", "mode": "REQUIRED", "description": "Plan version, increasing"},
+  {"name": "created_at", "type": "TIMESTAMP", "mode": "REQUIRED"},
+  {"name": "created_by", "type": "STRING", "mode": "REQUIRED", "description": "Operator email (IAP) or service"},
+  {"name": "source", "type": "STRING", "mode": "REQUIRED", "description": "ui | chat | skip | undo | init"},
+  {"name": "plan_date", "type": "DATE", "mode": "NULLABLE"},
+  {"name": "payload", "type": "STRING", "mode": "REQUIRED", "description": "JSON: constraints, day, items, approved, skipped, diff, warnings"}
+]

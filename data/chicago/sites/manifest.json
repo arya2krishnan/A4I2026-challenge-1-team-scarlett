@@ -1,5 +1,5 @@
 {
-  "retrieved_at": "2026-11-17T19:36:03+00:00",
+  "retrieved_at": "2026-11-17T21:03:08+00:00",
   "portal": "https://data.cityofchicago.org",
   "tool": "tools/fetch_chicago_sites.py",
   "files": {
@@ -9,7 +9,7 @@
       "landing_page": "https://data.cityofchicago.org/d/msrk-w9ih",
       "api": "https://data.cityofchicago.org/resource/msrk-w9ih.json",
       "rows": 287,
-      "sha256": "21e61b8211b081d623dbac1771f17f8f65d58e9a4bd35cfbc038486d013f6532",
+      "sha256": "ca280d4d507f1a4fd8596f73a7c70a6e5f62200a49cf7f0ae15b4d54f6b31ea4",
       "fetched": 287,
       "no_point": 0,
       "outside_chicago": 0,
@@ -21,7 +21,7 @@
       "landing_page": "https://data.cityofchicago.org/d/x8fc-8rcq",
       "api": "https://data.cityofchicago.org/resource/x8fc-8rcq.json",
       "rows": 82,
-      "sha256": "bf0048f8c9ead42109f015f9714e7fb5f51b4c67581de704a5c0178a0bcee043",
+      "sha256": "4400331b339cd4c93ba24db25acc918b44eacfbc2881d942fbb33e8547d129e8",
       "fetched": 82,
       "no_point": 0,
       "outside_chicago": 0,
@@ -33,7 +33,7 @@
       "landing_page": "https://data.cityofchicago.org/d/z8bn-74gv",
       "api": "https://data.cityofchicago.org/resource/z8bn-74gv.json",
       "rows": 23,
-      "sha256": "da64df3bea206c0d3a53ee6629ff120cbca3197fd973db6d3ae70f7c81a6d761",
+      "sha256": "979937db4b429f05919e1fe68b7e550224d5072fe3ee09dabacdf692910cf8b2",
       "fetched": 23,
       "no_point": 0,
       "outside_chicago": 0,
@@ -45,7 +45,7 @@
       "landing_page": "https://data.cityofchicago.org/d/qhfc-4cw2",
       "api": "https://data.cityofchicago.org/resource/qhfc-4cw2.json",
       "rows": 21,
-      "sha256": "cee01048f5ffbe622793de60d116f1c39e9e82ea41e89cd11ded5196ed4c0c3a",
+      "sha256": "ca8c663831b7b11f4132a7e6739967bc16fda0b4dee69bf94c7389543623e375",
       "fetched": 21,
       "no_point": 0,
       "outside_chicago": 0,
@@ -57,7 +57,7 @@
       "landing_page": "https://data.cityofchicago.org/d/pb6d-zzuh",
       "api": "https://data.cityofchicago.org/resource/pb6d-zzuh.json",
       "rows": 645,
-      "sha256": "6d5a8e6cff8a2279f327ad371b59c56fbe416250fa6e50195d8d967881be1045",
+      "sha256": "528a37b074befa95dfab7548fc4874261ee10c4b05f843ac54a44a4c20351cee",
       "fetched": 645,
       "no_point": 0,
       "outside_chicago": 0,
@@ -69,7 +69,7 @@
         "cps_schools.csv"
       ],
       "rows": 457,
-      "sha256": "7b1c67c4055dab8427dacbb9a8b27206654f2f30602edaaceb5328d6ebad6f15"
+      "sha256": "788767a361d3e20458271e0c45be207e4cc7d4ff124079894db50c4f4c70cd95"
     }
   }
 }

@@ -233,6 +233,23 @@ def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, welln
         + [{"lat": t["latitude"], "lng": t["longitude"], "kind": "wellness",
             "label": f"Wellness team {t['team']} · {t.get('neighborhood') or t['tract_geo_id']}"} for t in teams]
     )
+    preview_tweets = []
+    try:
+        from social_media.vulnerability import identify_top_vulnerabilities
+        from social_media.dispatch_updates import format_top_vulnerabilities_tweet
+        top2 = identify_top_vulnerabilities({"wellness_teams": teams, "hydration_stops": stops}, limit=2)
+        if top2:
+            preview_tweets.append(format_top_vulnerabilities_tweet(top2))
+    except Exception:
+        pass
+
+    for s in stops:
+        preview_tweets.append(f"🚛 Action: Hydration Truck #{s['stop']} deployed to {s.get('neighborhood', 'Chicago site')} ({s['latitude']:.4f}, {s['longitude']:.4f})")
+    for lib in libraries:
+        preview_tweets.append(f"❄️ Relief: Extended hours at {lib['library']} ({lib['address']})")
+    if teams:
+        preview_tweets.append(f"💜 Outreach: {len(teams)} wellness teams active in priority neighborhoods")
+
     return {
         "status": "ok",
         "dispatch_sheet_markdown": render_sheet(float(forecast_high_f), stops, teams, libraries, audit, params, high_schools),
@@ -240,4 +257,5 @@ def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, welln
         "high_school_gyms": high_schools,
         "equity_audit_ran": bool(audit),
         "map": {"markers": markers},
+        "social_media_preview": preview_tweets,
     }
