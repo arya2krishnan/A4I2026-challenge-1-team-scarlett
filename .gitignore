@@ -28,9 +28,19 @@ Thumbs.db
 .venv/
 .env
 .data/
+# Enrichment snapshots: local only; the loaded tables live in BigQuery (docs/DATA_ENRICHMENT.md)
+data/enrichment/
 .pytest_cache/
 *.bak
 agent/heat_dispatch/.env
 agent/heat_dispatch/.agent_engine_config.json
 toolbox/tools.rendered.yaml
 .bin/
+
+# Local copy of the ai-analyst-plus skills repo (not part of this project)
+ai-analyst-plus/
+ai_analyst_plus/
+
+
+# Repo-local gcloud config/credentials (CLOUDSDK_CONFIG); never commit
+.gcloud/

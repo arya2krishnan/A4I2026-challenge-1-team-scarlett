@@ -1,0 +1,249 @@
+{
+  "acquisition_date": "2026-11-17",
+  "cloud_upload_status": "uploaded and independently verified",
+  "validated_tables": 16,
+  "focused_tests_passed": 40,
+  "typecheck": "8 scripts passed",
+  "datasets": [
+    {
+      "directory": "data/enrichment/vulnerability",
+      "retrieved_at": "2026-11-17T19:31:03.155234+00:00",
+      "row_counts": {
+        "tract_social_vulnerability": 1332
+      },
+      "coverage": "Cook County, Illinois census tracts; not clipped to Chicago",
+      "source": null,
+      "terms_url": "https://www.census.gov/about/policies/copyright.html",
+      "manifest": "data/enrichment/vulnerability/manifest.json"
+    },
+    {
+      "directory": "data/enrichment/geography",
+      "retrieved_at": "2026-11-17T19:36:42.138687+00:00",
+      "row_counts": {
+        "community_tract_boundaries_diagnostic": 867,
+        "community_vulnerability_diagnostic": 867,
+        "tract_boundaries_chicago": 799,
+        "tract_social_vulnerability_chicago": 799
+      },
+      "coverage": "positive-area overlap of Cook County tract polygons with the matching-vintage Census Chicago incorporated place",
+      "source": null,
+      "terms_url": null,
+      "manifest": "data/enrichment/geography/manifest.json"
+    },
+    {
+      "directory": "data/enrichment/environment",
+      "retrieved_at": "2026-11-17T19:40:31.102026+00:00",
+      "row_counts": {
+        "tract_housing_burden": 799,
+        "tract_tree_canopy": 799
+      },
+      "coverage": "Select Chicago-overlapping Cook County tracts from saved Census city intersection; retain whole-tract values",
+      "source": null,
+      "terms_url": null,
+      "manifest": "data/enrichment/environment/manifest.json"
+    },
+    {
+      "directory": "data/enrichment/weather",
+      "retrieved_at": "2026-11-17T19:30:12.448424+00:00",
+      "row_counts": {
+        "weather_daily": 48,
+        "weather_hourly": 936
+      },
+      "coverage": "Six representative Chicago points, deduplicated by NWS forecast grid. Not every city cell.",
+      "source": null,
+      "terms_url": "https://www.weather.gov/disclaimer",
+      "manifest": "data/enrichment/weather/manifest.json"
+    },
+    {
+      "directory": "data/enrichment/transit",
+      "retrieved_at": "2026-11-17T19:30:34.085886+00:00",
+      "row_counts": {
+        "transit_calendar": 128,
+        "transit_calendar_dates": 170,
+        "transit_departures": 263715,
+        "transit_routes": 132,
+        "transit_stops": 11107
+      },
+      "coverage": "Entire CTA service network, including suburbs",
+      "source": "https://www.transitchicago.com/downloads/sch_data/google_transit.zip",
+      "terms_url": "https://www.transitchicago.com/developers/terms/",
+      "manifest": "data/enrichment/transit/manifest.json"
+    },
+    {
+      "directory": "data/enrichment/facilities",
+      "retrieved_at": "2026-11-17T19:31:58.109630+00:00",
+      "row_counts": {
+        "cooling_inventory_snapshot": 287
+      },
+      "coverage": "City of Chicago Cooling Centers inventory with usable Chicago-area coordinates",
+      "source": "https://data.cityofchicago.org/resource/msrk-w9ih.json?$limit=5000",
+      "terms_url": "https://www.chicago.gov/city/en/narr/foia/data_disclaimer.html",
+      "manifest": "data/enrichment/facilities/manifest.json"
+    },
+    {
+      "directory": "data/enrichment/walkability",
+      "retrieved_at": "2026-11-17T19:32:49.253800+00:00",
+      "row_counts": {
+        "cooling_walk_access_pilot": 1,
+        "walking_network_edges": 5528,
+        "walking_network_nodes": 4527
+      },
+      "coverage": "Small Loop pilot only; no citywide walking coverage",
+      "source": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.633%2C41.872%2C-87.623%2C41.882",
+      "terms_url": "https://www.openstreetmap.org/copyright",
+      "manifest": "data/enrichment/walkability/manifest.json"
+    }
+  ],
+  "destination_project": "qwiklabs-gcp-04-3e58e01275b8",
+  "destination_dataset": "a4i_climate",
+  "cloud_upload_jobs_submitted": 16,
+  "destination_location": "US",
+  "cloud_verified_at": "2026-11-17T19:58:08.451326+00:00",
+  "cloud_total_enrichment_rows": 291107,
+  "cloud_tables": [
+    {
+      "table": "tract_social_vulnerability",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.tract_social_vulnerability",
+      "rows": 1332,
+      "bytes": 358212,
+      "job_id": "9a93ae0a-ab23-40ff-9b1f-378805065f0e",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "tract_social_vulnerability_chicago",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.tract_social_vulnerability_chicago",
+      "rows": 799,
+      "bytes": 242025,
+      "job_id": "a156e49c-f1e1-426e-a3ac-1a71c7ea78be",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "tract_boundaries_chicago",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.tract_boundaries_chicago",
+      "rows": 799,
+      "bytes": 17071784,
+      "job_id": "d6b48a55-9b47-49d9-93d5-5f0313b19585",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "tract_tree_canopy",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.tract_tree_canopy",
+      "rows": 799,
+      "bytes": 249224,
+      "job_id": "40d32953-82ec-4bfc-b594-82f8617c42fa",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "tract_housing_burden",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.tract_housing_burden",
+      "rows": 799,
+      "bytes": 265995,
+      "job_id": "edae2e7a-ecc1-4718-92a7-7ec81610dd1f",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "weather_hourly",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.weather_hourly",
+      "rows": 936,
+      "bytes": 191159,
+      "job_id": "7d952c3b-60f5-4e5d-bd25-5bac9f56c0cb",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "weather_daily",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.weather_daily",
+      "rows": 48,
+      "bytes": 9792,
+      "job_id": "018f6d6a-88a1-4af4-b859-bb43522499ff",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "transit_stops",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.transit_stops",
+      "rows": 11107,
+      "bytes": 1536643,
+      "job_id": "bea12c3a-1534-41d2-8b14-f8e55a28424c",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "transit_routes",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.transit_routes",
+      "rows": 132,
+      "bytes": 14383,
+      "job_id": "7ddb469e-9972-4c07-b09c-225b618983bc",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "transit_calendar",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.transit_calendar",
+      "rows": 128,
+      "bytes": 13910,
+      "job_id": "90aa6668-5cc8-4f83-b316-2ecee7971fff",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "transit_calendar_dates",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.transit_calendar_dates",
+      "rows": 170,
+      "bytes": 17256,
+      "job_id": "da80c73b-a462-4e0c-8f4f-e84865308e55",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "transit_departures",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.transit_departures",
+      "rows": 263715,
+      "bytes": 38362318,
+      "job_id": "22601fab-9354-44b0-bb3a-6e62cab2b7da",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "cooling_inventory_snapshot",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.cooling_inventory_snapshot",
+      "rows": 287,
+      "bytes": 46178,
+      "job_id": "017bc520-034f-44a5-b942-e0081a82cadb",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "walking_network_nodes",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.walking_network_nodes",
+      "rows": 4527,
+      "bytes": 525132,
+      "job_id": "9657bc3c-078b-42b6-af26-2d437835bdb1",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "walking_network_edges",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.walking_network_edges",
+      "rows": 5528,
+      "bytes": 775038,
+      "job_id": "f8685c8e-91cf-4073-a57d-ca0a176050f2",
+      "job_state": "DONE",
+      "schema_verified": true
+    },
+    {
+      "table": "cooling_walk_access_pilot",
+      "destination": "qwiklabs-gcp-04-3e58e01275b8.a4i_climate.cooling_walk_access_pilot",
+      "rows": 1,
+      "bytes": 225,
+      "job_id": "75ffd6c2-d698-4f7e-99e4-66a8cb5f73b4",
+      "job_state": "DONE",
+      "schema_verified": true
+    }
+  ]
+}

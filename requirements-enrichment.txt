@@ -1,0 +1,5 @@
+# Standalone acquisition/verification environment; no ADK or Streamlit required.
+shapely>=2.0
+google-cloud-bigquery
+pytest
+mypy
