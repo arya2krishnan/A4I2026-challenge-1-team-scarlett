@@ -57,6 +57,19 @@ location-trend term to the model. `scripts/check_tool_sql.py` runs every tool's 
 (needs `python scripts/toolbox_proxy.py` for a local run against the private Toolbox). macOS bash 3.2 cannot run `scripts/load.sh`
 (`${var^^}`): run its three `bq load --replace` commands instead.
 
+## Gotchas learned the hard way (all reproduced by tests)
+
+- **Agent Runtime runs every query on a NEW asyncio event loop.** A plain `ToolboxToolset` caches an aiohttp session on its first
+  loop, so from the 2nd query on the agent silently has no data tools and tells users the tools are "unavailable".
+  `toolbox.LoopSafeToolboxToolset` keeps one client per loop. Never share a cached async client across queries.
+- **Gemini fires dependent tools in the same step** (rankings + `build_dispatch_plan`); ADK runs them concurrently. The plan
+  tool is async and waits for the stashed rows. Callbacks (`guard_point_tools`, `stash_tool_results`) are per agent: set them on
+  every specialist.
+- **LLM-driven `transfer_to_agent` can ping-pong** between coordinator and specialists on compound requests. The coordinator
+  keeps the whole-plan request; specialists have `disallow_transfer_to_peers`.
+- A deployed engine reports `UPDATING` for a minute or two after `deploy-agent` returns; redeploying during that window fails
+  and queries may still hit the old revision. Verify with several parallel runs, not one.
+
 ## Conventions
 
 `.env`, `.venv`, `.bin`, `toolbox/tools.rendered.yaml` and this file are git-ignored. No commits unless asked.

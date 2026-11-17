@@ -98,6 +98,8 @@ flowchart LR
 | Client on Cloud Run | 200 with identity token, 403 without |
 | Console (`web/`) | offline only so far: `make test` (planner, console tools, backend with fake Toolbox/agent, React flows); not yet deployed |
 
+Reliability on the deployed agent (canned "plan tomorrow" prompt): 1/3 and 1/6 before fixes, 12/12 after (event-loop, same-step race, transfer ping-pong; see CLAUDE.md gotchas).
+
 Bugs the live run caught: MCP returns BigQuery structs as `[name, value]` pairs not objects; the Heat Watch footprint
 includes suburbs (Berwyn), so cells are clipped to the 77 community areas; O'Hare ranked first until the default density
 floor was raised to 3,000 people/km2.
