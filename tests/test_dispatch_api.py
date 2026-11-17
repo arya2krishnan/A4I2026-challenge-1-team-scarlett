@@ -54,6 +54,13 @@ def client(store):
     return TestClient(create_app(store))
 
 
+def test_health_path_works_on_cloud_run(client):
+    # Cloud Run's front end swallows paths ending in "z" (/healthz -> Google 404), so /health is the public probe.
+    assert client.get("/health").json() == {"status": "ok"}
+    assert "/health" in client.get("/openapi.json").json()["paths"]
+    assert "/healthz" not in client.get("/openapi.json").json()["paths"]
+
+
 def _propose(client):
     r = client.post("/api/dispatches/proposals", json=PROPOSAL)
     assert r.status_code == 201, r.text

@@ -63,8 +63,8 @@ def run_smoke(call: Call, log: Callable[[str], None] = print) -> list[str]:
                     {"proposal_id": pid, "approved_by": f"{TAG} officer", "approved_stops": [1, 2], **extra})
 
     try:
-        st, j = call("GET", "/healthz", None)
-        check(st == 200, "healthz", (st, j))
+        st, j = call("GET", "/health", None)
+        check(st == 200, "health", (st, j))
 
         st, j = call("POST", "/api/dispatches/proposals",
                      {**PROPOSAL, "hydration_stops": [{"stop": 1, "latitude": 40.71, "longitude": -74.0}]})

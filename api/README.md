@@ -19,7 +19,7 @@ It runs on **Cloud Run** (private, behind IAM) and stores data in **Firestore**.
 | `GET` | `/api/dispatches/active` | none | `{count, dispatches: [...]}`: approved stops, wellness teams and the change log |
 | `PATCH` | `/api/dispatches/{id}/override` | `{stop, latitude, longitude, reason, requested_by}` | `200` the dispatch with the stop moved, `revision` increased and a new signature |
 | `POST` | `/api/dispatches/{id}/close` | `{closed_by, reason}` | `200` `status: "CLOSED"` |
-| `GET` | `/healthz` | none | `{"status": "ok"}` |
+| `GET` | `/health` | none | `{"status": "ok"}` (not `/healthz`: Cloud Run reserves paths ending in `z`) |
 
 **Error codes:**
 - `404`: the proposal or dispatch doesn't exist.
