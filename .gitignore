@@ -34,3 +34,8 @@ agent/heat_dispatch/.env
 agent/heat_dispatch/.agent_engine_config.json
 toolbox/tools.rendered.yaml
 .bin/
+
+# Web console
+web/frontend/node_modules/
+web/frontend/dist/
+*.tsbuildinfo

@@ -1,0 +1,11 @@
+[
+  {"name": "event_id", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "at", "type": "TIMESTAMP", "mode": "REQUIRED"},
+  {"name": "actor", "type": "STRING", "mode": "REQUIRED", "description": "Operator email, or 'system' for capacity un-approvals"},
+  {"name": "action", "type": "STRING", "mode": "REQUIRED", "description": "approve | unapprove | skip | auto_unapprove"},
+  {"name": "item_key", "type": "STRING", "mode": "REQUIRED", "description": "truck:<cell_id> | well:<tract> | lib:<branch>"},
+  {"name": "kind", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "item_name", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "plan_version", "type": "INT64", "mode": "REQUIRED"},
+  {"name": "reason", "type": "STRING", "mode": "NULLABLE"}
+]

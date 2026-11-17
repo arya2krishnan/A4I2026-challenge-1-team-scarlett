@@ -30,6 +30,8 @@ CASES = {
     "who_lives_near": {"latitude": 41.7796, "longitude": -87.6444},
     "nearest_cooling_facilities": {"latitude": 41.7796, "longitude": -87.6444, "facility_type": "Library", "limit": 3},
     "equity_audit": {"limit": 5},
+    "tract_map_layer": {},
+    "list_sites": {"category": "Library"},
 }
 
 
