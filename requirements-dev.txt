@@ -3,6 +3,8 @@
 -r web/backend/requirements.txt
 httpx
 google-cloud-bigquery
+mypy
+shapely>=2.0
 pyyaml
 pytest
 sqlglot

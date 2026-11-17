@@ -3,7 +3,10 @@ VENV ?= .venv
 PY   := $(VENV)/bin/python
 CITY ?= chicago
 
-.PHONY: help setup test data osm model validate-model toolbox-yaml toolbox-local smoke adk-web run-local check-models gcp-setup deploy-toolbox deploy-agent deploy-client load-sites web-build run-web web-dev test-web deploy-web
+
+
+.PHONY: help setup test data osm model validate-model toolbox-yaml toolbox-local smoke adk-web run-local check-models gcp-setup deploy-toolbox deploy-agent deploy-client enrich-data enrich-weather enrich-vulnerability enrich-geography enrich-environment enrich-transit enrich-cooling enrich-walkability enrich-load typecheck
+
 
 help:  ## list targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/' | column -t -s "$$(printf '\t')"
@@ -28,6 +31,35 @@ data:  ## 1) load the three source tables for Chicago, 2) City of Chicago facili
 	bash scripts/load.sh $(CITY)
 	$(PY) scripts/load_chicago_facilities.py
 	$(PY) scripts/load_chicago_boundaries.py
+
+enrich-data: enrich-weather enrich-environment enrich-transit enrich-walkability  ## fetch public enrichment snapshots locally; see docs/DATA_ENRICHMENT.md
+
+enrich-weather:  ## current hourly NWS forecasts + overnight summaries for six Chicago points
+	$(PY) scripts/load_chicago_weather.py
+
+enrich-vulnerability:  ## ACS older adults living alone, disability and children under five (Cook County)
+	$(PY) scripts/load_chicago_vulnerability.py --year 2024
+
+enrich-geography: enrich-vulnerability  ## filter the acquired ACS tracts to Chicago using matching-vintage boundaries
+	$(PY) scripts/clip_chicago_vulnerability.py
+
+enrich-environment: enrich-geography  ## tract tree canopy and Census rent burden; canopy redistribution terms need confirmation
+	$(PY) scripts/load_chicago_environment.py
+
+enrich-transit:  ## CTA stops, routes, calendars and scheduled departures; optional SERVICE_DATE=YYYY-MM-DD
+	$(PY) scripts/load_chicago_transit.py $(if $(SERVICE_DATE),--service-date $(SERVICE_DATE))
+
+enrich-cooling:  ## currently published city cooling inventory, preserving unknown operational readiness
+	$(PY) scripts/load_chicago_cooling_inventory.py
+
+enrich-walkability: enrich-cooling  ## bounded Loop walking-network pilot (not citywide routing)
+	$(PY) scripts/load_chicago_walkability.py
+
+enrich-load:  ## upload acquired snapshots; requires PROJECT=... and optional DATASET=...
+	$(PY) scripts/load_enrichment_snapshots.py --project $(PROJECT) --dataset $(or $(DATASET),a4i_climate)
+
+typecheck:  ## typecheck the enrichment acquisition, geography and upload scripts
+	$(PY) -m mypy --follow-imports=silent --ignore-missing-imports scripts/load_chicago_vulnerability.py scripts/clip_chicago_vulnerability.py scripts/load_chicago_environment.py scripts/load_chicago_weather.py scripts/load_chicago_transit.py scripts/load_chicago_cooling_inventory.py scripts/load_chicago_walkability.py scripts/load_enrichment_snapshots.py
 
 osm:  ## one-off: pull the Chicago slice of OpenStreetMap land cover (buildings, green, paved, roads) into BigQuery
 	$(PY) scripts/run_sql.py 00
