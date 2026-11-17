@@ -19,7 +19,8 @@ VARS = run_sql.load_vars("PROJECT", "DATASET")
 
 
 def test_v2_files_exist_outside_the_numbered_pipeline():
-    assert [f.name for f in V2] == ["10_site_context_lst.sql", "11_train_lst.sql", "12_evaluate_lst.sql"]
+    assert [f.name for f in V2] == ["10_site_context_lst.sql", "11_train_lst.sql", "12_evaluate_lst.sql",
+                                 "20_site_context_enriched_lst.sql"]
     assert not any(f.parent.name == "v2" for f in run_sql.sql_files([]))
 
 

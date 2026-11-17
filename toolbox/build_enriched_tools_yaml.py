@@ -2,8 +2,9 @@
 """Generate an opt-in Toolbox toolset using validated enrichment outputs.
 
 The existing tools.yaml and deployed toolset remain available. The enriched
-toolset uses the frozen original model with unchanged physical inputs until a
-candidate has been reviewed. Its data layer uses corrected ACS2024 geography.
+toolset scores the corrected context with the live v2 model (heat_offset_lst):
+the model's inputs and label are identical in site_context_enriched, so it gives
+the same held-out r2 (0.588) there; only the ranking inputs are corrected. Its data layer uses corrected ACS2024 geography.
 """
 from __future__ import annotations
 
@@ -21,9 +22,9 @@ SOURCE = "${GOOGLE_CLOUD_PROJECT}.${BQ_BASELINE_DATASET:a4i_climate_backup_20261
 OLD = "${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}"
 # Read the live names from the legacy generator instead of hard-coding them: the live toolset was promoted to
 # heat_offset_lst / site_context_lst on 2026-11-17, and hard-coded names silently stopped matching.
-LEGACY_MODEL = legacy.MODEL.rsplit(".", 1)[1].strip("`")    # e.g. heat_offset_lst
-FROZEN_MODEL = "heat_offset_model"                            # deliberately the frozen original, in SOURCE
-WORK_TABLES = {legacy.CONTEXT: "site_context_enriched", "site_context": "site_context_enriched",
+LEGACY_MODEL = legacy.MODEL.rsplit(".", 1)[1].strip("`")    # e.g. heat_offset_lst (stays in the live dataset)
+# Enriched context + the v2 model's derived inputs (trend_*, surface_heat_f): sql/v2/20_site_context_enriched_lst.sql
+WORK_TABLES = {legacy.CONTEXT: "site_context_enriched_lst", "site_context": "site_context_enriched_lst",
                "tract_vulnerability": "tract_vulnerability_2024",
                "cooling_facilities": "cooling_facilities", "chi_site_candidate_sites": "chi_site_candidate_sites"}
 
@@ -37,12 +38,12 @@ def build() -> list[dict]:
         if document["kind"] != "tool":
             continue
         statement = document["statement"]
-        # The enriched toolset keeps the frozen original model (its inputs match site_context_enriched); the live
-        # v2 model needs trend/surface-heat columns the enriched context does not carry yet.
-        statement = statement.replace(f"`{OLD}.{LEGACY_MODEL}`", f"`{SOURCE}.{FROZEN_MODEL}`")
+        # Keep the live model in the live dataset: shield it from the "other tables -> SOURCE snapshot" rewrite below.
+        statement = statement.replace(f"`{OLD}.{LEGACY_MODEL}`", "@@LIVE_MODEL@@")
         for old_name, new_name in WORK_TABLES.items():
             statement = statement.replace(f"`{OLD}.{old_name}`", f"`{WORK}.{new_name}`")
         statement = statement.replace(f"`{OLD}.", f"`{SOURCE}.")
+        statement = statement.replace("@@LIVE_MODEL@@", f"`{OLD}.{LEGACY_MODEL}`")
         # Dispatch candidates stay inside matching-vintage Census Chicago;
         # all cells remain present in the context and model evaluation tables.
         statement = statement.replace("WHERE pop_density_km2 >= @min_density",
@@ -75,8 +76,8 @@ def build() -> list[dict]:
                                           "s.is_indoor_inventory_listing, s.is_current_cooling_site,")
         document["statement"] = statement
         document["description"] = (
-            "Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the frozen "
-            "original model; land-cover and surface-offset fields are additional context. Cooling listings and hours "
+            "Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the v2 model "
+            "(location trend + satellite SURFACE heat + land cover; surface values are inputs, never air temperatures). Cooling listings and hours "
             "are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. "
             "School snapshot membership does not establish current operation or eligibility. "
             "Distances are straight-line unless a route is explicitly supplied.\n" + document["description"]

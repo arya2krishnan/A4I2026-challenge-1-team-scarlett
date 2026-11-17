@@ -12,7 +12,7 @@ name: rank_priority_sites
 type: bigquery-sql
 source: heat-bq
 description: |
-  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the frozen original model; land-cover and surface-offset fields are additional context. Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
+  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the v2 model (location trend + satellite SURFACE heat + land cover; surface values are inputs, never air temperatures). Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
   Ranks places across Chicago for emergency heat response TODAY (hydration trucks, cooling stops). Runs the BigQuery ML
   heat model (ML.EXPLAIN_PREDICT) live over every ~330 m grid cell, INCLUDING cells nobody ever measured, then combines
   predicted heat, who lives there (65+, no car, poverty) and distance from the nearest indoor cooling site.
@@ -26,8 +26,8 @@ statement: |
     -- AND per-feature attributions (degrees F contributed by each feature versus the average cell).
     SELECT *
     FROM ML.EXPLAIN_PREDICT(
-      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_BASELINE_DATASET:a4i_climate_backup_20261117_214035}.heat_offset_model`,
-      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched` WHERE inside_census_chicago_place AND vulnerability_index IS NOT NULL AND pop_density_km2 >= @min_density),
+      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`,
+      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched_lst` WHERE inside_census_chicago_place AND vulnerability_index IS NOT NULL AND pop_density_km2 >= @min_density),
       STRUCT(20 AS top_k_features))
   ),
   scored AS (
@@ -127,7 +127,7 @@ name: rank_wellness_check_tracts
 type: bigquery-sql
 source: heat-bq
 description: |
-  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the frozen original model; land-cover and surface-offset fields are additional context. Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
+  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the v2 model (location trend + satellite SURFACE heat + land cover; surface values are inputs, never air temperatures). Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
   Ranks census tracts for door-to-door wellness checks. Averages the live ML.PREDICT heat prediction over each tract's
   grid cells and blends it with a vulnerability index (share 65+, households without a car, poverty). Returns people
   counts to size the visit list: residents_65_plus and households_without_car. Tract centroid coordinates are
@@ -135,8 +135,8 @@ description: |
 statement: |
   WITH pred AS (
     SELECT * FROM ML.PREDICT(
-      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_BASELINE_DATASET:a4i_climate_backup_20261117_214035}.heat_offset_model`,
-      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched` WHERE inside_census_chicago_place AND vulnerability_index IS NOT NULL AND pop_density_km2 >= @min_density))
+      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`,
+      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched_lst` WHERE inside_census_chicago_place AND vulnerability_index IS NOT NULL AND pop_density_km2 >= @min_density))
   ),
   tract AS (
     SELECT
@@ -211,7 +211,7 @@ name: predict_site_heat
 type: bigquery-sql
 source: heat-bq
 description: |
-  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the frozen original model; land-cover and surface-offset fields are additional context. Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
+  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the v2 model (location trend + satellite SURFACE heat + land cover; surface values are inputs, never air temperatures). Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
   Explains the heat at ONE location: snaps the coordinates to the nearest ~330 m grid cell and runs ML.EXPLAIN_PREDICT.
   Returns predicted_offset_f (degrees F hotter than the average Chicago spot on a hot day) and `why`, the model's
   per-feature contributions in degrees F (location_trend = where the cell sits in the city, surface_heat_f = how hot its SURFACES run
@@ -222,7 +222,7 @@ description: |
 statement: |
   WITH target AS (
     SELECT *, ST_DISTANCE(ST_GEOGPOINT(longitude, latitude), ST_GEOGPOINT(@longitude, @latitude)) AS snap_distance_m
-    FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched`
+    FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched_lst`
     ORDER BY snap_distance_m
     LIMIT 1
   )
@@ -250,7 +250,7 @@ statement: |
     surface_offset_missing, surface_low_scene_count, nearest_cooling_status,
     nearest_cooling_event_verified, original_tract_geo_id, tract_changed,
     n_obs AS measured_readings, ROUND(offset_f, 2) AS measured_offset_f
-  FROM ML.EXPLAIN_PREDICT(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_BASELINE_DATASET:a4i_climate_backup_20261117_214035}.heat_offset_model`, (SELECT * FROM target), STRUCT(20 AS top_k_features))
+  FROM ML.EXPLAIN_PREDICT(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`, (SELECT * FROM target), STRUCT(20 AS top_k_features))
 parameters:
 - name: latitude
   type: float
@@ -268,7 +268,7 @@ name: who_lives_near
 type: bigquery-sql
 source: heat-bq
 description: |
-  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the frozen original model; land-cover and surface-offset fields are additional context. Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
+  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the v2 model (location trend + satellite SURFACE heat + land cover; surface values are inputs, never air temperatures). Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
   Who lives around a point: total residents, residents 65+, households without a car, poverty rate and median income,
   summed over census tracts whose centre lies within radius_m. ACS 5-year estimates, tract level: a tract is counted
   whole, so treat the totals as the neighbourhood, not an exact circle.
@@ -344,7 +344,7 @@ name: heat_frequency
 type: bigquery-sql
 source: heat-bq
 description: |
-  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the frozen original model; land-cover and surface-offset fields are additional context. Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
+  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the v2 model (location trend + satellite SURFACE heat + land cover; surface values are inputs, never air temperatures). Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
   How often Chicago-area weather stations reached a temperature, by year, May-September, from NOAA GHCN-Daily
   (daily station maxima, about seven years). The daily value is the average TMAX of the reporting stations. Use it to
   say how unusual a forecast is ("102F or hotter happened N days in 7 summers") and whether it is getting more common.
@@ -381,7 +381,7 @@ name: equity_audit
 type: bigquery-sql
 source: heat-bq
 description: |
-  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the frozen original model; land-cover and surface-offset fields are additional context. Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
+  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the v2 model (location trend + satellite SURFACE heat + land cover; surface values are inputs, never air temperatures). Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
   Audits the OUTPUT of rank_priority_sites. Takes the same top-N recommended sites (same parameters, so pass the same
   values you used for the ranking) and compares the people living in those tracts with the whole modelled city:
   poverty rate, households without a car, share 65+, income, mean vulnerability index, and the share of tracts in the
@@ -394,8 +394,8 @@ statement: |
     -- AND per-feature attributions (degrees F contributed by each feature versus the average cell).
     SELECT *
     FROM ML.EXPLAIN_PREDICT(
-      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_BASELINE_DATASET:a4i_climate_backup_20261117_214035}.heat_offset_model`,
-      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched` WHERE inside_census_chicago_place AND vulnerability_index IS NOT NULL AND pop_density_km2 >= @min_density),
+      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`,
+      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched_lst` WHERE inside_census_chicago_place AND vulnerability_index IS NOT NULL AND pop_density_km2 >= @min_density),
       STRUCT(20 AS top_k_features))
   ),
   scored AS (
@@ -426,7 +426,7 @@ statement: |
   ),
   modelled AS (
     SELECT v.* FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.tract_vulnerability_2024` AS v
-    WHERE v.geo_id IN (SELECT DISTINCT tract_geo_id FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched`)
+    WHERE v.geo_id IN (SELECT DISTINCT tract_geo_id FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched_lst`)
   ),
   picked AS (
     SELECT m.* FROM modelled AS m WHERE m.geo_id IN (SELECT tract_geo_id FROM top)
@@ -494,18 +494,18 @@ name: model_card
 type: bigquery-sql
 source: heat-bq
 description: |
-  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the frozen original model; land-cover and surface-offset fields are additional context. Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
+  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the v2 model (location trend + satellite SURFACE heat + land cover; surface values are inputs, never air temperatures). Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
   How good the heat model really is: ML.EVALUATE on spatially held-out city blocks the model never saw, next to a naive
   'always predict the city average' baseline. Use it to answer "how much should I trust this" and to state limits. If
   the model's r2 is low, say so plainly; the training data is a single volunteer-driven afternoon.
 statement: |
   WITH holdout AS (
-    SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched` WHERE n_obs >= 8 AND is_holdout AND offset_f IS NOT NULL
+    SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched_lst` WHERE n_obs >= 8 AND is_holdout AND offset_f IS NOT NULL
   )
   SELECT 'model on held-out blocks' AS what, ROUND(mean_absolute_error, 2) AS mean_abs_error_f,
          ROUND(SQRT(mean_squared_error), 2) AS rmse_f, ROUND(r2_score, 3) AS r2_score,
          (SELECT COUNT(*) FROM holdout) AS cells_evaluated
-  FROM ML.EVALUATE(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_BASELINE_DATASET:a4i_climate_backup_20261117_214035}.heat_offset_model`, (SELECT * FROM holdout))
+  FROM ML.EVALUATE(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`, (SELECT * FROM holdout))
   UNION ALL
   SELECT 'baseline: always predict the city average', ROUND(AVG(ABS(offset_f)), 2),
          ROUND(SQRT(AVG(POW(offset_f, 2))), 2), 0.0, COUNT(*)
@@ -517,13 +517,13 @@ name: model_global_importance
 type: bigquery-sql
 source: heat-bq
 description: |
-  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the frozen original model; land-cover and surface-offset fields are additional context. Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
+  Uses validated enriched context and ACS2024 whole-tract estimates. The air-offset model is the v2 model (location trend + satellite SURFACE heat + land cover; surface values are inputs, never air temperatures). Cooling listings and hours are source inventories; event opening, working AC, staffing, capacity and accessibility are unconfirmed. School snapshot membership does not establish current operation or eligibility. Distances are straight-line unless a route is explicitly supplied.
   Which features the heat model leans on overall (ML.GLOBAL_EXPLAIN), as mean absolute contribution in degrees F.
   Use to explain what drives heat across Chicago, as opposed to one site.
 statement: |
   SELECT IF(STARTS_WITH(feature, 'trend_'), 'location_trend', feature) AS feature,
     ROUND(SUM(attribution), 3) AS mean_abs_contribution_f
-  FROM ML.GLOBAL_EXPLAIN(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_BASELINE_DATASET:a4i_climate_backup_20261117_214035}.heat_offset_model`)
+  FROM ML.GLOBAL_EXPLAIN(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`)
   GROUP BY 1 ORDER BY 2 DESC
 parameters: []
 ---
@@ -536,7 +536,7 @@ description: |
 statement: |
   WITH pred AS (
     SELECT tract_geo_id, community_area, predicted_offset_f, n_obs, offset_f
-    FROM ML.EXPLAIN_PREDICT(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_BASELINE_DATASET:a4i_climate_backup_20261117_214035}.heat_offset_model`, (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched`), STRUCT(1 AS top_k_features))
+    FROM ML.EXPLAIN_PREDICT(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`, (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_ENRICHED_DATASET:a4i_climate_work_v2}.site_context_enriched_lst`), STRUCT(1 AS top_k_features))
   ),
   tract AS (
     SELECT

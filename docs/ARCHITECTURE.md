@@ -156,3 +156,18 @@ fails if any template other than `sql/04` would recreate the live model.
   `gcloud run services update heat-toolbox --region us-central1 --update-labels rollback=1` to force a new revision).
 - **Not yet redeployed:** the agent (Agent Runtime) and web console still carry their old label maps, so the new
   feature names (`location_trend`, `surface_heat_f`, ...) render as plain words until they are redeployed from this branch.
+
+## Enriched toolset on the v2 model (opt-in, not deployed)
+`toolbox/tools.enriched.yaml` (toolset `heat_dispatch_enriched`) now scores the corrected context with the live v2
+model: view `a4i_climate_work_v2.site_context_enriched_lst` (`sql/v2/20_site_context_enriched_lst.sql`) adds the
+v2-derived inputs (trend, 3x3 surface heat) to `site_context_enriched`. The model's inputs and label are identical
+there (held-out r2 0.588, RMSE 1.535 F, same 442 cells); the enrichment corrects the ranking inputs (ACS 2024,
+Chicago-only tracts, facility readiness). All 11 enriched tools ran live on 2026-11-17.
+
+Top 20 truck sites (heat_weight 0.5), live vs enriched: share in the top vulnerability quartile 76.5% (city 18.7%,
+4.1x) vs 50.0% (city 11.7%, 4.3x); mean vulnerability +0.24 vs +0.23 over city; share 65+ 20.6% vs 23.1%. The
+vulnerability index itself was rebuilt, so compare lift over city, not raw shares. Every nearest cooling site is
+`nearest_cooling_event_verified = false` (listed, not confirmed open/AC for the event).
+Promotion caveat: the enriched file names its toolset `heat_dispatch_enriched`; the agent and console load
+`heat_dispatch`, so deploying it as-is would break them. Promote by switching the legacy generator's context to the
+enriched view (keeping the toolset name), not by deploying `tools.enriched.yaml`.
