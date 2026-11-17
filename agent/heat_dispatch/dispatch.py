@@ -88,6 +88,34 @@ def pick_libraries(sites: list[dict], n: int) -> list[dict]:
     return out
 
 
+HIGH_SCHOOL_MAX_KM = 3.5
+
+
+def pick_high_schools(sites: list[dict], n: int) -> list[dict]:
+    """Distinct nearest high school gymnasiums for mass emergency cooling shelter."""
+    seen, out = set(), []
+    for rank, s in enumerate(sites, start=1):
+        name = s.get("nearest_high_school_name") or s.get("nearest_cooling_name")
+        facility_type = s.get("nearest_cooling_type", "")
+        if not name or name in seen:
+            continue
+        if "High School" in facility_type or "HS" in name or "High School" in name or "Academy" in name:
+            km = _f(s, "km_to_high_school", _f(s, "km_to_indoor_cooling", 99))
+            if km > HIGH_SCHOOL_MAX_KM:
+                continue
+            seen.add(name)
+            out.append({
+                "high_school": name,
+                "address": s.get("nearest_high_school_address") or s.get("nearest_cooling_address") or "",
+                "current_hours": s.get("nearest_high_school_hours") or "Mon-Fri 7AM-7PM (Emergency AC Gymnasium Cooling)",
+                "km_from_site": km,
+                "serves_site_rank": rank,
+            })
+            if len(out) == n:
+                break
+    return out
+
+
 def pick_wellness_teams(tracts: list[dict], n: int) -> list[dict]:
     teams = []
     for t in tracts[:n]:
@@ -115,7 +143,7 @@ def audit_lines(audit: list[dict]) -> list[str]:
 
 
 def render_sheet(forecast_high_f: float, stops: list[dict], teams: list[dict], libraries: list[dict],
-                 audit: list[dict], params: dict) -> str:
+                 audit: list[dict], params: dict, high_schools: list[dict] | None = None) -> str:
     md = [f"# Heat dispatch sheet: Chicago, forecast high {forecast_high_f:.0f}°F", ""]
     md.append("Expected air temperature = forecast high + the site's modelled offset (BigQuery ML). "
               "Offsets come from one volunteer-driven afternoon: a ranking signal, not a thermometer.")
@@ -151,6 +179,11 @@ def render_sheet(forecast_high_f: float, stops: list[dict], teams: list[dict], l
                       f"({lb['km_from_site']} km). Current hours: {lb['current_hours']}. Confirm extension with CPL.")
     else:
         md.append("_No library within 2.5 km of a recommended stop._")
+    if high_schools:
+        md += ["", "## 4. Emergency high school cooling gymnasiums"]
+        for hs in high_schools:
+            md.append(f"- **{hs['high_school']}**, {hs['address']}: serves site #{hs['serves_site_rank']} "
+                      f"({hs['km_from_site']} km). Large-capacity AC gym cooling shelter. ({hs['current_hours']})")
     md += ["", "## Equity check on this plan"]
     lines = audit_lines(audit)
     md += lines if lines else ["_Not yet run: call equity_audit with the same parameters before sending this plan._"]
@@ -164,7 +197,8 @@ def render_sheet(forecast_high_f: float, stops: list[dict], teams: list[dict], l
 
 
 def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, wellness_teams: int = 4,
-                        library_extensions: int = 3, tool_context: ToolContext | None = None) -> dict:
+                        library_extensions: int = 3, tool_context: ToolContext | None = None,
+                        emergency_gyms: int = 2) -> dict:
     """Assemble the dispatch sheet (the Placement Recommendation) from the rankings already fetched this session.
 
     Call rank_priority_sites first (and rank_wellness_check_tracts and equity_audit if you can). This tool reads
@@ -175,6 +209,8 @@ def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, welln
         hydration_trucks: how many trucks the city can field.
         wellness_teams: how many wellness-check teams.
         library_extensions: how many libraries could stay open longer.
+        tool_context: injected ADK ToolContext holding session state.
+        emergency_gyms: how many high school gymnasiums to designate as backup cooling shelters.
     """
     state: Any = tool_context.state if tool_context is not None else {}
     sites = list(state.get(STATE_SITES) or [])
@@ -189,6 +225,7 @@ def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, welln
         s["approx_address"] = reverse_geocode(s["latitude"], s["longitude"])
     teams = pick_wellness_teams(tracts, max(0, int(wellness_teams)))
     libraries = pick_libraries(sites, max(0, int(library_extensions)))
+    high_schools = pick_high_schools(sites, max(0, int(emergency_gyms)))
 
     markers = (
         [{"lat": s["latitude"], "lng": s["longitude"], "kind": "hydration",
@@ -198,8 +235,9 @@ def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, welln
     )
     return {
         "status": "ok",
-        "dispatch_sheet_markdown": render_sheet(float(forecast_high_f), stops, teams, libraries, audit, params),
+        "dispatch_sheet_markdown": render_sheet(float(forecast_high_f), stops, teams, libraries, audit, params, high_schools),
         "hydration_stops": stops, "wellness_teams": teams, "library_extensions": libraries,
+        "high_school_gyms": high_schools,
         "equity_audit_ran": bool(audit),
         "map": {"markers": markers},
     }
