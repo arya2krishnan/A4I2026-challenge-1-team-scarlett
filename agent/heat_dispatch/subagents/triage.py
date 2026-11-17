@@ -21,7 +21,7 @@ Key Guidelines:
 """
 
 
-def build_triage_agent(model: Any, toolbox_tools: Any = None) -> Agent:
+def build_triage_agent(model: Any, toolbox_tools: Any = None, before_callback: Any = None, after_callback: Any = None) -> Agent:
     tools: list[Any] = [locate_place]
     if toolbox_tools:
         tools.append(toolbox_tools)
@@ -31,4 +31,6 @@ def build_triage_agent(model: Any, toolbox_tools: Any = None) -> Agent:
         description="Reactive Triage & Disruption specialist: handles midday cooling center outages, 311 distress calls, and emergency rerouting.",
         instruction=TRIAGE_INSTRUCTION,
         tools=tools,
+        before_tool_callback=before_callback,
+        after_tool_callback=after_callback,
     )

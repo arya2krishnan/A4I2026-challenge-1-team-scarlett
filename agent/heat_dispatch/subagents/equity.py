@@ -17,7 +17,7 @@ Key Guidelines:
 """
 
 
-def build_equity_agent(model: Any, toolbox_tools: Any = None) -> Agent:
+def build_equity_agent(model: Any, toolbox_tools: Any = None, before_callback: Any = None, after_callback: Any = None) -> Agent:
     tools: list[Any] = []
     if toolbox_tools:
         tools.append(toolbox_tools)
@@ -27,4 +27,6 @@ def build_equity_agent(model: Any, toolbox_tools: Any = None) -> Agent:
         description="Equity Audit specialist: validates resource fairness against ACS demographic baselines to prevent algorithmic bias.",
         instruction=EQUITY_INSTRUCTION,
         tools=tools,
+        before_tool_callback=before_callback,
+        after_tool_callback=after_callback,
     )

@@ -21,7 +21,7 @@ Key Guidelines:
 """
 
 
-def build_spatial_risk_agent(model: Any, toolbox_tools: Any = None) -> Agent:
+def build_spatial_risk_agent(model: Any, toolbox_tools: Any = None, before_callback: Any = None, after_callback: Any = None) -> Agent:
     tools: list[Any] = [get_forecast_high, heat_risk_for_forecast, locate_place]
     if toolbox_tools:
         tools.append(toolbox_tools)
@@ -31,4 +31,6 @@ def build_spatial_risk_agent(model: Any, toolbox_tools: Any = None) -> Agent:
         description="Heat & Spatial Risk specialist: analyzes weather forecasts, runs BQML microclimate offset models, and explains physical heat island drivers.",
         instruction=SPATIAL_RISK_INSTRUCTION,
         tools=tools,
+        before_tool_callback=before_callback,
+        after_tool_callback=after_callback,
     )
