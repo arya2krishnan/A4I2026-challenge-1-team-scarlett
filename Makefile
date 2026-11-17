@@ -3,7 +3,9 @@ VENV ?= .venv
 PY   := $(VENV)/bin/python
 CITY ?= chicago
 
+
 .PHONY: help setup test data osm model validate-model toolbox-yaml toolbox-local smoke adk-web run-local check-models gcp-setup deploy-toolbox deploy-agent deploy-client enrich-data enrich-weather enrich-vulnerability enrich-geography enrich-environment enrich-transit enrich-cooling enrich-walkability enrich-load typecheck load-sites test-web web-build run-web web-dev deploy-web
+
 
 help:  ## list targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/' | column -t -s "$$(printf '\t')"
@@ -14,7 +16,12 @@ setup:  ## venv (Python 3.11) with everything
 	$(VENV)/bin/pip install -q -r requirements-dev.txt
 	@test -f .env || (cp .env.example .env && echo "Created .env: set GOOGLE_CLOUD_PROJECT")
 
+
+api-local:  ## dispatch approval REST API on :8080 (SQLite in .data/; set DISPATCH_SIGNING_KEY in .env)
+	$(PY) -m uvicorn dispatch_api.app:app --app-dir api --port 8080 --reload --env-file .env
+
 test:  ## offline tests (no GCP needed): Python, plus the web frontend when its node_modules are installed
+
 	$(PY) -m pytest tests -q
 	@if [ -d web/frontend/node_modules ]; then $(MAKE) --no-print-directory test-web; else echo "(skipping web frontend tests: run 'cd web/frontend && npm ci')"; fi
 
@@ -97,6 +104,13 @@ deploy-agent:  ## agent -> Agent Runtime (NEW=1 for a fresh instance)
 deploy-client:  ## Streamlit client -> Cloud Run
 	bash scripts/deploy_client.sh
 
+
+deploy-api:  ## dispatch approval API -> Cloud Run (private) + Firestore database + signing key in Secret Manager
+	bash scripts/deploy_api.sh
+
+smoke-api:  ## end-to-end test of the deployed dispatch API (URL=http://127.0.0.1:8080 NOAUTH=1 for api-local)
+	$(PY) scripts/smoke_dispatch_api.py $(if $(URL),--url $(URL)) $(if $(NOAUTH),--no-auth)
+
 web-build:  ## build the console frontend into web/frontend/dist
 	cd web/frontend && npm ci --no-audit --no-fund && npm run build
 
@@ -108,3 +122,4 @@ web-dev:  ## frontend hot reload on :5173 (proxies /api to :8080; run `make run-
 
 deploy-web:  ## console -> Cloud Run (own service account, IAP; WEB_USERS=user:a@x.org,... to grant access)
 	bash scripts/deploy_web.sh
+

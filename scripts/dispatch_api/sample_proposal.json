@@ -1,0 +1,21 @@
+{
+  "forecast_high_f": 98,
+  "submitted_by": "heat_dispatch_agent",
+  "equity_audit_ran": true,
+  "dispatch_sheet_markdown": "# Heat dispatch sheet: Chicago, forecast high 98F (sample)",
+  "hydration_stops": [
+    {"stop": 1, "latitude": 41.7796, "longitude": -87.6444, "neighborhood": "ENGLEWOOD",
+     "expected_air_temp_f": 99.4, "predicted_offset_f": 1.4, "residents_65_plus": 412},
+    {"stop": 2, "latitude": 41.8940, "longitude": -87.7650, "neighborhood": "AUSTIN",
+     "expected_air_temp_f": 99.2, "predicted_offset_f": 1.2, "residents_65_plus": 388},
+    {"stop": 3, "latitude": 41.8430, "longitude": -87.7140, "neighborhood": "SOUTH LAWNDALE",
+     "expected_air_temp_f": 99.0, "predicted_offset_f": 1.0, "residents_65_plus": 295}
+  ],
+  "wellness_teams": [
+    {"team": 1, "tract_geo_id": "17031681000", "neighborhood": "ENGLEWOOD", "latitude": 41.78, "longitude": -87.65},
+    {"team": 2, "tract_geo_id": "17031251500", "neighborhood": "AUSTIN", "latitude": 41.89, "longitude": -87.76}
+  ],
+  "library_extensions": [
+    {"library": "Kelly", "address": "6151 S Normal Blvd", "km_from_site": 0.9, "serves_site_rank": 1}
+  ]
+}
