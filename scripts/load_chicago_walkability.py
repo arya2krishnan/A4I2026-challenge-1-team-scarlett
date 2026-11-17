@@ -155,9 +155,9 @@ def load_tables(tables: dict[str, list[dict]], project: str, dataset: str, locat
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--output-dir", type=Path, default=ROOT / ".data/enrichment/walkability")
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "data/enrichment/walkability")
     parser.add_argument("--source-xml", type=Path, help="Reuse a previously downloaded OSM map extract")
-    parser.add_argument("--facilities-file", type=Path, default=ROOT / ".data/enrichment/facilities/cooling_inventory_snapshot.jsonl")
+    parser.add_argument("--facilities-file", type=Path, default=ROOT / "data/enrichment/facilities/cooling_inventory_snapshot.jsonl")
     parser.add_argument("--bbox", type=float, nargs=4, default=BBOX, metavar=("WEST", "SOUTH", "EAST", "NORTH"))
     parser.add_argument("--origin", type=float, nargs=2, default=(41.8781, -87.6298), metavar=("LAT", "LON"))
     parser.add_argument("--walking-speed", type=float, default=60.0, help="Metres/minute, default 3.6 km/h")

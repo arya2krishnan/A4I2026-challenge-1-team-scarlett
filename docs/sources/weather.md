@@ -35,7 +35,7 @@ were recorded. Reruns will produce a different current forecast snapshot.
 
 ## Local artifacts and tables
 
-Default output directory: `.data/enrichment/weather/` (git-ignored).
+Default output directory: `data/enrichment/weather/` (git-ignored).
 
 | Artifact / new table | Contents |
 |---|---|

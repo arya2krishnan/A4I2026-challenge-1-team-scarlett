@@ -40,10 +40,10 @@ distances are separate fields so the assumptions can be inspected.
 .venv/bin/python scripts/load_chicago_cooling_inventory.py
 .venv/bin/python scripts/load_chicago_walkability.py
 .venv/bin/python scripts/load_chicago_walkability.py \
-  --source-xml .data/enrichment/walkability/map.osm
+  --source-xml data/enrichment/walkability/map.osm
 ```
 
-Default outputs in ignored `.data/enrichment/walkability/`:
+Default outputs in git-ignored `data/enrichment/walkability/`:
 
 - `map.osm`: original official map response.
 - `walking_network_nodes.jsonl`, `walking_network_edges.jsonl`.

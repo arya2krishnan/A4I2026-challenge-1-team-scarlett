@@ -2,7 +2,7 @@
 
 ## Obtained snapshots
 
-Fetched 2026-11-17 into ignored `.data/enrichment/`:
+Fetched 2026-11-17 into git-ignored `data/enrichment/`:
 
 | Artifact | Count | Coverage |
 |---|---:|---|
@@ -36,7 +36,7 @@ To recompute from an existing official download:
 
 ```bash
 .venv/bin/python scripts/load_chicago_transit.py \
-  --source-zip .data/enrichment/transit/google_transit.zip --service-date 2026-11-18
+  --source-zip data/enrichment/transit/google_transit.zip --service-date 2026-11-18
 ```
 
 Both scripts default to local acquisition. `--load --project PROJECT --dataset DATASET` opts into

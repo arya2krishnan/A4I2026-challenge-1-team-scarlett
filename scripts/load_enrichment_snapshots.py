@@ -87,7 +87,7 @@ def validate_snapshot(path: Path, schema: list[tuple[str, str]]) -> tuple[int, s
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--data-dir", type=Path, default=ROOT / ".data/enrichment")
+    parser.add_argument("--data-dir", type=Path, default=ROOT / "data/enrichment")
     parser.add_argument("--sources", nargs="+", choices=SOURCES, default=list(SOURCES))
     parser.add_argument("--project", default=os.environ.get("GOOGLE_CLOUD_PROJECT", ""))
     parser.add_argument("--dataset", default=os.environ.get("BQ_DATASET", "a4i_climate"))

@@ -68,7 +68,7 @@ unless `--load` is used. For Python installations missing certificate discovery,
 set `SSL_CERT_FILE` to a trusted local CA bundle; certificate validation must stay
 enabled.
 
-Default output directory: `.data/enrichment/geography/`.
+Default output directory: `data/enrichment/geography/`.
 
 | Artifact / new table | Contents |
 |---|---|

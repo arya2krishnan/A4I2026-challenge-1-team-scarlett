@@ -7,8 +7,8 @@ project**, not here. This folder is only for small files we generate or stage in
 
 If it's empty apart from this note, everything you need comes from the notebook.
 
-Additional Chicago public-source acquisitions are staged locally in the ignored
-`.data/enrichment/` directory, with normalized JSONL and source manifests. They
-can be loaded into new BigQuery enrichment tables once the destination is set.
+Additional Chicago public-source acquisitions are written locally to the git-ignored
+`data/enrichment/` directory, with normalized JSONL and source manifests. The loaded
+tables are in BigQuery; rerun the `make enrich-*` targets to rebuild local copies.
 See [DATA_ENRICHMENT.md](../docs/DATA_ENRICHMENT.md) for acquisition commands,
 coverage and source terms.

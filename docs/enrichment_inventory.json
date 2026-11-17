@@ -6,7 +6,7 @@
   "typecheck": "8 scripts passed",
   "datasets": [
     {
-      "directory": ".data/enrichment/vulnerability",
+      "directory": "data/enrichment/vulnerability",
       "retrieved_at": "2026-11-17T19:31:03.155234+00:00",
       "row_counts": {
         "tract_social_vulnerability": 1332
@@ -14,10 +14,10 @@
       "coverage": "Cook County, Illinois census tracts; not clipped to Chicago",
       "source": null,
       "terms_url": "https://www.census.gov/about/policies/copyright.html",
-      "manifest": ".data/enrichment/vulnerability/manifest.json"
+      "manifest": "data/enrichment/vulnerability/manifest.json"
     },
     {
-      "directory": ".data/enrichment/geography",
+      "directory": "data/enrichment/geography",
       "retrieved_at": "2026-11-17T19:36:42.138687+00:00",
       "row_counts": {
         "community_tract_boundaries_diagnostic": 867,
@@ -28,10 +28,10 @@
       "coverage": "positive-area overlap of Cook County tract polygons with the matching-vintage Census Chicago incorporated place",
       "source": null,
       "terms_url": null,
-      "manifest": ".data/enrichment/geography/manifest.json"
+      "manifest": "data/enrichment/geography/manifest.json"
     },
     {
-      "directory": ".data/enrichment/environment",
+      "directory": "data/enrichment/environment",
       "retrieved_at": "2026-11-17T19:40:31.102026+00:00",
       "row_counts": {
         "tract_housing_burden": 799,
@@ -40,10 +40,10 @@
       "coverage": "Select Chicago-overlapping Cook County tracts from saved Census city intersection; retain whole-tract values",
       "source": null,
       "terms_url": null,
-      "manifest": ".data/enrichment/environment/manifest.json"
+      "manifest": "data/enrichment/environment/manifest.json"
     },
     {
-      "directory": ".data/enrichment/weather",
+      "directory": "data/enrichment/weather",
       "retrieved_at": "2026-11-17T19:30:12.448424+00:00",
       "row_counts": {
         "weather_daily": 48,
@@ -52,10 +52,10 @@
       "coverage": "Six representative Chicago points, deduplicated by NWS forecast grid. Not every city cell.",
       "source": null,
       "terms_url": "https://www.weather.gov/disclaimer",
-      "manifest": ".data/enrichment/weather/manifest.json"
+      "manifest": "data/enrichment/weather/manifest.json"
     },
     {
-      "directory": ".data/enrichment/transit",
+      "directory": "data/enrichment/transit",
       "retrieved_at": "2026-11-17T19:30:34.085886+00:00",
       "row_counts": {
         "transit_calendar": 128,
@@ -67,10 +67,10 @@
       "coverage": "Entire CTA service network, including suburbs",
       "source": "https://www.transitchicago.com/downloads/sch_data/google_transit.zip",
       "terms_url": "https://www.transitchicago.com/developers/terms/",
-      "manifest": ".data/enrichment/transit/manifest.json"
+      "manifest": "data/enrichment/transit/manifest.json"
     },
     {
-      "directory": ".data/enrichment/facilities",
+      "directory": "data/enrichment/facilities",
       "retrieved_at": "2026-11-17T19:31:58.109630+00:00",
       "row_counts": {
         "cooling_inventory_snapshot": 287
@@ -78,10 +78,10 @@
       "coverage": "City of Chicago Cooling Centers inventory with usable Chicago-area coordinates",
       "source": "https://data.cityofchicago.org/resource/msrk-w9ih.json?$limit=5000",
       "terms_url": "https://www.chicago.gov/city/en/narr/foia/data_disclaimer.html",
-      "manifest": ".data/enrichment/facilities/manifest.json"
+      "manifest": "data/enrichment/facilities/manifest.json"
     },
     {
-      "directory": ".data/enrichment/walkability",
+      "directory": "data/enrichment/walkability",
       "retrieved_at": "2026-11-17T19:32:49.253800+00:00",
       "row_counts": {
         "cooling_walk_access_pilot": 1,
@@ -91,7 +91,7 @@
       "coverage": "Small Loop pilot only; no citywide walking coverage",
       "source": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.633%2C41.872%2C-87.623%2C41.882",
       "terms_url": "https://www.openstreetmap.org/copyright",
-      "manifest": ".data/enrichment/walkability/manifest.json"
+      "manifest": "data/enrichment/walkability/manifest.json"
     }
   ],
   "destination_project": "qwiklabs-gcp-04-3e58e01275b8",

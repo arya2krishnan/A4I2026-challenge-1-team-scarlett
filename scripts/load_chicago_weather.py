@@ -288,7 +288,7 @@ def load_tables(project: str, dataset: str, location: str,
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output-dir", type=Path, default=Path(".data/enrichment/weather"))
+    parser.add_argument("--output-dir", type=Path, default=Path("data/enrichment/weather"))
     parser.add_argument("--user-agent", default=os.environ.get("NWS_USER_AGENT", USER_AGENT))
     parser.add_argument("--load", action="store_true", help="load the new weather tables into BigQuery")
     parser.add_argument("--project", default=os.environ.get("GOOGLE_CLOUD_PROJECT", ""))

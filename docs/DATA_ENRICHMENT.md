@@ -4,14 +4,14 @@
 
 Actual public-source snapshots were acquired on **November 17, 2026**. Normalized
 BigQuery-ready JSONL files, source responses and provenance manifests are saved
-in `.data/enrichment/`. This directory is ignored by Git; the loaders and source
-documentation are the reproducible team deliverables.
+locally in `data/enrichment/`, which is git-ignored: the data lives in BigQuery,
+and only the loaders and source documentation are committed.
 
 **Uploaded and verified:** all 16 enrichment tables are now in
 `qwiklabs-gcp-04-3e58e01275b8.a4i_climate` (US), containing **291,107 rows**.
 Every load job completed successfully; table row counts and explicit schemas
 were independently checked against the acquired files. Local copies remain
-available in `.data/enrichment/`.
+available in `data/enrichment/`.
 
 | Enhancement | Acquired data | Decision supported |
 |---|---|---|
@@ -108,8 +108,8 @@ required for the second command.
 `--gcloud-auth` uses the active CLI account and keeps access tokens in memory.
 Without that flag the loader uses application default credentials. Completed
 job IDs and source hashes are saved after each table in
-`.data/enrichment/upload-result.json`; independent job/schema/count verification
-is recorded in `.data/enrichment/upload-verification.json`.
+`data/enrichment/upload-result.json`; independent job/schema/count verification
+is recorded in `data/enrichment/upload-verification.json`.
 
 Destinations are a fixed list of enrichment tables. County vulnerability, canopy
 and housing append snapshots; select the latest vintage/retrieval per tract

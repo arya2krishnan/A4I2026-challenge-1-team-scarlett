@@ -234,8 +234,8 @@ def load_bigquery(table: str, rows: list[dict[str, Any]], project: str, dataset:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output-dir", type=Path, default=ROOT / ".data/enrichment/environment")
-    parser.add_argument("--tracts", type=Path, default=ROOT / ".data/enrichment/geography/tract_boundaries_chicago.jsonl")
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "data/enrichment/environment")
+    parser.add_argument("--tracts", type=Path, default=ROOT / "data/enrichment/geography/tract_boundaries_chicago.jsonl")
     parser.add_argument("--from-cache", action="store_true")
     parser.add_argument("--load", action="store_true")
     parser.add_argument("--project", default=os.environ.get("GOOGLE_CLOUD_PROJECT", ""))

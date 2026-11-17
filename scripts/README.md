@@ -27,8 +27,8 @@ aren't sure whether it finished, just run it again—the end state is the same e
 
 ## Chicago enrichment snapshots
 
-`make enrich-data` downloads additional public datasets into ignored
-`.data/enrichment/`: ACS social vulnerability and matching Chicago tract geometry,
+`make enrich-data` downloads additional public datasets into git-ignored
+`data/enrichment/`: ACS social vulnerability and matching Chicago tract geometry,
 NWS hourly/overnight forecasts, CTA scheduled transit, the published cooling
 inventory, tree canopy/rental housing burden, and a bounded Loop walking-network pilot. Source manifests record
 coverage, retrieval time, vintage and terms.

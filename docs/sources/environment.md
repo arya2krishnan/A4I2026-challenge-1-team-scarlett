@@ -60,7 +60,7 @@ Census-produced aggregate statistics are US federal government data and generall
 .venv/bin/python -m mypy --follow-imports=silent --ignore-missing-imports scripts/load_chicago_environment.py
 ```
 
-Artifacts in ignored `.data/enrichment/environment/`:
+Artifacts in git-ignored `data/enrichment/environment/`:
 
 - `tract_tree_canopy.jsonl`, `tract_housing_burden.jsonl`: normalized Chicago tract snapshots.
 - `canopy_raw.json`, `housing_raw.json`: actual county source subsets.

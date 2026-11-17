@@ -206,7 +206,7 @@ def load_tables(tables: dict, project: str, dataset: str, location: str) -> None
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--output-dir", type=Path, default=Path(".data/enrichment/transit"))
+    parser.add_argument("--output-dir", type=Path, default=Path("data/enrichment/transit"))
     parser.add_argument("--service-date", type=dt.date.fromisoformat,
                         default=dt.datetime.now(ZoneInfo("America/Chicago")).date())
     parser.add_argument("--source-zip", type=Path, help="Normalize an already downloaded official feed")

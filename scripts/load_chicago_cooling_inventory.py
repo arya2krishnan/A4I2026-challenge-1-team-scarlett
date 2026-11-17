@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Save current Chicago cooling inventory, with unknown readiness explicitly null.
 
-Default writes .data/enrichment/facilities; --load uses cooling_inventory_snapshot.
+Default writes data/enrichment/facilities; --load uses cooling_inventory_snapshot.
 It does not change cooling_facilities. Text hours are preserved without inferring
 event-specific opening, staffing, capacity, working AC or accessibility.
 """
@@ -36,7 +36,7 @@ def normalize_inventory(records: list[dict], retrieved_at: str) -> list[dict]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--output-dir", type=Path, default=Path(".data/enrichment/facilities"))
+    parser.add_argument("--output-dir", type=Path, default=Path("data/enrichment/facilities"))
     parser.add_argument("--load", action="store_true")
     parser.add_argument("--project", default=os.environ.get("GOOGLE_CLOUD_PROJECT", ""))
     parser.add_argument("--dataset", default=os.environ.get("BQ_DATASET", "a4i_climate"))
