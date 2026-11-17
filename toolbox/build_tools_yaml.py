@@ -27,7 +27,16 @@ OUT = HERE / "tools.yaml"
 MIN_OBS = json.loads((HERE.parent / "sql" / "chicago.json").read_text())["MIN_OBS"]
 
 T = "`${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}"   # table prefix; close the backtick after the name
-MODEL = f"{T}.heat_offset_model`"
+# Promoted 2026-11-17: v2 "how hot it feels" model (docs/ARCHITECTURE.md -> "Model v2 candidate"; held-out r2 0.59 vs
+# 0.26). Rollback: set MODEL back to heat_offset_model and CONTEXT to site_context, `make toolbox-yaml`, redeploy.
+MODEL = f"{T}.heat_offset_lst`"
+CONTEXT = "site_context_lst"   # VIEW = site_context + trend, satellite surface heat and land-cover columns (sql/v2/10)
+
+# The v2 model's five trend_* terms are one idea ("where in the city"): sum them into one reason before ranking.
+WHY = """ARRAY(SELECT AS STRUCT IF(STARTS_WITH(a.feature, 'trend_'), 'location_trend', a.feature) AS feature,
+               ROUND(SUM(a.attribution), 2) AS contribution_f
+        FROM UNNEST(top_feature_attributions) AS a
+        GROUP BY 1 ORDER BY ABS(SUM(a.attribution)) DESC LIMIT {n})"""
 
 
 def tbl(name: str) -> str:
@@ -77,8 +86,8 @@ WITH pred AS (
   SELECT *
   FROM ML.EXPLAIN_PREDICT(
     MODEL {MODEL},
-    (SELECT * FROM {tbl('site_context')} WHERE pop_density_km2 >= @min_density),
-    STRUCT(3 AS top_k_features))
+    (SELECT * FROM {tbl(CONTEXT)} WHERE pop_density_km2 >= @min_density),
+    STRUCT(20 AS top_k_features))
 ),
 scored AS (
   SELECT
@@ -105,7 +114,7 @@ spaced AS (
 )
 """
 
-SITE_COLUMNS = """
+SITE_COLUMNS = f"""
   ROW_NUMBER() OVER (ORDER BY priority_score DESC) AS rank,
   cell_id,
   community_area AS neighborhood,
@@ -114,8 +123,7 @@ SITE_COLUMNS = """
   tract_geo_id,
   ROUND(predicted_offset_f, 2) AS predicted_offset_f,
   ROUND(baseline_prediction_value, 2) AS average_cell_offset_f,
-  ARRAY(SELECT AS STRUCT a.feature, ROUND(a.attribution, 2) AS contribution_f
-        FROM UNNEST(top_feature_attributions) AS a ORDER BY ABS(a.attribution) DESC) AS why,
+  {WHY.format(n=3)} AS why,
   ROUND(heat_percentile, 3) AS heat_percentile,
   ROUND(vulnerability_index, 3) AS vulnerability_index,
   ROUND(priority_score, 3) AS priority_score,
@@ -194,7 +202,7 @@ def build() -> list[dict]:
 WITH pred AS (
   SELECT * FROM ML.PREDICT(
     MODEL {MODEL},
-    (SELECT * FROM {tbl('site_context')} WHERE pop_density_km2 >= @min_density))
+    (SELECT * FROM {tbl(CONTEXT)} WHERE pop_density_km2 >= @min_density))
 ),
 tract AS (
   SELECT
@@ -244,7 +252,8 @@ LIMIT @limit""",
         """
         Explains the heat at ONE location: snaps the coordinates to the nearest ~330 m grid cell and runs ML.EXPLAIN_PREDICT.
         Returns predicted_offset_f (degrees F hotter than the average Chicago spot on a hot day) and `why`, the model's
-        per-feature contributions in degrees F (lake and downtown distance, population density, housing age, share of buildings / green space / paved land / street), plus the
+        per-feature contributions in degrees F (location_trend = where the cell sits in the city, surface_heat_f = how hot its SURFACES run
+        in summer satellite images (an input, never an air temperature), pavement and tree canopy within 300 m, lake distance), plus the
         raw feature values and who lives there. Use for "why is X so hot" or "how hot is this address". Works for places nobody
         measured. If snap_distance_m is over 600, the point is outside the modelled area: say so, do not report the number.
         measured_readings > 0 means Heat Watch drove there and measured_offset_f is the real reading to compare against.
@@ -252,7 +261,7 @@ LIMIT @limit""",
         f"""
 WITH target AS (
   SELECT *, ST_DISTANCE(ST_GEOGPOINT(longitude, latitude), ST_GEOGPOINT(@longitude, @latitude)) AS snap_distance_m
-  FROM {tbl('site_context')}
+  FROM {tbl(CONTEXT)}
   ORDER BY snap_distance_m
   LIMIT 1
 )
@@ -261,8 +270,7 @@ SELECT
   ROUND(snap_distance_m, 0) AS snap_distance_m,
   ROUND(predicted_offset_f, 2) AS predicted_offset_f,
   ROUND(baseline_prediction_value, 2) AS average_cell_offset_f,
-  ARRAY(SELECT AS STRUCT a.feature, ROUND(a.attribution, 2) AS contribution_f
-        FROM UNNEST(top_feature_attributions) AS a ORDER BY ABS(a.attribution) DESC) AS why,
+  {WHY.format(n=4)} AS why,
   ROUND(dist_to_lake_km, 2) AS km_to_lake, ROUND(dist_to_loop_km, 1) AS km_to_the_loop,
   ROUND(pop_density_km2, 0) AS people_per_km2, CAST(median_year_structure_built AS INT64) AS median_year_homes_built,
   ROUND(building_share, 3) AS building_share_300m, ROUND(green_share, 3) AS green_share_300m,
@@ -275,7 +283,7 @@ SELECT
   ROUND(km_to_cooling, 2) AS km_to_indoor_cooling,
   nearest_library_name, nearest_library_address, nearest_library_hours, ROUND(km_to_library, 2) AS km_to_library,
   n_obs AS measured_readings, ROUND(offset_f, 2) AS measured_offset_f
-FROM ML.EXPLAIN_PREDICT(MODEL {MODEL}, (SELECT * FROM target), STRUCT(4 AS top_k_features))""",
+FROM ML.EXPLAIN_PREDICT(MODEL {MODEL}, (SELECT * FROM target), STRUCT(20 AS top_k_features))""",
         [P_LAT, P_LON],
     ))
 
@@ -374,7 +382,7 @@ top AS (
 ),
 modelled AS (
   SELECT v.* FROM {tbl('tract_vulnerability')} AS v
-  WHERE v.geo_id IN (SELECT DISTINCT tract_geo_id FROM {tbl('site_context')})
+  WHERE v.geo_id IN (SELECT DISTINCT tract_geo_id FROM {tbl(CONTEXT)})
 ),
 picked AS (
   SELECT m.* FROM modelled AS m WHERE m.geo_id IN (SELECT tract_geo_id FROM top)
@@ -394,7 +402,7 @@ UNION ALL
         """,
         f"""
 WITH holdout AS (
-  SELECT * FROM {tbl('site_context')} WHERE n_obs >= {MIN_OBS} AND is_holdout AND offset_f IS NOT NULL
+  SELECT * FROM {tbl(CONTEXT)} WHERE n_obs >= {MIN_OBS} AND is_holdout AND offset_f IS NOT NULL
 )
 SELECT 'model on held-out blocks' AS what, ROUND(mean_absolute_error, 2) AS mean_abs_error_f,
        ROUND(SQRT(mean_squared_error), 2) AS rmse_f, ROUND(r2_score, 3) AS r2_score,
@@ -413,7 +421,7 @@ FROM holdout""",
         Which features the heat model leans on overall (ML.GLOBAL_EXPLAIN), as mean absolute contribution in degrees F.
         Use to explain what drives heat across Chicago, as opposed to one site.
         """,
-        f"SELECT feature, ROUND(attribution, 3) AS mean_abs_contribution_f\nFROM ML.GLOBAL_EXPLAIN(MODEL {MODEL})\nORDER BY attribution DESC",
+        f"SELECT IF(STARTS_WITH(feature, 'trend_'), 'location_trend', feature) AS feature,\n  ROUND(SUM(attribution), 3) AS mean_abs_contribution_f\nFROM ML.GLOBAL_EXPLAIN(MODEL {MODEL})\nGROUP BY 1 ORDER BY 2 DESC",
         [],
     ))
 
@@ -430,7 +438,7 @@ FROM holdout""",
         f"""
 WITH pred AS (
   SELECT tract_geo_id, community_area, predicted_offset_f, n_obs, offset_f
-  FROM ML.EXPLAIN_PREDICT(MODEL {MODEL}, (SELECT * FROM {tbl('site_context')}), STRUCT(1 AS top_k_features))
+  FROM ML.EXPLAIN_PREDICT(MODEL {MODEL}, (SELECT * FROM {tbl(CONTEXT)}), STRUCT(1 AS top_k_features))
 ),
 tract AS (
   SELECT

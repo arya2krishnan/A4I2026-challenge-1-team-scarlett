@@ -26,9 +26,9 @@ statement: |
     -- AND per-feature attributions (degrees F contributed by each feature versus the average cell).
     SELECT *
     FROM ML.EXPLAIN_PREDICT(
-      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_model`,
-      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context` WHERE pop_density_km2 >= @min_density),
-      STRUCT(3 AS top_k_features))
+      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`,
+      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context_lst` WHERE pop_density_km2 >= @min_density),
+      STRUCT(20 AS top_k_features))
   ),
   scored AS (
     SELECT
@@ -63,8 +63,10 @@ statement: |
     tract_geo_id,
     ROUND(predicted_offset_f, 2) AS predicted_offset_f,
     ROUND(baseline_prediction_value, 2) AS average_cell_offset_f,
-    ARRAY(SELECT AS STRUCT a.feature, ROUND(a.attribution, 2) AS contribution_f
-          FROM UNNEST(top_feature_attributions) AS a ORDER BY ABS(a.attribution) DESC) AS why,
+    ARRAY(SELECT AS STRUCT IF(STARTS_WITH(a.feature, 'trend_'), 'location_trend', a.feature) AS feature,
+                 ROUND(SUM(a.attribution), 2) AS contribution_f
+          FROM UNNEST(top_feature_attributions) AS a
+          GROUP BY 1 ORDER BY ABS(SUM(a.attribution)) DESC LIMIT 3) AS why,
     ROUND(heat_percentile, 3) AS heat_percentile,
     ROUND(vulnerability_index, 3) AS vulnerability_index,
     ROUND(priority_score, 3) AS priority_score,
@@ -129,8 +131,8 @@ description: |
 statement: |
   WITH pred AS (
     SELECT * FROM ML.PREDICT(
-      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_model`,
-      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context` WHERE pop_density_km2 >= @min_density))
+      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`,
+      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context_lst` WHERE pop_density_km2 >= @min_density))
   ),
   tract AS (
     SELECT
@@ -207,14 +209,15 @@ source: heat-bq
 description: |
   Explains the heat at ONE location: snaps the coordinates to the nearest ~330 m grid cell and runs ML.EXPLAIN_PREDICT.
   Returns predicted_offset_f (degrees F hotter than the average Chicago spot on a hot day) and `why`, the model's
-  per-feature contributions in degrees F (lake and downtown distance, population density, housing age, share of buildings / green space / paved land / street), plus the
+  per-feature contributions in degrees F (location_trend = where the cell sits in the city, surface_heat_f = how hot its SURFACES run
+  in summer satellite images (an input, never an air temperature), pavement and tree canopy within 300 m, lake distance), plus the
   raw feature values and who lives there. Use for "why is X so hot" or "how hot is this address". Works for places nobody
   measured. If snap_distance_m is over 600, the point is outside the modelled area: say so, do not report the number.
   measured_readings > 0 means Heat Watch drove there and measured_offset_f is the real reading to compare against.
 statement: |
   WITH target AS (
     SELECT *, ST_DISTANCE(ST_GEOGPOINT(longitude, latitude), ST_GEOGPOINT(@longitude, @latitude)) AS snap_distance_m
-    FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context`
+    FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context_lst`
     ORDER BY snap_distance_m
     LIMIT 1
   )
@@ -223,8 +226,10 @@ statement: |
     ROUND(snap_distance_m, 0) AS snap_distance_m,
     ROUND(predicted_offset_f, 2) AS predicted_offset_f,
     ROUND(baseline_prediction_value, 2) AS average_cell_offset_f,
-    ARRAY(SELECT AS STRUCT a.feature, ROUND(a.attribution, 2) AS contribution_f
-          FROM UNNEST(top_feature_attributions) AS a ORDER BY ABS(a.attribution) DESC) AS why,
+    ARRAY(SELECT AS STRUCT IF(STARTS_WITH(a.feature, 'trend_'), 'location_trend', a.feature) AS feature,
+                 ROUND(SUM(a.attribution), 2) AS contribution_f
+          FROM UNNEST(top_feature_attributions) AS a
+          GROUP BY 1 ORDER BY ABS(SUM(a.attribution)) DESC LIMIT 4) AS why,
     ROUND(dist_to_lake_km, 2) AS km_to_lake, ROUND(dist_to_loop_km, 1) AS km_to_the_loop,
     ROUND(pop_density_km2, 0) AS people_per_km2, CAST(median_year_structure_built AS INT64) AS median_year_homes_built,
     ROUND(building_share, 3) AS building_share_300m, ROUND(green_share, 3) AS green_share_300m,
@@ -237,7 +242,7 @@ statement: |
     ROUND(km_to_cooling, 2) AS km_to_indoor_cooling,
     nearest_library_name, nearest_library_address, nearest_library_hours, ROUND(km_to_library, 2) AS km_to_library,
     n_obs AS measured_readings, ROUND(offset_f, 2) AS measured_offset_f
-  FROM ML.EXPLAIN_PREDICT(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_model`, (SELECT * FROM target), STRUCT(4 AS top_k_features))
+  FROM ML.EXPLAIN_PREDICT(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`, (SELECT * FROM target), STRUCT(20 AS top_k_features))
 parameters:
 - name: latitude
   type: float
@@ -383,9 +388,9 @@ statement: |
     -- AND per-feature attributions (degrees F contributed by each feature versus the average cell).
     SELECT *
     FROM ML.EXPLAIN_PREDICT(
-      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_model`,
-      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context` WHERE pop_density_km2 >= @min_density),
-      STRUCT(3 AS top_k_features))
+      MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`,
+      (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context_lst` WHERE pop_density_km2 >= @min_density),
+      STRUCT(20 AS top_k_features))
   ),
   scored AS (
     SELECT
@@ -415,7 +420,7 @@ statement: |
   ),
   modelled AS (
     SELECT v.* FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.tract_vulnerability` AS v
-    WHERE v.geo_id IN (SELECT DISTINCT tract_geo_id FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context`)
+    WHERE v.geo_id IN (SELECT DISTINCT tract_geo_id FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context_lst`)
   ),
   picked AS (
     SELECT m.* FROM modelled AS m WHERE m.geo_id IN (SELECT tract_geo_id FROM top)
@@ -488,12 +493,12 @@ description: |
   the model's r2 is low, say so plainly; the training data is a single volunteer-driven afternoon.
 statement: |
   WITH holdout AS (
-    SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context` WHERE n_obs >= 8 AND is_holdout AND offset_f IS NOT NULL
+    SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context_lst` WHERE n_obs >= 8 AND is_holdout AND offset_f IS NOT NULL
   )
   SELECT 'model on held-out blocks' AS what, ROUND(mean_absolute_error, 2) AS mean_abs_error_f,
          ROUND(SQRT(mean_squared_error), 2) AS rmse_f, ROUND(r2_score, 3) AS r2_score,
          (SELECT COUNT(*) FROM holdout) AS cells_evaluated
-  FROM ML.EVALUATE(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_model`, (SELECT * FROM holdout))
+  FROM ML.EVALUATE(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`, (SELECT * FROM holdout))
   UNION ALL
   SELECT 'baseline: always predict the city average', ROUND(AVG(ABS(offset_f)), 2),
          ROUND(SQRT(AVG(POW(offset_f, 2))), 2), 0.0, COUNT(*)
@@ -508,9 +513,10 @@ description: |
   Which features the heat model leans on overall (ML.GLOBAL_EXPLAIN), as mean absolute contribution in degrees F.
   Use to explain what drives heat across Chicago, as opposed to one site.
 statement: |
-  SELECT feature, ROUND(attribution, 3) AS mean_abs_contribution_f
-  FROM ML.GLOBAL_EXPLAIN(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_model`)
-  ORDER BY attribution DESC
+  SELECT IF(STARTS_WITH(feature, 'trend_'), 'location_trend', feature) AS feature,
+    ROUND(SUM(attribution), 3) AS mean_abs_contribution_f
+  FROM ML.GLOBAL_EXPLAIN(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`)
+  GROUP BY 1 ORDER BY 2 DESC
 parameters: []
 ---
 kind: tool
@@ -527,7 +533,7 @@ description: |
 statement: |
   WITH pred AS (
     SELECT tract_geo_id, community_area, predicted_offset_f, n_obs, offset_f
-    FROM ML.EXPLAIN_PREDICT(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_model`, (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context`), STRUCT(1 AS top_k_features))
+    FROM ML.EXPLAIN_PREDICT(MODEL `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.heat_offset_lst`, (SELECT * FROM `${GOOGLE_CLOUD_PROJECT}.${BQ_DATASET:a4i_climate}.site_context_lst`), STRUCT(1 AS top_k_features))
   ),
   tract AS (
     SELECT
