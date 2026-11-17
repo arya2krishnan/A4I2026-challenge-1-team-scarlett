@@ -3,7 +3,7 @@ VENV ?= .venv
 PY   := $(VENV)/bin/python
 CITY ?= chicago
 
-.PHONY: help setup test data osm model validate-model toolbox-yaml toolbox-local smoke adk-web run-local check-models gcp-setup deploy-toolbox deploy-agent deploy-client
+.PHONY: help setup test data osm model validate-model toolbox-yaml toolbox-local smoke adk-web run-local check-models gcp-setup deploy-toolbox deploy-agent deploy-client api-local deploy-api smoke-api
 
 help:  ## list targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/' | column -t -s "$$(printf '\t')"
@@ -13,6 +13,9 @@ setup:  ## venv (Python 3.11) with everything
 	$(VENV)/bin/pip install -q --upgrade pip
 	$(VENV)/bin/pip install -q -r requirements-dev.txt
 	@test -f .env || (cp .env.example .env && echo "Created .env: set GOOGLE_CLOUD_PROJECT")
+
+api-local:  ## dispatch approval REST API on :8080 (SQLite in .data/; set DISPATCH_SIGNING_KEY in .env)
+	$(PY) -m uvicorn dispatch_api.app:app --app-dir api --port 8080 --reload --env-file .env
 
 test:  ## offline tests (no GCP needed)
 	$(PY) -m pytest tests -q
@@ -60,3 +63,9 @@ deploy-agent:  ## agent -> Agent Runtime (NEW=1 for a fresh instance)
 
 deploy-client:  ## Streamlit client -> Cloud Run
 	bash scripts/deploy_client.sh
+
+deploy-api:  ## dispatch approval API -> Cloud Run (private) + Firestore database + signing key in Secret Manager
+	bash scripts/deploy_api.sh
+
+smoke-api:  ## end-to-end test of the deployed dispatch API (URL=http://127.0.0.1:8080 NOAUTH=1 for api-local)
+	$(PY) scripts/smoke_dispatch_api.py $(if $(URL),--url $(URL)) $(if $(NOAUTH),--no-auth)

@@ -1,5 +1,7 @@
 -r agent/heat_dispatch/requirements.txt
 -r client/requirements.txt
+-r api/requirements.txt
+httpx
 google-cloud-bigquery
 pyyaml
 pytest
