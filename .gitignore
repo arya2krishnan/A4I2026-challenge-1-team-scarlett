@@ -41,3 +41,6 @@ toolbox/tools.rendered.yaml
 ai-analyst-plus/
 ai_analyst_plus/
 
+
+# Repo-local gcloud config/credentials (CLOUDSDK_CONFIG); never commit
+.gcloud/

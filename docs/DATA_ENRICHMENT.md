@@ -23,6 +23,8 @@ available in `data/enrichment/`.
 | Transit access | 11,107 CTA stop/station records, 132 routes, calendars and 263,715 scheduled stop/route/hour aggregates | Planning transit access to cooling |
 | Cooling inventory | 287 listed sites: 134 screened as indoor, including 79 libraries; published hours and contact information | Locating cooling options and checking operating readiness |
 | Walking access pilot | 4,527 OSM nodes, 5,528 network segments and one sample library walking estimate in the Loop | Demonstrating network-based access calculations |
+| Satellite surface temperature | Landsat 8/9 C2 L2 `ST_B10` from 14 clear summer scenes (2019–2025) via BigQuery `ST_REGIONSTATS`; per-cell median offset for all 5,053 grid cells in `cell_surface_temp` (+ `cell_surface_temp_scenes`) | Stage-1 "why" layer: which blocks run hot by surface; tracks Heat Watch air offset only moderately (r ≈ 0.4) |
+| Per-cell land cover | `cell_land_cover`: 5,053 grid cells with NLCD 2021 impervious % and USFS/NLCD 2021 tree canopy % (cell and 300 m disc), computed in BigQuery via Earth Engine; public domain | Changeable heat-model features (pavement vs. canopy) for explanations |
 
 Social-vulnerability acquisition contains 1,332 **Cook County** tracts. The
 geography loader selects Chicago-intersecting tracts using the ACS2024 Chicago
@@ -46,8 +48,12 @@ in DuPage County is outside the county acquisition.
 - [Transit and facilities](sources/transit_facilities.md): CTA feed valid roughly
   October 29–December 31, 2026; scheduled service aggregates are for November 17.
   CTA's license limits reuse to rider assistance or promoting public transit.
+- [Land cover](sources/land_cover.md): NLCD 2021 imperviousness and TCC v2021-4
+  canopy per grid cell (public domain); canopy reads low in cities, so use it as a relative measure.
 - [Walking pilot](sources/walkability.md): © OpenStreetMap contributors, ODbL;
   bounded Loop coverage, assumed walking speed and unverified connectors.
+- [Surface temperature](sources/surface_temperature.md): USGS Landsat, public domain;
+  ~10:30 overpass, 100 m thermal, per-cell QA cloud mask; surface ≠ air temperature.
 
 The cooling portal labels its inventory **Summer 2024**, with a July 24, 2026
 row update. Fetching it today does not verify opening for a particular heat event.
