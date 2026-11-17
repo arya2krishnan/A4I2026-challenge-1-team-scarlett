@@ -144,6 +144,11 @@ def test_bad_ranking_rejected_and_status_reports_counts():
     assert asyncio.run(console.set_operator_constraints(ranking="vibes", tool_context=c))["status"] == "error"
     s = console.get_dispatch_status(tool_context=c)
     assert s["plan_version"] == 3 and s["planned"]["truck"] == 4
+    assert "coverage" in s
+    assert "total_estimated_residents_served" in s["coverage"]
+    assert "total_seniors_65_plus_served" in s["coverage"]
+    assert "share_of_hot_65_plus_reached_pct" in s["coverage"]
+
 
 
 def test_replan_reports_toolbox_failure(monkeypatch):

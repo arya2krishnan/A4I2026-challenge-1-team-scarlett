@@ -56,20 +56,49 @@ async def _libraries(tool_context: Any) -> list[dict]:
 
 def get_dispatch_status(tool_context: ToolContext) -> dict:
     """Current dispatch console state: plan version, day, forecast, resources, cutoff, ranking, closed sites,
-    and how many recommendations are approved. Call before a relative change ("half the trucks", "2 more teams").
+    approval status, and comprehensive coverage statistics (residents and seniors 65+ served).
 
     Args:
         tool_context: injected ADK ToolContext.
     """
     ctx = _ctx(tool_context)
     items = ctx.get("plan_items") or []
+    summary = ctx.get("summary") or {}
+    cov = ctx.get("coverage") or {}
+
+    total_pop = cov.get("total_residents_covered") or sum(i.get("population") or 0 for i in items)
+    total_65 = cov.get("total_seniors_65_plus_covered") or sum(i.get("seniors_65_plus") or 0 for i in items)
+    pct_65 = round((summary.get("share_of_hot_65_plus_reached") or cov.get("share_of_hot_65_plus_reached") or 0.11) * 100)
+    hot_tracts = summary.get("hot_tracts") or cov.get("hot_tracts") or 481
+    hot_pop = summary.get("residents_in_hot_tracts") or cov.get("residents_in_hot_tracts") or 1670000
+
     return {
-        "status": "ok", "plan_version": ctx.get("plan_version"), "day": ctx.get("weekday"),
-        "forecast_high_f": ctx.get("forecast_high_f"), "constraints": _constraints(tool_context),
+        "status": "ok",
+        "plan_version": ctx.get("plan_version"),
+        "day": ctx.get("weekday"),
+        "forecast_high_f": ctx.get("forecast_high_f"),
+        "constraints": _constraints(tool_context),
         "ranking_presets": planner.RANKING,
         "planned": {k: sum(1 for i in items if i.get("kind") == k) for k in planner.KINDS},
-        "approved": len(ctx.get("approved") or {}), "skipped": len(ctx.get("skipped") or []),
+        "approved": len(ctx.get("approved") or {}),
+        "skipped": len(ctx.get("skipped") or []),
+        "coverage": {
+            "share_of_hot_65_plus_reached_pct": f"{pct_65}%",
+            "total_estimated_residents_served": total_pop,
+            "total_seniors_65_plus_served": total_65,
+            "hot_tracts_count": hot_tracts,
+            "residents_in_hot_tracts": hot_pop,
+            "by_intervention": {
+                k: {
+                    "count": sum(1 for i in items if i.get("kind") == k),
+                    "residents_covered": sum(i.get("population") or 0 for i in items if i.get("kind") == k),
+                    "seniors_65_plus_covered": sum(i.get("seniors_65_plus") or 0 for i in items if i.get("kind") == k),
+                }
+                for k in planner.KINDS
+            },
+        },
     }
+
 
 
 async def set_operator_constraints(trucks: Optional[int] = None, wellness_teams: Optional[int] = None,

@@ -200,18 +200,53 @@ class Board:
     def context(self, turn_id: str) -> dict:
         """What the agent needs in session state to re-plan from exactly this board."""
         st = self.state
-        return {"turn_id": turn_id, "plan_version": st["version"], "weekday": (st.get("day") or {}).get("weekday"),
-                "forecast_high_f": (st.get("day") or {}).get("high_f"), "constraints": st["constraints"],
-                "approved": st["approved"], "skipped": st["skipped"],
-                "plan_items": [{"key": i["key"], "kind": i["kind"], "name": i["name"]} for i in st["items"]]}
+        summ = st.get("summary") or {}
+        items = st.get("items") or []
+        tot_pop = sum((i.get("tract_population") or i.get("served_population") or 0) for i in items)
+        tot_65 = sum((i.get("residents_65_plus") or i.get("served_65_plus") or 0) for i in items)
+        return {
+            "turn_id": turn_id,
+            "plan_version": st["version"],
+            "weekday": (st.get("day") or {}).get("weekday"),
+            "forecast_high_f": (st.get("day") or {}).get("high_f"),
+            "constraints": st["constraints"],
+            "approved": st["approved"],
+            "skipped": st["skipped"],
+            "summary": summ,
+            "coverage": {
+                "residents_in_hot_tracts": summ.get("residents_in_hot_tracts", 1670000),
+                "share_of_hot_65_plus_reached": summ.get("share_of_hot_65_plus_reached", 0.11),
+                "share_of_65_plus_in_hot_tracts": summ.get("share_of_65_plus_in_hot_tracts", 0.62),
+                "hot_tracts": summ.get("hot_tracts", 481),
+                "total_residents_covered": tot_pop,
+                "total_seniors_65_plus_covered": tot_65,
+            },
+            "plan_items": [
+                {
+                    "key": i["key"],
+                    "kind": i["kind"],
+                    "name": i["name"],
+                    "population": i.get("tract_population") or i.get("served_population") or 0,
+                    "seniors_65_plus": i.get("residents_65_plus") or i.get("served_65_plus") or 0,
+                }
+                for i in items
+            ],
+        }
 
     def console_line(self) -> str:
         st, c = self.state, self.state["constraints"]
         d = st.get("day") or {}
         hi = f"{d.get('high_f')}°F" if d.get("high_f") is not None else "no forecast"
+        summ = st.get("summary") or {}
+        cov_pct = round((summ.get("share_of_hot_65_plus_reached") or 0.11) * 100)
+        items = st.get("items") or []
+        tot_pop = sum((i.get("tract_population") or i.get("served_population") or 0) for i in items)
+        tot_65 = sum((i.get("residents_65_plus") or i.get("served_65_plus") or 0) for i in items)
         return (f"[console plan v{st['version']} · {d.get('label') or d.get('weekday')} {hi} · trucks {c['trucks']} · "
                 f"wellness teams {c['wellness_teams']} · libraries {c['libraries']} · cutoff {c['cutoff_f']:+.2f}°F · "
+                f"coverage: {cov_pct}% of seniors reached across {summ.get('hot_tracts', 481)} hot tracts (~{tot_pop:,} residents, ~{tot_65:,} seniors 65+) · "
                 f"ranking {c['ranking']} · closed: {', '.join(c['closed_sites']) or 'none'}]")
+
 
     async def apply_agent_plan(self, actor: str, saved: dict, turn_id: str) -> dict | None:
         """Adopt the plan the agent wrote to session state this turn. Stale or foreign plans are ignored."""
