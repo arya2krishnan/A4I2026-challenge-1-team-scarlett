@@ -10,6 +10,7 @@
 #
 # Access: IAP on Cloud Run (WEB_IAP=true, default) so approvals carry the operator's email; grant people with
 # WEB_USERS="user:a@x.org,group:desk@x.org". WEB_IAP=false falls back to Cloud Run IAM (use `gcloud run services proxy`).
+# WEB_PUBLIC=true opens it to anyone with the link (judging): see the note next to AUTH below.
 set -euo pipefail
 . "$(dirname "$0")/_env.sh"
 [ -n "${AGENT_RESOURCE_NAME:-}" ] || { echo "AGENT_RESOURCE_NAME is empty: run 'make deploy-agent' first." >&2; exit 1; }
@@ -44,8 +45,12 @@ cp -R "$ROOT/web/backend" "$BUILD/web/backend"
 cp "$ROOT/agent/heat_dispatch/planner.py" "$BUILD/agent/heat_dispatch/planner.py"
 find "$BUILD" -name __pycache__ -prune -exec rm -rf {} +
 
-AUTH=(--no-allow-unauthenticated)
-[ "$IAP" = "true" ] && AUTH+=(--iap)
+# WEB_PUBLIC=true: anyone with the link can open it (no login), e.g. for judges. It can call Gemini and BigQuery and its
+# approve/undo actions write rows, so switch back to private (WEB_PUBLIC=false make deploy-web) when the event is over.
+# --no-iap is explicit because gcloud keeps a previously enabled IAP setting on redeploy.
+if [ "${WEB_PUBLIC:-false}" = "true" ]; then IAP=false; AUTH=(--allow-unauthenticated --no-iap)
+elif [ "$IAP" = "true" ]; then AUTH=(--no-allow-unauthenticated --iap)
+else AUTH=(--no-allow-unauthenticated --no-iap); fi
 echo ">> deploying $SERVICE (IAP=$IAP)"
 # max-instances=1: the board keeps the live plan in memory (BigQuery is the durable copy reloaded on start).
 gcloud run deploy "$SERVICE" --project "$PROJECT" --region "$REGION" --source "$BUILD" --service-account "$SA" \
@@ -64,6 +69,8 @@ if [ "$IAP" = "true" ]; then
       --service "$SERVICE" --member "$m" --role roles/iap.httpsResourceAccessor --quiet >/dev/null && echo ">> IAP access: $m"
   done
   echo ">> $URL  (IAP: sign in with a Google account listed in WEB_USERS)"
+elif [ "${WEB_PUBLIC:-false}" = "true" ]; then
+  echo ">> $URL  (PUBLIC: no login. WEB_PUBLIC=false to make it private again)"
 else
   echo ">> $URL  (IAM-protected: gcloud run services proxy $SERVICE --project $PROJECT --region $REGION --port 8080)"
 fi

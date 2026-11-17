@@ -85,3 +85,10 @@ shows your email. Without an IAP grant the page returns 403.
 | Console chat says nothing re-planned | the deployed agent predates `replan_dispatch`: `make deploy-agent` |
 | `deploy-web` fails on `--iap` | IAP on Cloud Run unavailable in this project/org: `WEB_IAP=false make deploy-web` |
 | Deploy rejects the env file | an env value is empty: the script drops empty values, check `.env` for stray lines |
+
+
+## Judging: a public console URL
+`WEB_PUBLIC=true make deploy-web` opens the console to anyone with the link (no login) and turns IAP off explicitly (gcloud
+keeps an earlier IAP setting on redeploy). It can call Gemini and BigQuery and its approve/undo actions write rows, so cap
+cost with `--max-instances 1` (already set) and switch back with `WEB_PUBLIC=false WEB_IAP=true make deploy-web` afterwards.
+Deploy from a tree that contains the event-loop / race fixes, or the deployed agent answers "tools unavailable".
