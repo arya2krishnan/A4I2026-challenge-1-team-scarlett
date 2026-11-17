@@ -27,6 +27,7 @@ export default function App() {
   const [mode, setMode] = useState<'historic' | 'current'>('historic');
   const [showReliability, setShowReliability] = useState(false);
   const session = useRef<string | null>(null);
+  const initialGreetingSent = useRef(false);
 
   const say = (m: Msg) => setMsgs(ms => [...ms, m]);
   const flash = (t: string) => { setToast(t); setTimeout(() => setToast(null), 2600); };
@@ -37,9 +38,12 @@ export default function App() {
         const [me, d, p] = await Promise.all([api.me(), api.days('historic'), api.plan()]);
         setAgentLabel(me.agent === 'deployed' ? 'Agent Runtime' : 'local'); setDays(d.days); setPlan(p);
         const c = p.summary?.counts;
-        say({ who: 'a', text: `Morning. Here's plan v${p.version} for ${p.day.label || p.day.weekday}${p.day.high_f != null ? ` (${p.day.high_f}°F)` : ''}: `
-          + `${c?.well ?? 0} wellness teams, ${c?.truck ?? 0} trucks, ${c?.lib ?? 0} libraries with extended hours, reaching ${pct(p.summary?.share_of_hot_65_plus_reached)} of residents 65+ in hot tracts. `
-          + 'Approve what looks right; tell me what changed.' });
+        if (!initialGreetingSent.current) {
+          initialGreetingSent.current = true;
+          setMsgs([{ who: 'a', text: `Morning. Here's plan v${p.version} for ${p.day.label || p.day.weekday}${p.day.high_f != null ? ` (${p.day.high_f}°F)` : ''}: `
+            + `${c?.well ?? 0} wellness teams, ${c?.truck ?? 0} trucks, ${c?.lib ?? 0} libraries with extended hours, reaching ${pct(p.summary?.share_of_hot_65_plus_reached)} of residents 65+ in hot tracts. `
+            + 'Approve what looks right; tell me what changed.' }]);
+        }
       } catch (e) { setError(`Could not load the plan: ${(e as Error).message}`); }
       try { setLayers(await api.layers()); } catch (e) { setError(`Could not load the map: ${(e as Error).message}`); }
     })();
