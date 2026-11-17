@@ -19,6 +19,13 @@ from .forecast import get_forecast_high, heat_risk_for_forecast
 from .places import in_chicago, locate_place
 from .prompts import INSTRUCTION
 from .results import parse_rows
+from .subagents import (
+    build_equity_agent,
+    build_logistics_agent,
+    build_outreach_agent,
+    build_spatial_risk_agent,
+    build_triage_agent,
+)
 from .toolbox import build_toolbox_toolset
 
 S = get_settings()
@@ -60,13 +67,21 @@ def _model() -> Gemini:
                   client_kwargs={"enterprise": True, "location": S.model_location})
 
 
+toolbox = build_toolbox_toolset(S)
+
+spatial_risk_agent = build_spatial_risk_agent(_model(), toolbox)
+logistics_agent = build_logistics_agent(_model(), toolbox)
+outreach_agent = build_outreach_agent(_model(), toolbox)
+triage_agent = build_triage_agent(_model(), toolbox)
+equity_agent = build_equity_agent(_model(), toolbox)
+
 root_agent = Agent(
     name="heat_dispatch_agent",
     model=_model(),
-    description="Chicago emergency-heat dispatch assistant: where to send hydration trucks, wellness checks and "
-                "extended library hours, with the reasoning and an equity check.",
+    description="Chicago emergency heat incident coordinator: orchestrates 5 specialized agents (Spatial Risk, Logistics, Outreach, Triage, Equity) to generate proactive heat dispatch plans and respond to midday disruptions.",
     instruction=INSTRUCTION,
-    tools=[build_toolbox_toolset(S), locate_place, get_forecast_high, heat_risk_for_forecast, build_dispatch_plan],
+    tools=[toolbox, locate_place, get_forecast_high, heat_risk_for_forecast, build_dispatch_plan],
+    sub_agents=[spatial_risk_agent, logistics_agent, outreach_agent, triage_agent, equity_agent],
     before_tool_callback=guard_point_tools,
     after_tool_callback=stash_tool_results,
 )
