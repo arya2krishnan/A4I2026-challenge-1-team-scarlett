@@ -32,7 +32,8 @@ from reconciled outputs and operator-entered readiness records.
 | 5 | `heat_offset_candidate`, `model_validation` |
 | 6 | `cooling_routes`, `truck_travel_times` |
 
-Priorities 1–6 remain proposals pending the user's review. Recommended order is
+The user approved priorities 1–6 on November 17, 2026; implementation results
+are tracked in [DATA_PROGRESS.md](DATA_PROGRESS.md). Recommended order is
 1 and 2 first, then 3 and 4; model comparison and routing follow the validated
 context and verified destinations. Public-source acquisition can proceed after
 review; operator readiness needs confirmation from the responsible operators.
