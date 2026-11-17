@@ -9,6 +9,15 @@ PY="$VENV/bin/python"; ADK="$VENV/bin/adk"
 export GOOGLE_CLOUD_PROJECT="$PROJECT" BQ_DATASET="${BQ_DATASET:-a4i_climate}" BQ_LOCATION="${BQ_LOCATION:-US}"
 echo ">> project=$PROJECT region=$REGION dataset=$BQ_DATASET"
 
+retry() {  # cmd... : a service account created seconds ago is not yet visible to IAM ("does not exist"); retry
+  local n=1
+  until "$@"; do
+    [ "$n" -ge 6 ] && { echo "   still failing after $n tries: $*" >&2; return 1; }
+    echo "   (IAM has not caught up with the new service account yet; retrying in 10s, try $((n+1))/6)" >&2
+    sleep 10; n=$((n+1))
+  done
+}
+
 save_env() {  # key value : upsert into .env (macOS-safe sed)
   touch "$ROOT/.env"
   if grep -q "^$1=" "$ROOT/.env"; then sed -i.bak "s|^$1=.*|$1=$2|" "$ROOT/.env" && rm -f "$ROOT/.env.bak"; else echo "$1=$2" >> "$ROOT/.env"; fi
