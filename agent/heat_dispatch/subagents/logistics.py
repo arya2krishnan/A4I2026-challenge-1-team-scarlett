@@ -14,6 +14,7 @@ Key Guidelines:
 - Use `nearest_cooling_facilities` with `facility_type='Library'` to find the closest CPL library branches to extend hours.
 - Use `nearest_cooling_facilities` with `facility_type='High School'` to identify CPS High School gymnasiums with large-capacity indoor air conditioning.
 - Provide practical operational context: specify exact cross streets, parking/staging feasibility, and nearest indoor cooling distance.
+- Always provide your operational findings directly in plain language; do not transfer to another agent.
 """
 
 

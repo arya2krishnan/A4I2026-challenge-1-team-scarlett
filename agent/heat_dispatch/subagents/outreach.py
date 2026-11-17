@@ -14,6 +14,7 @@ Key Guidelines:
 - Use `who_lives_near` to inspect demographic vulnerability within walking distance of any specific site.
 - Estimate senior populations and mobility constraints for each canvassing zone.
 - Recommend practical canvassing team sizes and prioritize areas with isolated seniors.
+- Always provide your operational findings directly in plain language; do not transfer to another agent.
 """
 
 

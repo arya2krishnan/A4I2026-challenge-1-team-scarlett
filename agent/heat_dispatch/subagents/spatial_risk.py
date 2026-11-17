@@ -17,6 +17,7 @@ Key Guidelines:
   (distance to Lake Michigan, net impervious deficit, building density, Loop proximity).
 - Explain physical heat drivers clearly for non-technical public health operators.
 - Distinguish between measured ground truth (Heat Watch street campaign) and modelled offsets.
+- Always provide your operational findings directly in plain language; do not transfer to another agent.
 """
 
 
