@@ -71,15 +71,12 @@ def _model() -> Gemini:
 
 toolbox = build_toolbox_toolset(S)
 
-spatial_risk_agent = build_spatial_risk_agent(_model(), toolbox)
-logistics_agent = build_logistics_agent(_model(), toolbox)
-outreach_agent = build_outreach_agent(_model(), toolbox)
-triage_agent = build_triage_agent(_model(), toolbox)
-equity_agent = build_equity_agent(_model(), toolbox)
+spatial_risk_agent = build_spatial_risk_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
+logistics_agent = build_logistics_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
+outreach_agent = build_outreach_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
+triage_agent = build_triage_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
+equity_agent = build_equity_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
 _SPECIALISTS = [spatial_risk_agent, logistics_agent, outreach_agent, triage_agent, equity_agent]
-for _a in _SPECIALISTS:   # specialists also call Toolbox: same guard, and their rows land in session state too
-    _a.before_tool_callback = guard_point_tools
-    _a.after_tool_callback = stash_tool_results
 
 root_agent = Agent(
     name="heat_dispatch_agent",

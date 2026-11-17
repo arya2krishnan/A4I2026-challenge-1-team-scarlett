@@ -198,7 +198,8 @@ def render_sheet(forecast_high_f: float, stops: list[dict], teams: list[dict], l
 
 def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, wellness_teams: int = 4,
                         library_extensions: int = 3, tool_context: ToolContext | None = None,
-                        emergency_gyms: int = 2) -> dict:
+                        emergency_gyms: int = 2, sites: list[dict] | None = None,
+                        tracts: list[dict] | None = None) -> dict:
     """Assemble the dispatch sheet (the Placement Recommendation) from the rankings already fetched this session.
 
     Call rank_priority_sites first (and rank_wellness_check_tracts and equity_audit if you can). This tool reads
@@ -211,12 +212,14 @@ def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, welln
         library_extensions: how many libraries could stay open longer.
         tool_context: injected ADK ToolContext holding session state.
         emergency_gyms: how many high school gymnasiums to designate as backup cooling shelters.
+        sites: optional list of priority site dicts if already in context.
+        tracts: optional list of wellness check tract dicts if already in context.
     """
     state: Any = tool_context.state if tool_context is not None else {}
-    sites = list(state.get(STATE_SITES) or [])
+    sites = list(sites or state.get(STATE_SITES) or [])
     if not sites:
         return {"status": "need_data", "message": "No ranked sites in this session yet. Call rank_priority_sites first."}
-    tracts = list(state.get(STATE_TRACTS) or [])
+    tracts = list(tracts or state.get(STATE_TRACTS) or [])
     audit = list(state.get(STATE_AUDIT) or [])
     params = dict(state.get(STATE_PARAMS) or {})
 

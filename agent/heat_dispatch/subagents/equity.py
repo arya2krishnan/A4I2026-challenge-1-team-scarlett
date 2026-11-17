@@ -13,10 +13,11 @@ Key Guidelines:
 - Verify that poverty rate, senior population share, and zero-vehicle household share exceed citywide averages.
 - Flag any risk of resource hoarding in affluent, cooler lakefront tourist corridors.
 - Provide a clear, objective fairness verdict with demographic multiplier ratios (e.g., 2.1x poverty vs citywide).
+- Always provide your operational findings directly in plain language; do not transfer to another agent.
 """
 
 
-def build_equity_agent(model: Any, toolbox_tools: Any = None) -> Agent:
+def build_equity_agent(model: Any, toolbox_tools: Any = None, before_callback: Any = None, after_callback: Any = None) -> Agent:
     tools: list[Any] = []
     if toolbox_tools:
         tools.append(toolbox_tools)
@@ -26,4 +27,6 @@ def build_equity_agent(model: Any, toolbox_tools: Any = None) -> Agent:
         description="Equity Audit specialist: validates resource fairness against ACS demographic baselines to prevent algorithmic bias.",
         instruction=EQUITY_INSTRUCTION,
         tools=tools,
+        before_tool_callback=before_callback,
+        after_tool_callback=after_callback,
     )

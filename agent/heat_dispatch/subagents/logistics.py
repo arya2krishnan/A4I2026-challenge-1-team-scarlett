@@ -14,10 +14,11 @@ Key Guidelines:
 - Use `nearest_cooling_facilities` with `facility_type='Library'` to find the closest CPL library branches to extend hours.
 - Use `nearest_cooling_facilities` with `facility_type='High School'` to identify CPS High School gymnasiums with large-capacity indoor air conditioning.
 - Provide practical operational context: specify exact cross streets, parking/staging feasibility, and nearest indoor cooling distance.
+- Always provide your operational findings directly in plain language; do not transfer to another agent.
 """
 
 
-def build_logistics_agent(model: Any, toolbox_tools: Any = None) -> Agent:
+def build_logistics_agent(model: Any, toolbox_tools: Any = None, before_callback: Any = None, after_callback: Any = None) -> Agent:
     tools: list[Any] = [locate_place]
     if toolbox_tools:
         tools.append(toolbox_tools)
@@ -27,4 +28,6 @@ def build_logistics_agent(model: Any, toolbox_tools: Any = None) -> Agent:
         description="Logistics & Facilities specialist: sites hydration trucks and identifies libraries and high school gyms for cooling shelter.",
         instruction=LOGISTICS_INSTRUCTION,
         tools=tools,
+        before_tool_callback=before_callback,
+        after_tool_callback=after_callback,
     )

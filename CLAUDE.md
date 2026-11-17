@@ -26,16 +26,21 @@ make gcp-setup deploy-toolbox deploy-agent deploy-client deploy-web   # deploy o
 ```
 Do not run `scripts/publish` notebooks (maintainers only). Invoke shell scripts with `bash`.
 
-## Architecture (read docs/ARCHITECTURE.md for the why)
+## Architecture (read docs/ARCHITECTURE.md and AGENTS.md for full details)
 
+- `agent/heat_dispatch/`: Multi-agent system orchestrated by `root_agent` (`heat_dispatch_agent`) with 5 specialist subagents:
+  1. `spatial_risk_agent` (`subagents/spatial_risk.py`): BQML heat offset inference and microclimate feature attributions.
+  2. `logistics_agent` (`subagents/logistics.py`): Siting hydration trucks and linking nearest cooling libraries/high school gyms.
+  3. `outreach_agent` (`subagents/outreach.py`): Door-to-door senior/carless wellness canvassing tracts.
+  4. `triage_agent` (`subagents/triage.py`): Midday disruption response (311 heat calls, cooling center AC failures).
+  5. `equity_agent` (`subagents/equity.py`): Title VI demographic equity audits comparing proposed sites to citywide baselines.
+  - Invariants: Subagents never call `transfer_to_agent`. Callbacks `stash_tool_results` and `guard_point_tools` are wired to all agents. `build_dispatch_plan` produces typed JSON + Markdown. See `AGENTS.md`.
+- `api/dispatch_api/`: FastAPI human-in-the-loop dispatch approval lifecycle (`POST /proposals`, `POST /approve`, `GET /active`, `PATCH /override`, `POST /close`). Dispatches are HMAC-SHA256 signed. SQLite for dev, Firestore for Cloud Run.
 - `sql/NN_*.sql` are templates (`{{PROJECT}}`, `{{DATASET}}`, constants in `sql/chicago.json`) rendered and run by `scripts/run_sql.py`.
   Pipeline: 01 grid cells (~330 m; label = measured offset; features physical only) → 02 tract vulnerability → 03 site_context
   (+ nearest indoor cooling/library) → 04 `CREATE MODEL` (BQML LINEAR_REG, TRANSFORM) → 05 evaluate on spatially held-out blocks → 06 checks.
 - `toolbox/build_tools_yaml.py` GENERATES `toolbox/tools.yaml` (11 `bigquery-sql` tools; `tract_map_layer` + `list_sites` feed the console). Four tools share one scoring CTE that
   runs `ML.EXPLAIN_PREDICT` live. `${VAR}` placeholders are resolved by `scripts/render_toolbox.py` at deploy.
-- `agent/heat_dispatch/` is the ADK agent: Toolbox toolset + Python tools. `agent.stash_tool_results` (after-tool callback) saves
-  ranked rows to session state; `dispatch.build_dispatch_plan` renders the sheet from that state so the LLM cannot alter numbers.
-  `agent.guard_point_tools` refuses out-of-Chicago coordinates. Prompt rules live in `prompts.py` (a test checks tool names match tools.yaml).
 - Console: `web/backend/heat_console` (FastAPI; package not named `app` because client/app.py shadows it in tests) owns the
   board (plan versions + approvals, BigQuery `dispatch_plan_versions` / `dispatch_approvals`). Plans come from
   `agent/heat_dispatch/planner.py` (stdlib only; the backend loads it BY PATH, the Docker image keeps repo layout).

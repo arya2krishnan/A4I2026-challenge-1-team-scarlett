@@ -1,0 +1,38 @@
+[
+  {
+    "id": "311-HEAT-401",
+    "timestamp": "13:15 CST",
+    "severity": "CRITICAL",
+    "category": "Senior Housing AC Failure",
+    "neighborhood": "Chatham",
+    "location": "79th & Halsted",
+    "coordinates": {"lat": 41.7506, "lng": -87.6440},
+    "call_volume": 14,
+    "description": "Central AC compressor failed at 8-story senior residential high-rise. Indoor temps passing 95°F with vulnerable residents.",
+    "prompt": "Midday Emergency Alert (311 Incident #311-HEAT-401): 14 calls report central AC failure at senior housing near 79th & Halsted in Chatham. Recommend immediate asset rerouting and emergency indoor cooling backup."
+  },
+  {
+    "id": "311-HEAT-402",
+    "timestamp": "13:45 CST",
+    "severity": "HIGH",
+    "category": "Cooling Facility HVAC Outage",
+    "neighborhood": "North Lawndale",
+    "location": "Toman Library (2708 S Pulaski Rd)",
+    "coordinates": {"lat": 41.8415, "lng": -87.7245},
+    "call_volume": 8,
+    "description": "Local transformer blown; Toman Library cooling center has lost power and HVAC. 25 vulnerable seniors currently on-site.",
+    "prompt": "Midday Emergency Alert (311 Incident #311-HEAT-402): Toman Library cooling center in North Lawndale just suffered a power/AC outage with 25 seniors on site. Where should we redirect them, which nearby high school cooling gym can we activate, and how should we redirect the hydration truck?"
+  },
+  {
+    "id": "311-HEAT-403",
+    "timestamp": "14:10 CST",
+    "severity": "ELEVATED",
+    "category": "Transit Corridor Heat Distress",
+    "neighborhood": "East Garfield Park",
+    "location": "Pulaski & Madison",
+    "coordinates": {"lat": 41.8812, "lng": -87.7258},
+    "call_volume": 9,
+    "description": "Multiple 311 distress calls reporting heat exhaustion at unshaded major bus transfer point. High pedestrian volume.",
+    "prompt": "Midday Emergency Alert (311 Incident #311-HEAT-403): Multiple 311 calls reporting heat exhaustion at unshaded transit corridor Pulaski & Madison in East Garfield Park. Recommend immediate dispatch rerouting for hydration and wellness checks."
+  }
+]
