@@ -189,4 +189,21 @@ describe('Heat Dispatch Console', () => {
     expect(actionCall).toBeDefined();
     expect(actionCall?.body).toEqual({ action: 'approve', keys: [newItem.key] });
   });
+
+  it('reset demo button clears database and restores baseline plan v1', async () => {
+    routes['POST /api/reset'] = () => makePlan(1, v1Items, { source: 'reset' });
+    vi.spyOn(window, 'confirm').mockReturnValue(true);
+    await boot();
+    const resetBtn = screen.getByRole('button', { name: /reset demo/i });
+    await userEvent.click(resetBtn);
+    await waitFor(() => expect(calls.some(c => c.path === 'POST /api/reset')).toBe(true));
+  });
+
+  it('reset chat command calls /api/reset and posts confirmation', async () => {
+    routes['POST /api/reset'] = () => makePlan(1, v1Items, { source: 'reset' });
+    await boot();
+    await userEvent.type(screen.getByLabelText('message'), 'reset demo{enter}');
+    await waitFor(() => expect(calls.some(c => c.path === 'POST /api/reset')).toBe(true));
+    expect(screen.getByTestId('chat-msgs')).toHaveTextContent('Database reset complete');
+  });
 });

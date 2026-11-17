@@ -116,11 +116,29 @@ export default function App() {
     });
   };
 
+  const onResetAll = () => {
+    if (!window.confirm('Reset all demo state? This will clear all persisted approvals, plan versions, and database records so judges can start fresh.')) {
+      return;
+    }
+    run(() => api.reset(), p => {
+      session.current = null;
+      setMsgs([{ who: 'a', text: `Morning. Here's plan v${p.version} for ${p.day.weekday} ${p.day.date || ''} (${p.day.label || ''}) (${p.day.high_f}°F): ${p.summary?.counts.well ?? 8} wellness teams, ${p.summary?.counts.truck ?? 5} trucks, ${p.summary?.counts.lib ?? 6} libraries with extended hours, reaching ${pct(p.summary?.share_of_hot_65_plus_reached)} of residents 65+ in hot tracts. Approve what looks right; tell me what changed.` }]);
+      flash('Demo database reset to clean baseline plan (v1)');
+    });
+  };
+
   const send = async (raw: string) => {
     const text = raw.trim(); if (!text) return;
     say({ who: 'u', text });
     if (/^(undo|revert|go back)\b/i.test(text)) {
       return run(() => api.undo(), p => say({ who: 'a', text: `Reverted to the previous plan (now v${p.version}).` }));
+    }
+    if (/^(reset( all| demo)?|clear( all| database)?|fresh start)\b/i.test(text)) {
+      return run(() => api.reset(), p => {
+        session.current = null;
+        say({ who: 'a', text: `🔄 Database reset complete! All persisted plan versions and approvals have been wiped clean. Reset to baseline Plan v${p.version} (102°F Peak Alert).` });
+        flash('Database reset to clean baseline plan (v1)');
+      });
     }
     if (/^approve (changes|diff)\b/i.test(text)) {
       const diffAdded = (['truck', 'well', 'lib'] as Kind[]).flatMap(k => plan?.diff?.[k]?.added || []);
@@ -235,6 +253,16 @@ export default function App() {
             <span>➔</span>
             <span>③ Authorize</span>
           </div>
+          <button
+            type="button"
+            className="btn ghost"
+            title="Clear all persisted approvals, plan versions, and database records so judges can start fresh"
+            style={{ padding: '3px 9px', fontSize: '11.5px', background: 'rgba(255,255,255,0.08)', color: '#ffd280', border: '1px solid rgba(255,210,128,0.3)', cursor: 'pointer' }}
+            onClick={onResetAll}
+            disabled={busy}
+          >
+            🔄 Reset Demo / DB
+          </button>
           <button
             type="button"
             className="btn ghost"
