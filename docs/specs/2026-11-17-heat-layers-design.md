@@ -60,6 +60,14 @@ Stations: `station_daily_temps`, 13 stations, 2019-01-01..2025-12-31, daily max.
   model is trained as `heat_offset_model_v2` (and its inputs in a new/extended table) without touching the live model.
   The previous model stays as the comparison baseline. Promotion = the model name in `toolbox/build_tools_yaml.py`
   becomes a constant switched to v2 only after REQ-003 and REQ-010 pass; redeploying stays the team's call.
+- **Reversibility.** BigQuery has no undo for models (`CREATE OR REPLACE MODEL` overwrites; table time travel does not
+  cover models). So: (1) before any training, export the current `heat_offset_model` to Cloud Storage with
+  `EXPORT MODEL` and record the path and the git commit of `sql/04_train_model.sql` that built it; (2) the existing
+  `sql/04_train_model.sql` is never edited to produce v2 (v2 has its own template or model-name constant), so
+  `make model` cannot overwrite the live model; (3) `grid_cells` / `site_context` changes are additive only (new
+  columns), so the previous model keeps scoring; (4) narration keeps labels for the previous model's features, so the
+  agent works with either model and rollback needs no agent redeploy. Rollback = switch the model-name constant back,
+  regenerate `tools.yaml`, and route the Toolbox Cloud Run service to its previous revision.
 - **Attributions:** request attributions for all features (not `top_k_features => 3`), sum the trend terms into one
   "location in the city" item, then take the top reasons; otherwise five trend terms can crowd out every other reason.
 - **Edges:** check predictions on cells outside the measured footprint (far south, Hegewisch, O'Hare) for quadratic
@@ -222,6 +230,26 @@ Stations: `station_daily_temps`, 13 stations, 2019-01-01..2025-12-31, daily max.
 **Acceptance criteria:** Stale-yaml test passes; offline suite passes; live check exits 0.
 
 **Verification needs:** `make toolbox-yaml test`; live `check_tool_sql.py` (needs application-default credentials).
+
+### REQ-012: Current model is backed up before any training
+
+**Applies when:** Before the first training run of `heat_offset_model_v2` or `surface_heat_model`.
+
+**Obligation:** The current `heat_offset_model` MUST be exported to Cloud Storage and the export path plus the git commit of the template that built it MUST be recorded.
+
+**Acceptance criteria:** `EXPORT MODEL` output exists at a recorded `gs://` path; docs/ARCHITECTURE.md (or the build notes) names that path and commit.
+
+**Verification needs:** Live `gsutil ls` / `gcloud storage ls` of the export path; source inspection of the recorded note.
+
+### REQ-013: The live model cannot be overwritten during development
+
+**Applies when:** Any commit while v2 is under development or before it is promoted.
+
+**Obligation:** No pipeline template other than the existing `sql/04_train_model.sql` MAY create or replace `heat_offset_model`, and that template MUST NOT be changed to train the v2 feature set.
+
+**Acceptance criteria:** An offline test fails if any rendered SQL other than `sql/04_train_model.sql` contains `CREATE OR REPLACE MODEL` targeting `heat_offset_model` (without the `_v2` suffix), or if `sql/04_train_model.sql` references the new v2 feature columns.
+
+**Verification needs:** Offline test over rendered `sql/*.sql` templates.
 
 ## Non-goals
 

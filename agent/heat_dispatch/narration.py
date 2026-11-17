@@ -20,6 +20,16 @@ FEATURE_LABELS = {
     "paved_use": "industrial, commercial and parking land",
     "log_road_density": "how much of the area is street",
     "road_km_per_km2": "how much of the area is street",
+    # v2 candidate (heat_offset_lst). Satellite values are SURFACE heat, never air temperature.
+    "surface_heat_f": "surface heat measured by satellite",
+    "impervious_pct_300m": "pavement and roofs nearby",
+    "tree_canopy_pct_300m": "tree canopy nearby",
+    "location_trend": "location in the city (lake-to-southwest gradient)",
+    "trend_lat_km": "location in the city (north-south)",
+    "trend_lon_km": "location in the city (east-west)",
+    "trend_lat2": "location in the city (north-south)",
+    "trend_lon2": "location in the city (east-west)",
+    "trend_latlon": "location in the city",
 }
 
 

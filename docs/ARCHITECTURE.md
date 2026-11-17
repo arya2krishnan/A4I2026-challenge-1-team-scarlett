@@ -111,3 +111,38 @@ floor was raised to 3,000 people/km2.
 | Technical execution | `toolbox/tools.yaml` (MCP), `sql/04_train_model.sql` (BQML), `agent/heat_dispatch/` (ADK), `scripts/deploy_*.sh` (Agent Runtime) |
 | Rigor & judgment | `sql/05_evaluate.sql`, `sql/06_validate.sql`, `equity_audit` tool, this file's limits |
 | Craft | `web/` (console), `docs/mockups/concept-d` (the design it implements), `docs/` |
+
+## Model v2 candidate: `heat_offset_lst` (validated, NOT promoted)
+Design: [docs/specs/2026-11-17-heat-layers-design.md](specs/2026-11-17-heat-layers-design.md), Layer 1 ("how hot it feels").
+Built beside the live model by `bash scripts/run_v2.sh build` (`sql/v2/`): view `site_context_lst` (live `site_context`
++ location trend, Landsat surface heat averaged over the 3x3 neighbourhood, NLCD imperviousness and canopy within 300 m)
+and models `heat_offset_trend_only`, `heat_offset_lst`. Same label, training rows (1,207) and options as `sql/04`.
+The live `heat_offset_model`, `site_context` and `toolbox/tools.yaml` are untouched; `tests/test_model_v2_sql.py`
+fails if any template other than `sql/04` would recreate the live model.
+
+**Held-out superblocks (442 cells, never seen in training), 2026-11-17:**
+
+| Model | r2 | RMSE (F) | MAE (F) |
+|---|---:|---:|---:|
+| Always predict the city average | 0.00 | 2.41 | 1.44 |
+| Live model (physical features) | 0.26 | 2.06 | 1.44 |
+| Location trend only | 0.50 | 1.68 | 1.24 |
+| **v2: trend + surface heat + land cover** | **0.59** | **1.54** | **1.22** |
+
+- Kill criterion (REQ-003, v2 must beat trend-only by >= 0.02 r2): **PASS**, margin +0.084.
+- Edge check: 0 unmeasured cells predict outside the measured range (-13.9..+6.7 F); v2 predictions span -8.1..+3.5 F
+  (coolest: lakefront Rogers Park).
+- Equity audit, top 20 truck sites, heat_weight 0.5 (`scripts/compare_v2.py`): share of sites in the top vulnerability
+  quartile 76.5% -> 76.5% (unchanged); mean vulnerability 0.799 -> 0.815; share 65+ 17.9% -> 19.8%; poverty
+  30.4% -> 25.9%; households without a car 31.9% -> 29.7%. Citywide: 18.7% / 0.575 / 12.8% / 17.3% / 23.6%.
+- Ranking shift: 2 of 20 exact cells unchanged; sites move toward the South Side (Calumet Heights, Greater Grand
+  Crossing, South Shore, Auburn Gresham, South Deering) and away from the West Side (East/West Garfield Park,
+  Humboldt Park); Chatham, Chicago Lawn, Austin and North Lawndale stay in the top 10.
+- Caveats: surface heat is satellite SURFACE temperature at ~10:30, used as an input, never shown as air temperature;
+  the location trend may partly reflect the order volunteers drove (Heat Watch has no timestamps), though Landsat,
+  measured everywhere at once, also shows the southwest/south running hot.
+- Rollback / backup: nothing to roll back while unpromoted. Full snapshot of tables and all models:
+  `a4i_climate_backup_20261117_214035` (docs/DATA_RECOVERY.md). The live model can also be rebuilt from `sql/04`.
+- Not yet done (promotion): point `toolbox/build_tools_yaml.py` at `heat_offset_lst` / `site_context_lst`, sum the
+  `trend_*` attributions into one "location in the city" reason (tools request top 3 reasons today), retune the
+  console cutoff range, regenerate `tools.yaml`, redeploy the Toolbox.
