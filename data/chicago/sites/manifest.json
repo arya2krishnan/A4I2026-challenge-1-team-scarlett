@@ -1,0 +1,75 @@
+{
+  "retrieved_at": "2026-11-17T19:34:04+00:00",
+  "portal": "https://data.cityofchicago.org",
+  "tool": "tools/fetch_chicago_sites.py",
+  "files": {
+    "cooling_centers.csv": {
+      "dataset_id": "msrk-w9ih",
+      "title": "Cooling Centers",
+      "landing_page": "https://data.cityofchicago.org/d/msrk-w9ih",
+      "api": "https://data.cityofchicago.org/resource/msrk-w9ih.json",
+      "rows": 287,
+      "sha256": "94adcaa5c83472327572f3ca6822c8797188a224414cc878de7b2fcd4f46175b",
+      "fetched": 287,
+      "no_point": 0,
+      "outside_chicago": 0,
+      "kept": 287
+    },
+    "libraries.csv": {
+      "dataset_id": "x8fc-8rcq",
+      "title": "Libraries - Locations, Contact Information, and Usual Hours of Service",
+      "landing_page": "https://data.cityofchicago.org/d/x8fc-8rcq",
+      "api": "https://data.cityofchicago.org/resource/x8fc-8rcq.json",
+      "rows": 82,
+      "sha256": "d205c55fe04c2d2e5cab32cf3da9627aebc25b417d30287846449090eb8abb6e",
+      "fetched": 82,
+      "no_point": 0,
+      "outside_chicago": 0,
+      "kept": 82
+    },
+    "police_stations.csv": {
+      "dataset_id": "z8bn-74gv",
+      "title": "Police Stations",
+      "landing_page": "https://data.cityofchicago.org/d/z8bn-74gv",
+      "api": "https://data.cityofchicago.org/resource/z8bn-74gv.json",
+      "rows": 23,
+      "sha256": "2c435cd9d7fc4d1a277b963eea806f984b0f86659e71a59615f80e262d99275c",
+      "fetched": 23,
+      "no_point": 0,
+      "outside_chicago": 0,
+      "kept": 23
+    },
+    "senior_centers.csv": {
+      "dataset_id": "qhfc-4cw2",
+      "title": "Senior Centers",
+      "landing_page": "https://data.cityofchicago.org/d/qhfc-4cw2",
+      "api": "https://data.cityofchicago.org/resource/qhfc-4cw2.json",
+      "rows": 21,
+      "sha256": "0f40c41c3e77ab75b6a412042da783112f807efd75189ab4837e02e1a02efab0",
+      "fetched": 21,
+      "no_point": 0,
+      "outside_chicago": 0,
+      "kept": 21
+    },
+    "cps_schools.csv": {
+      "dataset_id": "pb6d-zzuh",
+      "title": "Chicago Public Schools - School Locations SY2526",
+      "landing_page": "https://data.cityofchicago.org/d/pb6d-zzuh",
+      "api": "https://data.cityofchicago.org/resource/pb6d-zzuh.json",
+      "rows": 645,
+      "sha256": "08b4bc90d75535b7aff9a289a881c86f98ce90f97f004979e1cd017940c14885",
+      "fetched": 645,
+      "no_point": 0,
+      "outside_chicago": 0,
+      "kept": 645
+    },
+    "candidate_sites.csv": {
+      "derived_from": [
+        "cooling_centers.csv",
+        "cps_schools.csv"
+      ],
+      "rows": 457,
+      "sha256": "e3fd7e49fa487cc44664bd892a5128a162327136e045c0f31a426a504df625aa"
+    }
+  }
+}
