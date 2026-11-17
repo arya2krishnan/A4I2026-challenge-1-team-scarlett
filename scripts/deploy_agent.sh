@@ -2,6 +2,8 @@
 # Deploy the agent to Agent Platform (Agent Runtime).
 #   make deploy-agent            # updates the instance named in .env, or creates one
 #   make deploy-agent NEW=1      # force a new instance
+#   DISPLAY_NAME=heat-dispatch-agent-yourname NEW=1 make deploy-agent   # your OWN engine: several people deploying to one
+#                                # engine overwrite each other (last writer wins), so give each developer their own
 set -euo pipefail
 . "$(dirname "$0")/_env.sh"
 LOG="$(mktemp)"; ENVFILE="$ROOT/agent/heat_dispatch/.env"
@@ -12,7 +14,7 @@ trap 'rm -f "$LOG" "$ENVFILE"' EXIT
 printf '%s\n' "GOOGLE_GENAI_USE_ENTERPRISE=1" "MODEL=${MODEL:-gemini-3.6-flash}" "MODEL_LOCATION=${MODEL_LOCATION:-global}" \
   "TOOLBOX_URL=$TOOLBOX_URL" "TOOLBOX_TOOLSET=${TOOLBOX_TOOLSET:-heat_dispatch}" "MAPS_API_KEY=${MAPS_API_KEY:-}" | sed '/=$/d' > "$ENVFILE"
 
-args=(--project "$PROJECT" --region "$REGION" --display_name "heat-dispatch-agent"
+args=(--project "$PROJECT" --region "$REGION" --display_name "${DISPLAY_NAME:-heat-dispatch-agent}"
       --description "Chicago emergency heat dispatch assistant")
 [ -n "${AGENT_SERVICE_ACCOUNT:-}" ] && args+=(--service_account "$AGENT_SERVICE_ACCOUNT")
 if [ -z "${NEW:-}" ] && [ -n "${AGENT_RESOURCE_NAME:-}" ] && [[ "$AGENT_RESOURCE_NAME" == *"/locations/$REGION/"* ]]; then

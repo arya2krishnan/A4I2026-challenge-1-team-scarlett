@@ -6,6 +6,7 @@ sheet are therefore exactly the numbers the model produced, and the language mod
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import urllib.parse
 import urllib.request
@@ -23,6 +24,8 @@ STATE_AUDIT = "equity_audit"
 STATE_PARAMS = "ranking_params"
 
 LIBRARY_MAX_KM = 2.5
+SITES_WAIT_S = 30.0    # how long build_dispatch_plan waits for a ranking still running in the same step
+OTHER_WAIT_S = 3.0     # ...and for the optional wellness / audit results
 
 
 def _maps_link(lat: float, lon: float) -> str:
@@ -41,6 +44,18 @@ def reverse_geocode(lat: float, lon: float) -> str | None:
         return data["results"][0]["formatted_address"] if data.get("status") == "OK" and data.get("results") else None
     except Exception:
         return None
+
+
+async def _wait_for(state: Any, key: str, timeout: float, every: float = 0.2) -> list:
+    """Rows stored under `key` by the after-tool callback, waiting for a tool that is still running in this same step.
+
+    Session state is shared by tools running concurrently, so polling is enough. Returns [] once the time is up.
+    """
+    waited = 0.0
+    while not state.get(key) and waited < timeout:
+        await asyncio.sleep(every)
+        waited += every
+    return list(state.get(key) or [])
 
 
 def _f(row: dict, key: str, default: float = 0.0) -> float:
@@ -196,14 +211,15 @@ def render_sheet(forecast_high_f: float, stops: list[dict], teams: list[dict], l
     return "\n".join(md)
 
 
-def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, wellness_teams: int = 4,
+async def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, wellness_teams: int = 4,
                         library_extensions: int = 3, tool_context: ToolContext | None = None,
                         emergency_gyms: int = 2, sites: list[dict] | None = None,
                         tracts: list[dict] | None = None) -> dict:
     """Assemble the dispatch sheet (the Placement Recommendation) from the rankings already fetched this session.
 
-    Call rank_priority_sites first (and rank_wellness_check_tracts and equity_audit if you can). This tool reads
-    their results from session state, so coordinates and numbers are exactly what the model produced.
+    Call rank_priority_sites (and rank_wellness_check_tracts and equity_audit) first or in the same step: this tool
+    waits briefly for them. It reads their results from session state, so coordinates and numbers are exactly what the
+    model produced.
 
     Args:
         forecast_high_f: forecast high for the planning day in degrees F.
@@ -216,11 +232,13 @@ def build_dispatch_plan(forecast_high_f: float, hydration_trucks: int = 3, welln
         tracts: optional list of wellness check tract dicts if already in context.
     """
     state: Any = tool_context.state if tool_context is not None else {}
-    sites = list(sites or state.get(STATE_SITES) or [])
+    # Explicit arguments win; otherwise use what the after-tool callback stored. The model often fires the rankings and this
+    # tool in the SAME step and they run concurrently, so wait for the stored rows instead of failing.
+    sites = list(sites or []) or await _wait_for(state, STATE_SITES, SITES_WAIT_S)
     if not sites:
         return {"status": "need_data", "message": "No ranked sites in this session yet. Call rank_priority_sites first."}
-    tracts = list(tracts or state.get(STATE_TRACTS) or [])
-    audit = list(state.get(STATE_AUDIT) or [])
+    tracts = list(tracts or []) or await _wait_for(state, STATE_TRACTS, OTHER_WAIT_S)   # absence = a gap in the sheet, not an error
+    audit = await _wait_for(state, STATE_AUDIT, OTHER_WAIT_S)
     params = dict(state.get(STATE_PARAMS) or {})
 
     stops = pick_hydration_stops(sites, float(forecast_high_f), max(0, int(hydration_trucks)))

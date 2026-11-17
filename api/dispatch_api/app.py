@@ -43,8 +43,10 @@ def create_app(store: Store | None = None) -> FastAPI:
     for exc, code in ((NotFound, 404), (Conflict, 409), (Invalid, 422)):
         app.add_exception_handler(exc, lambda _req, e, code=code: JSONResponse({"detail": str(e)}, status_code=code))
 
-    @app.get("/healthz")
-    def healthz() -> dict:
+    # /health, not /healthz: Cloud Run reserves paths ending in "z" and answers them with its own 404 page.
+    @app.get("/health")
+    @app.get("/healthz", include_in_schema=False)  # kept for local callers; unreachable on Cloud Run
+    def health() -> dict:
         return {"status": "ok"}
 
     @app.post("/api/dispatches/proposals", status_code=201)

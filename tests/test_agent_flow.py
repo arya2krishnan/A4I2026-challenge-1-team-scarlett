@@ -79,3 +79,49 @@ def test_out_of_area_point_is_refused_without_calling_the_tool():
     resp = next(p.function_response.response for e in events for p in (e.content.parts if e.content else [])
                 if p.function_response)
     assert resp["status"] == "outside_area"
+
+
+# ---- the race that broke the canned "Plan tomorrow" click --------------------------------------------------------
+class ParallelLlm(BaseLlm):
+    """First response issues the ranking AND the dispatch tool in the SAME step (what Gemini did live)."""
+    model: str = "scripted-parallel"
+    calls: int = 0
+
+    async def generate_content_async(self, llm_request, stream=False):
+        object.__setattr__(self, "calls", self.calls + 1)
+        if self.calls == 1:
+            parts = [types.Part(function_call=types.FunctionCall(name="slow_rank_priority_sites", args={"limit": 1})),
+                     types.Part(function_call=types.FunctionCall(name="build_dispatch_plan", args={
+                         "forecast_high_f": 102, "hydration_trucks": 1, "wellness_teams": 0, "library_extensions": 0}))]
+        else:
+            parts = [types.Part(text="done")]
+        yield LlmResponse(content=types.Content(role="model", parts=parts))
+
+
+async def slow_rank_priority_sites(limit: int = 1) -> str:
+    """Fake ranking tool that takes a moment, like BigQuery does."""
+    await asyncio.sleep(0.6)
+    return json.dumps([SITE])
+
+
+slow_rank_priority_sites.__name__ = "slow_rank_priority_sites"
+
+
+def test_dispatch_waits_for_a_ranking_issued_in_the_same_step(monkeypatch):
+    import heat_dispatch.agent as ag
+    from heat_dispatch import dispatch
+    monkeypatch.setattr(dispatch, "SITES_WAIT_S", 10.0)      # the race test needs the real waiting behaviour
+    monkeypatch.setitem(ag._STASH, "slow_rank_priority_sites", "ranked_sites")   # treat the fake like the real tool
+    agent = Agent(name="t", model=ParallelLlm(), tools=[slow_rank_priority_sites, build_dispatch_plan],
+                  after_tool_callback=stash_tool_results)
+    runner = InMemoryRunner(agent=agent, app_name="t")
+
+    async def go():
+        s = await runner.session_service.create_session(app_name="t", user_id="u")
+        return [e async for e in runner.run_async(user_id="u", session_id=s.id,
+                new_message=types.Content(role="user", parts=[types.Part(text="plan")]))]
+
+    events = asyncio.run(go())
+    plans = [p.function_response.response for e in events for p in (e.content.parts if e.content else [])
+             if p.function_response and p.function_response.name == "build_dispatch_plan"]
+    assert plans and plans[0]["status"] == "ok", plans

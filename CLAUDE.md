@@ -51,11 +51,33 @@ Do not run `scripts/publish` notebooks (maintainers only). Invoke shell scripts 
 ## Status / caveats
 
 Deployed and verified on project `qwiklabs-gcp-04-3e58e01275b8` (ids/URLs are in the git-ignored `.env`): Toolbox on Cloud Run
-(private), agent on Agent Runtime, Streamlit client on Cloud Run. `make test` = 98 Python + 7 frontend offline tests. Console not yet deployed or run against live BigQuery. Model is weak by design of the
+(private), agent on Agent Runtime, Streamlit client on Cloud Run. `make test` = 176 Python offline tests (+ 7 frontend when `npm ci` is done). On a checkout without PR #8 (`fix/conftest-api-path`) `tests/test_dispatch_api.py` fails: run `PYTHONPATH=api pytest tests` until it is merged. Console not yet deployed or run against live BigQuery. Model is weak by design of the
 data (held-out r2 ~0.26; a lat/lon trend alone gets 0.50: see docs/ARCHITECTURE.md). Open decision: whether to add a coarse
 location-trend term to the model. `scripts/check_tool_sql.py` runs every tool's SQL directly; `scripts/ask.py` queries the agent
 (needs `python scripts/toolbox_proxy.py` for a local run against the private Toolbox). macOS bash 3.2 cannot run `scripts/load.sh`
 (`${var^^}`): run its three `bq load --replace` commands instead.
+
+## Gotchas learned the hard way (all reproduced by tests)
+
+- **Agent Runtime runs every query on a NEW asyncio event loop.** A plain `ToolboxToolset` caches an aiohttp session on its first
+  loop, so from the 2nd query on the agent silently has no data tools and tells users the tools are "unavailable".
+  `toolbox.LoopSafeToolboxToolset` keeps one client per loop. Never share a cached async client across queries.
+- **Gemini fires dependent tools in the same step** (rankings + `build_dispatch_plan`); ADK runs them concurrently. The plan
+  tool is async and waits for the stashed rows. Callbacks (`guard_point_tools`, `stash_tool_results`) are per agent: set them on
+  every specialist.
+- **LLM-driven `transfer_to_agent` can ping-pong** between coordinator and specialists on compound requests. The coordinator
+  keeps the whole-plan request; specialists have `disallow_transfer_to_peers`.
+- A deployed engine reports `UPDATING` for a minute or two after `deploy-agent` returns; redeploying during that window fails
+  and queries may still hit the old revision. Verify with several parallel runs, not one.
+
+## Rebased onto main (after PRs #1-#7)
+
+`sg-contrib` = main + five commits. Still needed on main (verified by reading its code): the per-loop Toolbox wrapper, the async
+`build_dispatch_plan` that waits for same-step rankings, `disallow_transfer_to_peers`, the client blank-bubble fix and the
+`DISPLAY_NAME` deploy option. Dropped as redundant with PR #7: the specialist-callback loop (builders now take the callbacks) and
+the duplicate "do not transfer" prompt lines. Open concerns on main, not ours to fix silently: invented fallback hours for high
+schools (`dispatch.py`), a hard-coded 311 facility list with made-up phones/hours (`social_media/call_311.py`), tweets can post
+live with no human approval, and `agent/social_media/` is outside the deployed `heat_dispatch` package.
 
 ## Conventions
 

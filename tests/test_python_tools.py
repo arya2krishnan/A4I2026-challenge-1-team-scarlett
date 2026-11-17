@@ -1,4 +1,5 @@
 """Offline tests for the agent's Python layer (no GCP, no network)."""
+import asyncio
 import json
 import types
 
@@ -106,7 +107,7 @@ def ctx(**state):
 
 
 def test_plan_needs_data_first():
-    assert dispatch.build_dispatch_plan(102, tool_context=ctx())["status"] == "need_data"
+    assert asyncio.run(dispatch.build_dispatch_plan(102, tool_context=ctx()))["status"] == "need_data"
 
 
 def test_plan_uses_stored_rows_verbatim(monkeypatch):
@@ -115,8 +116,8 @@ def test_plan_uses_stored_rows_verbatim(monkeypatch):
              site(3, 41.85, -87.72, 4.0, "Library B", lib_km=4.0), site(4, 41.80, -87.60, 3.0, "Library C")]
     tracts = [{"tract_geo_id": "17031000100", "latitude": 41.8, "longitude": -87.7, "residents_65_plus": 700,
                "households_without_car": 400}]
-    out = dispatch.build_dispatch_plan(102, hydration_trucks=3, wellness_teams=2, library_extensions=3,
-                                       tool_context=ctx(ranked_sites=sites, wellness_tracts=tracts))
+    out = asyncio.run(dispatch.build_dispatch_plan(102, hydration_trucks=3, wellness_teams=2, library_extensions=3,
+                                                   tool_context=ctx(ranked_sites=sites, wellness_tracts=tracts)))
     assert out["status"] == "ok"
     stops = out["hydration_stops"]
     assert [s["latitude"] for s in stops] == [41.7796, 41.89, 41.85]          # model coordinates untouched
@@ -136,7 +137,7 @@ def test_plan_includes_audit_when_present(monkeypatch):
               "share_65_plus": 0.12, "mean_vulnerability_index": 0.8},
              {"group_name": "citywide", "poverty_rate": 0.20, "households_without_car_rate": 0.25,
               "share_65_plus": 0.13, "mean_vulnerability_index": 0.5}]
-    out = dispatch.build_dispatch_plan(100, 1, 0, 0, ctx(ranked_sites=[site(1, 41.8, -87.7, 5)], equity_audit=audit))
+    out = asyncio.run(dispatch.build_dispatch_plan(100, 1, 0, 0, ctx(ranked_sites=[site(1, 41.8, -87.7, 5)], equity_audit=audit)))
     assert out["equity_audit_ran"] and "1.50x" in out["dispatch_sheet_markdown"]
     assert "123 W Test St" in out["dispatch_sheet_markdown"]
 

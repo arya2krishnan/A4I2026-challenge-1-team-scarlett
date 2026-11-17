@@ -23,7 +23,7 @@ fi
 echo ">> Service account $SA"
 gcloud iam service-accounts describe "$SA" --project "$PROJECT" >/dev/null 2>&1 || \
   gcloud iam service-accounts create "${SA%%@*}" --project "$PROJECT" --display-name "Heat dispatch API (Cloud Run)"
-gcloud projects add-iam-policy-binding "$PROJECT" --member "serviceAccount:$SA" --role roles/datastore.user \
+retry gcloud projects add-iam-policy-binding "$PROJECT" --member "serviceAccount:$SA" --role roles/datastore.user \
   --condition=None --quiet >/dev/null
 save_env DISPATCH_API_SERVICE_ACCOUNT "$SA"
 
@@ -32,7 +32,7 @@ if ! gcloud secrets describe "$SECRET" --project "$PROJECT" >/dev/null 2>&1; the
   openssl rand -hex 32 | tr -d '\n' | gcloud secrets create "$SECRET" --project "$PROJECT" \
     --replication-policy automatic --data-file=-
 fi
-gcloud secrets add-iam-policy-binding "$SECRET" --project "$PROJECT" --member "serviceAccount:$SA" \
+retry gcloud secrets add-iam-policy-binding "$SECRET" --project "$PROJECT" --member "serviceAccount:$SA" \
   --role roles/secretmanager.secretAccessor --condition=None --quiet >/dev/null
 
 echo ">> Deploying $SERVICE"

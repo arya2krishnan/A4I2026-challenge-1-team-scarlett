@@ -1,47 +1,26 @@
-import { geoArea } from 'd3-geo';
 import type { TractFeature } from './types';
 
 type Ring = number[][];
+const area = (r: Ring) => { let a = 0; for (let i = 0, j = r.length - 1; i < r.length; j = i++) a += (r[j][0] - r[i][0]) * (r[j][1] + r[i][1]); return a / 2; };
+// area < 0 means clockwise in (lon, lat) with lat up.
+const orient = (r: Ring, clockwise: boolean) => ((area(r) < 0) === clockwise ? r : [...r].reverse());
+const polygon = (rings: Ring[]) => rings.map((r, i) => orient(r, i === 0));
 
-function fixGeometry(g: GeoJSON.Geometry | null): GeoJSON.Geometry | null {
-  if (!g) return null;
-  if (g.type === 'GeometryCollection') {
-    const polys = (g.geometries || []).filter(sub => sub.type === 'Polygon' || sub.type === 'MultiPolygon') as (GeoJSON.Polygon | GeoJSON.MultiPolygon)[];
-    if (polys.length === 1) return fixGeometry(polys[0]);
-    if (polys.length > 1) {
-      const all: Ring[][] = [];
-      for (const p of polys) {
-        if (p.type === 'Polygon') all.push(p.coordinates as Ring[]);
-        else if (p.type === 'MultiPolygon') all.push(...(p.coordinates as Ring[][]));
-      }
-      return fixGeometry({ type: 'MultiPolygon', coordinates: all });
-    }
-    return polys[0] || null;
+/** Polygons only, wound for d3: exterior clockwise, holes counter-clockwise. Lines/points are dropped. */
+function polygons(g: GeoJSON.Geometry): Ring[][] {
+  switch (g.type) {
+    case 'Polygon': return [polygon(g.coordinates as Ring[])];
+    case 'MultiPolygon': return (g.coordinates as Ring[][]).map(polygon);
+    case 'GeometryCollection': return g.geometries.flatMap(polygons);
+    default: return [];
   }
-  if (g.type === 'Polygon') {
-    let coords = g.coordinates as Ring[];
-    if (geoArea({ type: 'Polygon', coordinates: coords }) > 2 * Math.PI) {
-      coords = coords.map(r => [...r].reverse());
-    }
-    return { type: 'Polygon', coordinates: coords };
-  }
-  if (g.type === 'MultiPolygon') {
-    const coords = (g.coordinates as Ring[][]).map(poly => {
-      if (geoArea({ type: 'Polygon', coordinates: poly }) > 2 * Math.PI) {
-        return poly.map(r => [...r].reverse());
-      }
-      return poly;
-    });
-    return { type: 'MultiPolygon', coordinates: coords };
-  }
-  return g;
 }
 
-/** BigQuery's ST_ASGEOJSON follows RFC 7946 (exterior rings counter-clockwise). d3-geo is spherical and reads a
- *  counter-clockwise exterior as "the whole globe minus this tract", so rewind to valid spherical bounds and
- *  flatten any GeometryCollections into standard Polygons. */
+/** BigQuery's ST_ASGEOJSON follows RFC 7946 (exterior rings counter-clockwise), and ST_SIMPLIFY can return a
+ *  GeometryCollection (polygon + stray line/point). d3-geo is spherical and reads a counter-clockwise exterior as
+ *  "the whole globe minus this tract", so normalise every tract to a clockwise (Multi)Polygon. */
 export function rewind<F extends TractFeature>(f: F): F {
-  const fixed = fixGeometry(f.geometry as GeoJSON.Geometry);
-  return fixed ? { ...f, geometry: fixed } : f;
+  const ps = polygons(f.geometry as GeoJSON.Geometry);
+  const geometry: GeoJSON.Geometry = ps.length === 1 ? { type: 'Polygon', coordinates: ps[0] } : { type: 'MultiPolygon', coordinates: ps };
+  return { ...f, geometry };
 }
-

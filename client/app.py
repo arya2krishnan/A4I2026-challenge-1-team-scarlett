@@ -92,6 +92,12 @@ def render_result(b: dict, key: str) -> None:
                     st.error(f"Failed to publish to Twitter: {exc}")
 
 
+def user_text(blocks: list[dict]) -> str:
+    """What the user actually typed: drop the '[Planner context: ...]' line the client adds to every message."""
+    text = "\n".join(b["text"] for b in blocks if b["kind"] == "text")
+    return "\n".join(ln for ln in text.splitlines() if not ln.startswith("[Planner context:")).strip()
+
+
 def render_blocks(blocks: list[dict], key: str) -> None:
     calls = [b for b in blocks if b["kind"] == "tool_call"]
     if calls:
@@ -135,6 +141,8 @@ picked = None
 with st.sidebar:
     st.markdown("### 🌡️ Heat Dispatch")
     st.caption(f"Agent: {be.label}")
+    if getattr(be, "code_version", None):
+        st.caption(f"Loaded code: {be.code_version}  (restart Streamlit if this is not the latest commit)")
     forecast = st.number_input("Forecast high (°F)", min_value=70, max_value=125, value=102, step=1,
                                help="Sent with every message so the agent never has to guess the forecast.")
     if st.button("＋ New chat", width="stretch", type="primary"):
@@ -239,7 +247,10 @@ if not ss.messages:
 
 for i, msg in enumerate(ss.messages):
     with st.chat_message(msg["role"]):
-        render_blocks(msg["blocks"], f"h{i}")
+        if msg["role"] == "user":
+            st.markdown(user_text(msg["blocks"]))
+        else:
+            render_blocks(msg["blocks"], f"h{i}")
 
 prompt = st.chat_input("Ask about tomorrow's heat in Chicago…") or picked
 if prompt:
