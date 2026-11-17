@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concept D · Heat Dispatch Console — Chicago</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="base.css">
+<style>
+.app{grid-template-columns:290px 1fr 440px}
+.center{display:grid;grid-template-rows:auto 1fr;min-height:0}
+.strip{display:grid;grid-template-columns:repeat(5,1fr);background:var(--panel);border-bottom:1px solid var(--line)}
+.strip .stat{padding:11px 14px;border-right:1px solid var(--line)}
+.strip .stat:last-child{border-right:0}
+.strip .v{font-size:20px}
+.box{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;margin-top:10px}
+.box h4{margin:0 0 6px;font:600 13px "IBM Plex Sans";display:flex;justify-content:space-between;align-items:center}
+.lens{display:grid;grid-template-columns:1fr;gap:4px}
+.lens button{display:flex;gap:9px;align-items:center;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 8px;font-size:12.5px}
+.lens button .sw{width:26px;height:14px;border-radius:3px;flex:none}
+.lens button.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);background:var(--soft)}
+.lens button small{display:block;color:var(--muted);font-size:11px}
+.layers{display:grid;grid-template-columns:1fr;gap:3px;font-size:12.5px}
+.layers label{display:flex;gap:6px;align-items:center;cursor:pointer;white-space:nowrap}
+.layers input{accent-color:var(--ink)}
+.ico{display:inline-block;width:12px;height:12px;flex:none}
+.mapwrap .legend svg.ico{width:12px;height:12px}
+details.box summary{cursor:pointer;font:600 13px "IBM Plex Sans";list-style:none}
+details.box summary::after{content:"▸";float:right;color:var(--muted)}
+details[open].box summary::after{content:"▾"}
+.res{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font-size:12.5px;margin-top:6px}
+.res b{font-family:"IBM Plex Mono",monospace;min-width:22px;text-align:right}
+.seg2{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.seg2 button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px;font-size:11.5px}
+.seg2 button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.seg2 button.trap.on{background:#b7791f;border-color:#b7791f}
+/* right column */
+.rcol{display:flex;flex-direction:column;min-height:0;background:var(--panel);border-left:1px solid var(--line)}
+.rhead{padding:14px 16px 8px;border-bottom:1px solid var(--line)}
+.rhead .row{justify-content:space-between}
+.ver{font:600 11px "IBM Plex Mono",monospace;color:var(--muted)}
+.progress{height:6px;border-radius:3px;background:var(--soft);overflow:hidden;margin-top:8px}
+.progress i{display:block;height:100%;background:#13803f;transition:width .3s}
+.tabs{display:flex;gap:4px;margin-top:10px}
+.tab{flex:1;border:1px solid var(--line);background:#fff;border-radius:9px;padding:5px 4px;font-size:12px;text-align:center}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab .c{font-family:"IBM Plex Mono",monospace;font-weight:600}
+.list{flex:1;overflow:auto;padding:10px 16px;display:flex;flex-direction:column;gap:7px;min-height:120px}
+.item{display:grid;grid-template-columns:24px 1fr auto;gap:8px;padding:9px 10px;border:1px solid var(--line);border-radius:11px;background:#fff;border-left-width:4px;cursor:pointer}
+.item:hover{background:#fcfbf8}
+.item.sel{box-shadow:0 0 0 2px var(--ink)}
+.item.ok{background:#f1f8f3;border-color:#a9d3b8}
+.item .rk{font:600 13px "IBM Plex Mono",monospace;color:var(--muted)}
+.item .nm{font-weight:600}
+.item .sub{font-size:11.5px;color:var(--muted)}
+.item .num{text-align:right;font:600 13px "IBM Plex Mono",monospace}
+.item .num small{display:block;font:400 10.5px "IBM Plex Sans";color:var(--muted)}
+.why{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.why span{font-size:10.5px;border-radius:5px;padding:1px 6px;background:var(--soft);color:#3c3832}
+.acts{display:flex;gap:6px;margin-top:7px}
+.acts button{border:1px solid var(--line);background:#fff;border-radius:7px;padding:3px 9px;font-size:11.5px;font-weight:600}
+.acts .ap{border-color:#13803f;color:#13803f}
+.acts .ap:hover{background:#13803f;color:#fff}
+.acts .sk{color:var(--muted)}
+.okbadge{display:inline-flex;gap:5px;align-items:center;font:600 11.5px "IBM Plex Sans";color:#13803f}
+.okbadge button{border:0;background:none;color:var(--muted);font-size:11px;text-decoration:underline;padding:0}
+/* chat */
+.chat{border-top:1px solid var(--line);display:flex;flex-direction:column;height:330px;flex:none;background:#fbfaf7}
+.chat .hd{padding:8px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+.msgs{flex:1;overflow:auto;padding:10px 16px;display:flex;flex-direction:column;gap:8px}
+.msg{max-width:88%;padding:8px 11px;border-radius:12px;font-size:12.8px;line-height:1.45}
+.msg.u{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:4px}
+.msg.a{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+.msg.a .diff{margin-top:6px;font-size:11.8px}
+.msg.a .diff div{padding:1px 0}
+.msg .qr{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.msg .qr button,.sugg button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 9px;font-size:11.5px}
+.sugg{display:flex;gap:5px;overflow-x:auto;padding:0 16px 6px;scrollbar-width:none}
+.sugg button{white-space:nowrap}
+.inrow{display:flex;gap:6px;padding:0 16px 12px}
+.inrow input{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font:inherit;background:#fff}
+.inrow input:focus{outline:2px solid var(--ink);outline-offset:-1px}
+.legend .li{display:flex;align-items:center;gap:8px;font-size:12px;margin:3px 0}
+.legend .sq{width:14px;height:14px;border-radius:3px;flex:none}
+.legend .bar{height:10px;border-radius:3px;margin:6px 0 3px}
+.bv{display:grid;grid-template-columns:repeat(3,16px);gap:2px}
+.bv i{width:16px;height:16px;display:block}
+</style></head>
+<body>
+<div class="app">
+  <aside class="panel">
+    <div class="kicker">Concept D · Heat Dispatch Console</div>
+    <h2 style="font-size:21px;margin-top:6px">Plan, check, approve</h2>
+    <p class="note" style="margin-top:5px">The dispatch board from B, with A's lenses for seeing the city different ways. Approve what you agree with; tell the assistant what changed.</p>
+
+    <div class="box"><h4>Day <span class="note" id="dayHi"></span></h4><div class="chips" id="days"></div></div>
+
+    <div class="box"><h4>Map lens</h4><div class="lens" id="lens"></div></div>
+
+    <div class="box"><h4>Sites <span class="note">real · City data</span></h4><div class="layers" id="layers"></div></div>
+
+    <details class="box" open><summary>Resources today</summary>
+      <div class="res">
+        <span>🚚</span><input type="range" id="nT" min="0" max="25" value="10"><b id="nTv">10</b>
+        <span>🩺</span><input type="range" id="nW" min="0" max="25" value="8"><b id="nWv">8</b>
+        <span>📚</span><input type="range" id="nL" min="0" max="15" value="6"><b id="nLv">6</b>
+      </div>
+      <div class="note" style="margin-top:4px">Trucks · wellness-check teams · library branches extending hours</div>
+    </details>
+
+    <details class="box"><summary>Rules</summary>
+      <div class="slider"><div class="row"><span>Hot tract: at least</span><b id="hotV">+1.0°</b></div><input type="range" id="hot" min="0" max="3" step="0.25" value="1"></div>
+      <div class="note" style="margin:-2px 0 6px">Measured offset vs city average (NOAA Heat Watch)</div>
+      <div class="kicker" style="margin:6px 0 4px">Rank by</div>
+      <div class="seg2" id="rank"><button data-k="vp" class="on">Team vuln_people</button><button data-k="sp">65+ × poverty</button><button data-k="heat">Heat only</button><button data-k="nv" class="trap">No-vehicle ⚠︎</button></div>
+      <div class="slider"><div class="row"><span>🩺 65+ share ≥</span><b id="s65V">18%</b></div><input type="range" id="s65" min="8" max="35" value="18"></div>
+      <div class="slider"><div class="row"><span>🩺 and no A/C site within</span><b id="dSV">0.6 km</b></div><input type="range" id="dS" min="0.3" max="1.5" step="0.1" value="0.6"></div>
+      <div class="slider"><div class="row"><span>📚 Library within</span><b id="ldV">0.8 km</b></div><input type="range" id="ld" min="0.3" max="1.6" step="0.1" value="0.8"></div>
+      <div class="slider"><div class="row"><span>🚚 Cooling desert: no A/C site within</span><b id="dTV">0.9 km</b></div><input type="range" id="dT" min="0.3" max="2" step="0.1" value="0.9"></div>
+      <label class="row note" style="gap:6px"><input type="checkbox" id="est"> include unmeasured tracts (estimated heat)</label>
+    </details>
+  </aside>
+
+  <main class="center">
+    <div class="strip" id="strip"></div>
+    <div class="mapwrap">
+      <svg id="map" xmlns="http://www.w3.org/2000/svg">
+        <defs><pattern id="hh" width=".18" height=".18" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width=".18" height=".18" fill="#f6d9c4"/><line x1="0" y1="0" x2="0" y2=".18" stroke="#d98a5f" stroke-width=".05"/></pattern></defs>
+        <g id="gT"></g><g id="gCA"></g><g id="gOut"></g><g id="gShed"></g><g id="gSites"></g><g id="gPins"></g><g id="gSel"></g>
+      </svg>
+      <div class="badge-mock real">REAL heat · ACS · City sites · scenario forecast</div>
+      <div class="zoom"><button id="zin">+</button><button id="zout">−</button><button id="zhome">⌂</button></div>
+      <div class="legend" id="legend"></div>
+    </div>
+  </main>
+
+  <aside class="rcol">
+    <div class="rhead">
+      <div class="row"><div class="kicker">Recommendations</div><span class="ver" id="ver"></span></div>
+      <div class="row" style="margin-top:6px"><span id="apprTxt" style="font-weight:600"></span><span class="row" style="gap:6px"><button class="btn ghost" id="apAll" style="padding:5px 10px">Approve all</button><button class="btn" id="copyAp" style="padding:5px 10px">Copy approved</button></span></div>
+      <div class="progress"><i id="prog"></i></div>
+      <div class="tabs" id="tabs"></div>
+    </div>
+    <div class="list" id="list"></div>
+    <div class="chat">
+      <div class="hd"><span class="kicker">Operator assistant</span><span class="note">prototype · rule-based stand-in for the ADK agent</span></div>
+      <div class="msgs" id="msgs"></div>
+      <div class="sugg" id="sugg"></div>
+      <form class="inrow" id="chatForm"><input id="chatIn" autocomplete="off" placeholder="Tell me what changed, or ask why…"><button class="btn">Send</button></form>
+    </div>
+  </aside>
+</div>
+<div class="toast" id="toast"></div>
+<script src="map.js"></script>
+<script>
+const $ = s => document.querySelector(s); const NS = 'http://www.w3.org/2000/svg';
+const el = (tag, a) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); return e; };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const S = { day: 1, lens: 'plan', layers: { lib: true, police: true, csc: true, park: false, senior: false, college: false, spray: false, cps: false },
+  hot: 1, rk: 'vp', nT: 10, nW: 8, nL: 6, s65: 18, dS: 0.6, ld: 0.8, dT: 0.9, est: false, tab: 'all', sel: null,
+  approved: new Map(), skipped: new Set(), closed: new Set(), ver: 1 };
+let D, R, history = [];
+const toast = m => { const t = $('#toast'); t.textContent = m; t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 2600); };
+const COLOR = { well: '#cf2f6b', truck: '#0b8f86', lib: '#4b4fd8' };
+const LABEL = { well: '🩺 Wellness checks', truck: '🚚 Hydration truck', lib: '📚 Extend library hours' };
+const SITE = {
+  lib: { n: 'Libraries', ic: '<svg class="ico" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2" fill="#4b4fd8" stroke="#fff"/></svg>' },
+  police: { n: 'Police (24/7)', ic: '<svg class="ico" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="#1f3b73" stroke="#fff"/></svg>' },
+  csc: { n: 'Community svc ctr', ic: '<svg class="ico" viewBox="0 0 12 12"><path d="M6 0.5L11.5 6L6 11.5L0.5 6Z" fill="#1f6fb2" stroke="#fff"/></svg>' },
+  park: { n: 'Park fieldhouse (A/C)', ic: '<svg class="ico" viewBox="0 0 12 12"><path d="M6 1L11 11H1Z" fill="#3c8a3f" stroke="#fff"/></svg>' },
+  senior: { n: 'Senior centers', ic: '<svg class="ico" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="#c77a12" stroke="#fff"/></svg>' },
+  college: { n: 'City Colleges', ic: '<svg class="ico" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" fill="#7a3fa0" stroke="#fff"/></svg>' },
+  spray: { n: 'Splash pads', ic: '<svg class="ico" viewBox="0 0 12 12"><circle cx="6" cy="6" r="3.5" fill="#33b5d6"/></svg>' },
+  cps: { n: 'CPS high schools*', ic: '<svg class="ico" viewBox="0 0 12 12"><rect x="1.5" y="1.5" width="9" height="9" fill="#fff" stroke="#1e1c19" stroke-width="1.5"/></svg>' },
+};
+const LENSES = [
+  { k: 'plan', t: 'Dispatch plan', d: 'Tracts colored by intervention' },
+  { k: 'temp', t: 'Street-level heat (°F)', d: 'Forecast high + measured offset' },
+  { k: 'offset', t: 'Heat differential', d: '° hotter/cooler than city average' },
+  { k: 'exposure', t: 'People × excess heat', d: 'Residents/km² × ° above average' },
+  { k: 'vuln', t: 'Vulnerable residents', d: '65+ share × poverty weight' },
+  { k: 'bivar', t: 'Heat × vulnerability', d: 'Where both are high' },
+];
+const BIV = [['#e8e6e1', '#e6c7a3', '#e39a5f'], ['#b9c1d9', '#c9a78f', '#d4704a'], ['#7c8fc4', '#9a7b9c', '#b23a3a']];
+
+// ---------------- data prep ----------------
+function prep() {
+  D.acSites = [...D.cool.filter(c => c.ac), ...D.libs.filter(l => !l.closed).map(l => ({ ...l, t: 'lib', ac: true, st: 'Library' }))];
+  D.tracts.forEach(t => {
+    let best = null, bd = 1e9; for (const s of D.acSites) { if (s.t === 'lib' && S.closed.has(s.n)) continue; const d = H.dist(s.c, t.c); if (d < bd) { bd = d; best = s; } }
+    t.acKm = bd; t.acSite = best;
+    t.vi = t.p65 * (0.5 + 0.5 * t.pov / D.cityPov);
+  });
+  const q = (a, p) => a[Math.floor(p * (a.length - 1))];
+  const vi = D.tracts.map(t => t.vi).sort((a, b) => a - b), hi = D.tracts.map(t => t.h).sort((a, b) => a - b);
+  const ex = D.tracts.map(t => Math.max(0, t.h) * t.dens).sort((a, b) => a - b);
+  D.q = { v33: q(vi, .33), v66: q(vi, .66), vmin: q(vi, .02), vmax: q(vi, .98), h33: q(hi, .33), h66: q(hi, .66), exmax: q(ex, .97) };
+}
+const wd = () => D.forecast[S.day].wd;
+const libHours = l => l.hrs[wd()] || '';
+function metric(t, k = S.rk) {
+  if (k === 'vp') return t.vp != null ? t.vp : t.n65 * (0.5 + 0.5 * t.pov / D.cityPov) + t.npov * 0.5;
+  if (k === 'sp') return t.n65 * (0.5 + 0.5 * t.pov / D.cityPov);
+  if (k === 'nv') return t.pop * t.nv / 100;
+  if (k === 'heat') return t.h;
+}
+const metricLabel = { vp: 'vulnerable', sp: 'seniors (wtd)', nv: 'car-free people', heat: '° hotter' };
+
+// ---------------- solver ----------------
+function solve() {
+  prep();
+  const pool = D.tracts.filter(t => (t.m || S.est) && t.h >= S.hot).sort((a, b) => metric(b) - metric(a));
+  const out = { pool, well: [], truck: [], lib: [], assigned: new Map() };
+  const take = (kind, cands, cap, keyOf) => {
+    const appr = [...S.approved.values()].filter(a => a.kind === kind).map(a => a.obj);
+    const chosen = [];
+    appr.sort((a, b) => (b._v || 0) - (a._v || 0)).forEach(o => { if (chosen.length < cap) chosen.push(o); });
+    for (const c of cands) { if (chosen.length >= cap) break; const k = keyOf(c); if (S.skipped.has(k) || chosen.some(x => keyOf(x) === k)) continue; chosen.push(c); }
+    return chosen;
+  };
+  // 🩺 wellness: seniors who can't reach any air-conditioned site
+  const wellE = pool.filter(t => t.p65 >= S.s65 && t.acKm > S.dS); wellE.forEach(t => t._v = metric(t));
+  out.well = take('well', wellE, S.nW, t => 'well:' + t.id); out.well.forEach(t => out.assigned.set(t, 'well'));
+  // 📚 library branches open today, scored by hot tracts in walking distance
+  const libE = pool.filter(t => !out.assigned.has(t));
+  const branches = D.libs.filter(l => !l.closed && !S.closed.has(l.n) && libHours(l)).map(l => { const ts = libE.filter(t => H.dist(t.c, l.c) <= S.ld); return { l, ts, _v: ts.reduce((s, t) => s + metric(t), 0), pop: ts.reduce((s, t) => s + t.pop, 0) }; }).filter(b => b.ts.length).sort((a, b) => b._v - a._v);
+  const apprLib = [...S.approved.values()].filter(a => a.kind === 'lib').map(a => branches.find(b => b.l.n === a.obj.l.n) || a.obj);
+  const libs = [];
+  apprLib.forEach(b => { if (libs.length < S.nL) libs.push(b); });
+  for (const b of branches) { if (libs.length >= S.nL) break; if (S.skipped.has('lib:' + b.l.n) || libs.some(x => x.l.n === b.l.n)) continue; const free = b.ts.filter(t => !out.assigned.has(t)); if (!free.length) continue; libs.push(b); free.forEach(t => out.assigned.set(t, 'lib')); }
+  libs.forEach(b => b.ts.forEach(t => { if (!out.assigned.has(t)) out.assigned.set(t, 'lib'); }));
+  out.lib = libs;
+  // 🚚 trucks: cooling deserts
+  const truckE = pool.filter(t => !out.assigned.has(t) && t.acKm > S.dT); truckE.forEach(t => t._v = metric(t));
+  out.truck = take('truck', truckE, S.nT, t => 'truck:' + t.id); out.truck.forEach(t => out.assigned.set(t, 'truck'));
+  out.over = pool.filter(t => !out.assigned.has(t));
+  const sum = (a, f) => a.reduce((s, t) => s + f(t), 0);
+  const meas = D.tracts.filter(t => t.m);
+  out.hotPop = sum(pool, t => t.pop); out.hot65 = sum(pool, t => t.n65) / sum(meas, t => t.n65);
+  const vAll = sum(pool, t => metric(t, 'vp')); out.reach = vAll ? sum([...out.assigned.keys()], t => metric(t, 'vp')) / vAll : 0;
+  const topH = new Set([...pool].sort((a, b) => b.h - a.h).slice(0, 50));
+  out.overlap = [...pool].sort((a, b) => metric(b, 'vp') - metric(a, 'vp')).slice(0, 50).filter(t => topH.has(t)).length;
+  out.items = [...out.well.map(t => ({ kind: 'well', key: 'well:' + t.id, obj: t })), ...out.truck.map(t => ({ kind: 'truck', key: 'truck:' + t.id, obj: t })), ...out.lib.map(b => ({ kind: 'lib', key: 'lib:' + b.l.n, obj: b }))];
+  return out;
+}
+
+// ---------------- map ----------------
+function lensFill(t) {
+  const T = D.forecast[S.day].t;
+  switch (S.lens) {
+    case 'temp': return H.heatRamp((T + t.h - 86) / 22);
+    case 'offset': return H.divRamp(t.h < 0 ? 0.5 + t.h / 16 : 0.5 + t.h / 9);
+    case 'exposure': return H.heatRamp(Math.sqrt(Math.max(0, t.h) * t.dens / D.q.exmax));
+    case 'vuln': return H.purpleRamp((t.vi - D.q.vmin) / (D.q.vmax - D.q.vmin));
+    case 'bivar': { const v = t.vi < D.q.v33 ? 0 : t.vi < D.q.v66 ? 1 : 2, h = t.h < D.q.h33 ? 0 : t.h < D.q.h66 ? 1 : 2; return BIV[v][h]; }
+  }
+  const a = R.assigned.get(t); if (a) return COLOR[a];
+  if (R.pool.includes(t)) return 'url(#hh)';
+  return '#ece8e0';
+}
+function drawMap() {
+  D.tracts.forEach(t => { t._p.setAttribute('fill', lensFill(t)); t._p.setAttribute('fill-opacity', S.lens === 'plan' ? (R.assigned.get(t) ? .88 : 1) : (t.m ? 1 : .6)); });
+  const go = $('#gOut'); go.innerHTML = '';
+  if (S.lens !== 'plan') R.assigned.forEach((k, t) => go.appendChild(el('path', { d: H.path(t.g), fill: 'none', stroke: COLOR[k], 'stroke-width': .09, 'pointer-events': 'none' })));
+  const gs = $('#gShed'); gs.innerHTML = '';
+  R.lib.forEach(b => gs.appendChild(el('circle', { cx: b.l.c[0], cy: b.l.c[1], r: S.ld, fill: 'rgba(75,79,216,.07)', stroke: COLOR.lib, 'stroke-width': .04, 'stroke-dasharray': '.12 .08', 'pointer-events': 'none' })));
+  drawSites(); drawPins(); legend();
+}
+function siteShape(t, x, y, s) {
+  switch (t) {
+    case 'lib': return el('rect', { x: x - s, y: y - s, width: 2 * s, height: 2 * s, rx: s * .4, fill: '#4b4fd8', stroke: '#fff', 'stroke-width': s * .3 });
+    case 'police': return el('circle', { cx: x, cy: y, r: s * 1.1, fill: '#1f3b73', stroke: '#fff', 'stroke-width': s * .3 });
+    case 'csc': return el('path', { d: `M${x} ${y - s * 1.4}L${x + s * 1.4} ${y}L${x} ${y + s * 1.4}L${x - s * 1.4} ${y}Z`, fill: '#1f6fb2', stroke: '#fff', 'stroke-width': s * .3 });
+    case 'park': return el('path', { d: `M${x} ${y - s * 1.2}L${x + s * 1.2} ${y + s}L${x - s * 1.2} ${y + s}Z`, fill: '#3c8a3f', stroke: '#fff', 'stroke-width': s * .25 });
+    case 'senior': return el('circle', { cx: x, cy: y, r: s, fill: '#c77a12', stroke: '#fff', 'stroke-width': s * .3 });
+    case 'college': return el('rect', { x: x - s, y: y - s, width: 2 * s, height: 2 * s, fill: '#7a3fa0', stroke: '#fff', 'stroke-width': s * .3 });
+    case 'spray': return el('circle', { cx: x, cy: y, r: s * .6, fill: '#33b5d6' });
+    case 'cps': return el('rect', { x: x - s * .9, y: y - s * .9, width: 1.8 * s, height: 1.8 * s, fill: '#fff', stroke: '#1e1c19', 'stroke-width': s * .3 });
+  }
+}
+function drawSites() {
+  const g = $('#gSites'); g.innerHTML = ''; const s = .13;
+  const add = (t, site, tipHtml) => { const sh = siteShape(t, site.c[0], site.c[1], s); sh.addEventListener('mousemove', e => H.tip.show(tipHtml, e)); sh.addEventListener('mouseleave', H.tip.hide); g.appendChild(sh); return sh; };
+  if (S.layers.lib) D.libs.forEach(l => { const closed = l.closed || S.closed.has(l.n); const sh = add('lib', l, `<b>📚 ${esc(l.n)}</b><br>${esc(l.a)}<br><span class="k">${D.dayNames[wd()]}:</span> ${closed ? '<b>closed</b>' : esc(libHours(l) || 'closed')}<br><span class="k">${esc(l.raw)}</span>`); if (closed) sh.setAttribute('fill', '#b8b2a7'); });
+  D.cool.forEach(c => { if (!S.layers[c.t]) return; add(c.t, c, `<b>${esc(c.n)}</b><br><span class="k">${esc(c.st)}</span><br>${esc(c.a)}${c.t === 'police' ? '<br><b>Open 24/7 for heat relief</b>' : c.h ? '<br><span class="k">' + esc(c.h) + '</span>' : ''}`); });
+  if (S.layers.cps) D.cps.forEach(c => add('cps', c, `<b>${esc(c.n)}</b><br>${esc(c.a)}<br><span class="k">CPS high school · candidate site, not in today's cooling plan${c.charter ? ' · charter (not City-operated)' : ''}</span>`));
+}
+function drawPins() {
+  const gp = $('#gPins'); gp.innerHTML = '';
+  const pin = (x, y, emoji, kind, ok, label, onClick) => {
+    const g = el('g', { transform: `translate(${x},${y})`, style: 'cursor:pointer' });
+    g.appendChild(el('circle', { r: .34, fill: ok ? COLOR[kind] : '#fff', stroke: COLOR[kind], 'stroke-width': .07 }));
+    const tx = el('text', { 'font-size': .36, 'text-anchor': 'middle', y: .13 }); tx.textContent = emoji; g.appendChild(tx);
+    if (ok) { const c = el('circle', { cx: .26, cy: -.26, r: .13, fill: '#13803f', stroke: '#fff', 'stroke-width': .04 }); g.appendChild(c); }
+    g.addEventListener('mousemove', e => H.tip.show(label + (ok ? '<br><b style="color:#7fe0a3">✓ approved</b>' : ''), e)); g.addEventListener('mouseleave', H.tip.hide);
+    g.addEventListener('click', onClick); gp.appendChild(g);
+  };
+  R.lib.forEach(b => pin(b.l.c[0], b.l.c[1], '📚', 'lib', S.approved.has('lib:' + b.l.n), `<b>📚 ${esc(b.l.n)}</b><br>${D.dayNames[wd()]} ${esc(libHours(b.l))} → extend to 10 pm<br>${b.ts.length} hot tracts · ${H.fmt(b.pop)} residents within ${S.ld} km`, () => pick('lib:' + b.l.n)));
+  R.truck.forEach(t => pin(t.c[0], t.c[1], '🚚', 'truck', S.approved.has('truck:' + t.id), `<b>🚚 ${esc(H.caName(t))}</b><br>${H.sgn(t.h)} · nearest A/C site ${t.acKm.toFixed(1)} km`, () => pick('truck:' + t.id)));
+  R.well.forEach(t => pin(t.c[0], t.c[1], '🩺', 'well', S.approved.has('well:' + t.id), `<b>🩺 ${esc(H.caName(t))}</b><br>${H.fmt(t.n65)} seniors · nearest A/C site ${t.acKm.toFixed(1)} km`, () => pick('well:' + t.id)));
+}
+function legend() {
+  const L = $('#legend'); const T = D.forecast[S.day].t;
+  const bar = r => `<div class="bar" style="background:linear-gradient(90deg,${[0, .25, .5, .75, 1].map(v => r(v)).join(',')})"></div>`;
+  const disp = `<div class="li"><span class="sq" style="background:${COLOR.well}"></span>🩺 Wellness checks</div><div class="li"><span class="sq" style="background:${COLOR.truck}"></span>🚚 Hydration truck</div><div class="li"><span class="sq" style="background:${COLOR.lib}"></span>📚 Library hours</div>`;
+  let h = '';
+  if (S.lens === 'plan') h = `<div class="kicker">Dispatch plan · ${D.forecast[S.day].d}</div>${disp}<div class="li"><span class="sq" style="background:repeating-linear-gradient(45deg,#f6d9c4 0 3px,#d98a5f 3px 4px)"></span>Hot, over capacity</div><div class="li"><span class="sq" style="background:#ece8e0"></span>Below hot cutoff</div>`;
+  if (S.lens === 'temp') h = `<div class="kicker">Street-level high · ${D.forecast[S.day].d} (${T}°F forecast)</div>${bar(H.heatRamp)}<div class="ticks"><span>86°</span><span>97°</span><span>108°F</span></div>`;
+  if (S.lens === 'offset') h = `<div class="kicker">vs. city average (Heat Watch)</div>${bar(H.divRamp)}<div class="ticks"><span>−8°</span><span>0</span><span>+4.5°</span></div>`;
+  if (S.lens === 'exposure') h = `<div class="kicker">Residents/km² × °F above avg</div>${bar(H.heatRamp)}<div class="ticks"><span>none</span><span></span><span>highest</span></div>`;
+  if (S.lens === 'vuln') h = `<div class="kicker">65+ share × poverty weight (ACS)</div>${bar(H.purpleRamp)}<div class="ticks"><span>lower</span><span></span><span>higher</span></div>`;
+  if (S.lens === 'bivar') h = `<div class="kicker">Heat × vulnerability</div><div class="row" style="gap:10px;align-items:flex-end"><div><div class="bv">${[2, 1, 0].map(v => [0, 1, 2].map(x => `<i style="background:${BIV[v][x]}"></i>`).join('')).join('')}</div><div class="note">heat →</div></div><div class="note" style="max-width:150px">↑ vulnerability. Dark red = hot <b>and</b> vulnerable.</div></div>`;
+  if (S.lens !== 'plan') h += `<div class="note" style="margin-top:6px">Outlines + pins = today's dispatch</div>`;
+  const on = Object.keys(S.layers).filter(k => S.layers[k]);
+  if (on.length) h += `<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 10px;margin-top:8px;font-size:11.5px;white-space:nowrap">${on.map(k => `<span class="row" style="gap:5px">${SITE[k].ic}${SITE[k].n}</span>`).join('')}</div>`;
+  L.innerHTML = h;
+}
+
+// ---------------- panels ----------------
+function strip() {
+  const st = (v, l) => `<div class="stat"><span class="v">${v}</span><span class="l">${l}</span></div>`;
+  $('#strip').innerHTML = st(R.pool.length, `hot tracts (≥ ${H.sgn(S.hot)})`) + st(H.fmt(R.hotPop), 'residents in hot tracts') + st(Math.round(R.hot65 * 100) + '%', 'of measured 65+ residents') + st(Math.round(R.reach * 100) + '%', 'of at-risk people reached') + st(`${R.overlap}<span style="font-size:13px;color:var(--muted)"> / 50</span>`, 'heat-only ∩ heat+vuln top 50');
+  const T = D.forecast[S.day].t; $('#dayHi').innerHTML = `${T}°F ${T >= 95 ? '· <b style="color:#c23b2b">activate</b>' : '· preview'}`;
+}
+function why(it) {
+  const c = []; const t = it.obj;
+  if (it.kind === 'lib') {
+    const h = libHours(t.l);
+    c.push(`<span>${D.dayNames[wd()]} ${esc(h)} → <b>extend to 10 pm</b></span>`, `<span>${t.ts.length} hot tracts ≤ ${S.ld} km</span>`, `<span>${H.fmt(t.pop)} residents</span>`);
+    return c.join('');
+  }
+  c.push(`<span>${H.sgn(t.h)} hotter</span>`, `<span>65+ ${t.p65.toFixed(0)}%</span>`, `<span>poverty ${t.pov.toFixed(0)}%</span>`);
+  c.push(`<span>nearest A/C: ${t.acKm.toFixed(1)} km${t.acSite ? ' (' + esc(t.acSite.n.slice(0, 22)) + ')' : ''}</span>`);
+  if (S.rk === 'nv') c.push(`<span>${t.nv.toFixed(0)}% no car · ${t.inc ? '$' + t.inc + 'k' : ''}</span>`);
+  if (!t.m) c.push('<span style="background:#fff0cc">heat estimated</span>');
+  return c.join('');
+}
+function list() {
+  const items = R.items; const n = k => items.filter(i => k === 'all' || i.kind === k).length;
+  $('#tabs').innerHTML = [['all', 'All'], ['well', '🩺'], ['truck', '🚚'], ['lib', '📚']].map(([k, l]) => `<button class="tab${S.tab === k ? ' on' : ''}" data-k="${k}">${l} <span class="c">${n(k)}</span></button>`).join('');
+  const ap = items.filter(i => S.approved.has(i.key)).length;
+  $('#apprTxt').innerHTML = `${ap} of ${items.length} approved`; $('#prog').style.width = (items.length ? ap / items.length * 100 : 0) + '%';
+  $('#ver').textContent = `PLAN v${S.ver} · ${D.forecast[S.day].d.toUpperCase()}`;
+  const rankIn = {}; let html = '';
+  items.filter(i => S.tab === 'all' || i.kind === S.tab).forEach(it => {
+    rankIn[it.kind] = (rankIn[it.kind] || 0) + 1; const ok = S.approved.get(it.key);
+    const name = it.kind === 'lib' ? it.obj.l.n : H.caName(it.obj);
+    const ll = it.kind === 'lib' ? it.obj.l.ll : it.obj.ll;
+    const num = it.kind === 'lib' ? it.obj._v : (S.rk === 'heat' ? null : metric(it.obj));
+    html += `<div class="item${ok ? ' ok' : ''}${S.sel === it.key ? ' sel' : ''}" data-key="${esc(it.key)}" style="border-left-color:${COLOR[it.kind]}">
+      <span class="rk">${rankIn[it.kind]}</span>
+      <div><div class="nm">${LABEL[it.kind].split(' ')[0]} ${esc(name)}</div><div class="sub mono">${ll[0].toFixed(4)}, ${ll[1].toFixed(4)}${it.kind !== 'lib' ? ' · tract ' + it.obj.id.slice(-6) : ''}</div><div class="why">${why(it)}</div>
+      <div class="acts">${ok ? `<span class="okbadge">✓ Approved ${ok.at} <button data-act="unap">undo</button></span>` : `<button class="ap" data-act="ap">✓ Approve</button><button class="sk" data-act="sk">Skip, next best</button>`}</div></div>
+      <div class="num">${num == null ? H.sgn(it.obj.h) : H.fmt(num)}<small>${metricLabel[S.rk]}</small></div></div>`;
+  });
+  $('#list').innerHTML = html || '<div class="note">Nothing to dispatch with these settings.</div>';
+}
+function draw() { R = solve(); drawMap(); strip(); list(); }
+function pick(key) {
+  S.sel = key; const it = R.items.find(i => i.key === key); const g = $('#gSel'); g.innerHTML = '';
+  if (it) { if (it.kind === 'lib') g.appendChild(el('circle', { cx: it.obj.l.c[0], cy: it.obj.l.c[1], r: .5, fill: 'none', stroke: '#1e1c19', 'stroke-width': .1 })); else g.appendChild(el('path', { d: H.path(it.obj.g), fill: 'none', stroke: '#1e1c19', 'stroke-width': .13, 'pointer-events': 'none' })); }
+  list(); const node = document.querySelector(`.item[data-key="${CSS.escape(key)}"]`); if (node) node.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+const now = () => new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+function approve(key) { const it = R.items.find(i => i.key === key); if (it) S.approved.set(key, { kind: it.kind, obj: it.obj, at: now() }); }
+
+// ---------------- assistant (rule-based mock) ----------------
+const NUM = { a: 1, an: 1, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, couple: 2, few: 3 };
+const toN = s => s == null ? null : (isNaN(+s) ? NUM[s] : +s);
+function snapshot() { return { nT: S.nT, nW: S.nW, nL: S.nL, hot: S.hot, rk: S.rk, day: S.day, lens: S.lens, closed: new Set(S.closed), skipped: new Set(S.skipped), approved: new Map(S.approved), s65: S.s65, dS: S.dS, dT: S.dT, ld: S.ld }; }
+function restore(s) { Object.assign(S, s); syncControls(); }
+function keysOf(r) { const nm = t => H.caName(t) + ' (' + t.id.slice(-6, -2) + ')'; return { well: new Map(r.well.map(t => ['well:' + t.id, nm(t)])), truck: new Map(r.truck.map(t => ['truck:' + t.id, nm(t)])), lib: new Map(r.lib.map(b => ['lib:' + b.l.n, b.l.n])) }; }
+function diffHtml(a, b) {
+  const lines = [];
+  for (const k of ['truck', 'well', 'lib']) {
+    const rm = [...a[k]].filter(([x]) => !b[k].has(x)).map(([, n]) => n), add = [...b[k]].filter(([x]) => !a[k].has(x)).map(([, n]) => n);
+    if (rm.length) lines.push(`<div style="color:#b3261e">− ${LABEL[k].split(' ')[0]} ${rm.slice(0, 5).map(esc).join(', ')}${rm.length > 5 ? ` +${rm.length - 5} more` : ''}</div>`);
+    if (add.length) lines.push(`<div style="color:#13803f">+ ${LABEL[k].split(' ')[0]} ${add.slice(0, 5).map(esc).join(', ')}${add.length > 5 ? ` +${add.length - 5} more` : ''}</div>`);
+  }
+  return lines.length ? `<div class="diff">${lines.join('')}</div>` : '<div class="diff note">No sites changed.</div>';
+}
+function enforceCapacity(notes) {
+  for (const [kind, cap, word] of [['truck', S.nT, 'trucks'], ['well', S.nW, 'wellness teams'], ['lib', S.nL, 'library slots']]) {
+    const ap = [...S.approved.entries()].filter(([, v]) => v.kind === kind);
+    if (ap.length > cap) {
+      const drop = ap.sort((x, y) => (y[1].obj._v || 0) - (x[1].obj._v || 0)).slice(cap);
+      drop.forEach(([k]) => S.approved.delete(k));
+      notes.push(`⚠︎ You'd approved ${ap.length} ${word} but only ${cap} are available. I un-approved the ${drop.length} lowest-priority: ${drop.map(([, v]) => esc(v.obj.l ? v.obj.l.n : H.caName(v.obj))).join(', ')}.`);
+    }
+  }
+}
+function resourceOf(t) { if (/truck|driver|fuel|van|vehicle/.test(t)) return 'nT'; if (/wellness|team|nurse|outreach|door|check|canvass/.test(t)) return 'nW'; if (/librar|branch/.test(t)) return 'nL'; return null; }
+const RNAME = { nT: 'trucks', nW: 'wellness teams', nL: 'library branches' };
+function handle(raw) {
+  const t = raw.toLowerCase().trim(); const before = keysOf(R); const snap = snapshot(); const notes = []; let changed = false, reply = '', qr = null;
+  const numRe = '(\\d+|a|an|one|two|three|four|five|six|seven|eight|nine|ten|couple|few)';
+  const res = resourceOf(t);
+  let m;
+  if (/^(undo|revert|go back)/.test(t)) { if (!history.length) return { reply: 'Nothing to undo yet.' }; restore(history.pop()); S.ver++; draw(); return { reply: `Reverted to the previous plan (now v${S.ver}).` }; }
+  if (/^(help|\?|what can you do)/.test(t)) return { reply: 'I can re-plan when resources or sites change, explain any recommendation, switch lenses or days, and approve items. Try: <i>"half the trucks are down (fuel shortage)"</i>, <i>"2 drivers called in sick"</i>, <i>"Legler library has no power"</i>, <i>"why Chicago Lawn?"</i>, <i>"show heat × vulnerability"</i>, <i>"plan for Friday"</i>, <i>"approve all wellness checks"</i>.' };
+  // approvals via chat
+  if ((m = t.match(/approve (all|every)\s*(trucks?|wellness( checks?)?|librar(y|ies)|branches)?/))) {
+    const kind = m[2] ? (/truck/.test(m[2]) ? 'truck' : /well/.test(m[2]) ? 'well' : 'lib') : null;
+    let n = 0; R.items.forEach(i => { if ((!kind || i.kind === kind) && !S.approved.has(i.key)) { approve(i.key); n++; } });
+    draw(); return { reply: `Approved ${n} recommendation${n === 1 ? '' : 's'}${kind ? ' (' + LABEL[kind] + ')' : ''}. ${R.items.filter(i => S.approved.has(i.key)).length} of ${R.items.length} now approved.` };
+  }
+  // resource changes
+  if (res) {
+    const cur = S[res];
+    if (/half/.test(t)) { S[res] = Math.floor(cur / 2); changed = true; notes.push(`${RNAME[res]}: ${cur} → ${S[res]}`); }
+    else if ((m = t.match(new RegExp('(?:only|just|we have|down to|now)\\s+' + numRe))) || (m = t.match(new RegExp(numRe + '\\s+(?:\\w+\\s+){0,2}(?:available|running|in service|left)')))) { S[res] = toN(m[1]); changed = true; notes.push(`${RNAME[res]}: ${cur} → ${S[res]}`); }
+    else if ((m = t.match(new RegExp('(?:add|extra|more|another|plus|got|borrowed)\\s+' + numRe + '?'))) && !/(called in sick|sick|out|down|unavailable|broke|lost|short)/.test(t)) { const n = toN(m[1]) || 1; S[res] = cur + n; changed = true; notes.push(`${RNAME[res]}: ${cur} → ${S[res]}`); }
+    else if ((m = t.match(new RegExp(numRe + '\\s+(?:of (?:the|our) )?(?:\\w+\\s+){0,2}(?:called in sick|are sick|sick|out|down|unavailable|broke|broken|lost|missing|in the shop)')))) { const n = toN(m[1]) || 1; S[res] = Math.max(0, cur - n); changed = true; notes.push(`${RNAME[res]}: ${cur} → ${S[res]}`); }
+    else if (/fuel|shortage|sick|unavailable|down|out of service/.test(t)) { return { reply: `Got it. How many ${RNAME[res]} can still go out today? (${cur} are planned.)`, qr: [`only ${Math.max(0, cur - 2)} ${RNAME[res]}`, `half the ${RNAME[res]}`, `only ${Math.max(1, Math.floor(cur / 3))} ${RNAME[res]}`] }; }
+  }
+  // site closures / reopenings
+  const lib = D.libs.find(l => t.includes(l.n.toLowerCase().replace(/ regional( library)?| library center/, '')));
+  if (lib && /(clos|no power|power out|outage|unavailable|flood|can't open|cannot open|short.?staff|not open)/.test(t) && !/reopen|back open|open again/.test(t)) { S.closed.add(lib.n); S.approved.delete('lib:' + lib.n); changed = true; notes.push(`${lib.n} library marked closed today. It no longer counts as a cooling site, so nearby tracts may become cooling deserts.`); }
+  else if (lib && /(reopen|back open|open again|is open)/.test(t)) { S.closed.delete(lib.n); changed = true; notes.push(`${lib.n} library reopened.`); }
+  // thresholds
+  if ((m = t.match(/(?:cutoff|threshold|hotter than|at least)\s*\+?(\d(?:\.\d+)?)/))) { S.hot = Math.min(3, +m[1]); changed = true; notes.push(`hot-tract cutoff → ${H.sgn(S.hot)}`); }
+  // ranking
+  if (/prioriti[sz]e (seniors|older|elderly)|focus on seniors/.test(t)) { S.rk = 'sp'; changed = true; notes.push('ranking → 65+ × poverty'); }
+  else if (/heat only|hottest first|rank by heat/.test(t)) { S.rk = 'heat'; changed = true; notes.push('ranking → heat only. Heads up: the hottest tracts aren\'t where most at-risk people live.'); }
+  else if (/no.?vehicle|car.?free|without (a )?car/.test(t) && /rank|priorit|use/.test(t)) { S.rk = 'nv'; changed = true; notes.push('ranking → no-vehicle households. ⚠︎ This pulls dispatch toward downtown, where people are car-free by choice; pair it with poverty.'); }
+  else if (/team score|vuln_people|default ranking/.test(t)) { S.rk = 'vp'; changed = true; notes.push('ranking → team vuln_people'); }
+  // day
+  const dayIx = /tomorrow|wed/.test(t) ? 1 : /thu/.test(t) ? 2 : /fri/.test(t) ? 3 : /sat/.test(t) ? 4 : /sun/.test(t) ? 5 : /next mon|monday/.test(t) ? 6 : /\btoday\b/.test(t) && /plan|switch|show/.test(t) ? 0 : null;
+  if (dayIx != null && /plan|switch|show|for|day/.test(t)) { S.day = dayIx; changed = true; notes.push(`day → ${D.forecast[dayIx].d} (${D.forecast[dayIx].t}°F)`); }
+  // lens
+  const lensMap = [[/heat.?(×|x|and|vs).?vuln|bivariate/, 'bivar'], [/vulnerab/, 'vuln'], [/exposure|people.?×|crowd/, 'exposure'], [/differential|offset|hotter than average/, 'offset'], [/temperature|heat map|street.?level/, 'temp'], [/plan view|dispatch (view|plan)|back to (the )?plan/, 'plan']];
+  if (/show|switch|view|lens|map/.test(t)) for (const [re, k] of lensMap) if (re.test(t)) { S.lens = k; syncControls(); drawMap(); return { reply: `Showing <b>${LENSES.find(l => l.k === k).t}</b>. Today's dispatch stays on top as outlines and pins.` }; }
+  // questions
+  if (/^why|explain|how come/.test(t)) {
+    const ca = D.cas.map(c => c.n).sort((a, b) => b.length - a.length).find(n => t.includes(n.toLowerCase()));
+    let it = ca ? R.items.find(i => i.kind !== 'lib' && H.caName(i.obj) === ca) || R.items.find(i => i.kind === 'lib' && i.obj.l.n.toLowerCase().includes(ca.toLowerCase())) : null;
+    if (!it && (m = t.match(/#?(\d+)/))) it = R.items[+m[1] - 1];
+    if (!it && lib) it = R.items.find(i => i.kind === 'lib' && i.obj.l.n === lib.n);
+    if (!it) return { reply: ca ? `${esc(ca)} isn't in today's plan. Its hot tracts are either below the cutoff, already near an air-conditioned site, or ranked below today's capacity.` : 'Which recommendation? Name the neighborhood (e.g. "why Chicago Lawn?") or its number.' };
+    const o = it.obj;
+    if (it.kind === 'lib') return { reply: `<b>${esc(o.l.n)}</b>: ${o.ts.length} hot tracts (${H.fmt(o.pop)} residents) are within ${S.ld} km of the branch, and it's open ${D.dayNames[wd()]} ${esc(libHours(o.l))}. Extending to 10 pm gives them an evening cooling option for the price of staff overtime. It ranks above other branches on ${metricLabel[S.rk]} in walking range (${H.fmt(o._v)}).` };
+    const reason = it.kind === 'well' ? `${o.p65.toFixed(0)}% of residents are 65+ (≥ ${S.s65}%) and the nearest air-conditioned site is ${o.acKm.toFixed(1)} km away${o.acSite ? ' (' + esc(o.acSite.n) + ')' : ''}, farther than the ${S.dS} km an older adult can safely walk in this heat. A library or truck won't reach them, so a team goes door to door.` : `It's a cooling desert: the nearest air-conditioned site is ${o.acKm.toFixed(1)} km away${o.acSite ? ' (' + esc(o.acSite.n) + ')' : ''}. A truck brings water and misting to where people already are.`;
+    return { reply: `<b>${esc(H.caName(o))}</b> (tract ${o.id.slice(-6)}): measured ${H.sgn(o.h)} vs the city average${o.m ? ` (${o.nr} Heat Watch readings)` : ' (estimated)'}, ${H.fmt(o.pop)} residents, ${o.pov.toFixed(0)}% in poverty. ${reason}` };
+  }
+  if (/how many|coverage|reach|covered|status|summary/.test(t)) {
+    const ap = R.items.filter(i => S.approved.has(i.key)).length;
+    return { reply: `Plan v${S.ver} for ${D.forecast[S.day].d}: ${R.well.length} wellness teams, ${R.truck.length} trucks, ${R.lib.length} library branches. Together they reach <b>${Math.round(R.reach * 100)}%</b> of at-risk residents in the ${R.pool.length} hot tracts (${H.fmt(R.hotPop)} people). ${ap} of ${R.items.length} approved; ${R.over.length} hot tracts are over capacity.` };
+  }
+  if (/forecast|weather/.test(t)) return { reply: 'Scenario forecast (citywide highs): ' + D.forecast.map(f => `${f.d} ${f.t}°`).join(' · ') + '. Street-level temps add each tract\'s measured offset (−12.8° to +4.4°).' };
+  if (!changed) return { reply: `I didn't catch a change or a question there. I'm a rule-based prototype standing in for the ADK agent. Try <i>"2 drivers called in sick"</i>, <i>"half the trucks are down"</i>, <i>"Legler library has no power"</i>, <i>"why Englewood?"</i> or <i>"show vulnerable residents"</i>.` };
+  history.push(snap); enforceCapacity(notes); S.ver++; syncControls(); draw();
+  return { reply: `Re-planned → <b>v${S.ver}</b>. ${notes.map(n => esc(n).replace(/&lt;(\/?b)&gt;/g, '<$1>')).join(' ')}${diffHtml(before, keysOf(R))}`, qr: ['undo', 'what changed in coverage?', 'approve all'] };
+}
+function say(who, html, qr) {
+  const d = document.createElement('div'); d.className = 'msg ' + who; d.innerHTML = html + (qr ? `<div class="qr">${qr.map(q => `<button>${esc(q)}</button>`).join('')}</div>` : '');
+  $('#msgs').appendChild(d); $('#msgs').scrollTop = 1e6;
+}
+function send(text) {
+  if (!text.trim()) return; say('u', esc(text));
+  const q = text.toLowerCase().includes('what changed in coverage') ? 'status' : text;
+  const r = handle(q); setTimeout(() => say('a', r.reply, r.qr), 180);
+}
+
+// ---------------- controls ----------------
+function syncControls() {
+  [...$('#days').children].forEach((c, i) => c.classList.toggle('on', i === S.day));
+  [...$('#lens').children].forEach(b => b.classList.toggle('on', b.dataset.k === S.lens));
+  [...$('#rank').children].forEach(b => b.classList.toggle('on', b.dataset.k === S.rk));
+  for (const [id, key, f] of [['nT', 'nT', v => v], ['nW', 'nW', v => v], ['nL', 'nL', v => v]]) { $('#' + id).value = S[key]; $('#' + id + 'v').textContent = f(S[key]); }
+  $('#hot').value = S.hot; $('#hotV').textContent = H.sgn(S.hot);
+  $('#s65').value = S.s65; $('#s65V').textContent = S.s65 + '%'; $('#dS').value = S.dS; $('#dSV').textContent = S.dS.toFixed(1) + ' km';
+  $('#ld').value = S.ld; $('#ldV').textContent = S.ld.toFixed(1) + ' km'; $('#dT').value = S.dT; $('#dTV').textContent = S.dT.toFixed(1) + ' km';
+}
+function bind() {
+  $('#days').innerHTML = D.forecast.map((f, i) => `<button class="chip" data-i="${i}">${f.d} <b>${f.t}°</b></button>`).join('');
+  $('#days').onclick = e => { const b = e.target.closest('.chip'); if (!b) return; S.day = +b.dataset.i; syncControls(); draw(); };
+  const sw = { plan: 'linear-gradient(90deg,#cf2f6b 33%,#0b8f86 33% 66%,#4b4fd8 66%)', temp: 'linear-gradient(90deg,#fde3a0,#dc5230,#741326)', offset: 'linear-gradient(90deg,#2d5f9a,#e9e4da,#c23b2b)', exposure: 'linear-gradient(90deg,#fbf3d5,#f2853f,#741326)', vuln: 'linear-gradient(90deg,#f3f0f7,#7a62ad,#4b2f80)', bivar: 'linear-gradient(135deg,#e8e6e1,#9a7b9c,#b23a3a)' };
+  $('#lens').innerHTML = LENSES.map(l => `<button data-k="${l.k}"><span class="sw" style="background:${sw[l.k]}"></span><span>${l.t}<small>${l.d}</small></span></button>`).join('');
+  $('#lens').onclick = e => { const b = e.target.closest('button'); if (!b) return; S.lens = b.dataset.k; syncControls(); drawMap(); };
+  $('#layers').innerHTML = Object.keys(SITE).map(k => `<label><input type="checkbox" data-k="${k}" ${S.layers[k] ? 'checked' : ''}>${SITE[k].ic}${SITE[k].n}</label>`).join('') + `<span class="note" style="grid-column:1/-1;margin-top:3px">*CPS high schools are candidate sites only, not in today's cooling plan.</span>`;
+  $('#layers').onchange = e => { S.layers[e.target.dataset.k] = e.target.checked; drawSites(); legend(); };
+  const rng = (id, key, dec) => { $('#' + id).oninput = e => { S[key] = dec ? +(+e.target.value).toFixed(2) : +e.target.value; syncControls(); draw(); }; };
+  rng('nT', 'nT'); rng('nW', 'nW'); rng('nL', 'nL'); rng('hot', 'hot', 1); rng('s65', 's65'); rng('dS', 'dS', 1); rng('ld', 'ld', 1); rng('dT', 'dT', 1);
+  $('#est').onchange = e => { S.est = e.target.checked; draw(); };
+  $('#rank').onclick = e => { const b = e.target.closest('button'); if (!b) return; S.rk = b.dataset.k; syncControls(); draw(); };
+  $('#tabs').onclick = e => { const b = e.target.closest('.tab'); if (!b) return; S.tab = b.dataset.k; list(); };
+  $('#list').onclick = e => {
+    const it = e.target.closest('.item'); if (!it) return; const key = it.dataset.key; const act = e.target.dataset.act;
+    if (act === 'ap') { approve(key); draw(); toast('Approved'); }
+    else if (act === 'unap') { S.approved.delete(key); draw(); }
+    else if (act === 'sk') { S.skipped.add(key); history.push(snapshot()); S.ver++; draw(); say('a', `Skipped that one and pulled in the next best. Plan is now v${S.ver}.`); }
+    else pick(key);
+  };
+  $('#apAll').onclick = () => { R.items.filter(i => S.tab === 'all' || i.kind === S.tab).forEach(i => approve(i.key)); draw(); toast('All shown recommendations approved'); };
+  $('#copyAp').onclick = async () => {
+    const rows = ['intervention,name,lat,lon,tract_or_branch,approved_at'];
+    R.items.filter(i => S.approved.has(i.key)).forEach(i => { const o = i.obj, a = S.approved.get(i.key); rows.push(i.kind === 'lib' ? `library_extended_hours,"${o.l.n}",${o.l.ll[0]},${o.l.ll[1]},branch,${a.at}` : `${i.kind === 'well' ? 'wellness_check' : 'hydration_truck'},"${H.caName(o)}",${o.ll[0]},${o.ll[1]},${o.id},${a.at}`); });
+    try { await navigator.clipboard.writeText(rows.join('\n')); toast(`Copied ${rows.length - 1} approved items`); } catch (e) { toast('Clipboard blocked by browser'); }
+  };
+  $('#chatForm').onsubmit = e => { e.preventDefault(); const v = $('#chatIn').value; $('#chatIn').value = ''; send(v); };
+  $('#msgs').onclick = e => { const b = e.target.closest('.qr button'); if (b) send(b.textContent); };
+  const SUG = ['Half the trucks are down (fuel shortage)', '2 drivers called in sick', '__LIB__ library has no power', 'Why Chicago Lawn?', 'Show heat × vulnerability', 'We got 3 extra wellness teams', 'Plan for Friday', 'How many people are covered?'];
+  window._SUG = SUG; $('#sugg').innerHTML = SUG.map(s => `<button>${s}</button>`).join(''); $('#sugg').onclick = e => { const b = e.target.closest('button'); if (b) send(b.textContent); };
+}
+H.load().then(d => {
+  D = d; bind(); syncControls();
+  const pz = H.panZoom($('#map'), D.bounds);
+  $('#zin').onclick = () => pz.zoom(.7); $('#zout').onclick = () => pz.zoom(1.4); $('#zhome').onclick = () => pz.home();
+  const g = $('#gT');
+  D.tracts.forEach(t => {
+    const p = el('path', { d: H.path(t.g), stroke: '#fff', 'stroke-width': .02, 'stroke-dasharray': t.m ? '' : '.08 .06' });
+    p.addEventListener('mousemove', e => { const a = R.assigned.get(t); const T = D.forecast[S.day].t; H.tip.show(`<b>${esc(H.caName(t))}</b> <span class="k">· ${t.id.slice(-6)}</span><br>${Math.round(T + t.h)}°F street-level · ${H.sgn(t.h)} vs avg${t.m ? '' : ' <i>(estimated)</i>'}<br>${H.fmt(t.pop)} residents · <span class="k">65+</span> ${t.p65.toFixed(0)}% · <span class="k">poverty</span> ${t.pov.toFixed(0)}%<br><span class="k">nearest A/C site</span> ${t.acKm.toFixed(1)} km${t.acSite ? ' · ' + esc(t.acSite.n) : ''}<br>${a ? '<b>→ ' + LABEL[a] + '</b>' : R.pool.includes(t) ? 'Hot, over capacity / near relief' : 'Below cutoff'}`, e); });
+    p.addEventListener('mouseleave', H.tip.hide);
+    p.addEventListener('click', () => { if ($('#map')._justDragged) return; const a = R.assigned.get(t); if (a === 'lib') { const b = R.lib.find(b => b.ts.includes(t)); if (b) pick('lib:' + b.l.n); } else if (a) pick(a + ':' + t.id); });
+    t._p = p; g.appendChild(p);
+  });
+  const gc = $('#gCA'); D.cas.forEach(c => gc.appendChild(el('path', { d: H.path(c.g), fill: 'none', stroke: '#2a2622', 'stroke-width': .035, 'stroke-opacity': .45, 'pointer-events': 'none' })));
+  gc.appendChild(el('path', { d: H.path(D.city), fill: 'none', stroke: '#2a2622', 'stroke-width': .07, 'pointer-events': 'none' }));
+  draw();
+  const lb = R.lib.find(b => !/Library Center/.test(b.l.n)) || R.lib[0];
+  const libNm = (lb ? lb.l.n : 'Legler Regional').replace(/ Regional( Library)?$/, '');
+  $('#sugg').innerHTML = window._SUG.map(s => `<button>${esc(s.replace('__LIB__', libNm))}</button>`).join('');
+  say('a', `Morning. Here's <b>plan v1</b> for ${D.forecast[S.day].d} (${D.forecast[S.day].t}°F): ${R.well.length} wellness teams, ${R.truck.length} trucks, ${R.lib.length} libraries with extended hours, reaching ${Math.round(R.reach * 100)}% of at-risk residents in hot tracts. Approve what looks right, or tell me what's changed on the ground.`);
+});
+</script>
+</body></html>

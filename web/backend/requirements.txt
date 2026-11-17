@@ -1,0 +1,9 @@
+# Heat Dispatch Console backend (FastAPI). Also serves the built frontend (web/frontend/dist).
+fastapi==0.163.2
+uvicorn
+python-dotenv
+toolbox-core==1.4.0
+google-adk[a2a]==2.13.0
+google-cloud-aiplatform==2.7.0
+google-cloud-bigquery
+google-auth

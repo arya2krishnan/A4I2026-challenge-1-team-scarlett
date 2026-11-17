@@ -19,3 +19,12 @@ def build_toolbox_toolset(settings: Settings) -> ToolboxToolset:
         target_audience=settings.toolbox_url)
     return ToolboxToolset(server_url=settings.toolbox_url, toolset_name=settings.toolbox_toolset,
                           credentials=credentials)
+
+
+def make_toolbox_client(settings: Settings):
+    """A plain toolbox_core client (used by Python tools that call Toolbox directly, e.g. replan_dispatch)."""
+    from toolbox_core import ToolboxClient
+    from toolbox_core.auth_methods import aget_google_id_token
+
+    headers = {} if is_local(settings.toolbox_url) else {"Authorization": aget_google_id_token(settings.toolbox_url)}
+    return ToolboxClient(settings.toolbox_url, client_headers=headers)

@@ -71,8 +71,10 @@ def test_toolset_lists_exactly_the_tools():
 
 def test_instruction_only_names_real_tools():
     from heat_dispatch.prompts import INSTRUCTION
-    real = {t["name"] for t in TOOLS} | {"locate_place", "get_forecast_high", "heat_risk_for_forecast", "build_dispatch_plan"}
-    prefixes = ("rank_", "predict_", "build_", "locate_", "get_forecast", "heat_", "model_", "nearest_", "who_", "equity_")
+    real = {t["name"] for t in TOOLS} | {"locate_place", "get_forecast_high", "heat_risk_for_forecast", "build_dispatch_plan",
+                                         "get_dispatch_status", "set_operator_constraints", "replan_dispatch"}
+    prefixes = ("rank_", "predict_", "build_", "locate_", "get_forecast", "heat_", "model_", "nearest_", "who_", "equity_",
+                "tract_", "list_", "get_dispatch", "set_operator", "replan_")
     params = {p["name"] for t in TOOLS for p in t["parameters"]}          # e.g. heat_weight is a parameter, not a tool
     mentioned = {w for w in re.findall(r"\b[a-z]+(?:_[a-z]+)+\b", INSTRUCTION) if w.startswith(prefixes)} - params
     assert mentioned and mentioned <= real, f"instruction names unknown tools: {mentioned - real}"

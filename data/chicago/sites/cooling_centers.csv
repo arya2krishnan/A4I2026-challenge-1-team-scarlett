@@ -1,288 +1,288 @@
 site_type,site_name,address,city,state,zip,phone,hours_of_operation,latitude,longitude,in_chicago_bbox,indoor_air_conditioned,source_dataset_id,retrieved_at
-Chicago Community College,Daley College,7500 S. Pulaski,Chicago,IL,60652,773-838-7500,"M-F 8am-8pm; Sat 9am-3pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.7573100,-87.7221900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Chicago Community College,Harold Washington College,30 E. Lake St.,Chicago,IL,60601,312-553-5600,"M-F 8am-8pm; Sat 8am-4pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.8857600,-87.6268600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Chicago Community College,Kennedy-King College,740 W. 63rd Street,Chicago,IL,60621,773-602-5000,"M-F 8am-8pm; Sat-Sun 8am-4pm; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.7797900,-87.6439700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Chicago Community College,Malcolm X College,1900 W. Jackson,Chicago,IL,60612,312-850-7000,"M-F 8am-8pm; Sat-Sun 8am-5 pm: Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.8774900,-87.6751000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Chicago Community College,Olive-Harvey College,10001 S Woodlawn Ave,Chicago,IL,60628,773-291-6100,"M-F 9am-8pm; Sat 9am-5pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.7110900,-87.5903600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Chicago Community College,Truman College,1145 W. Wilson Ave,Chicago,IL,60640,773-907-4000,"M-F 8am-9pm; Sat 8am-4pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.9651000,-87.6595800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Chicago Community College,Wright College,4300 N. Narragansett Ave,Chicago,IL,60634,773-777-7900,"M-F 8am-7pm; Sat 8am-2pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.9583200,-87.7876500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Community Service Center,Garfield Center,10 S. Kedzie Avenue,Chicago,IL,60612,312-746-5400,M-F 9am-5pm; Sunday 7/26 9am-5pm,41.8800000,-87.7065900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Community Service Center,Trina Davila Center,4312 W. North Avenue,Chicago,IL,60639,312-744-2014,M-F 9am-5pm,41.9100300,-87.7342800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Community Service Center,North Area Center,845 W. Wilson Avenue,Chicago,IL,60640,312-744-2580,M-F 9am-5pm,41.9654800,-87.6519500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Community Service Center,South Chicago Center,8650 S. Commercial Avenue,Chicago,IL,60617,312-747-0500,M-F 9am-5pm,41.7377500,-87.5518300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Community Service Center,Auburn Gresham Center,1140 W. 79th Street,Chicago,IL,60620,312-747-0200,M-F 9am-5pm,41.7505000,-87.6529100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Community Service Center,King Center,4314 S. Cottage Grove,Chicago,IL,60653,312-747-2300,M-F 9am-5pm,41.8159600,-87.6070600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Pullman,11001 S. Indiana Avenue,CHICAGO,IL,60628,(312) 747-2033,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.6943700,-87.6182900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Chicago Bee,3647 S. State Street,CHICAGO,IL,60609,(312) 747-6872,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8281500,-87.6264900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Vodak-East Side,3710 E. 106th Street,CHICAGO,IL,60617,(312) 747-5500,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7030000,-87.5334800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Logan Square,3030 W. Fullerton Avenue,CHICAGO,IL,60647,(312) 744-5295,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9247600,-87.7034100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Lozano,1805 S. Loomis Street,CHICAGO,IL,60608,(312) 746-4329,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8571900,-87.6609300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Blackstone,4904 S. Lake Park Avenue,CHICAGO,IL,60615,(312) 747-0511,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8060600,-87.5904600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Merlo,644 W. Belmont Avenue,CHICAGO,IL,60657,(312) 744-1139,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9400400,-87.6462700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Thurgood Marshall,7506 S. Racine Avenue,CHICAGO,IL,60620,(312) 747-5927,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7571100,-87.6543700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Garfield Ridge,6348 S. Archer Avenue,CHICAGO,IL,60638,(312) 747-6094,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7928200,-87.7800900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Archer Heights,5055 S. Archer Avenue,CHICAGO,IL,60632,(312) 747-9241,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8007000,-87.7266300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,West Englewood,1745 W. 63rd Street,CHICAGO,IL,60636,(312) 747-3481,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7793900,-87.6685200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,South Chicago,9055 S. Houston Avenue,CHICAGO,IL,60617,(312) 747-8065,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7303700,-87.5498400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Avalon,8148 S. Stony Island Avenue,CHICAGO,IL,60617,(312) 747-5234,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7463300,-87.5858400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Rogers Park,6907 N. Clark Street,CHICAGO,IL,60626,(312) 744-0156,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",42.0066900,-87.6734100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Oriole Park,7454 W. Balmoral Avenue,CHICAGO,IL,60656,(312) 744-1965,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9780000,-87.8138700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,West Chicago Avenue,4856 W. Chicago Avenue,CHICAGO,IL,60651,(312) 743-0260,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8949800,-87.7480000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Sulzer Regional,4455 N. Lincoln Avenue,CHICAGO,IL,60625,(312) 744-7616,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9626700,-87.6846700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Hegewisch,3048 E. 130th Street,CHICAGO,IL,60633,(312) 747-0046,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.6594300,-87.5491100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,South Shore,2505 E. 73rd Street,CHICAGO,IL,60649,(312) 747-5281,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7626400,-87.5637300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Chinatown,2100 S. Wentworth Avenue,CHICAGO,IL,60616,(312) 747-8013,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8538000,-87.6318200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Edgewater,6000 N. Broadway,CHICAGO,IL,60660,(312) 742-1945,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9913000,-87.6605700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Mount Greenwood,11010 S. Kedzie Avenue,CHICAGO,IL,60655,(312) 747-2805,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.6928200,-87.7012100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Little Italy,1336 W. Taylor Street,CHICAGO,IL,60607,(312) 746-5656,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8693700,-87.6605900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Uptown,929 W. Buena Avenue,CHICAGO,IL,60613,(312) 744-8400,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9584300,-87.6542200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Scottsdale,4101 W. 79th Street,CHICAGO,IL,60652,(312) 747-0193,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7494000,-87.7246000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Austin-Irving,6100 W. Irving Park Road,CHICAGO,IL,60634,(312) 744-6222,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9532100,-87.7795200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Bucktown-Wicker Park,1701 N. Milwaukee Avenue,CHICAGO,IL,60647,(312) 744-6022,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9127700,-87.6805100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,"Daley, Richard M.-W Humboldt",733 N. Kedzie Avenue,CHICAGO,IL,60612,(312) 743-0555,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8950900,-87.7061800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Mayfair,4400 W. Lawrence Avenue,CHICAGO,IL,60630,(312) 744-1254,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9681200,-87.7381000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Jefferson Park,5363 W. Lawrence Avenue,CHICAGO,IL,60630,(312) 744-1998,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9676300,-87.7619600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,West Pullman,830 W. 119th Street,CHICAGO,IL,60643,(312) 747-1425,"M, W: 12PM-8PM; TU, TH: 10AM-6PM); F, SA: 9AM-5PM; SU: 1PM-5PM",41.6778000,-87.6431100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,West Belmont,3104 N. Narragansett Avenue,CHICAGO,IL,60634,(312) 746-5142,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9368500,-87.7858900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Albany Park,3401 W. Foster Ave.,CHICAGO,IL,60625,(773) 539-5450,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9756900,-87.7140800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,McKinley Park,1915 W. 35th Street,CHICAGO,IL,60609,(312) 747-6082,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8304100,-87.6734400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Roden,6083 N. Northwest Highway,CHICAGO,IL,60631,(312) 744-1478,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9919400,-87.7983200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Sherman Park,5440 S. Racine Avenue,CHICAGO,IL,60609,(312) 747-0477,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7948500,-87.6548900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,West Town,1625 W. Chicago Avenue,CHICAGO,IL,60622,(312) 743-0450,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8960600,-87.6685900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Coleman,731 E. 63rd Street,CHICAGO,IL,60637,(312) 747-7760,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7801400,-87.6066200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Lincoln Park,1150 W. Fullerton Avenue,CHICAGO,IL,60614,(312) 744-1926,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9255900,-87.6578900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Little Village,2311 S. Kedzie Avenue,CHICAGO,IL,60623,(312) 745-1862,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8495100,-87.7051800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Toman,2708 S. Pulaski Road,CHICAGO,IL,60623,(312) 745-1660,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8418100,-87.7248300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Budlong Woods,5630 N. Lincoln Avenue,CHICAGO,IL,60659,(312) 742-9590,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9839300,-87.6964700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Near North,310 W. Division Street,CHICAGO,IL,60610,(312) 744-0991,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9037900,-87.6366300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Wrightwood-Ashburn,8530 S. Kedzie Avenue,CHICAGO,IL,60652,(312) 747-2696,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7374200,-87.7025000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,West Lawn,4020 W. 63rd Street,CHICAGO,IL,60629,(312) 747-7381,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7786600,-87.7238400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Greater Grand Crossing,1000 East 73rd Street,CHICAGO,IL,60619,(312) 745-1608,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7622900,-87.6004100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Brainerd,1350 W. 89th Street,CHICAGO,IL,60620,(312) 747-6291,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7323200,-87.6577400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Lincoln Belmont,1659 W. Melrose Street,CHICAGO,IL,60657,(312) 744-0166,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9405600,-87.6709200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,North Pulaski,4300 W. North Avenue,CHICAGO,IL,60639,(312) 744-9573,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9100300,-87.7340400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Edgebrook,5331 W. Devon Avenue,CHICAGO,IL,60646,(312) 744-8313,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9972700,-87.7619700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Jeffery Manor,2401 E. 100th Street,CHICAGO,IL,60617,(312) 747-6479,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7135200,-87.5655600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Beverly,1962 W. 95th Street,CHICAGO,IL,60643,(312) 747-9673,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7211400,-87.6723000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Austin,5615 W. Race Avenue,CHICAGO,IL,60644,(312) 746-5038,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8892900,-87.7659700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Portage-Cragin,5108 W. Belmont Avenue,CHICAGO,IL,60641,(312) 744-0152,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9387300,-87.7547000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,"Daley, Richard J.-Bridgeport",3400 S. Halsted Street,CHICAGO,IL,60608,(312) 747-8990,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8325700,-87.6461500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Kelly,6151 S. Normal Boulevard,CHICAGO,IL,60621,(312) 747-8418,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7822000,-87.6372500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,North Austin,5724 W. North Avenue,CHICAGO,IL,60639,(312) 746-4233,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9093300,-87.7688600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Woodson Regional,9525 S. Halsted Street,CHICAGO,IL,60628,(312) 747-6900,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7204800,-87.6428500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Dunning,7455 W. Cornelia Avenue,CHICAGO,IL,60634,(312) 743-0480,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9430700,-87.8136800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Harold Washington-HWLC,400 S. State Street,CHICAGO,IL,60605,(312) 747-4300,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8763300,-87.6276300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Brighton Park,4314 S. Archer Avenue,CHICAGO,IL,60632,(312) 747-0666,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8148300,-87.7030300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Northtown,6800 N. Western Avenue,CHICAGO,IL,60645,(312) 744-2292,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",42.0050300,-87.6903300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,King,3436 S. King Drive,CHICAGO,IL,60616,(312) 747-7543,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8319800,-87.6173200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,"Whitney M. Young, Jr.",415 E. 79th Street,CHICAGO,IL,60619,(312) 747-0039,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7511100,-87.6142500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Hall,4801 S. Michigan Avenue,CHICAGO,IL,60615,(312) 747-2541,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8073000,-87.6228000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Independence,4024 N. Elston Avenue,CHICAGO,IL,60618,(312) 744-0900,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9543200,-87.7200900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Clearing,6423 W. 63rd Place,CHICAGO,IL,60638,(312) 747-5657,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7765900,-87.7822000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Chicago Lawn,6120 S. Kedzie Avenue,CHICAGO,IL,60629,(312) 747-0639,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7818600,-87.7032100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Bezazian,1226 W. Ainslie Street,CHICAGO,IL,60640,(312) 744-0019,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9718100,-87.6602000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Douglass,3353 W. 13th Street,CHICAGO,IL,60623,(312) 747-3725,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8645400,-87.7096700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Walker,11071 S. Hoyne Avenue,CHICAGO,IL,60643,(312) 747-1920,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.6922000,-87.6741200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Back of the Yards,2111 W. 47th Street,CHICAGO,IL,60609,(312) 747-9595,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8084900,-87.6779300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Humboldt Park,1605 N. Troy St.,CHICAGO,IL,60647,(312) 744-2244,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9107300,-87.7053100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,West Loop,122 N. Aberdeen Street,CHICAGO,IL,60607,(312) 744-2995,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8838700,-87.6547700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Legler Regional,115 S. Pulaski Road,CHICAGO,IL,60624,(312) 746-7730,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8793200,-87.7256100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Manning,6 S. Hoyne Avenue,CHICAGO,IL,60612,(312) 746-6800,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8808100,-87.6795700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Gage Park,2807 W. 55th Street,CHICAGO,IL,60632,(312) 747-0032,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7936900,-87.6941800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Altgeld,955 E. 131st Street,CHICAGO,IL,60827,(312) 747-3270,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM; CLOSED 7/16",41.6573200,-87.5986000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Library,Canaryville,642 W. 43rd Street,CHICAGO,IL,60609,(312) 747-0644,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8162400,-87.6425700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Ada Park,11250 S. Ada St.,Chicago,IL,60643,(312) 747-6002,M-F 10AM-10PM; Sat 10AM-6PM; Sun Closed,41.6883400,-87.6556800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Amundsen Park,6200 W. Bloomingdale Ave,Chicago,IL,60639,(312) 746-5003,M-W 9AM-8pm; Th-F 9AM-6PM; Sat 9AM-4PM; Sun 9AM-2PM,41.9128400,-87.7802400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Brooks Park,7100 N. Harlem Ave.,Chicago,IL,60631,(773) 631-4401,"M,Th 9AM-9PM; T,W 9AM-10PM; F 9AM-8PM; Sat & Sun 9AM-2PM",42.0094400,-87.8073000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Chase Park,4701 N. Ashland Ave.,Chicago,IL,60640,(312) 742-7518,M-F 6:30AM-10PM; Sat & Sun 8AM-4PM,41.9679900,-87.6687900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Clark Park,3400 N. Rockwell St.,Chicago,IL,60618,(773) 248-3966,M-F 8AM-8PM; Sat 8AM-4PM; Sun 8AM-3PM,41.9413600,-87.6931000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Columbus Park,500 S. Central Ave.,Chicago,IL,60644,(773) 287-7641,M-F 8AM- 8PM; Sat 9:30AM-6PM; Sun Closed,41.8744500,-87.7657200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Davis Square,4430 S Marshfield,Chicago,IL,60609,(312) 747-6107,"M,T, TH 9AM-7PM; W&F 9am-8PM; Sat 9AM-5PM; Sun Closed",41.8131000,-87.6663300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Douglass Park,1401 S. Sacramento Dr.,Chicago,IL,60623,(773) 762-2842,M-F 9AM- 8PM; Sat 9AM-5PM; Sun Closed,41.8629900,-87.6996200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Ellis Park,3520 S. Cottage,Chicago,IL,60653,(773) 285-7099,M-F 7:30AM-7:30PM; Sat 9AM-5PM; Sun Closed,41.8300300,-87.6104200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Fernwood Park,10436 S. Wallace St.,Chicago,IL,60628,(312) 747-6132,"M-W 7:30AM-5PM, Th-F 7:30AM-8PM, Sat and Sun Closed",41.7046300,-87.6385700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Fosco Park,1312 S. Racine Ave.,Chicago,IL,60608,(312) 746-5086,M-F 7AM-8PM; Sat and Sun Closed,41.8649500,-87.6566200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Foster Park,1400 W. 84th St.,Chicago,IL,60620,(312) 747-6135,M-F 7AM-8PM; Sat and Sun 9AM-5PM,41.7413400,-87.6575200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Garfield Park,100 N. Central Park,Chicago,IL,60624,(312) 746-5092,M-F 9AM- 9PM; Sat 8:30AM-5PM; Sun Closed,41.8832000,-87.7160700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Gill Park,825 W. Sheridan,Chicago,IL,60613,(312) 742-7802,M-F 7AM-9:30PM; Sat 9AM-5PM; Sun 9AM-3PM,41.9527100,-87.6506000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Harrison Park,1824 S. Wood St.,Chicago,IL,60608,(312) 746-5491,"M,W,F 8AM-8:30PM; T&Th 8am-9pm; Sat 9AM-5PM; Sun Closed",41.8568200,-87.6710400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Hayes Park,2936 W. 85th St.,Chicago,IL,60652,(312) 747-6198,M-F 7AM-9PM; Sat 8:30AM-5PM; Sun Closed,41.7386300,-87.6968200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Hiawatha Park,8029 W. Forest Preserve Ave.,Chicago,IL,60634,(312) 746-5559,M-F 8AM-8PM; Sat 9AM-4PM; Sun 9AM-2PM,41.9440300,-87.8277300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Homan Square Park,3559 W. Arthington St.,Chicago,IL,60624,(312) 746-6650,M-F 9AM- 8PM; Sat 9AM-5PM; Sun Closed,41.8695300,-87.7138100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Jesse Owens Park,8800 S. Clyde Ave.,Chicago,IL,60617,(312) 747-6709,M-F 9AM-7PM; Sat 10AM-5PM; Sun Closed,41.7349900,-87.5740300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Jesse White Center,410 W. Chicago Ave.,Chicago,IL,60610,(312) 742-2410,M-F 9AM-5PM; Sat & Sun Closed,41.8965200,-87.6391600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Lindblom Park,6054 S. Damen Ave.,Chicago,IL,60636,(312) 747-6443,M-F 9AM-8PM; Sat and Sun 9AM-5PM,41.7836000,-87.6745900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Marquette Park,6743 S. Kedzie Ave.,Chicago,IL,60629,(312) 747-6469,M-F 9AM-9PM; Sat and Sun 9AM-5PM,41.7706300,-87.7029500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,McFetridge Sports Center,3843 N. California Ave.,Chicago,IL,60618,(773) 478-2609,M-F 6AM-11PM; Sat & Sun 6AM-11PM,41.9510600,-87.6982100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,McGuane Park,2901 S. Poplar Ave.,Chicago,IL,60608,(312) 747-6497,M-F 8AM-9PM; Sat 9AM-5PM; Sun Closed,41.8409300,-87.6493000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Mozart Park,2036 N Avers,Chicago,IL,60647,(312) 742-7535,M-F 8AM-8PM; Sat 10AM-3PM; Sun Closed,41.9179000,-87.7228900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Mt. Greenwood,3721 W. 111th St.,Chicago,IL,60655,(312) 747-6564,M-F 8:30AM-9PM; Sat and Sun 9AM-5PM,41.6912000,-87.7139900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Nash Community Center,1833 E. 71st St.,Chicago,IL,60649,(773) 256-0904,M-F 7AM-8PM; Sat 9AM-5PM; Sun Closed,41.7660400,-87.5799500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Ogden Park,6500 S. Racine Ave.,Chicago,IL,60636,(312) 747-6572,M-F 10AM-8PM; Sat and Sun 9AM-5PM,41.7756000,-87.6541700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Olympia Park,6566 N Avondale Ave.,Chicago,IL,60631,(773) 631-6861,M-F 8:30AM-9PM; Sat 9AM-5PM; Sun Closed,41.9996600,-87.8148800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Ping Tom Park,1700 S. Wentworth,Chicago,IL,60616,(312) 225-3121,M-F 9AM-8PM; Sat 9AM-5PM; Sun Closed,41.8595400,-87.6324000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Pottawattomie Park,7340 N. Rogers Ave.,Chicago,IL,60626,(773) 262-5835,M 9AM-9PM; T-TH 9AM-8:30PM; F 9AM-9PM; Sat 9AM-5PM; Sun Closed,42.0152800,-87.6778300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Rowan Park,11546 S. Avenue L,Chicago,IL,60617,(773) 646-3180,M-F 10AM-6:30PM; Sat and Sun Closed,41.6855000,-87.5364600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Scottsdale Park,4637 W. 83rd St.,Chicago,IL,60652,(773) 284-1826,M-F 9AM-9PM; Sat 9AM-5PM; Sun Closed,41.7420500,-87.7363500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Sheridan Park,910 S. Aberdeen St.,Chicago,IL,60607,(312) 746-5369,M-F 7AM-9PM; Sat 9AM-4:30PM; Sun 9am-3:30pm,41.8701200,-87.6542200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Smith Park,2526 W. Grand Ave.,Chicago,IL,60612,(312) 742-7534,M-F 9AM-8PM; Sat 10AM-2PM; Sun Closed,41.8917300,-87.6901100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,South Shore Cultural Center,7059 S. South Shore Dr.,Chicago,IL,60649,(773) 256-0149,M-Sun 7AM-7PM; Sat-hours can vary depending on special event schedule,41.7666100,-87.5664700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Taylor-Lauridson Park,704 W. 42nd St.,Chicago,IL,60609,(312) 747-6729,M-F 8AM-8PM; Sat 9AM-4PM; Sun Closed,41.8180800,-87.6439500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Vittum Park,5010 W. 50th St.,Chicago,IL,60638,(773) 284-6022,M-F 9:30AM-7PM; Sat and Sun Closed,41.8024400,-87.7485300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Warren Park,6601 N. Western Ave.,Chicago,IL,60645,(773) 262-6314,M-F 9AM-8:30PM; Sat & Sun 9AM-3:30PM,42.0015000,-87.6899700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Washington Park,5531 S King Drive,Chicago,IL,60637,(773) 256-1248,M-F 9AM-8PM; Sat 9AM-4PM; Sun Closed,41.7935500,-87.6159500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,West Lawn Park,4233 W. 65th St.,Chicago,IL,60629,(773) 284-2803,M-F 9AM-9PM; Sat and Sun 9AM-5PM,41.7749200,-87.7282600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Williams Park,2820 S. State St.,Chicago,IL,60616,(312) 747-7107,M-F 9AM-6PM; Sat 10AM-3PM; Sun Closed,41.8428300,-87.6268800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Facility,Willye White Park,1610 W. Howard St.,Chicago,IL,60626,(773) 262-5051,M-F 9AM-9PM; Sat and Sun Closed,42.0193400,-87.6715700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Abbott (Robert),49 E 95Th St,Chicago,IL,,,,41.7217600,-87.6223800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Ada (Sawyer Garrett),11250 S Ada St,Chicago,IL,,,,41.6883400,-87.6556800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Athletic Field,3546 W Addison St,Chicago,IL,,,,41.9465100,-87.7170000,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Avalon,1215 E 83Rd St,Chicago,IL,,,,41.7442200,-87.5946900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Back Of The Yards,4920 S Throop St,Chicago,IL,,,,41.8043600,-87.6575700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Beehive,6156 S Dorchester Ave,Chicago,IL,,,,41.7828000,-87.5914300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Bessemer (Henry),8930 S Muskegon Ave,Chicago,IL,,,,41.7327700,-87.5554700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Beverly,2460 W 102Nd St,Chicago,IL,,,,41.7082100,-87.6831900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Brainerd,1246 W 92Nd St,Chicago,IL,,,,41.7267700,-87.6549100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Broncho Billy,4437 N Magnolia Ave,Chicago,IL,,,,41.9627100,-87.6609200,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Burnside (Ambrose),9400 S Greenwood Ave,Chicago,IL,,,,41.7240200,-87.5972900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,California,3843 N California Ave,Chicago,IL,,,,41.9510600,-87.6982100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Catalpa,4330 S Kedvale Ave,Chicago,IL,,,,41.8141500,-87.7281100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Cedar,5315 N Winthrop Ave,Chicago,IL,,,,41.9785600,-87.6577900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Chopin (Frederic),3420 N Long Ave,Chicago,IL,,,,41.9432000,-87.7617700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Commercial Club Pgd. Of Chicago,1845 W Rice St,Chicago,IL,,,,41.8968800,-87.6742000,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Cornell (Paul) Square,1809 W 50Th St,Chicago,IL,,,,41.8030800,-87.6699400,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Cragin,2611 N Lockwood Ave,Chicago,IL,,,,41.9281100,-87.7587700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Davis (Dr. Nathan) Square,4430 S Marshfield Ave,Chicago,IL,,,,41.8131000,-87.6663300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Dawes (Charles G.),8052 S Damen Av,Chicago,IL,,,,41.7471600,-87.6730600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Dickinson (Arthur),4117 N Lavergne Ave,Chicago,IL,,,,41.9554200,-87.7522600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Douglas (Stephen),1401 S Sacramento,Chicago,IL,,,,41.8629900,-87.6996200,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Dunham (Robert),4640 N Melvina Ave,Chicago,IL,,,,41.9657000,-87.7826500,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Durkin (Martin),8445 S Kolin Ave,Chicago,IL,,,,41.7386500,-87.7292600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Ellis (Samuel),3520 S Cottage Grove,Chicago,IL,,,,41.8300300,-87.6104200,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Fellger (Charles),2012 W Belmont Ave,Chicago,IL,,,,41.9395800,-87.6786200,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Fernwood,10436 S Wallace St,Chicago,IL,,,,41.7046300,-87.6385700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Field (Eugene),5100 N Ridgeway Ave,Chicago,IL,,,,41.9739100,-87.7232800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Flower (Lucy),2554 W Moffat St,Chicago,IL,,,,41.9148000,-87.6917400,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Fosco (Peter),1313 S Throop St,Chicago,IL,,,,41.8647700,-87.6588500,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Fuller (Melville),331 W 45Th St,Chicago,IL,,,,41.8125100,-87.6343000,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Galewood,5729 W Bloomingdale Ave,Chicago,IL,,,,41.9126200,-87.7687300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Golden Gate,13000 S Eberhart Ave,Chicago,IL,,,,41.6589400,-87.6106400,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Grand Crossing,7655 S Ingleside Ave,Chicago,IL,,,,41.7556600,-87.6016500,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Greenebaum (Henry),4300 W Wabansia Ave,Chicago,IL,,,,41.9116100,-87.7336900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Haas (Joseph),2402 N Washtenaw Ave,Chicago,IL,,,,41.9251700,-87.6949800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Hamilton (Alexander),513 W 72Nd St,Chicago,IL,,,,41.7636000,-87.6376800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Hayes (Francis),2936 W 85Th St,Chicago,IL,,,,41.7386300,-87.6968200,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Hermitage,5839 S Wood St,Chicago,IL,,,,41.7871900,-87.6692600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Hiawatha,8029 W Forest Preserve Ave,Chicago,IL,,,,41.9440300,-87.8277300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Holly,4052 S Ellis Ave,Chicago,IL,,,,41.8207000,-87.6030200,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Humboldt (Alexander Von),1400 N Humboldt Dr,Chicago,IL,,,,41.9064600,-87.7014000,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Indian Boundary,2500 W Lunt Ave,Chicago,IL,,,,42.0086100,-87.6923800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Indian Road,6010 W Matson Ave,Chicago,IL,,,,41.9927400,-87.7783200,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Jefferson (Thomas) Meml.,4822 N Long Ave,Chicago,IL,,,,41.9687500,-87.7625800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Juniper,3656 N Greenview Ave,Chicago,IL,,,,41.9487000,-87.6664800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Kedvale,4140 W Hirsch St,Chicago,IL,,,,41.9062100,-87.7304000,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Kelvyn (William),4438 W Wrightwood Ave,Chicago,IL,,,,41.9286400,-87.7381600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Kennedy (Dennis),11320 S Western Ave,Chicago,IL,,,,41.6871700,-87.6810000,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Kenwood Comm.,1330 E 50Th St,Chicago,IL,,,,41.8042000,-87.5942000,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,"King (Martin Luther, Jr.)",1200 W 77Th St,Chicago,IL,,,,41.7541300,-87.6540100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Krause (Francis Vernon),10558 S Avenue L,Chicago,IL,,,,41.7028900,-87.5364500,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,La Villita,2800 S Sacramento,Chicago,IL,,,,41.8404200,-87.6998200,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Lawler (Michael),5210 W 64Th St,Chicago,IL,,,,41.7759800,-87.7517400,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Limas (Juliann Hope),2410 S Trumbull Ave,Chicago,IL,,,,41.8475400,-87.7112100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Mann (James),2949 E 131St St,Chicago,IL,,,,41.6573500,-87.5527800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Marquette (Jacques),6734 S Kedzie Ave,Chicago,IL,,,,41.7713700,-87.7029700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Mather (Stephen Tyng),5941 N Richmond St,Chicago,IL,,,,41.9889700,-87.7029700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Mayfair,4550 W Sunnyside Ave,Chicago,IL,,,,41.9626100,-87.7420500,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Mckiernan (David),10714 S Sawyer Ave,Chicago,IL,,,,41.6983600,-87.7022600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Micek (Frank),5311 S Hamilton Ave,Chicago,IL,,,,41.7968700,-87.6779800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Moore (Maurice),5085 W Adams St,Chicago,IL,,,,41.8784900,-87.7527600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Mount Greenwood,3721 W 111Th St,Chicago,IL,,,,41.6912000,-87.7139900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Mulberry,3150 S Robinson Ct,Chicago,IL,,,,41.8364300,-87.6663800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Ninebark,1447-1453 S Harding Ave,Chicago,IL,,,,41.8610900,-87.7238400,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Ohio,4712 W Ohio St,Chicago,IL,,,,41.8913900,-87.7440100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Oriole,5430 N Olcott Ave,Chicago,IL,,,,41.9784100,-87.8144700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Owens (Jesse),8800 S Clyde,Chicago,IL,,,,41.7349900,-87.5740300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Palmer (Potter),201 E 111Th St,Chicago,IL,,,,41.6921200,-87.6162100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Park No. 422,3200 W Congress Pkwy,Chicago,IL,,,,41.8749100,-87.7061300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Park No. 534,1301 S St Louis Ave,Chicago,IL,,,,41.8639600,-87.7128900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Park No. 546,450 E Benton Place,Chicago,IL,,,,41.8855200,-87.6167000,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Park No. 574,2554 W Jackson Blvd,Chicago,IL,,,,41.8775200,-87.6897900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Parsons (Lucy),4701 W Belmont Ave,Chicago,IL,,,,41.9387100,-87.7447100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Pendleton (Hadiya),4347 S Calumet Ave,Chicago,IL,,,,41.8150800,-87.6183400,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Periwinkle,30 W 66Th St,Chicago,IL,,,,41.7745300,-87.6278000,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Pottawattomie,7340 N Rogers Ave,Chicago,IL,,,,42.0152800,-87.6778300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Rosenblum (J. Leslie),7547 S Euclid Ave,Chicago,IL,,,,41.7574900,-87.5769100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Rowan (William),11546 S Avenue L,Chicago,IL,,,,41.6855000,-87.5364600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Rutherford Sayre,6871 W Belden Ave,Chicago,IL,,,,41.9211500,-87.7973300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Saint Louis,347 N St Louis Ave,Chicago,IL,,,,41.8876000,-87.7136200,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Schreiber,1552 W Schreiber Ave,Chicago,IL,,,,41.9990100,-87.6694100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,"Senka (Edward ""Duke"")",5656 S St Louis Ave,Chicago,IL,,,,41.7903600,-87.7108100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Senn (Nicholas),5887 N Ridge Ave,Chicago,IL,,,,41.9887700,-87.6684700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Shabbona,6935 W Addison,Chicago,IL,,,,41.9453900,-87.8002800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Sherman (John),1301 W 52Nd St,Chicago,IL,,,,41.7995900,-87.6575300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Sherwood (Jesse),5705 S Shields Ave,Chicago,IL,,,,41.7908700,-87.6340600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Skinner (Mark),1331 W Monroe St,Chicago,IL,,,,41.8802600,-87.6602700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Smith (Joseph Higgins),2526 W Grand Ave,Chicago,IL,,,,41.8917300,-87.6901100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Stanton (Edwin),618 W Scott St,Chicago,IL,,,,41.9050500,-87.6437900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Stars & Stripes,5100 S Nordica Ave,Chicago,IL,,,,41.7987700,-87.7978200,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Strohacker (Howard),4347 W 54Th St,Chicago,IL,,,,41.7949500,-87.7323900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Throop (Amos Gager),1811 S Throop St,Chicago,IL,,,,41.8575100,-87.6588300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Tilton (George),305 N Kostner,Chicago,IL,,,,41.8846900,-87.7356000,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Trumbull (Lyman),2400 E 105Th St,Chicago,IL,,,,41.7045800,-87.5644900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Tuley (Murray),501 E 90Th Pl,Chicago,IL,,,,41.7304900,-87.6103700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Veterans' Memorial,2820 E 98Th St,Chicago,IL,,,,41.7172800,-87.5558400,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Violet,4120 W Taylor St,Chicago,IL,,,,41.8690500,-87.7286800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Vittum (Harriet Elizabeth),5010 W 50Th St,Chicago,IL,,,,41.8024400,-87.7485300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Ward (A. Montgomery),630 N Kingsbury Ave,Chicago,IL,,,,41.8935000,-87.6414600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Weisman (Albert),901 W Oakdale Ave,Chicago,IL,,,,41.9354000,-87.6517100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Welles (Gideon),2333 W Sunnyside Ave,Chicago,IL,,,,41.9631600,-87.6864300,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Wentworth (John),5625 S Mobile Ave,Chicago,IL,,,,41.7894400,-87.7793600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,West Chatham,8223 S Princeton Ave,Chicago,IL,,,,41.7445400,-87.6313100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,West Lawn,4233 W 65Th St,Chicago,IL,,,,41.7749200,-87.7282600,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,West Pullman,401 W 123Rd St,Chicago,IL,,,,41.6706400,-87.6323900,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,White (Edward),1120 W 122Nd St,Chicago,IL,,,,41.6725100,-87.6500500,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Williams (Daniel Hale),2820 S State St,Chicago,IL,,,,41.8428300,-87.6268800,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Wilson (John),1122 W 34Th Pl,Chicago,IL,,,,41.8315600,-87.6545100,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Park District Spray Feature,Wolfe (Richard),3325 E 108Th St,Chicago,IL,,,,41.6991400,-87.5431700,true,false,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,1st District,1718 S State St,Chicago,IL,60616,312-745-4290,,41.8584800,-87.6272900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,2nd District,5101 S Wentworth Ave,Chicago,IL,60609,312-747-8366,,41.8010700,-87.6303500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,3rd District,7040 S Cottage Grove Ave,Chicago,IL,60637,312-747-5479,,41.7668400,-87.6061600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,4th District,2255 E 103rd St,Chicago,IL,60617,312-747-8205,,41.7075600,-87.5689400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,5th District,727 E 111th St,Chicago,IL,60628,312-747-8201,,41.6926300,-87.6035600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,6th District,7808 S Halsted St,Chicago,IL,60620,312-7453610,,41.7520700,-87.6440600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,7th District,1438 W 63rd St,Chicago,IL,60636,312-747-8220,,41.7795100,-87.6600700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,8th District,3420 W 63rd St,Chicago,IL,60629,312-747-8730,,41.7788900,-87.7087500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,9th District,3120 S Halsted St,Chicago,IL,60608,312-747-8227,,41.8371900,-87.6462600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,10th District,3315 W Ogden Ave,Chicago,IL,60623,312-747-7511,,41.8566500,-87.7085900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,11th District,3151 W Harrison St,Chicago,IL,60612,312-746-8386,,41.8737000,-87.7053800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,12th District,1412 S Blue Island Ave,Chicago,IL,60608,312-746-8396,,41.8628700,-87.6568900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,14th District,2150 N California Ave,Chicago,IL,60647,312-744-8290,,41.9215600,-87.6979700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,15th District,5701 W Madison St,Chicago,IL,60644,312-743-1440,,41.8801600,-87.7684900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,16th District,5151 N Milwaukee Ave,Chicago,IL,60630,312-742-4480,,41.9744300,-87.7659400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,17th District,4650 N Pulaski Rd,Chicago,IL,60630,312-742-4410,,41.9661600,-87.7279800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,18th District,1160 N Larrabee St,Chicago,IL,60610,312-742-5870,,41.9032500,-87.6432100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,19th District,850 W Addison St,Chicago,IL,60613,312-744-8320,,41.9472900,-87.6512000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,20th District,5400 N Lincoln Ave,Chicago,IL,60625,312-742-8714,,41.9800600,-87.6927600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,22nd District,1900 W Monterey Ave,Chicago,IL,60643,312-745-0570,,41.6920200,-87.6688700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,24th District,6464 N Clark St,Chicago,IL,60626,312-744-5907,,42.0001900,-87.6717700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Police District,25th District,5555 W Grand Ave,Chicago,IL,60639,312-746-8605,,41.9183900,-87.7646300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Regional Senior Center,Southeast,1767 E. 79th Street,Chicago,IL,60649,312-747-0189,M-F: 8:30 a.m. to 4:30 p.m.,41.7515600,-87.5806300,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Regional Senior Center,Southwest,6117 S. Kedzie Avenue,Chicago,IL,60629,312-747-0440,M-F: 8:30 a.m. to 4:30 p.m.,41.7819700,-87.7029800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Regional Senior Center,Central West,2102 W. Ogden Avenue,Chicago,IL,60612,312-746-5300,M-F: 8:30 a.m. to 4:30 p.m.,41.8709000,-87.6786200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Regional Senior Center,Northeast,2019 W. Lawrence Avenue,Chicago,IL,60625,312-744-0784,M-F: 8:30 a.m. to 4:30 p.m.,41.9687500,-87.6800400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Regional Senior Center,Northwest,3160 N. Milwaukee Avenue,Chicago,IL,60618,312-744-6681,M-F: 8:30 a.m. to 4:30 p.m.,41.9383300,-87.7225600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Regional Senior Center,Renaissance Court,78 E. Washington Street,Chicago,IL,60602,312-744-4550,M-F: 10:00 a.m. to 4:30 p.m.,41.8832500,-87.6251600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Austin Satellite,5071 West Congress,CHICAGO,IL,60644,312-743-1538,M-F 8:30 a.m. - 4:30 p.m.,41.8739800,-87.7523500,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Pilsen Satellite,2121 South Morgan,CHICAGO,IL,60608,312-743-0493,M-F 8:30 a.m. - 4:30 p.m.,41.8536700,-87.6514400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,West Town Satellite,1615 West Chicago Ave.,CHICAGO,IL,60622,312-743-1016,M-F 8:30 a.m. - 4:30 p.m.,41.8957200,-87.6677900,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Norwood Park Satellite,5801 North Natoma,CHICAGO,IL,60631,773-775-6071,M-F 8:30 a.m. - 4:30 p.m.,41.9865600,-87.7941400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Portage Park Satellite,4100 North Long,CHICAGO,IL,60639,312-744-9022,M-F 8:30 a.m. - 4:30 p.m.,41.9098500,-87.7289700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Abbott Park Satellite,49 East 95th St.,CHICAGO,IL,60619,312-745-3493,M-F 8:30 a.m. - 4:30 p.m.,41.7217600,-87.6223800,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Chatham Satellite,8300 South Cottage Grove,CHICAGO,IL,60619,312-745-0401,M-F 8:30 a.m. - 4:30 p.m.,41.7436800,-87.6050200,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Roseland Satellite,10426 South Michigan,CHICAGO,IL,60628,312-745-1500,M-F 8:30 a.m. - 4:30 p.m.,41.7045100,-87.6211600,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Garfield Ridge Satellite,5674-B South Archer,CHICAGO,IL,60638,312-745-4255,M-F 8:30 a.m. - 4:30 p.m.,41.7972100,-87.7526700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Kelvyn Park Satellite,2715 North Cicero,CHICAGO,IL,60639,312-744-3350,M-F 8:30 a.m. - 4:30 p.m.,41.9300900,-87.7465400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Auburn Gresham Satellite,1040 West 79th St.,CHICAGO,IL,60620,312-745-4797,M-F 8:30 a.m. - 4:30 p.m.,41.7505400,-87.6503100,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Englewood Satellite,653-657 West 63rd St.,CHICAGO,IL,60621,312-745-3328,M-F 8:30 a.m. - 4:30 p.m.,41.7798000,-87.6422000,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,Edgewater Satellite,5917 North Broadway,CHICAGO,IL,60621,312-742-5323,M-F 8:30 a.m. - 4:30 p.m.,41.9894400,-87.6595400,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
-Satellite Senior Center,South Chicago Satellite,9233 South Burley,CHICAGO,IL,60617,312-745-1282,M-F 8:30 a.m. - 4:30 p.m.,41.7273100,-87.5455700,true,true,msrk-w9ih,2026-11-17T19:36:03+00:00
+Chicago Community College,Daley College,7500 S. Pulaski,Chicago,IL,60652,773-838-7500,"M-F 8am-8pm; Sat 9am-3pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.7573100,-87.7221900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Chicago Community College,Harold Washington College,30 E. Lake St.,Chicago,IL,60601,312-553-5600,"M-F 8am-8pm; Sat 8am-4pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.8857600,-87.6268600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Chicago Community College,Kennedy-King College,740 W. 63rd Street,Chicago,IL,60621,773-602-5000,"M-F 8am-8pm; Sat-Sun 8am-4pm; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.7797900,-87.6439700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Chicago Community College,Malcolm X College,1900 W. Jackson,Chicago,IL,60612,312-850-7000,"M-F 8am-8pm; Sat-Sun 8am-5 pm: Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.8774900,-87.6751000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Chicago Community College,Olive-Harvey College,10001 S Woodlawn Ave,Chicago,IL,60628,773-291-6100,"M-F 9am-8pm; Sat 9am-5pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.7110900,-87.5903600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Chicago Community College,Truman College,1145 W. Wilson Ave,Chicago,IL,60640,773-907-4000,"M-F 8am-9pm; Sat 8am-4pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.9651000,-87.6595800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Chicago Community College,Wright College,4300 N. Narragansett Ave,Chicago,IL,60634,773-777-7900,"M-F 8am-7pm; Sat 8am-2pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",41.9583200,-87.7876500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Community Service Center,Garfield Center,10 S. Kedzie Avenue,Chicago,IL,60612,312-746-5400,M-F 9am-5pm; Sunday 7/26 9am-5pm,41.8800000,-87.7065900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Community Service Center,Trina Davila Center,4312 W. North Avenue,Chicago,IL,60639,312-744-2014,M-F 9am-5pm,41.9100300,-87.7342800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Community Service Center,North Area Center,845 W. Wilson Avenue,Chicago,IL,60640,312-744-2580,M-F 9am-5pm,41.9654800,-87.6519500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Community Service Center,South Chicago Center,8650 S. Commercial Avenue,Chicago,IL,60617,312-747-0500,M-F 9am-5pm,41.7377500,-87.5518300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Community Service Center,Auburn Gresham Center,1140 W. 79th Street,Chicago,IL,60620,312-747-0200,M-F 9am-5pm,41.7505000,-87.6529100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Community Service Center,King Center,4314 S. Cottage Grove,Chicago,IL,60653,312-747-2300,M-F 9am-5pm,41.8159600,-87.6070600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Pullman,11001 S. Indiana Avenue,CHICAGO,IL,60628,(312) 747-2033,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.6943700,-87.6182900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Chicago Bee,3647 S. State Street,CHICAGO,IL,60609,(312) 747-6872,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8281500,-87.6264900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Vodak-East Side,3710 E. 106th Street,CHICAGO,IL,60617,(312) 747-5500,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7030000,-87.5334800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Logan Square,3030 W. Fullerton Avenue,CHICAGO,IL,60647,(312) 744-5295,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9247600,-87.7034100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Lozano,1805 S. Loomis Street,CHICAGO,IL,60608,(312) 746-4329,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8571900,-87.6609300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Blackstone,4904 S. Lake Park Avenue,CHICAGO,IL,60615,(312) 747-0511,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8060600,-87.5904600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Merlo,644 W. Belmont Avenue,CHICAGO,IL,60657,(312) 744-1139,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9400400,-87.6462700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Thurgood Marshall,7506 S. Racine Avenue,CHICAGO,IL,60620,(312) 747-5927,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7571100,-87.6543700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Garfield Ridge,6348 S. Archer Avenue,CHICAGO,IL,60638,(312) 747-6094,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7928200,-87.7800900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Archer Heights,5055 S. Archer Avenue,CHICAGO,IL,60632,(312) 747-9241,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8007000,-87.7266300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,West Englewood,1745 W. 63rd Street,CHICAGO,IL,60636,(312) 747-3481,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7793900,-87.6685200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,South Chicago,9055 S. Houston Avenue,CHICAGO,IL,60617,(312) 747-8065,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7303700,-87.5498400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Avalon,8148 S. Stony Island Avenue,CHICAGO,IL,60617,(312) 747-5234,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7463300,-87.5858400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Rogers Park,6907 N. Clark Street,CHICAGO,IL,60626,(312) 744-0156,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",42.0066900,-87.6734100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Oriole Park,7454 W. Balmoral Avenue,CHICAGO,IL,60656,(312) 744-1965,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9780000,-87.8138700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,West Chicago Avenue,4856 W. Chicago Avenue,CHICAGO,IL,60651,(312) 743-0260,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8949800,-87.7480000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Sulzer Regional,4455 N. Lincoln Avenue,CHICAGO,IL,60625,(312) 744-7616,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9626700,-87.6846700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Hegewisch,3048 E. 130th Street,CHICAGO,IL,60633,(312) 747-0046,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.6594300,-87.5491100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,South Shore,2505 E. 73rd Street,CHICAGO,IL,60649,(312) 747-5281,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7626400,-87.5637300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Chinatown,2100 S. Wentworth Avenue,CHICAGO,IL,60616,(312) 747-8013,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8538000,-87.6318200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Edgewater,6000 N. Broadway,CHICAGO,IL,60660,(312) 742-1945,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9913000,-87.6605700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Mount Greenwood,11010 S. Kedzie Avenue,CHICAGO,IL,60655,(312) 747-2805,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.6928200,-87.7012100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Little Italy,1336 W. Taylor Street,CHICAGO,IL,60607,(312) 746-5656,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8693700,-87.6605900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Uptown,929 W. Buena Avenue,CHICAGO,IL,60613,(312) 744-8400,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9584300,-87.6542200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Scottsdale,4101 W. 79th Street,CHICAGO,IL,60652,(312) 747-0193,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7494000,-87.7246000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Austin-Irving,6100 W. Irving Park Road,CHICAGO,IL,60634,(312) 744-6222,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9532100,-87.7795200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Bucktown-Wicker Park,1701 N. Milwaukee Avenue,CHICAGO,IL,60647,(312) 744-6022,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9127700,-87.6805100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,"Daley, Richard M.-W Humboldt",733 N. Kedzie Avenue,CHICAGO,IL,60612,(312) 743-0555,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8950900,-87.7061800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Mayfair,4400 W. Lawrence Avenue,CHICAGO,IL,60630,(312) 744-1254,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9681200,-87.7381000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Jefferson Park,5363 W. Lawrence Avenue,CHICAGO,IL,60630,(312) 744-1998,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9676300,-87.7619600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,West Pullman,830 W. 119th Street,CHICAGO,IL,60643,(312) 747-1425,"M, W: 12PM-8PM; TU, TH: 10AM-6PM); F, SA: 9AM-5PM; SU: 1PM-5PM",41.6778000,-87.6431100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,West Belmont,3104 N. Narragansett Avenue,CHICAGO,IL,60634,(312) 746-5142,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9368500,-87.7858900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Albany Park,3401 W. Foster Ave.,CHICAGO,IL,60625,(773) 539-5450,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9756900,-87.7140800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,McKinley Park,1915 W. 35th Street,CHICAGO,IL,60609,(312) 747-6082,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8304100,-87.6734400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Roden,6083 N. Northwest Highway,CHICAGO,IL,60631,(312) 744-1478,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9919400,-87.7983200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Sherman Park,5440 S. Racine Avenue,CHICAGO,IL,60609,(312) 747-0477,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7948500,-87.6548900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,West Town,1625 W. Chicago Avenue,CHICAGO,IL,60622,(312) 743-0450,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8960600,-87.6685900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Coleman,731 E. 63rd Street,CHICAGO,IL,60637,(312) 747-7760,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7801400,-87.6066200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Lincoln Park,1150 W. Fullerton Avenue,CHICAGO,IL,60614,(312) 744-1926,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9255900,-87.6578900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Little Village,2311 S. Kedzie Avenue,CHICAGO,IL,60623,(312) 745-1862,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8495100,-87.7051800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Toman,2708 S. Pulaski Road,CHICAGO,IL,60623,(312) 745-1660,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8418100,-87.7248300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Budlong Woods,5630 N. Lincoln Avenue,CHICAGO,IL,60659,(312) 742-9590,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9839300,-87.6964700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Near North,310 W. Division Street,CHICAGO,IL,60610,(312) 744-0991,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9037900,-87.6366300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Wrightwood-Ashburn,8530 S. Kedzie Avenue,CHICAGO,IL,60652,(312) 747-2696,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7374200,-87.7025000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,West Lawn,4020 W. 63rd Street,CHICAGO,IL,60629,(312) 747-7381,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7786600,-87.7238400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Greater Grand Crossing,1000 East 73rd Street,CHICAGO,IL,60619,(312) 745-1608,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7622900,-87.6004100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Brainerd,1350 W. 89th Street,CHICAGO,IL,60620,(312) 747-6291,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7323200,-87.6577400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Lincoln Belmont,1659 W. Melrose Street,CHICAGO,IL,60657,(312) 744-0166,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9405600,-87.6709200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,North Pulaski,4300 W. North Avenue,CHICAGO,IL,60639,(312) 744-9573,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9100300,-87.7340400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Edgebrook,5331 W. Devon Avenue,CHICAGO,IL,60646,(312) 744-8313,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9972700,-87.7619700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Jeffery Manor,2401 E. 100th Street,CHICAGO,IL,60617,(312) 747-6479,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7135200,-87.5655600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Beverly,1962 W. 95th Street,CHICAGO,IL,60643,(312) 747-9673,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7211400,-87.6723000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Austin,5615 W. Race Avenue,CHICAGO,IL,60644,(312) 746-5038,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8892900,-87.7659700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Portage-Cragin,5108 W. Belmont Avenue,CHICAGO,IL,60641,(312) 744-0152,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9387300,-87.7547000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,"Daley, Richard J.-Bridgeport",3400 S. Halsted Street,CHICAGO,IL,60608,(312) 747-8990,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8325700,-87.6461500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Kelly,6151 S. Normal Boulevard,CHICAGO,IL,60621,(312) 747-8418,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7822000,-87.6372500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,North Austin,5724 W. North Avenue,CHICAGO,IL,60639,(312) 746-4233,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9093300,-87.7688600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Woodson Regional,9525 S. Halsted Street,CHICAGO,IL,60628,(312) 747-6900,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7204800,-87.6428500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Dunning,7455 W. Cornelia Avenue,CHICAGO,IL,60634,(312) 743-0480,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9430700,-87.8136800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Harold Washington-HWLC,400 S. State Street,CHICAGO,IL,60605,(312) 747-4300,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8763300,-87.6276300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Brighton Park,4314 S. Archer Avenue,CHICAGO,IL,60632,(312) 747-0666,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8148300,-87.7030300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Northtown,6800 N. Western Avenue,CHICAGO,IL,60645,(312) 744-2292,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",42.0050300,-87.6903300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,King,3436 S. King Drive,CHICAGO,IL,60616,(312) 747-7543,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8319800,-87.6173200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,"Whitney M. Young, Jr.",415 E. 79th Street,CHICAGO,IL,60619,(312) 747-0039,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7511100,-87.6142500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Hall,4801 S. Michigan Avenue,CHICAGO,IL,60615,(312) 747-2541,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8073000,-87.6228000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Independence,4024 N. Elston Avenue,CHICAGO,IL,60618,(312) 744-0900,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9543200,-87.7200900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Clearing,6423 W. 63rd Place,CHICAGO,IL,60638,(312) 747-5657,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7765900,-87.7822000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Chicago Lawn,6120 S. Kedzie Avenue,CHICAGO,IL,60629,(312) 747-0639,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7818600,-87.7032100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Bezazian,1226 W. Ainslie Street,CHICAGO,IL,60640,(312) 744-0019,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9718100,-87.6602000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Douglass,3353 W. 13th Street,CHICAGO,IL,60623,(312) 747-3725,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8645400,-87.7096700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Walker,11071 S. Hoyne Avenue,CHICAGO,IL,60643,(312) 747-1920,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.6922000,-87.6741200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Back of the Yards,2111 W. 47th Street,CHICAGO,IL,60609,(312) 747-9595,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8084900,-87.6779300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Humboldt Park,1605 N. Troy St.,CHICAGO,IL,60647,(312) 744-2244,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.9107300,-87.7053100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,West Loop,122 N. Aberdeen Street,CHICAGO,IL,60607,(312) 744-2995,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8838700,-87.6547700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Legler Regional,115 S. Pulaski Road,CHICAGO,IL,60624,(312) 746-7730,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8793200,-87.7256100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Manning,6 S. Hoyne Avenue,CHICAGO,IL,60612,(312) 746-6800,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8808100,-87.6795700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Gage Park,2807 W. 55th Street,CHICAGO,IL,60632,(312) 747-0032,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.7936900,-87.6941800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Altgeld,955 E. 131st Street,CHICAGO,IL,60827,(312) 747-3270,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM; CLOSED 7/16",41.6573200,-87.5986000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Library,Canaryville,642 W. 43rd Street,CHICAGO,IL,60609,(312) 747-0644,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",41.8162400,-87.6425700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Ada Park,11250 S. Ada St.,Chicago,IL,60643,(312) 747-6002,M-F 10AM-10PM; Sat 10AM-6PM; Sun Closed,41.6883400,-87.6556800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Amundsen Park,6200 W. Bloomingdale Ave,Chicago,IL,60639,(312) 746-5003,M-W 9AM-8pm; Th-F 9AM-6PM; Sat 9AM-4PM; Sun 9AM-2PM,41.9128400,-87.7802400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Brooks Park,7100 N. Harlem Ave.,Chicago,IL,60631,(773) 631-4401,"M,Th 9AM-9PM; T,W 9AM-10PM; F 9AM-8PM; Sat & Sun 9AM-2PM",42.0094400,-87.8073000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Chase Park,4701 N. Ashland Ave.,Chicago,IL,60640,(312) 742-7518,M-F 6:30AM-10PM; Sat & Sun 8AM-4PM,41.9679900,-87.6687900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Clark Park,3400 N. Rockwell St.,Chicago,IL,60618,(773) 248-3966,M-F 8AM-8PM; Sat 8AM-4PM; Sun 8AM-3PM,41.9413600,-87.6931000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Columbus Park,500 S. Central Ave.,Chicago,IL,60644,(773) 287-7641,M-F 8AM- 8PM; Sat 9:30AM-6PM; Sun Closed,41.8744500,-87.7657200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Davis Square,4430 S Marshfield,Chicago,IL,60609,(312) 747-6107,"M,T, TH 9AM-7PM; W&F 9am-8PM; Sat 9AM-5PM; Sun Closed",41.8131000,-87.6663300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Douglass Park,1401 S. Sacramento Dr.,Chicago,IL,60623,(773) 762-2842,M-F 9AM- 8PM; Sat 9AM-5PM; Sun Closed,41.8629900,-87.6996200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Ellis Park,3520 S. Cottage,Chicago,IL,60653,(773) 285-7099,M-F 7:30AM-7:30PM; Sat 9AM-5PM; Sun Closed,41.8300300,-87.6104200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Fernwood Park,10436 S. Wallace St.,Chicago,IL,60628,(312) 747-6132,"M-W 7:30AM-5PM, Th-F 7:30AM-8PM, Sat and Sun Closed",41.7046300,-87.6385700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Fosco Park,1312 S. Racine Ave.,Chicago,IL,60608,(312) 746-5086,M-F 7AM-8PM; Sat and Sun Closed,41.8649500,-87.6566200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Foster Park,1400 W. 84th St.,Chicago,IL,60620,(312) 747-6135,M-F 7AM-8PM; Sat and Sun 9AM-5PM,41.7413400,-87.6575200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Garfield Park,100 N. Central Park,Chicago,IL,60624,(312) 746-5092,M-F 9AM- 9PM; Sat 8:30AM-5PM; Sun Closed,41.8832000,-87.7160700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Gill Park,825 W. Sheridan,Chicago,IL,60613,(312) 742-7802,M-F 7AM-9:30PM; Sat 9AM-5PM; Sun 9AM-3PM,41.9527100,-87.6506000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Harrison Park,1824 S. Wood St.,Chicago,IL,60608,(312) 746-5491,"M,W,F 8AM-8:30PM; T&Th 8am-9pm; Sat 9AM-5PM; Sun Closed",41.8568200,-87.6710400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Hayes Park,2936 W. 85th St.,Chicago,IL,60652,(312) 747-6198,M-F 7AM-9PM; Sat 8:30AM-5PM; Sun Closed,41.7386300,-87.6968200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Hiawatha Park,8029 W. Forest Preserve Ave.,Chicago,IL,60634,(312) 746-5559,M-F 8AM-8PM; Sat 9AM-4PM; Sun 9AM-2PM,41.9440300,-87.8277300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Homan Square Park,3559 W. Arthington St.,Chicago,IL,60624,(312) 746-6650,M-F 9AM- 8PM; Sat 9AM-5PM; Sun Closed,41.8695300,-87.7138100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Jesse Owens Park,8800 S. Clyde Ave.,Chicago,IL,60617,(312) 747-6709,M-F 9AM-7PM; Sat 10AM-5PM; Sun Closed,41.7349900,-87.5740300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Jesse White Center,410 W. Chicago Ave.,Chicago,IL,60610,(312) 742-2410,M-F 9AM-5PM; Sat & Sun Closed,41.8965200,-87.6391600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Lindblom Park,6054 S. Damen Ave.,Chicago,IL,60636,(312) 747-6443,M-F 9AM-8PM; Sat and Sun 9AM-5PM,41.7836000,-87.6745900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Marquette Park,6743 S. Kedzie Ave.,Chicago,IL,60629,(312) 747-6469,M-F 9AM-9PM; Sat and Sun 9AM-5PM,41.7706300,-87.7029500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,McFetridge Sports Center,3843 N. California Ave.,Chicago,IL,60618,(773) 478-2609,M-F 6AM-11PM; Sat & Sun 6AM-11PM,41.9510600,-87.6982100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,McGuane Park,2901 S. Poplar Ave.,Chicago,IL,60608,(312) 747-6497,M-F 8AM-9PM; Sat 9AM-5PM; Sun Closed,41.8409300,-87.6493000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Mozart Park,2036 N Avers,Chicago,IL,60647,(312) 742-7535,M-F 8AM-8PM; Sat 10AM-3PM; Sun Closed,41.9179000,-87.7228900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Mt. Greenwood,3721 W. 111th St.,Chicago,IL,60655,(312) 747-6564,M-F 8:30AM-9PM; Sat and Sun 9AM-5PM,41.6912000,-87.7139900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Nash Community Center,1833 E. 71st St.,Chicago,IL,60649,(773) 256-0904,M-F 7AM-8PM; Sat 9AM-5PM; Sun Closed,41.7660400,-87.5799500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Ogden Park,6500 S. Racine Ave.,Chicago,IL,60636,(312) 747-6572,M-F 10AM-8PM; Sat and Sun 9AM-5PM,41.7756000,-87.6541700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Olympia Park,6566 N Avondale Ave.,Chicago,IL,60631,(773) 631-6861,M-F 8:30AM-9PM; Sat 9AM-5PM; Sun Closed,41.9996600,-87.8148800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Ping Tom Park,1700 S. Wentworth,Chicago,IL,60616,(312) 225-3121,M-F 9AM-8PM; Sat 9AM-5PM; Sun Closed,41.8595400,-87.6324000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Pottawattomie Park,7340 N. Rogers Ave.,Chicago,IL,60626,(773) 262-5835,M 9AM-9PM; T-TH 9AM-8:30PM; F 9AM-9PM; Sat 9AM-5PM; Sun Closed,42.0152800,-87.6778300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Rowan Park,11546 S. Avenue L,Chicago,IL,60617,(773) 646-3180,M-F 10AM-6:30PM; Sat and Sun Closed,41.6855000,-87.5364600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Scottsdale Park,4637 W. 83rd St.,Chicago,IL,60652,(773) 284-1826,M-F 9AM-9PM; Sat 9AM-5PM; Sun Closed,41.7420500,-87.7363500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Sheridan Park,910 S. Aberdeen St.,Chicago,IL,60607,(312) 746-5369,M-F 7AM-9PM; Sat 9AM-4:30PM; Sun 9am-3:30pm,41.8701200,-87.6542200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Smith Park,2526 W. Grand Ave.,Chicago,IL,60612,(312) 742-7534,M-F 9AM-8PM; Sat 10AM-2PM; Sun Closed,41.8917300,-87.6901100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,South Shore Cultural Center,7059 S. South Shore Dr.,Chicago,IL,60649,(773) 256-0149,M-Sun 7AM-7PM; Sat-hours can vary depending on special event schedule,41.7666100,-87.5664700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Taylor-Lauridson Park,704 W. 42nd St.,Chicago,IL,60609,(312) 747-6729,M-F 8AM-8PM; Sat 9AM-4PM; Sun Closed,41.8180800,-87.6439500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Vittum Park,5010 W. 50th St.,Chicago,IL,60638,(773) 284-6022,M-F 9:30AM-7PM; Sat and Sun Closed,41.8024400,-87.7485300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Warren Park,6601 N. Western Ave.,Chicago,IL,60645,(773) 262-6314,M-F 9AM-8:30PM; Sat & Sun 9AM-3:30PM,42.0015000,-87.6899700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Washington Park,5531 S King Drive,Chicago,IL,60637,(773) 256-1248,M-F 9AM-8PM; Sat 9AM-4PM; Sun Closed,41.7935500,-87.6159500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,West Lawn Park,4233 W. 65th St.,Chicago,IL,60629,(773) 284-2803,M-F 9AM-9PM; Sat and Sun 9AM-5PM,41.7749200,-87.7282600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Williams Park,2820 S. State St.,Chicago,IL,60616,(312) 747-7107,M-F 9AM-6PM; Sat 10AM-3PM; Sun Closed,41.8428300,-87.6268800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Facility,Willye White Park,1610 W. Howard St.,Chicago,IL,60626,(773) 262-5051,M-F 9AM-9PM; Sat and Sun Closed,42.0193400,-87.6715700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Abbott (Robert),49 E 95Th St,Chicago,IL,,,,41.7217600,-87.6223800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Ada (Sawyer Garrett),11250 S Ada St,Chicago,IL,,,,41.6883400,-87.6556800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Athletic Field,3546 W Addison St,Chicago,IL,,,,41.9465100,-87.7170000,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Avalon,1215 E 83Rd St,Chicago,IL,,,,41.7442200,-87.5946900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Back Of The Yards,4920 S Throop St,Chicago,IL,,,,41.8043600,-87.6575700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Beehive,6156 S Dorchester Ave,Chicago,IL,,,,41.7828000,-87.5914300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Bessemer (Henry),8930 S Muskegon Ave,Chicago,IL,,,,41.7327700,-87.5554700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Beverly,2460 W 102Nd St,Chicago,IL,,,,41.7082100,-87.6831900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Brainerd,1246 W 92Nd St,Chicago,IL,,,,41.7267700,-87.6549100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Broncho Billy,4437 N Magnolia Ave,Chicago,IL,,,,41.9627100,-87.6609200,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Burnside (Ambrose),9400 S Greenwood Ave,Chicago,IL,,,,41.7240200,-87.5972900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,California,3843 N California Ave,Chicago,IL,,,,41.9510600,-87.6982100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Catalpa,4330 S Kedvale Ave,Chicago,IL,,,,41.8141500,-87.7281100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Cedar,5315 N Winthrop Ave,Chicago,IL,,,,41.9785600,-87.6577900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Chopin (Frederic),3420 N Long Ave,Chicago,IL,,,,41.9432000,-87.7617700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Commercial Club Pgd. Of Chicago,1845 W Rice St,Chicago,IL,,,,41.8968800,-87.6742000,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Cornell (Paul) Square,1809 W 50Th St,Chicago,IL,,,,41.8030800,-87.6699400,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Cragin,2611 N Lockwood Ave,Chicago,IL,,,,41.9281100,-87.7587700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Davis (Dr. Nathan) Square,4430 S Marshfield Ave,Chicago,IL,,,,41.8131000,-87.6663300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Dawes (Charles G.),8052 S Damen Av,Chicago,IL,,,,41.7471600,-87.6730600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Dickinson (Arthur),4117 N Lavergne Ave,Chicago,IL,,,,41.9554200,-87.7522600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Douglas (Stephen),1401 S Sacramento,Chicago,IL,,,,41.8629900,-87.6996200,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Dunham (Robert),4640 N Melvina Ave,Chicago,IL,,,,41.9657000,-87.7826500,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Durkin (Martin),8445 S Kolin Ave,Chicago,IL,,,,41.7386500,-87.7292600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Ellis (Samuel),3520 S Cottage Grove,Chicago,IL,,,,41.8300300,-87.6104200,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Fellger (Charles),2012 W Belmont Ave,Chicago,IL,,,,41.9395800,-87.6786200,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Fernwood,10436 S Wallace St,Chicago,IL,,,,41.7046300,-87.6385700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Field (Eugene),5100 N Ridgeway Ave,Chicago,IL,,,,41.9739100,-87.7232800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Flower (Lucy),2554 W Moffat St,Chicago,IL,,,,41.9148000,-87.6917400,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Fosco (Peter),1313 S Throop St,Chicago,IL,,,,41.8647700,-87.6588500,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Fuller (Melville),331 W 45Th St,Chicago,IL,,,,41.8125100,-87.6343000,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Galewood,5729 W Bloomingdale Ave,Chicago,IL,,,,41.9126200,-87.7687300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Golden Gate,13000 S Eberhart Ave,Chicago,IL,,,,41.6589400,-87.6106400,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Grand Crossing,7655 S Ingleside Ave,Chicago,IL,,,,41.7556600,-87.6016500,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Greenebaum (Henry),4300 W Wabansia Ave,Chicago,IL,,,,41.9116100,-87.7336900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Haas (Joseph),2402 N Washtenaw Ave,Chicago,IL,,,,41.9251700,-87.6949800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Hamilton (Alexander),513 W 72Nd St,Chicago,IL,,,,41.7636000,-87.6376800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Hayes (Francis),2936 W 85Th St,Chicago,IL,,,,41.7386300,-87.6968200,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Hermitage,5839 S Wood St,Chicago,IL,,,,41.7871900,-87.6692600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Hiawatha,8029 W Forest Preserve Ave,Chicago,IL,,,,41.9440300,-87.8277300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Holly,4052 S Ellis Ave,Chicago,IL,,,,41.8207000,-87.6030200,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Humboldt (Alexander Von),1400 N Humboldt Dr,Chicago,IL,,,,41.9064600,-87.7014000,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Indian Boundary,2500 W Lunt Ave,Chicago,IL,,,,42.0086100,-87.6923800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Indian Road,6010 W Matson Ave,Chicago,IL,,,,41.9927400,-87.7783200,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Jefferson (Thomas) Meml.,4822 N Long Ave,Chicago,IL,,,,41.9687500,-87.7625800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Juniper,3656 N Greenview Ave,Chicago,IL,,,,41.9487000,-87.6664800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Kedvale,4140 W Hirsch St,Chicago,IL,,,,41.9062100,-87.7304000,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Kelvyn (William),4438 W Wrightwood Ave,Chicago,IL,,,,41.9286400,-87.7381600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Kennedy (Dennis),11320 S Western Ave,Chicago,IL,,,,41.6871700,-87.6810000,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Kenwood Comm.,1330 E 50Th St,Chicago,IL,,,,41.8042000,-87.5942000,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,"King (Martin Luther, Jr.)",1200 W 77Th St,Chicago,IL,,,,41.7541300,-87.6540100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Krause (Francis Vernon),10558 S Avenue L,Chicago,IL,,,,41.7028900,-87.5364500,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,La Villita,2800 S Sacramento,Chicago,IL,,,,41.8404200,-87.6998200,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Lawler (Michael),5210 W 64Th St,Chicago,IL,,,,41.7759800,-87.7517400,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Limas (Juliann Hope),2410 S Trumbull Ave,Chicago,IL,,,,41.8475400,-87.7112100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Mann (James),2949 E 131St St,Chicago,IL,,,,41.6573500,-87.5527800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Marquette (Jacques),6734 S Kedzie Ave,Chicago,IL,,,,41.7713700,-87.7029700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Mather (Stephen Tyng),5941 N Richmond St,Chicago,IL,,,,41.9889700,-87.7029700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Mayfair,4550 W Sunnyside Ave,Chicago,IL,,,,41.9626100,-87.7420500,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Mckiernan (David),10714 S Sawyer Ave,Chicago,IL,,,,41.6983600,-87.7022600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Micek (Frank),5311 S Hamilton Ave,Chicago,IL,,,,41.7968700,-87.6779800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Moore (Maurice),5085 W Adams St,Chicago,IL,,,,41.8784900,-87.7527600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Mount Greenwood,3721 W 111Th St,Chicago,IL,,,,41.6912000,-87.7139900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Mulberry,3150 S Robinson Ct,Chicago,IL,,,,41.8364300,-87.6663800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Ninebark,1447-1453 S Harding Ave,Chicago,IL,,,,41.8610900,-87.7238400,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Ohio,4712 W Ohio St,Chicago,IL,,,,41.8913900,-87.7440100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Oriole,5430 N Olcott Ave,Chicago,IL,,,,41.9784100,-87.8144700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Owens (Jesse),8800 S Clyde,Chicago,IL,,,,41.7349900,-87.5740300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Palmer (Potter),201 E 111Th St,Chicago,IL,,,,41.6921200,-87.6162100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Park No. 422,3200 W Congress Pkwy,Chicago,IL,,,,41.8749100,-87.7061300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Park No. 534,1301 S St Louis Ave,Chicago,IL,,,,41.8639600,-87.7128900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Park No. 546,450 E Benton Place,Chicago,IL,,,,41.8855200,-87.6167000,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Park No. 574,2554 W Jackson Blvd,Chicago,IL,,,,41.8775200,-87.6897900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Parsons (Lucy),4701 W Belmont Ave,Chicago,IL,,,,41.9387100,-87.7447100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Pendleton (Hadiya),4347 S Calumet Ave,Chicago,IL,,,,41.8150800,-87.6183400,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Periwinkle,30 W 66Th St,Chicago,IL,,,,41.7745300,-87.6278000,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Pottawattomie,7340 N Rogers Ave,Chicago,IL,,,,42.0152800,-87.6778300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Rosenblum (J. Leslie),7547 S Euclid Ave,Chicago,IL,,,,41.7574900,-87.5769100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Rowan (William),11546 S Avenue L,Chicago,IL,,,,41.6855000,-87.5364600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Rutherford Sayre,6871 W Belden Ave,Chicago,IL,,,,41.9211500,-87.7973300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Saint Louis,347 N St Louis Ave,Chicago,IL,,,,41.8876000,-87.7136200,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Schreiber,1552 W Schreiber Ave,Chicago,IL,,,,41.9990100,-87.6694100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,"Senka (Edward ""Duke"")",5656 S St Louis Ave,Chicago,IL,,,,41.7903600,-87.7108100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Senn (Nicholas),5887 N Ridge Ave,Chicago,IL,,,,41.9887700,-87.6684700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Shabbona,6935 W Addison,Chicago,IL,,,,41.9453900,-87.8002800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Sherman (John),1301 W 52Nd St,Chicago,IL,,,,41.7995900,-87.6575300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Sherwood (Jesse),5705 S Shields Ave,Chicago,IL,,,,41.7908700,-87.6340600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Skinner (Mark),1331 W Monroe St,Chicago,IL,,,,41.8802600,-87.6602700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Smith (Joseph Higgins),2526 W Grand Ave,Chicago,IL,,,,41.8917300,-87.6901100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Stanton (Edwin),618 W Scott St,Chicago,IL,,,,41.9050500,-87.6437900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Stars & Stripes,5100 S Nordica Ave,Chicago,IL,,,,41.7987700,-87.7978200,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Strohacker (Howard),4347 W 54Th St,Chicago,IL,,,,41.7949500,-87.7323900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Throop (Amos Gager),1811 S Throop St,Chicago,IL,,,,41.8575100,-87.6588300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Tilton (George),305 N Kostner,Chicago,IL,,,,41.8846900,-87.7356000,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Trumbull (Lyman),2400 E 105Th St,Chicago,IL,,,,41.7045800,-87.5644900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Tuley (Murray),501 E 90Th Pl,Chicago,IL,,,,41.7304900,-87.6103700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Veterans' Memorial,2820 E 98Th St,Chicago,IL,,,,41.7172800,-87.5558400,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Violet,4120 W Taylor St,Chicago,IL,,,,41.8690500,-87.7286800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Vittum (Harriet Elizabeth),5010 W 50Th St,Chicago,IL,,,,41.8024400,-87.7485300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Ward (A. Montgomery),630 N Kingsbury Ave,Chicago,IL,,,,41.8935000,-87.6414600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Weisman (Albert),901 W Oakdale Ave,Chicago,IL,,,,41.9354000,-87.6517100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Welles (Gideon),2333 W Sunnyside Ave,Chicago,IL,,,,41.9631600,-87.6864300,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Wentworth (John),5625 S Mobile Ave,Chicago,IL,,,,41.7894400,-87.7793600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,West Chatham,8223 S Princeton Ave,Chicago,IL,,,,41.7445400,-87.6313100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,West Lawn,4233 W 65Th St,Chicago,IL,,,,41.7749200,-87.7282600,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,West Pullman,401 W 123Rd St,Chicago,IL,,,,41.6706400,-87.6323900,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,White (Edward),1120 W 122Nd St,Chicago,IL,,,,41.6725100,-87.6500500,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Williams (Daniel Hale),2820 S State St,Chicago,IL,,,,41.8428300,-87.6268800,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Wilson (John),1122 W 34Th Pl,Chicago,IL,,,,41.8315600,-87.6545100,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Park District Spray Feature,Wolfe (Richard),3325 E 108Th St,Chicago,IL,,,,41.6991400,-87.5431700,true,false,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,1st District,1718 S State St,Chicago,IL,60616,312-745-4290,,41.8584800,-87.6272900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,2nd District,5101 S Wentworth Ave,Chicago,IL,60609,312-747-8366,,41.8010700,-87.6303500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,3rd District,7040 S Cottage Grove Ave,Chicago,IL,60637,312-747-5479,,41.7668400,-87.6061600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,4th District,2255 E 103rd St,Chicago,IL,60617,312-747-8205,,41.7075600,-87.5689400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,5th District,727 E 111th St,Chicago,IL,60628,312-747-8201,,41.6926300,-87.6035600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,6th District,7808 S Halsted St,Chicago,IL,60620,312-7453610,,41.7520700,-87.6440600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,7th District,1438 W 63rd St,Chicago,IL,60636,312-747-8220,,41.7795100,-87.6600700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,8th District,3420 W 63rd St,Chicago,IL,60629,312-747-8730,,41.7788900,-87.7087500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,9th District,3120 S Halsted St,Chicago,IL,60608,312-747-8227,,41.8371900,-87.6462600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,10th District,3315 W Ogden Ave,Chicago,IL,60623,312-747-7511,,41.8566500,-87.7085900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,11th District,3151 W Harrison St,Chicago,IL,60612,312-746-8386,,41.8737000,-87.7053800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,12th District,1412 S Blue Island Ave,Chicago,IL,60608,312-746-8396,,41.8628700,-87.6568900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,14th District,2150 N California Ave,Chicago,IL,60647,312-744-8290,,41.9215600,-87.6979700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,15th District,5701 W Madison St,Chicago,IL,60644,312-743-1440,,41.8801600,-87.7684900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,16th District,5151 N Milwaukee Ave,Chicago,IL,60630,312-742-4480,,41.9744300,-87.7659400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,17th District,4650 N Pulaski Rd,Chicago,IL,60630,312-742-4410,,41.9661600,-87.7279800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,18th District,1160 N Larrabee St,Chicago,IL,60610,312-742-5870,,41.9032500,-87.6432100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,19th District,850 W Addison St,Chicago,IL,60613,312-744-8320,,41.9472900,-87.6512000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,20th District,5400 N Lincoln Ave,Chicago,IL,60625,312-742-8714,,41.9800600,-87.6927600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,22nd District,1900 W Monterey Ave,Chicago,IL,60643,312-745-0570,,41.6920200,-87.6688700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,24th District,6464 N Clark St,Chicago,IL,60626,312-744-5907,,42.0001900,-87.6717700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Police District,25th District,5555 W Grand Ave,Chicago,IL,60639,312-746-8605,,41.9183900,-87.7646300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Regional Senior Center,Southeast,1767 E. 79th Street,Chicago,IL,60649,312-747-0189,M-F: 8:30 a.m. to 4:30 p.m.,41.7515600,-87.5806300,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Regional Senior Center,Southwest,6117 S. Kedzie Avenue,Chicago,IL,60629,312-747-0440,M-F: 8:30 a.m. to 4:30 p.m.,41.7819700,-87.7029800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Regional Senior Center,Central West,2102 W. Ogden Avenue,Chicago,IL,60612,312-746-5300,M-F: 8:30 a.m. to 4:30 p.m.,41.8709000,-87.6786200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Regional Senior Center,Northeast,2019 W. Lawrence Avenue,Chicago,IL,60625,312-744-0784,M-F: 8:30 a.m. to 4:30 p.m.,41.9687500,-87.6800400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Regional Senior Center,Northwest,3160 N. Milwaukee Avenue,Chicago,IL,60618,312-744-6681,M-F: 8:30 a.m. to 4:30 p.m.,41.9383300,-87.7225600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Regional Senior Center,Renaissance Court,78 E. Washington Street,Chicago,IL,60602,312-744-4550,M-F: 10:00 a.m. to 4:30 p.m.,41.8832500,-87.6251600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Austin Satellite,5071 West Congress,CHICAGO,IL,60644,312-743-1538,M-F 8:30 a.m. - 4:30 p.m.,41.8739800,-87.7523500,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Pilsen Satellite,2121 South Morgan,CHICAGO,IL,60608,312-743-0493,M-F 8:30 a.m. - 4:30 p.m.,41.8536700,-87.6514400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,West Town Satellite,1615 West Chicago Ave.,CHICAGO,IL,60622,312-743-1016,M-F 8:30 a.m. - 4:30 p.m.,41.8957200,-87.6677900,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Norwood Park Satellite,5801 North Natoma,CHICAGO,IL,60631,773-775-6071,M-F 8:30 a.m. - 4:30 p.m.,41.9865600,-87.7941400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Portage Park Satellite,4100 North Long,CHICAGO,IL,60639,312-744-9022,M-F 8:30 a.m. - 4:30 p.m.,41.9098500,-87.7289700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Abbott Park Satellite,49 East 95th St.,CHICAGO,IL,60619,312-745-3493,M-F 8:30 a.m. - 4:30 p.m.,41.7217600,-87.6223800,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Chatham Satellite,8300 South Cottage Grove,CHICAGO,IL,60619,312-745-0401,M-F 8:30 a.m. - 4:30 p.m.,41.7436800,-87.6050200,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Roseland Satellite,10426 South Michigan,CHICAGO,IL,60628,312-745-1500,M-F 8:30 a.m. - 4:30 p.m.,41.7045100,-87.6211600,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Garfield Ridge Satellite,5674-B South Archer,CHICAGO,IL,60638,312-745-4255,M-F 8:30 a.m. - 4:30 p.m.,41.7972100,-87.7526700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Kelvyn Park Satellite,2715 North Cicero,CHICAGO,IL,60639,312-744-3350,M-F 8:30 a.m. - 4:30 p.m.,41.9300900,-87.7465400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Auburn Gresham Satellite,1040 West 79th St.,CHICAGO,IL,60620,312-745-4797,M-F 8:30 a.m. - 4:30 p.m.,41.7505400,-87.6503100,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Englewood Satellite,653-657 West 63rd St.,CHICAGO,IL,60621,312-745-3328,M-F 8:30 a.m. - 4:30 p.m.,41.7798000,-87.6422000,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,Edgewater Satellite,5917 North Broadway,CHICAGO,IL,60621,312-742-5323,M-F 8:30 a.m. - 4:30 p.m.,41.9894400,-87.6595400,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00
+Satellite Senior Center,South Chicago Satellite,9233 South Burley,CHICAGO,IL,60617,312-745-1282,M-F 8:30 a.m. - 4:30 p.m.,41.7273100,-87.5455700,true,true,msrk-w9ih,2026-11-17T21:03:08+00:00

@@ -3,6 +3,7 @@
         root_agent
           |- MCP Toolbox toolset  (BigQuery: ML.EXPLAIN_PREDICT ranking, explanations, frequency, equity audit)
           |- locate_place / get_forecast_high / heat_risk_for_forecast   (small Python tools)
+          |- get_dispatch_status / set_operator_constraints / replan_dispatch   (web console re-plans, console.py)
           `- build_dispatch_plan  (assembles the Placement Recommendation from stored tool output)
 """
 from __future__ import annotations
@@ -14,6 +15,7 @@ from google.adk.models import Gemini
 from google.genai.types import HttpRetryOptions
 
 from .config import get_settings
+from .console import get_dispatch_status, replan_dispatch, set_operator_constraints
 from .dispatch import STATE_AUDIT, STATE_PARAMS, STATE_SITES, STATE_TRACTS, build_dispatch_plan
 from .forecast import get_forecast_high, heat_risk_for_forecast
 from .places import in_chicago, locate_place
@@ -45,7 +47,7 @@ def stash_tool_results(tool: Any, args: dict, tool_context: Any, tool_response: 
         tool_context.state[key] = rows
         if tool.name == "rank_priority_sites":
             tool_context.state[STATE_PARAMS] = {k: v for k, v in (args or {}).items()
-                                                if k in ("heat_weight", "limit", "min_density", "spacing_cells")}
+                                                if k in ("heat_weight", "limit", "min_density", "spacing_cells", "min_offset")}
     return None
 
 
@@ -74,14 +76,19 @@ logistics_agent = build_logistics_agent(_model(), toolbox)
 outreach_agent = build_outreach_agent(_model(), toolbox)
 triage_agent = build_triage_agent(_model(), toolbox)
 equity_agent = build_equity_agent(_model(), toolbox)
+_SPECIALISTS = [spatial_risk_agent, logistics_agent, outreach_agent, triage_agent, equity_agent]
+for _a in _SPECIALISTS:   # specialists also call Toolbox: same guard, and their rows land in session state too
+    _a.before_tool_callback = guard_point_tools
+    _a.after_tool_callback = stash_tool_results
 
 root_agent = Agent(
     name="heat_dispatch_agent",
     model=_model(),
     description="Chicago emergency heat incident coordinator: orchestrates 5 specialized agents (Spatial Risk, Logistics, Outreach, Triage, Equity) to generate proactive heat dispatch plans and respond to midday disruptions.",
     instruction=INSTRUCTION,
-    tools=[toolbox, locate_place, get_forecast_high, heat_risk_for_forecast, build_dispatch_plan],
-    sub_agents=[spatial_risk_agent, logistics_agent, outreach_agent, triage_agent, equity_agent],
+    tools=[toolbox, locate_place, get_forecast_high, heat_risk_for_forecast, build_dispatch_plan,
+           get_dispatch_status, set_operator_constraints, replan_dispatch],
+    sub_agents=_SPECIALISTS,
     before_tool_callback=guard_point_tools,
     after_tool_callback=stash_tool_results,
 )
