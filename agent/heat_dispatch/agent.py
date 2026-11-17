@@ -78,6 +78,11 @@ triage_agent = build_triage_agent(_model(), toolbox, guard_point_tools, stash_to
 equity_agent = build_equity_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
 _SPECIALISTS = [spatial_risk_agent, logistics_agent, outreach_agent, triage_agent, equity_agent]
 
+# The builders attach the guard and stash callbacks. Also: specialists hand back to the coordinator, never to each other,
+# otherwise a compound request ping-pongs between agents (observed live: 4-11 transfers and no answer).
+for _a in _SPECIALISTS:
+    _a.disallow_transfer_to_peers = True
+
 root_agent = Agent(
     name="heat_dispatch_agent",
     model=_model(),

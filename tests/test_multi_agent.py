@@ -96,3 +96,13 @@ def test_every_specialist_has_the_guard_and_stash_callbacks():
     for a in (root_agent, *root_agent.sub_agents):
         assert a.before_tool_callback is guard_point_tools, a.name
         assert a.after_tool_callback is stash_tool_results, a.name
+
+
+def test_specialists_cannot_transfer_to_each_other():
+    from heat_dispatch.agent import root_agent
+    assert all(a.disallow_transfer_to_peers for a in root_agent.sub_agents)
+
+
+def test_prompt_keeps_the_full_plan_with_the_coordinator():
+    from heat_dispatch.prompts import INSTRUCTION
+    assert "Do NOT transfer it" in INSTRUCTION and "build_dispatch_plan" in INSTRUCTION
