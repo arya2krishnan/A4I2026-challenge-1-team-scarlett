@@ -223,6 +223,7 @@ export default function App() {
             mode={mode}
             onToggleMode={onToggleMode}
             onScenario={send}
+            layers={layers}
           />
         )}
         <main className="center">
