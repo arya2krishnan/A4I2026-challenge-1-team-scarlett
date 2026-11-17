@@ -16,7 +16,7 @@ AG_SA="${AGENT_SERVICE_ACCOUNT:-heat-agent@${PROJECT}.iam.gserviceaccount.com}"
 mk_sa "$TB_SA" "Heat toolbox (Cloud Run)"; mk_sa "$AG_SA" "Heat dispatch agent (Agent Runtime)"
 save_env TOOLBOX_SERVICE_ACCOUNT "$TB_SA"; save_env AGENT_SERVICE_ACCOUNT "$AG_SA"
 
-bind() { gcloud projects add-iam-policy-binding "$PROJECT" --member "serviceAccount:$1" --role "$2" --condition=None --quiet >/dev/null; }
+bind() { retry gcloud projects add-iam-policy-binding "$PROJECT" --member "serviceAccount:$1" --role "$2" --condition=None --quiet >/dev/null; }
 echo ">> Toolbox identity $TB_SA: reads the dataset (read-only), runs query jobs, reads its config secret"
 bind "$TB_SA" roles/bigquery.jobUser; bind "$TB_SA" roles/bigquery.dataViewer; bind "$TB_SA" roles/secretmanager.secretAccessor
 CL_SA="${CLIENT_SERVICE_ACCOUNT:-heat-client@${PROJECT}.iam.gserviceaccount.com}"

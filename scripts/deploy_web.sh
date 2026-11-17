@@ -24,16 +24,16 @@ gcloud iam service-accounts describe "$SA" --project "$PROJECT" >/dev/null 2>&1 
   gcloud iam service-accounts create "${SA%%@*}" --project "$PROJECT" --display-name "Heat dispatch console (Cloud Run)"
 save_env WEB_SERVICE_ACCOUNT "$SA"
 for r in roles/aiplatform.user roles/bigquery.jobUser; do
-  gcloud projects add-iam-policy-binding "$PROJECT" --member "serviceAccount:$SA" --role "$r" --condition=None --quiet >/dev/null
+  retry gcloud projects add-iam-policy-binding "$PROJECT" --member "serviceAccount:$SA" --role "$r" --condition=None --quiet >/dev/null
 done
-gcloud run services add-iam-policy-binding "$TB_SERVICE" --project "$PROJECT" --region "$REGION" \
+retry gcloud run services add-iam-policy-binding "$TB_SERVICE" --project "$PROJECT" --region "$REGION" \
   --member "serviceAccount:$SA" --role roles/run.invoker --quiet >/dev/null
 
 echo ">> console tables in $PROJECT:$BQ_DATASET"
 for t in dispatch_plan_versions dispatch_approvals; do
   bq --location="$BQ_LOCATION" show "$PROJECT:$BQ_DATASET.$t" >/dev/null 2>&1 || \
     bq --location="$BQ_LOCATION" mk --table "$PROJECT:$BQ_DATASET.$t" "$ROOT/web/backend/schema/$t.json"
-  bq add-iam-policy-binding --member="serviceAccount:$SA" --role=roles/bigquery.dataEditor "$PROJECT:$BQ_DATASET.$t" >/dev/null
+  retry bq add-iam-policy-binding --member="serviceAccount:$SA" --role=roles/bigquery.dataEditor "$PROJECT:$BQ_DATASET.$t" >/dev/null
 done
 
 BUILD="$(mktemp -d)"; trap 'rm -rf "$BUILD"' EXIT
