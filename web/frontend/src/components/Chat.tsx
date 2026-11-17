@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { marked } from 'marked';
 import { EMOJI } from '../lenses';
 import type { Kind, Plan } from '../types';
+
+marked.use({ gfm: true, breaks: true });
 
 export interface Msg { who: 'u' | 'a'; text: string; plan?: Plan; pending?: string; error?: boolean; qr?: string[] }
 
@@ -78,7 +81,13 @@ export function Chat({ msgs, onSend, suggestions, busy, agentLabel, onToggleChat
       <div className="msgs" ref={box} data-testid="chat-msgs">
         {msgs.map((m, i) => (
           <div key={i} className={`msg ${m.who}${m.error ? ' err' : ''}`}>
-            {m.text && <div style={{ whiteSpace: 'pre-wrap' }}>{m.text}</div>}
+            {m.text && (
+              m.who === 'a' ? (
+                <div className="chat-md" dangerouslySetInnerHTML={{ __html: marked.parse(m.text) as string }} />
+              ) : (
+                <div style={{ whiteSpace: 'pre-wrap' }}>{m.text}</div>
+              )
+            )}
             {m.pending && <div className="note">{m.pending}</div>}
             {m.plan && <DiffView plan={m.plan} onSend={onSend} />}
             {m.qr && <div className="qr">{m.qr.map(q => <button key={q} disabled={busy} onClick={() => onSend(q)}>{q}</button>)}</div>}
