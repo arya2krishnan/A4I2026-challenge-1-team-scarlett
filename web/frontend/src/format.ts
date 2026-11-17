@@ -10,6 +10,11 @@ export const FEATURE_LABEL: Record<string, string> = {
   lake_distance_band: 'far from lake', dist_to_lake_km: 'far from lake', dist_to_loop_km: 'distance to Loop',
   pop_density_km2: 'density', building_era: 'housing age', median_year_structure_built: 'housing age',
   building_share: 'buildings', green_share: 'little green', paved_use_share: 'paved land', road_km_per_km2: 'streets',
+  downtown_distance_band: 'distance to Loop', log_pop_density: 'density', log_road_density: 'streets',
+  // v2 candidate (heat_offset_lst): satellite values are SURFACE heat, never air temperature
+  surface_heat_f: 'hot surfaces (satellite)', impervious_pct_300m: 'pavement', tree_canopy_pct_300m: 'tree canopy',
+  location_trend: 'location in city', trend_lat_km: 'location in city', trend_lon_km: 'location in city',
+  trend_lat2: 'location in city', trend_lon2: 'location in city', trend_latlon: 'location in city',
 };
 export const timeOf = (iso: string): string => {
   const d = new Date(iso);
