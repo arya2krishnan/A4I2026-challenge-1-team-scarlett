@@ -1,0 +1,5 @@
+google-adk[a2a]==2.13.0
+google-cloud-aiplatform==2.7.0
+toolbox-adk==1.4.0
+python-dotenv
+cloudpickle

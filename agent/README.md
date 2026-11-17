@@ -1,24 +1,14 @@
-# Your agent goes here
+# agent/
 
-This folder is empty on purpose.
+`heat_dispatch/` is the ADK agent (root agent in `agent.py`). It reaches BigQuery only through the MCP Toolbox server
+(`toolbox/tools.yaml`) and has a few Python tools for work that is not a single query.
 
-Everything else in this repository exists so that you don't spend your morning on setup:
-the data is sourced, the licensing is checked, the load process is written, and the
-exploration queries are ready to run. That is the on-ramp.
+| File | What it holds |
+|---|---|
+| `agent.py` | root agent, the after-tool callback that stores ranked rows in session state, the out-of-Chicago guard |
+| `prompts.py` | system instruction: which tool for which question, and when to refuse |
+| `toolbox.py` | `ToolboxToolset` connection (plain HTTP locally; Cloud Run ID-token auth when deployed) |
+| `dispatch.py` | `build_dispatch_plan`: builds the dispatch sheet from stored tool output |
+| `forecast.py` / `places.py` / `narration.py` / `results.py` | NWS forecast + heat index, place lookup, attribution wording, result parsing |
 
-The agent is the part that's actually yours. We haven't written a scaffold, a starter
-class, or a "fill in the blanks" template, because the design decisions you make here are
-what you'll be judged on and what you'll demo.
-
-## One requirement worth repeating
-
-Your agent must **call** your BigQuery ML prediction, not just query historical rows. A
-tool you built—a Python function tool, or your own MCP Toolbox definition—that runs `ML.PREDICT`
-(or better, `ML.EXPLAIN_PREDICT`) against the model your data lane trains is the shape most teams
-will land on.
-
-The per-feature attributions that come back from `ML.EXPLAIN_PREDICT` are what turn a
-location into a recommendation a city planner can defend. Don't treat the explanation as
-a reporting step at the end—it's the product.
-
-Build it however your team works best. Delete this file when you do.
+Design and limits: `../docs/ARCHITECTURE.md`. Steps to run and deploy: `../docs/RUNBOOK.md`.

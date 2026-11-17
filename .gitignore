@@ -22,3 +22,15 @@ Thumbs.db
 # Local data
 *.parquet
 *.csv.gz
+
+
+# Local dev
+.venv/
+.env
+.data/
+.pytest_cache/
+*.bak
+agent/heat_dispatch/.env
+agent/heat_dispatch/.agent_engine_config.json
+toolbox/tools.rendered.yaml
+.bin/

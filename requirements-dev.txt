@@ -1,0 +1,9 @@
+-r agent/heat_dispatch/requirements.txt
+-r client/requirements.txt
+google-cloud-bigquery
+pyyaml
+pytest
+sqlglot
+uvicorn
+sqlalchemy[asyncio]>=2.0
+aiosqlite
