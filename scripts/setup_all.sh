@@ -83,12 +83,18 @@ fi
 
 # ---------------------------------------------------------------- steps
 step_venv() {
-  if [ ! -x "$PY" ]; then
-    command -v python3.11 >/dev/null 2>&1 || die "python3.11 not found (brew install python@3.11)."
-    python3.11 -m venv .venv
+  # uv venvs have no pip, so install through uv when it is there; otherwise a stdlib venv + pip.
+  if command -v uv >/dev/null 2>&1; then
+    [ -x "$PY" ] || uv venv --python 3.11 .venv
+    uv pip install -q --python "$PY" -r requirements-dev.txt
+  else
+    if [ ! -x "$PY" ]; then
+      command -v python3.11 >/dev/null 2>&1 || die "python3.11 not found (brew install python@3.11, or install uv)."
+      python3.11 -m venv .venv
+    fi
+    "$PY" -m pip install -q --upgrade pip
+    "$PY" -m pip install -q -r requirements-dev.txt
   fi
-  .venv/bin/pip install -q --upgrade pip
-  .venv/bin/pip install -q -r requirements-dev.txt
   "$PY" -m pytest tests -q
 }
 
