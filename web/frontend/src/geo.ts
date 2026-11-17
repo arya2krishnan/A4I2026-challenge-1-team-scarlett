@@ -6,11 +6,21 @@ const area = (r: Ring) => { let a = 0; for (let i = 0, j = r.length - 1; i < r.l
 const orient = (r: Ring, clockwise: boolean) => ((area(r) < 0) === clockwise ? r : [...r].reverse());
 const polygon = (rings: Ring[]) => rings.map((r, i) => orient(r, i === 0));
 
-/** BigQuery's ST_ASGEOJSON follows RFC 7946 (exterior rings counter-clockwise). d3-geo is spherical and reads a
- *  counter-clockwise exterior as "the whole globe minus this tract", so rewind: exterior clockwise, holes CCW. */
+/** Polygons only, wound for d3: exterior clockwise, holes counter-clockwise. Lines/points are dropped. */
+function polygons(g: GeoJSON.Geometry): Ring[][] {
+  switch (g.type) {
+    case 'Polygon': return [polygon(g.coordinates as Ring[])];
+    case 'MultiPolygon': return (g.coordinates as Ring[][]).map(polygon);
+    case 'GeometryCollection': return g.geometries.flatMap(polygons);
+    default: return [];
+  }
+}
+
+/** BigQuery's ST_ASGEOJSON follows RFC 7946 (exterior rings counter-clockwise), and ST_SIMPLIFY can return a
+ *  GeometryCollection (polygon + stray line/point). d3-geo is spherical and reads a counter-clockwise exterior as
+ *  "the whole globe minus this tract", so normalise every tract to a clockwise (Multi)Polygon. */
 export function rewind<F extends TractFeature>(f: F): F {
-  const g = f.geometry as GeoJSON.Geometry;
-  if (g.type === 'Polygon') return { ...f, geometry: { ...g, coordinates: polygon(g.coordinates as Ring[]) } };
-  if (g.type === 'MultiPolygon') return { ...f, geometry: { ...g, coordinates: (g.coordinates as Ring[][]).map(polygon) } };
-  return f;
+  const ps = polygons(f.geometry as GeoJSON.Geometry);
+  const geometry: GeoJSON.Geometry = ps.length === 1 ? { type: 'Polygon', coordinates: ps[0] } : { type: 'MultiPolygon', coordinates: ps };
+  return { ...f, geometry };
 }
