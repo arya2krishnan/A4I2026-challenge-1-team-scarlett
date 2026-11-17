@@ -72,6 +72,19 @@ def render_result(b: dict, key: str) -> None:
         with st.expander("📋 Dispatch sheet", expanded=True):
             st.markdown(sheet, unsafe_allow_html=False)
             st.download_button("Download dispatch sheet (.md)", sheet, file_name="heat_dispatch_sheet.md", key=f"dl-{key}")
+    preview = r.get("social_media_preview")
+    if preview:
+        with st.expander("📢 Twitter Action Updates (Dispatched Resources)", expanded=True):
+            st.caption("Operational updates generated from this dispatch plan:")
+            for item in preview:
+                st.markdown(f"> {item}")
+            if st.button("🚀 Broadcast Actions to Twitter Thread", key=f"tw-post-{key}"):
+                try:
+                    from social_media.dispatch_updates import broadcast_dispatch_actions
+                    b_res = broadcast_dispatch_actions(dispatch_plan=r)
+                    st.success(f"Published {b_res['action_tweets_count']} update(s) to Twitter!")
+                except Exception as exc:
+                    st.error(f"Failed to publish to Twitter: {exc}")
 
 
 def render_blocks(blocks: list[dict], key: str) -> None:
@@ -129,6 +142,73 @@ with st.sidebar:
     with st.expander("ℹ️ About this data & limits"):
         for n in STATIC_NOTES:
             st.markdown(n)
+    st.divider()
+    st.markdown("### 📢 Public Alerts & 311")
+    with st.expander("🐦 Twitter Alert Broadcast", expanded=False):
+        if st.button("🚨 Broadcast Critical Alert", key="btn_bc_alert", width="stretch"):
+            try:
+                from social_media.alerts import broadcast_critical_alert
+                alert_out = broadcast_critical_alert(forecast_high_f=float(forecast))
+                st.success(f"Broadcasted to Twitter! Root ID: {alert_out['root_tweet_id']}")
+            except Exception as exc:
+                st.error(f"Alert broadcast failed: {exc}")
+        try:
+            from social_media.twitter import get_default_twitter_client
+            tw_list = get_default_twitter_client().ledger.list_tweets(limit=4)
+            if tw_list:
+                for tw in tw_list:
+                    st.caption(f"**{tw.category.upper()}** · `{tw.created_at[11:19]}`")
+                    st.markdown(f"> {tw.text}")
+            else:
+                st.caption("No tweets broadcast yet.")
+        except Exception:
+            pass
+
+    with st.expander("📞 311 Heat Desk & Vulnerabilities", expanded=False):
+        c_loc = st.text_input("Resident location / neighborhood", value="Englewood", key="inp_311_loc")
+        vuln_type = st.selectbox(
+            "Reported vulnerability",
+            [
+                "Elderly senior (65+) without working AC",
+                "No vehicle / cannot reach cooling facility",
+                "Bedridden / chronic medical condition",
+                "Severe apartment heat / heat exhaustion",
+            ],
+            key="sel_vuln_type",
+        )
+        col_c1, col_c2 = st.columns(2)
+        with col_c1:
+            if st.button("Find Nearest Cooling", key="btn_311_fac", width="stretch"):
+                try:
+                    from social_media.call_311 import find_cooling_for_caller
+                    res_311 = find_cooling_for_caller(c_loc)
+                    if res_311.get("status") == "ok":
+                        for f in res_311["nearest_facilities"]:
+                            st.markdown(f"**{f['site_name']}** ({f['distance_miles']} mi)")
+                            st.caption(f"{f['address']} · {f['hours']}")
+                    else:
+                        st.warning(res_311.get("message"))
+                except Exception as exc:
+                    st.error(str(exc))
+        with col_c2:
+            if st.button("Log 311 Call", key="btn_311_log", width="stretch"):
+                try:
+                    from social_media.call_311 import log_311_heat_call
+                    call_res = log_311_heat_call(c_loc, vulnerabilities=vuln_type)
+                    st.success(f"Logged! Call ID: {call_res['call_id']}")
+                except Exception as exc:
+                    st.error(str(exc))
+
+        st.caption("---")
+        st.markdown("**🎯 Top 2 Vulnerabilities Identified**")
+        try:
+            from social_media.vulnerability import identify_top_vulnerabilities
+            top_v = identify_top_vulnerabilities(limit=2)
+            for v in top_v:
+                st.markdown(f"**#{v['rank']} {v['title']}**")
+                st.caption(f"{v['call_count']} 311 call(s) · Score: {v['score']}")
+        except Exception:
+            pass
 
 picked = None
 if not ss.messages:
