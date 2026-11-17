@@ -3,7 +3,7 @@ VENV ?= .venv
 PY   := $(VENV)/bin/python
 CITY ?= chicago
 
-.PHONY: help setup test data osm model validate-model toolbox-yaml toolbox-local smoke adk-web run-local check-models gcp-setup deploy-toolbox deploy-agent deploy-client enrich-data enrich-weather enrich-vulnerability enrich-geography enrich-environment enrich-transit enrich-cooling enrich-walkability enrich-load typecheck
+.PHONY: help setup test data osm model validate-model toolbox-yaml toolbox-local smoke adk-web run-local check-models gcp-setup deploy-toolbox deploy-agent deploy-client enrich-data enrich-weather enrich-vulnerability enrich-geography enrich-environment enrich-transit enrich-cooling enrich-walkability enrich-load typecheck load-sites test-web web-build run-web web-dev deploy-web
 
 help:  ## list targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/' | column -t -s "$$(printf '\t')"
@@ -14,8 +14,15 @@ setup:  ## venv (Python 3.11) with everything
 	$(VENV)/bin/pip install -q -r requirements-dev.txt
 	@test -f .env || (cp .env.example .env && echo "Created .env: set GOOGLE_CLOUD_PROJECT")
 
-test:  ## offline tests (no GCP needed)
+test:  ## offline tests (no GCP needed): Python, plus the web frontend when its node_modules are installed
 	$(PY) -m pytest tests -q
+	@if [ -d web/frontend/node_modules ]; then $(MAKE) --no-print-directory test-web; else echo "(skipping web frontend tests: run 'cd web/frontend && npm ci')"; fi
+
+test-web:  ## web console frontend tests (Vitest + Testing Library) and typecheck
+	cd web/frontend && npx tsc -b && npx vitest run
+
+load-sites:  ## City of Chicago heat-relief sites (data/chicago/sites) -> BigQuery chi_site_* tables (the console needs them)
+	bash tools/load_chicago_sites_bq.sh
 
 data:  ## 1) load the three source tables for Chicago, 2) City of Chicago facilities + neighbourhood boundaries
 	bash scripts/load.sh $(CITY)
@@ -89,3 +96,15 @@ deploy-agent:  ## agent -> Agent Runtime (NEW=1 for a fresh instance)
 
 deploy-client:  ## Streamlit client -> Cloud Run
 	bash scripts/deploy_client.sh
+
+web-build:  ## build the console frontend into web/frontend/dist
+	cd web/frontend && npm ci --no-audit --no-fund && npm run build
+
+run-web: web-build  ## console (FastAPI + built React) on :8080; agent in-process unless AGENT_RESOURCE_NAME is set; needs toolbox-local
+	cd web/backend && ../../$(VENV)/bin/uvicorn heat_console.main:app --port 8080 --reload --reload-dir . --reload-dir ../../agent
+
+web-dev:  ## frontend hot reload on :5173 (proxies /api to :8080; run `make run-web` in another terminal)
+	cd web/frontend && npm run dev
+
+deploy-web:  ## console -> Cloud Run (own service account, IAP; WEB_USERS=user:a@x.org,... to grant access)
+	bash scripts/deploy_web.sh

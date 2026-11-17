@@ -23,7 +23,6 @@ Thumbs.db
 *.parquet
 *.csv.gz
 
-
 # Local dev
 .venv/
 .env
@@ -37,10 +36,15 @@ agent/heat_dispatch/.agent_engine_config.json
 toolbox/tools.rendered.yaml
 .bin/
 
+# Web console
+web/frontend/node_modules/
+web/frontend/dist/
+*.tsbuildinfo
+
 # Local copy of the ai-analyst-plus skills repo (not part of this project)
 ai-analyst-plus/
 ai_analyst_plus/
 
-
 # Repo-local gcloud config/credentials (CLOUDSDK_CONFIG); never commit
 .gcloud/
+
