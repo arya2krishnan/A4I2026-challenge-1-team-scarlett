@@ -7,6 +7,7 @@ is the same either way; `make adk-web` is kept for debugging tool calls.
 from __future__ import annotations
 
 import json
+import pathlib
 import uuid
 
 import pandas as pd
@@ -18,9 +19,13 @@ from backends import make_backend
 TITLE = "Heat Dispatch Assistant · Chicago"
 KIND_COLORS = {"hydration": [230, 90, 20], "wellness": [110, 70, 190], "library": [30, 120, 190], "site": [200, 40, 40]}
 LEGEND = {"hydration": "Hydration truck", "wellness": "Wellness-check team"}
+MOCK_311_PATH = pathlib.Path(__file__).parent / "mock_311.json"
+MOCK_311: list[dict] = json.loads(MOCK_311_PATH.read_text()) if MOCK_311_PATH.exists() else []
+
 EXAMPLES = [
     ("Plan tomorrow", "Forecast high is 102. Where do 3 hydration trucks, 4 wellness-check teams and 3 library extensions go? "
                       "Check who it reaches, then write the dispatch sheet."),
+    ("Senior AC outage (311)", "Midday Emergency Alert (311 Incident #311-HEAT-401): 14 calls report central AC failure at senior housing near 79th & Halsted in Chatham. Recommend immediate asset rerouting and emergency indoor cooling backup."),
     ("Why is it hot there?", "Why is Englewood (63rd and Halsted) so much hotter than the lakefront? Is that place measured or predicted?"),
     ("How rare is 102?", "How often has Chicago hit 100F or more in the last seven summers, and is it getting more common?"),
 ]
@@ -112,6 +117,8 @@ if "uid" not in ss:
 ss.setdefault("active", None)
 ss.setdefault("messages", [])
 
+picked = None
+
 with st.sidebar:
     st.markdown("### 🌡️ Heat Dispatch")
     st.caption(f"Agent: {be.label}")
@@ -119,6 +126,17 @@ with st.sidebar:
                                help="Sent with every message so the agent never has to guess the forecast.")
     if st.button("＋ New chat", width="stretch", type="primary"):
         ss.active, ss.messages = None, []
+    
+    if MOCK_311:
+        with st.expander("🚨 Midday 311 Feed (Simulate)", expanded=True):
+            st.caption("Click to trigger real-time disruption triage rerouting:")
+            for inc in MOCK_311:
+                st.markdown(f"**{inc['category']}**")
+                st.caption(f"📍 {inc['location']} ({inc['neighborhood']}) · 📞 {inc['call_volume']} calls")
+                if st.button(f"⚡ Triage Incident #{inc['id'][-3:]}", key=f"btn-{inc['id']}", width="stretch"):
+                    picked = inc["prompt"]
+                st.divider()
+
     st.markdown("**Recent chats**")
     try:
         for c in be.list_sessions(ss.uid):
@@ -130,7 +148,6 @@ with st.sidebar:
         for n in STATIC_NOTES:
             st.markdown(n)
 
-picked = None
 if not ss.messages:
     st.markdown('<div class="hero"><h1>Where does help go when it hits 102°F?</h1>'
                 "<p>Hydration trucks, wellness checks and library hours, ranked by a live heat model, with the reasoning "
