@@ -33,7 +33,8 @@ def build() -> list[dict]:
     docs = legacy.build()
     for document in docs:
         if document["kind"] == "toolset":
-            document["name"] = "heat_dispatch_enriched"
+            # Keep the name the agent and console load (settings.toolbox_toolset = heat_dispatch), so this file can
+            # be deployed in place of tools.yaml: TOOLS_SRC=toolbox/tools.enriched.yaml bash scripts/deploy_toolbox.sh
             continue
         if document["kind"] != "tool":
             continue

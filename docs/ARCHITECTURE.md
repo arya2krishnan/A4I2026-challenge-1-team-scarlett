@@ -157,7 +157,7 @@ fails if any template other than `sql/04` would recreate the live model.
 - **Not yet redeployed:** the agent (Agent Runtime) and web console still carry their old label maps, so the new
   feature names (`location_trend`, `surface_heat_f`, ...) render as plain words until they are redeployed from this branch.
 
-## Enriched toolset on the v2 model (opt-in, not deployed)
+## Enriched toolset on the v2 model (DEPLOYED 2026-11-17 22:45 UTC)
 `toolbox/tools.enriched.yaml` (toolset `heat_dispatch_enriched`) now scores the corrected context with the live v2
 model: view `a4i_climate_work_v2.site_context_enriched_lst` (`sql/v2/20_site_context_enriched_lst.sql`) adds the
 v2-derived inputs (trend, 3x3 surface heat) to `site_context_enriched`. The model's inputs and label are identical
@@ -168,6 +168,18 @@ Top 20 truck sites (heat_weight 0.5), live vs enriched: share in the top vulnera
 4.1x) vs 50.0% (city 11.7%, 4.3x); mean vulnerability +0.24 vs +0.23 over city; share 65+ 20.6% vs 23.1%. The
 vulnerability index itself was rebuilt, so compare lift over city, not raw shares. Every nearest cooling site is
 `nearest_cooling_event_verified = false` (listed, not confirmed open/AC for the event).
-Promotion caveat: the enriched file names its toolset `heat_dispatch_enriched`; the agent and console load
-`heat_dispatch`, so deploying it as-is would break them. Promote by switching the legacy generator's context to the
-enriched view (keeping the toolset name), not by deploying `tools.enriched.yaml`.
+**Deployed:** the enriched file keeps the toolset name `heat_dispatch` (what the agent and console load) and is
+deployed with `TOOLS_SRC=toolbox/tools.enriched.yaml bash scripts/deploy_toolbox.sh` -> secret `heat-toolbox-tools`
+v8, Cloud Run `heat-toolbox` (us-central1) revision `heat-toolbox-00007-79n`. Verified over MCP: 11 tools in
+`heat_dispatch`; `rank_priority_sites` returns ACS 2024 rows with `nearest_cooling_event_verified`; run.invoker still
+granted to heat-agent and heat-web.
+
+| Secret version | Model | Context | Live |
+|---|---|---|---|
+| v6 | heat_offset_model (original) | site_context | until 21:59 UTC |
+| v7 | heat_offset_lst (v2) | site_context_lst | 21:59-22:45 UTC |
+| v8 | heat_offset_lst (v2) | site_context_enriched_lst | from 22:45 UTC |
+
+**Rollback:** `bash scripts/rollback_toolbox.sh 7` (v2, original data) or `... 6` (original model). Plain
+`bash scripts/deploy_toolbox.sh` (no TOOLS_SRC) also returns to v2 on original data, so anyone deploying from defaults
+reverts the enrichment: always pass `TOOLS_SRC=toolbox/tools.enriched.yaml` while v8 is the intended live state.

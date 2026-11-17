@@ -616,7 +616,7 @@ parameters:
   description: '''any'' for every site, or one exact site_category such as ''Library'' or ''Police District''.'
 ---
 kind: toolset
-name: heat_dispatch_enriched
+name: heat_dispatch
 tools:
 - rank_priority_sites
 - rank_wellness_check_tracts
