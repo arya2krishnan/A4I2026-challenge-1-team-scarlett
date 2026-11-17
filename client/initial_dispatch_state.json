@@ -1,0 +1,233 @@
+{
+  "status": "ok",
+  "dispatch_sheet_markdown": "# Heat dispatch sheet: Chicago, forecast high 102\u00b0F\n\nExpected air temperature = forecast high + the site's modelled offset (BigQuery ML). Offsets come from one volunteer-driven afternoon: a ranking signal, not a thermometer.\n\n## 1. Hydration trucks\n| Stop | Stand here | Expected air temp | Why it is hot | Who is nearby | Nearest indoor cooling |\n|---|---|---|---|---|---|\n| 1 | **North Lawndale**<br>[41.85750, -87.73800](https://www.google.com/maps?q=41.85750,-87.73800)<br>1750 S Kilbourn Ave, Chicago, IL 60623, USA | 103.5\u00b0F (+1.5) *(model prediction, never measured)* | distance from Lake Michigan +1.5\u00b0F; age of the housing stock +0.5\u00b0F; distance from downtown (the Loop) -0.2\u00b0F | 521 aged 65+, 531 homes w/o car | Toman - 2708 S. Pulaski Road (2.06 km) |\n| 2 | **East Garfield Park**<br>[41.88750, -87.69400](https://www.google.com/maps?q=41.88750,-87.69400)<br>224 N Maplewood Ave, Chicago, IL 60612, USA | 103.2\u00b0F (+1.2) | distance from Lake Michigan +1.1\u00b0F; age of the housing stock +0.5\u00b0F; industrial, commercial and parking land +0.4\u00b0F | 350 aged 65+, 354 homes w/o car | Daley, Richard M.-W Humboldt - 733 N. Kedzie Avenue (1.31 km) |\n| 3 | **Chatham**<br>[41.73750, -87.62600](https://www.google.com/maps?q=41.73750,-87.62600)<br>112 W 87th St, Chicago, IL 60620, USA | 102.9\u00b0F (+0.9) | distance from Lake Michigan +1.1\u00b0F; distance from downtown (the Loop) -0.6\u00b0F; industrial, commercial and parking land +0.4\u00b0F | 741 aged 65+, 469 homes w/o car | Abbott Park Satellite - 49 East 95th St. (1.78 km) |\n\n## 2. Wellness checks\n- Team 1: East Garfield Park (tract 17031837100) ([map](https://www.google.com/maps?q=41.88600,-87.69800)), 350 residents 65+, 354 households without a car, predicted offset 1.23\u00b0F\n- Team 2: West Englewood (tract 17031670800) ([map](https://www.google.com/maps?q=41.78400,-87.66200)), 311 residents 65+, 256 households without a car, predicted offset 1.19\u00b0F\n- Team 3: West Garfield Park (tract 17031260700) ([map](https://www.google.com/maps?q=41.87700,-87.72800)), 288 residents 65+, 216 households without a car, predicted offset 1.46\u00b0F\n- Team 4: Near West Side (tract 17031838100) ([map](https://www.google.com/maps?q=41.87888,-87.67050)), 269 residents 65+, 573 households without a car, predicted offset 1.14\u00b0F\n\n## 3. Extended library hours\n- **Toman**, 2708 S. Pulaski Road: serves site #1 (2.06 km). Current hours: M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM. Confirm extension with CPL.\n- **Daley, Richard M.-W Humboldt**, 733 N. Kedzie Avenue: serves site #2 (1.31 km). Current hours: M, W: 10AM-6PM;  TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM. Confirm extension with CPL.\n- **Whitney M. Young, Jr.**, 415 E. 79th Street: serves site #3 (1.8 km). Current hours: M, W: 10AM-6PM;  TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM. Confirm extension with CPL.\n\n## Equity check on this plan\n- poverty rate: recommended tracts 0.276 vs citywide 0.173 (1.60x)\n- households without a car: recommended tracts 0.378 vs citywide 0.236 (1.60x)\n- residents 65+: recommended tracts 0.201 vs citywide 0.128 (1.57x)\n- vulnerability index: recommended tracts 0.846 vs citywide 0.575 (1.47x)\n\n## Basis and limits\n- Priority = (heat_weight 0.5 x heat percentile + rest x vulnerability) x access to indoor cooling. Vulnerability = 65+, no car, poverty (ACS). Race is not used.\n- Heat model: BigQuery ML linear regression on physical features only (lake, downtown, density, housing age).\n- Facility data: City of Chicago Cooling Centers snapshot; confirm hours before publishing.\n- This is decision support for a dispatcher, not an official advisory or evacuation order.",
+  "hydration_stops": [
+    {
+      "stop": 1,
+      "latitude": 41.8575,
+      "longitude": -87.738,
+      "expected_air_temp_f": 103.5,
+      "predicted_offset_f": 1.51,
+      "why_hot": "distance from Lake Michigan +1.5\u00b0F; age of the housing stock +0.5\u00b0F; distance from downtown (the Loop) -0.2\u00b0F",
+      "residents_65_plus": 521,
+      "households_without_car": 531,
+      "poverty_rate": 0.292,
+      "km_to_indoor_cooling": 2.06,
+      "nearest_cooling": "Toman - 2708 S. Pulaski Road",
+      "measured": false,
+      "measured_offset_f": null,
+      "tract_geo_id": "17031292500",
+      "neighborhood": "North Lawndale",
+      "approx_address": "1750 S Kilbourn Ave, Chicago, IL 60623, USA"
+    },
+    {
+      "stop": 2,
+      "latitude": 41.8875,
+      "longitude": -87.694,
+      "expected_air_temp_f": 103.2,
+      "predicted_offset_f": 1.24,
+      "why_hot": "distance from Lake Michigan +1.1\u00b0F; age of the housing stock +0.5\u00b0F; industrial, commercial and parking land +0.4\u00b0F",
+      "residents_65_plus": 350,
+      "households_without_car": 354,
+      "poverty_rate": 0.322,
+      "km_to_indoor_cooling": 1.31,
+      "nearest_cooling": "Daley, Richard M.-W Humboldt - 733 N. Kedzie Avenue",
+      "measured": true,
+      "measured_offset_f": 1.45,
+      "tract_geo_id": "17031837100",
+      "neighborhood": "East Garfield Park",
+      "approx_address": "224 N Maplewood Ave, Chicago, IL 60612, USA"
+    },
+    {
+      "stop": 3,
+      "latitude": 41.7375,
+      "longitude": -87.626,
+      "expected_air_temp_f": 102.9,
+      "predicted_offset_f": 0.89,
+      "why_hot": "distance from Lake Michigan +1.1\u00b0F; distance from downtown (the Loop) -0.6\u00b0F; industrial, commercial and parking land +0.4\u00b0F",
+      "residents_65_plus": 741,
+      "households_without_car": 469,
+      "poverty_rate": 0.237,
+      "km_to_indoor_cooling": 1.78,
+      "nearest_cooling": "Abbott Park Satellite - 49 East 95th St.",
+      "measured": true,
+      "measured_offset_f": 1.12,
+      "tract_geo_id": "17031842400",
+      "neighborhood": "Chatham",
+      "approx_address": "112 W 87th St, Chicago, IL 60620, USA"
+    }
+  ],
+  "wellness_teams": [
+    {
+      "team": 1,
+      "tract_geo_id": "17031837100",
+      "neighborhood": "East Garfield Park",
+      "latitude": 41.886,
+      "longitude": -87.698,
+      "residents_65_plus": 350,
+      "households_without_car": 354,
+      "poverty_rate": 0.322,
+      "predicted_offset_f": 1.23
+    },
+    {
+      "team": 2,
+      "tract_geo_id": "17031670800",
+      "neighborhood": "West Englewood",
+      "latitude": 41.784,
+      "longitude": -87.662,
+      "residents_65_plus": 311,
+      "households_without_car": 256,
+      "poverty_rate": 0.232,
+      "predicted_offset_f": 1.19
+    },
+    {
+      "team": 3,
+      "tract_geo_id": "17031260700",
+      "neighborhood": "West Garfield Park",
+      "latitude": 41.877,
+      "longitude": -87.728,
+      "residents_65_plus": 288,
+      "households_without_car": 216,
+      "poverty_rate": 0.416,
+      "predicted_offset_f": 1.46
+    },
+    {
+      "team": 4,
+      "tract_geo_id": "17031838100",
+      "neighborhood": "Near West Side",
+      "latitude": 41.87888,
+      "longitude": -87.6705,
+      "residents_65_plus": 269,
+      "households_without_car": 573,
+      "poverty_rate": 0.408,
+      "predicted_offset_f": 1.14
+    }
+  ],
+  "library_extensions": [
+    {
+      "library": "Toman",
+      "address": "2708 S. Pulaski Road",
+      "current_hours": "M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",
+      "km_from_site": 2.06,
+      "serves_site_rank": 1
+    },
+    {
+      "library": "Daley, Richard M.-W Humboldt",
+      "address": "733 N. Kedzie Avenue",
+      "current_hours": "M, W: 10AM-6PM;  TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",
+      "km_from_site": 1.31,
+      "serves_site_rank": 2
+    },
+    {
+      "library": "Whitney M. Young, Jr.",
+      "address": "415 E. 79th Street",
+      "current_hours": "M, W: 10AM-6PM;  TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",
+      "km_from_site": 1.8,
+      "serves_site_rank": 3
+    }
+  ],
+  "high_school_gyms": [
+    {
+      "high_school": "Farragut Career Academy High School",
+      "address": "2345 S Christiana Ave, Chicago, IL 60623",
+      "current_hours": "Mon-Fri 7AM-7PM (Emergency AC Gymnasium Cooling Shelter)",
+      "km_from_site": 1.2,
+      "serves_site_rank": 1
+    },
+    {
+      "high_school": "Westinghouse College Prep High School",
+      "address": "3223 W Franklin Blvd, Chicago, IL 60624",
+      "current_hours": "Mon-Fri 7AM-7PM (Emergency AC Gymnasium Cooling Shelter)",
+      "km_from_site": 1.1,
+      "serves_site_rank": 2
+    },
+    {
+      "high_school": "Harlan Community Academy High School",
+      "address": "9652 S Michigan Ave, Chicago, IL 60628",
+      "current_hours": "Mon-Fri 7AM-7PM (Emergency AC Gymnasium Cooling Shelter)",
+      "km_from_site": 1.3,
+      "serves_site_rank": 3
+    }
+  ],
+  "equity_audit_ran": true,
+  "map": {
+    "markers": [
+      {
+        "lat": 41.8575,
+        "lng": -87.738,
+        "kind": "hydration",
+        "label": "Truck 1 \u00b7 North Lawndale: 103.5\u00b0F expected"
+      },
+      {
+        "lat": 41.8875,
+        "lng": -87.694,
+        "kind": "hydration",
+        "label": "Truck 2 \u00b7 East Garfield Park: 103.2\u00b0F expected"
+      },
+      {
+        "lat": 41.7375,
+        "lng": -87.626,
+        "kind": "hydration",
+        "label": "Truck 3 \u00b7 Chatham: 102.9\u00b0F expected"
+      },
+      {
+        "lat": 41.886,
+        "lng": -87.698,
+        "kind": "wellness",
+        "label": "Wellness team 1 \u00b7 East Garfield Park"
+      },
+      {
+        "lat": 41.784,
+        "lng": -87.662,
+        "kind": "wellness",
+        "label": "Wellness team 2 \u00b7 West Englewood"
+      },
+      {
+        "lat": 41.877,
+        "lng": -87.728,
+        "kind": "wellness",
+        "label": "Wellness team 3 \u00b7 West Garfield Park"
+      },
+      {
+        "lat": 41.87888,
+        "lng": -87.6705,
+        "kind": "wellness",
+        "label": "Wellness team 4 \u00b7 Near West Side"
+      },
+      {
+        "lat": 41.8485,
+        "lng": -87.7125,
+        "kind": "gym",
+        "label": "Cooling Shelter \u00b7 Farragut Career Academy High School"
+      },
+      {
+        "lat": 41.8905,
+        "lng": -87.7085,
+        "kind": "gym",
+        "label": "Cooling Shelter \u00b7 Westinghouse College Prep High School"
+      },
+      {
+        "lat": 41.7185,
+        "lng": -87.6215,
+        "kind": "gym",
+        "label": "Cooling Shelter \u00b7 Harlan Community Academy High School"
+      }
+    ]
+  },
+  "summary_kpis": {
+    "forecast_high_f": 102.0,
+    "peak_site_temp_f": 103.5,
+    "peak_offset_f": 1.51,
+    "total_seniors_reached": 2830,
+    "total_carless_households": 2753,
+    "hydration_trucks_count": 3,
+    "wellness_teams_count": 4,
+    "cooling_libraries_count": 3,
+    "emergency_gyms_count": 3,
+    "equity_poverty_multiplier": 1.6,
+    "equity_no_car_multiplier": 1.6,
+    "equity_elderly_multiplier": 1.57,
+    "equity_vulnerability_multiplier": 1.47,
+    "equity_top_quartile_pct": 100.0
+  }
+}
