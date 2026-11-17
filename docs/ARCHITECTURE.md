@@ -143,6 +143,16 @@ fails if any template other than `sql/04` would recreate the live model.
   measured everywhere at once, also shows the southwest/south running hot.
 - Rollback / backup: nothing to roll back while unpromoted. Full snapshot of tables and all models:
   `a4i_climate_backup_20261117_214035` (docs/DATA_RECOVERY.md). The live model can also be rebuilt from `sql/04`.
-- Not yet done (promotion): point `toolbox/build_tools_yaml.py` at `heat_offset_lst` / `site_context_lst`, sum the
-  `trend_*` attributions into one "location in the city" reason (tools request top 3 reasons today), retune the
-  console cutoff range, regenerate `tools.yaml`, redeploy the Toolbox.
+- **Promoted 2026-11-17 ~22:10 UTC.** `toolbox/build_tools_yaml.py` now uses `MODEL = heat_offset_lst` and
+  `CONTEXT = site_context_lst`; tools request all attributions and sum the five `trend_*` terms into one
+  `location_trend` reason before keeping the top 3/4. All 11 tools ran live against BigQuery before deploy. Deployed:
+  secret `heat-toolbox-tools` version 7, Cloud Run `heat-toolbox` (us-central1) revision `heat-toolbox-00006-28b`
+  (previous: `heat-toolbox-00005-jrd`, secret version 6). The us-west2 `heat-toolbox` also mounts `:latest` and picks
+  up v2 on its next instance start. Live global importance: location 1.69 F, lake band 1.45, surface heat 0.31,
+  canopy 0.03, pavement 0.01 (land cover adds little to the AIR model; it matters for the planned "why" layer).
+- **Rollback** (both services read the secret's `:latest`, so routing traffic to the old revision alone is NOT enough):
+  `gcloud secrets versions access 6 --secret heat-toolbox-tools > /tmp/v6.yaml && gcloud secrets versions add
+  heat-toolbox-tools --data-file=/tmp/v6.yaml`, then `bash scripts/deploy_toolbox.sh` from `main` (or
+  `gcloud run services update heat-toolbox --region us-central1 --update-labels rollback=1` to force a new revision).
+- **Not yet redeployed:** the agent (Agent Runtime) and web console still carry their old label maps, so the new
+  feature names (`location_trend`, `surface_heat_f`, ...) render as plain words until they are redeployed from this branch.
