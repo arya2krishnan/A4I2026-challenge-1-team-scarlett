@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { DAY_NAME, FEATURE_LABEL, fmt, pct, sgn, timeOf } from '../format';
 import { COLOR, EMOJI } from '../lenses';
 import type { Kind, Plan, PlanItem } from '../types';
@@ -98,6 +98,10 @@ export function RecPanel({ plan, tab, setTab, selected, onPick, onAct, busy, sho
     URL.revokeObjectURL(url);
   };
 
+  const [dismissedWarnVer, setDismissedWarnVer] = useState<number | null>(null);
+  const [expandWarn, setExpandWarn] = useState(false);
+  const hasWarnings = Boolean(plan?.warnings && plan.warnings.length > 0 && dismissedWarnVer !== plan.version);
+
   return (
     <aside className="rcol">
       <div className="rhead">
@@ -116,7 +120,39 @@ export function RecPanel({ plan, tab, setTab, selected, onPick, onAct, busy, sho
           </span>
         </div>
         <div className="progress"><i style={{ width: `${items.length ? (ap / items.length) * 100 : 0}%` }} /></div>
-        {plan?.warnings.map((w, i) => <div className="warn" key={i}>⚠︎ {w.message}</div>)}
+        {hasWarnings && (
+          <div className="warn-banner" style={{ background: '#fff9e6', border: '1px solid #f2d28a', borderRadius: '8px', padding: '6px 10px', marginTop: '6px', fontSize: '11.5px', color: '#7a5a00' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
+              <div style={{ display: 'flex', gap: 6, alignItems: 'center', flex: 1, minWidth: 0 }}>
+                <span style={{ fontSize: '12px', flexShrink: 0 }}>⚠️</span>
+                <span style={{ fontWeight: 600 }}>
+                  {plan!.warnings.length === 1
+                    ? plan!.warnings[0].message
+                    : `${plan!.warnings.reduce((sum, w) => sum + (w.unapproved?.length || 1), 0)} approved items un-approved under updated plan`}
+                </span>
+              </div>
+              <div style={{ display: 'flex', gap: 6, alignItems: 'center', flexShrink: 0 }}>
+                {plan!.warnings.length > 1 && (
+                  <button type="button" onClick={() => setExpandWarn(v => !v)} style={{ background: 'none', border: 'none', color: '#7a5a00', textDecoration: 'underline', fontSize: '11px', cursor: 'pointer', padding: 0 }}>
+                    {expandWarn ? 'Hide' : 'Details'}
+                  </button>
+                )}
+                <button type="button" onClick={() => setDismissedWarnVer(plan!.version)} style={{ background: 'none', border: 'none', color: '#8c6b12', fontSize: '13px', lineHeight: 1, cursor: 'pointer', padding: '0 2px' }} title="Dismiss alert">
+                  ✕
+                </button>
+              </div>
+            </div>
+            {expandWarn && plan!.warnings.length > 1 && (
+              <div style={{ marginTop: 6, paddingTop: 6, borderTop: '1px solid #f0dcab', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                {plan!.warnings.map((w, i) => (
+                  <div key={i} style={{ fontSize: '11px', color: '#6b4e00' }}>
+                    • {w.message}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
         <div className="tabs">{([['all', 'All'], ['well', '🩺 Wellness'], ['truck', '🚚 Trucks'], ['lib', '📚 Libraries']] as [Tab, string][]).map(([k, l]) => (
           <button key={k} className={`tab${tab === k ? ' on' : ''}`} onClick={() => setTab(k)}>{l} <span className="c">{items.filter(i => k === 'all' || i.kind === k).length}</span></button>))}</div>
       </div>

@@ -28,7 +28,18 @@ export function DiffView({ plan, onSend }: { plan: Plan; onSend?: (t: string) =>
         <span style={{ fontSize: '11px', color: '#57609a' }}>v{plan.version}</span>
       </div>
       <div className="note">Re-planned → <b>v{plan.version}</b>{plan.changes?.length ? ` · ${plan.changes.join(' · ')}` : ''}</div>
-      {plan.warnings?.map((w, i) => <div key={`w${i}`} style={{ color: '#7a5a00', fontWeight: 500 }}>⚠︎ {w.message}</div>)}
+      {plan.warnings && plan.warnings.length > 0 && (
+        plan.warnings.length === 1 ? (
+          <div style={{ color: '#7a5a00', fontWeight: 500, fontSize: '11.5px', marginTop: 3 }}>⚠︎ {plan.warnings[0].message}</div>
+        ) : (
+          <details style={{ color: '#7a5a00', fontSize: '11.5px', marginTop: 3, cursor: 'pointer' }}>
+            <summary style={{ fontWeight: 600 }}>⚠︎ {plan.warnings.reduce((sum, w) => sum + (w.unapproved?.length || 1), 0)} approved items un-approved under updated plan</summary>
+            <div style={{ paddingLeft: 8, marginTop: 2 }}>
+              {plan.warnings.map((w, i) => <div key={`w${i}`}>• {w.message}</div>)}
+            </div>
+          </details>
+        )
+      )}
       {lines.length ? lines.map((l, i) => <div key={i} style={{ color: l.color, fontWeight: 500 }}>{l.text}</div>) : <div className="note">No sites changed.</div>}
       {onSend && (
         <div style={{ display: 'flex', gap: '6px', marginTop: '8px' }}>

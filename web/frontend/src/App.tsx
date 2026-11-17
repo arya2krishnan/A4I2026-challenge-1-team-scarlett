@@ -139,9 +139,9 @@ export default function App() {
 
   const gridStyle = useMemo(() => {
     if (!showLeft && !showRight) return { gridTemplateColumns: '1fr' };
-    if (!showLeft) return { gridTemplateColumns: '1fr 440px' };
-    if (!showRight) return { gridTemplateColumns: '290px 1fr' };
-    return { gridTemplateColumns: '290px 1fr 440px' };
+    if (!showLeft) return { gridTemplateColumns: '1fr var(--right-w, 420px)' };
+    if (!showRight) return { gridTemplateColumns: 'var(--left-w, 280px) 1fr' };
+    return { gridTemplateColumns: 'var(--left-w, 280px) 1fr var(--right-w, 420px)' };
   }, [showLeft, showRight]);
 
   const viewToggles = useMemo(() => ({
