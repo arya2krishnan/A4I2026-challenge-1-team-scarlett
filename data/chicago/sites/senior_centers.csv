@@ -1,22 +1,22 @@
 program,site_name,address,city,state,zip,phone,hours_of_operation,latitude,longitude,in_chicago_bbox,source_dataset_id,retrieved_at
-Satellite Senior Center,Pilsen,2021 S. Morgan Street,Chicago,IL,60608,312-743-0493,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.8551460,-87.6515440,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Englewood,653-657 W. 63rd Street,Chicago,IL,60621,312-745-3328,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7799253,-87.6330832,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Garfield Ridge,5674-B S. Archer Avenue,Chicago,IL,60638,312-745-4250,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7972264,-87.7531547,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Abbott Park,49 East 95th Street,Chicago,IL,60619,312-745-3493,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7216589,-87.6223624,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Austin,5071 W. Congress Parkway,Chicago,IL,60644,312-743-1538,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.8739338,-87.7520518,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Chatham,8300 S. Cottage Grove Avenue,Chicago,IL,60619,312-745-0385,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7433441,-87.6055389,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Regional Senior Center,Central West,2102 W. Ogden Avenue,Chicago,IL,60612,312-746-5300,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.8710430,-87.6785982,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Auburn Gresham,1040 W. 79th Street,Chicago,IL,60620,312-745-4798,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7505772,-87.6502906,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Regional Senior Center,Renaissance Court,78 E. Washington Street,Chicago,IL,60602,312-744-4550,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.8838542,-87.6249552,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Regional Senior Center,Northwest,3160 N. Milwaukee Avenue,Chicago,IL,60618,312-744-6681,Mon - Fri 8:30 a.m. to 4:30 p.m. Sat - Sun 9:00 a.m. to 4:00 p.m,41.9383690,-87.7226883,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,North Center,4040 N. Oakley Avenue,Chicago,IL,60618,312-745-4029,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.9548499,-87.6860880,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,West Town,1613 W. Chicago Avenue,Chicago,IL,60622,312-743-1016,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.8957522,-87.6682666,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Regional Senior Center,Northeast,2019 W. Lawrence Avenue,Chicago,IL,60625,312-744-0784,Mon - Fri 8:30 a.m. to 4:30 p.m. Sat 9:00 a.m. to 4:00 p.m.,41.9687225,-87.6801924,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Regional Senior Center,Southwest,6117 S. Kedzie Avenue,Chicago,IL,60629,312-747-0440,Mon - Fri 8:30 a.m. to 4:30 p.m. Sat 9:00 a.m. to 4:00 p.m.,41.7821299,-87.7031976,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,South Chicago,9233 S. Burley,Chicago,IL,60617,312-745-1282,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7276933,-87.5455060,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Roseland,10426 S. Michigan Ave.,Chicago,IL,60628,312-745-1500,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7043968,-87.6211866,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Portage Park,4100 N. Long Avenue,Chicago,IL,60641,312-744-9022,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.9549757,-87.7621023,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Norwood Park,5801 N. Natoma Avenue,Chicago,IL,60631,312-744-4016,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.9865318,-87.7941235,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Kelvyn Park,2715 N. Cicero Avenue,Chicago,IL,60639,312-744-4016,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.9299084,-87.7460669,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Regional Senior Center,Southeast,1767 E. 79th Street,Chicago,IL,60649,312-747-0189,Mon - Fri 8:30 a.m. to 4:30 p.m. Sat - Sun 9:00 a.m. to 4:00 p.m,41.7515129,-87.5819826,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
-Satellite Senior Center,Edgewater,5917 N. Broadway Street,Chicago,IL,60660,312-742-5323,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.9894834,-87.6601433,true,qhfc-4cw2,2026-11-17T19:34:04+00:00
+Satellite Senior Center,Pilsen,2021 S. Morgan Street,Chicago,IL,60608,312-743-0493,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.8551460,-87.6515440,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Englewood,653-657 W. 63rd Street,Chicago,IL,60621,312-745-3328,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7799253,-87.6330832,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Garfield Ridge,5674-B S. Archer Avenue,Chicago,IL,60638,312-745-4250,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7972264,-87.7531547,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Abbott Park,49 East 95th Street,Chicago,IL,60619,312-745-3493,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7216589,-87.6223624,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Austin,5071 W. Congress Parkway,Chicago,IL,60644,312-743-1538,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.8739338,-87.7520518,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Chatham,8300 S. Cottage Grove Avenue,Chicago,IL,60619,312-745-0385,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7433441,-87.6055389,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Regional Senior Center,Central West,2102 W. Ogden Avenue,Chicago,IL,60612,312-746-5300,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.8710430,-87.6785982,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Auburn Gresham,1040 W. 79th Street,Chicago,IL,60620,312-745-4798,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7505772,-87.6502906,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Regional Senior Center,Renaissance Court,78 E. Washington Street,Chicago,IL,60602,312-744-4550,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.8838542,-87.6249552,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Regional Senior Center,Northwest,3160 N. Milwaukee Avenue,Chicago,IL,60618,312-744-6681,Mon - Fri 8:30 a.m. to 4:30 p.m. Sat - Sun 9:00 a.m. to 4:00 p.m,41.9383690,-87.7226883,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,North Center,4040 N. Oakley Avenue,Chicago,IL,60618,312-745-4029,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.9548499,-87.6860880,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,West Town,1613 W. Chicago Avenue,Chicago,IL,60622,312-743-1016,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.8957522,-87.6682666,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Regional Senior Center,Northeast,2019 W. Lawrence Avenue,Chicago,IL,60625,312-744-0784,Mon - Fri 8:30 a.m. to 4:30 p.m. Sat 9:00 a.m. to 4:00 p.m.,41.9687225,-87.6801924,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Regional Senior Center,Southwest,6117 S. Kedzie Avenue,Chicago,IL,60629,312-747-0440,Mon - Fri 8:30 a.m. to 4:30 p.m. Sat 9:00 a.m. to 4:00 p.m.,41.7821299,-87.7031976,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,South Chicago,9233 S. Burley,Chicago,IL,60617,312-745-1282,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7276933,-87.5455060,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Roseland,10426 S. Michigan Ave.,Chicago,IL,60628,312-745-1500,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.7043968,-87.6211866,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Portage Park,4100 N. Long Avenue,Chicago,IL,60641,312-744-9022,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.9549757,-87.7621023,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Norwood Park,5801 N. Natoma Avenue,Chicago,IL,60631,312-744-4016,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.9865318,-87.7941235,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Kelvyn Park,2715 N. Cicero Avenue,Chicago,IL,60639,312-744-4016,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.9299084,-87.7460669,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Regional Senior Center,Southeast,1767 E. 79th Street,Chicago,IL,60649,312-747-0189,Mon - Fri 8:30 a.m. to 4:30 p.m. Sat - Sun 9:00 a.m. to 4:00 p.m,41.7515129,-87.5819826,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
+Satellite Senior Center,Edgewater,5917 N. Broadway Street,Chicago,IL,60660,312-742-5323,Mon - Fri 8:30 a.m. to 4:30 p.m.,41.9894834,-87.6601433,true,qhfc-4cw2,2026-11-17T19:36:03+00:00
