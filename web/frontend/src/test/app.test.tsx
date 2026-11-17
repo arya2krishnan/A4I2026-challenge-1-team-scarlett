@@ -206,4 +206,34 @@ describe('Heat Dispatch Console', () => {
     await waitFor(() => expect(calls.some(c => c.path === 'POST /api/reset')).toBe(true));
     expect(screen.getByTestId('chat-msgs')).toHaveTextContent('Database reset complete');
   });
+
+  it('shows X icon on approval and clicking it displays vulnerability and dispatch on way, closes on click outside', async () => {
+    const approvedItem = { ...v1Items[0], approval: { by: 'duty@city.gov', at: '2026-07-13T14:05:00Z', plan_version: 1, kind: v1Items[0].kind, name: v1Items[0].name } };
+    routes['POST /api/actions'] = () => makePlan(1, [approvedItem, ...v1Items.slice(1)]);
+    await boot();
+
+    // Click Approve on the first item
+    const firstItem = screen.getByTestId(`item-${v1Items[0].key}`);
+    const apBtn = within(firstItem).getByText('✓ Approve');
+    await userEvent.click(apBtn);
+
+    // The X button should now populate at the end of the approval section
+    const xBtn = await screen.findByTestId(`x-btn-${v1Items[0].key}`);
+    expect(xBtn).toBeInTheDocument();
+
+    // Click the X button to open the message
+    await userEvent.click(xBtn);
+
+    // The message card appears with vulnerability and dispatch on the way
+    const modal = await screen.findByTestId('x-modal-card');
+    expect(modal).toBeInTheDocument();
+    expect(screen.getByTestId('x-vuln-banner')).toHaveTextContent(/Identified Vulnerability/i);
+    expect(screen.getByTestId('x-dispatch-banner')).toHaveTextContent(/Dispatch On The Way/i);
+    expect(screen.getByTestId('x-tweet-text')).toHaveTextContent(/🚨 HEAT DISPATCH UPDATE/);
+
+    // Clicking outside (on the backdrop) closes the modal
+    const backdrop = screen.getByTestId('x-modal-backdrop');
+    await userEvent.click(backdrop);
+    expect(screen.queryByTestId('x-modal-card')).not.toBeInTheDocument();
+  });
 });
