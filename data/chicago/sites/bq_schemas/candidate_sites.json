@@ -1,0 +1,72 @@
+[
+  {
+    "name": "site_key",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "site_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "site_category",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "operator",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "address",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "zip",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "latitude",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "longitude",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "is_current_cooling_site",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "indoor_air_conditioned",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "open_24_7",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "hours_of_operation",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "source_dataset_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "retrieved_at",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  }
+]

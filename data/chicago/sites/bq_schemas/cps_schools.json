@@ -1,0 +1,52 @@
+[
+  {
+    "name": "school_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "short_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "address",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "grade_cat",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "latitude",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "longitude",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "in_chicago_bbox",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "is_high_school",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "source_dataset_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "retrieved_at",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  }
+]

@@ -1,0 +1,458 @@
+site_key,site_name,site_category,operator,address,zip,latitude,longitude,is_current_cooling_site,indoor_air_conditioned,open_24_7,hours_of_operation,source_dataset_id,retrieved_at
+cool-0001,Daley College,Chicago Community College,City Colleges of Chicago,7500 S. Pulaski,60652,41.7573100,-87.7221900,true,true,false,"M-F 8am-8pm; Sat 9am-3pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0002,Harold Washington College,Chicago Community College,City Colleges of Chicago,30 E. Lake St.,60601,41.8857600,-87.6268600,true,true,false,"M-F 8am-8pm; Sat 8am-4pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0003,Kennedy-King College,Chicago Community College,City Colleges of Chicago,740 W. 63rd Street,60621,41.7797900,-87.6439700,true,true,false,"M-F 8am-8pm; Sat-Sun 8am-4pm; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0004,Malcolm X College,Chicago Community College,City Colleges of Chicago,1900 W. Jackson,60612,41.8774900,-87.6751000,true,true,false,"M-F 8am-8pm; Sat-Sun 8am-5 pm: Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0005,Olive-Harvey College,Chicago Community College,City Colleges of Chicago,10001 S Woodlawn Ave,60628,41.7110900,-87.5903600,true,true,false,"M-F 9am-8pm; Sat 9am-5pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0006,Truman College,Chicago Community College,City Colleges of Chicago,1145 W. Wilson Ave,60640,41.9651000,-87.6595800,true,true,false,"M-F 8am-9pm; Sat 8am-4pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0007,Wright College,Chicago Community College,City Colleges of Chicago,4300 N. Narragansett Ave,60634,41.9583200,-87.7876500,true,true,false,"M-F 8am-7pm; Sat 8am-2pm; Closed Sun; Holiday Closures: 5/25/26, 6/19/26. 7/3/26, 7/4/26, 9/7/26",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0008,Garfield Center,Community Service Center,DFSS,10 S. Kedzie Avenue,60612,41.8800000,-87.7065900,true,true,false,M-F 9am-5pm; Sunday 7/26 9am-5pm,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0009,Trina Davila Center,Community Service Center,DFSS,4312 W. North Avenue,60639,41.9100300,-87.7342800,true,true,false,M-F 9am-5pm,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0010,North Area Center,Community Service Center,DFSS,845 W. Wilson Avenue,60640,41.9654800,-87.6519500,true,true,false,M-F 9am-5pm,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0011,South Chicago Center,Community Service Center,DFSS,8650 S. Commercial Avenue,60617,41.7377500,-87.5518300,true,true,false,M-F 9am-5pm,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0012,Auburn Gresham Center,Community Service Center,DFSS,1140 W. 79th Street,60620,41.7505000,-87.6529100,true,true,false,M-F 9am-5pm,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0013,King Center,Community Service Center,DFSS,4314 S. Cottage Grove,60653,41.8159600,-87.6070600,true,true,false,M-F 9am-5pm,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0014,Pullman,Library,Chicago Public Library,11001 S. Indiana Avenue,60628,41.6943700,-87.6182900,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0015,Chicago Bee,Library,Chicago Public Library,3647 S. State Street,60609,41.8281500,-87.6264900,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0016,Vodak-East Side,Library,Chicago Public Library,3710 E. 106th Street,60617,41.7030000,-87.5334800,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0017,Logan Square,Library,Chicago Public Library,3030 W. Fullerton Avenue,60647,41.9247600,-87.7034100,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0018,Lozano,Library,Chicago Public Library,1805 S. Loomis Street,60608,41.8571900,-87.6609300,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0019,Blackstone,Library,Chicago Public Library,4904 S. Lake Park Avenue,60615,41.8060600,-87.5904600,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0020,Merlo,Library,Chicago Public Library,644 W. Belmont Avenue,60657,41.9400400,-87.6462700,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0021,Thurgood Marshall,Library,Chicago Public Library,7506 S. Racine Avenue,60620,41.7571100,-87.6543700,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0022,Garfield Ridge,Library,Chicago Public Library,6348 S. Archer Avenue,60638,41.7928200,-87.7800900,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0023,Archer Heights,Library,Chicago Public Library,5055 S. Archer Avenue,60632,41.8007000,-87.7266300,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0024,West Englewood,Library,Chicago Public Library,1745 W. 63rd Street,60636,41.7793900,-87.6685200,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0025,South Chicago,Library,Chicago Public Library,9055 S. Houston Avenue,60617,41.7303700,-87.5498400,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0026,Avalon,Library,Chicago Public Library,8148 S. Stony Island Avenue,60617,41.7463300,-87.5858400,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0027,Rogers Park,Library,Chicago Public Library,6907 N. Clark Street,60626,42.0066900,-87.6734100,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0028,Oriole Park,Library,Chicago Public Library,7454 W. Balmoral Avenue,60656,41.9780000,-87.8138700,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0029,West Chicago Avenue,Library,Chicago Public Library,4856 W. Chicago Avenue,60651,41.8949800,-87.7480000,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0030,Sulzer Regional,Library,Chicago Public Library,4455 N. Lincoln Avenue,60625,41.9626700,-87.6846700,true,true,false,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0031,Hegewisch,Library,Chicago Public Library,3048 E. 130th Street,60633,41.6594300,-87.5491100,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0032,South Shore,Library,Chicago Public Library,2505 E. 73rd Street,60649,41.7626400,-87.5637300,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0033,Chinatown,Library,Chicago Public Library,2100 S. Wentworth Avenue,60616,41.8538000,-87.6318200,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0034,Edgewater,Library,Chicago Public Library,6000 N. Broadway,60660,41.9913000,-87.6605700,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0035,Mount Greenwood,Library,Chicago Public Library,11010 S. Kedzie Avenue,60655,41.6928200,-87.7012100,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0036,Little Italy,Library,Chicago Public Library,1336 W. Taylor Street,60607,41.8693700,-87.6605900,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0037,Uptown,Library,Chicago Public Library,929 W. Buena Avenue,60613,41.9584300,-87.6542200,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0038,Scottsdale,Library,Chicago Public Library,4101 W. 79th Street,60652,41.7494000,-87.7246000,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0039,Austin-Irving,Library,Chicago Public Library,6100 W. Irving Park Road,60634,41.9532100,-87.7795200,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0040,Bucktown-Wicker Park,Library,Chicago Public Library,1701 N. Milwaukee Avenue,60647,41.9127700,-87.6805100,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0041,"Daley, Richard M.-W Humboldt",Library,Chicago Public Library,733 N. Kedzie Avenue,60612,41.8950900,-87.7061800,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0042,Mayfair,Library,Chicago Public Library,4400 W. Lawrence Avenue,60630,41.9681200,-87.7381000,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0043,Jefferson Park,Library,Chicago Public Library,5363 W. Lawrence Avenue,60630,41.9676300,-87.7619600,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0044,West Pullman,Library,Chicago Public Library,830 W. 119th Street,60643,41.6778000,-87.6431100,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM); F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0045,West Belmont,Library,Chicago Public Library,3104 N. Narragansett Avenue,60634,41.9368500,-87.7858900,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0046,Albany Park,Library,Chicago Public Library,3401 W. Foster Ave.,60625,41.9756900,-87.7140800,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0047,McKinley Park,Library,Chicago Public Library,1915 W. 35th Street,60609,41.8304100,-87.6734400,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0048,Roden,Library,Chicago Public Library,6083 N. Northwest Highway,60631,41.9919400,-87.7983200,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0049,Sherman Park,Library,Chicago Public Library,5440 S. Racine Avenue,60609,41.7948500,-87.6548900,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0050,West Town,Library,Chicago Public Library,1625 W. Chicago Avenue,60622,41.8960600,-87.6685900,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0051,Coleman,Library,Chicago Public Library,731 E. 63rd Street,60637,41.7801400,-87.6066200,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0052,Lincoln Park,Library,Chicago Public Library,1150 W. Fullerton Avenue,60614,41.9255900,-87.6578900,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0053,Little Village,Library,Chicago Public Library,2311 S. Kedzie Avenue,60623,41.8495100,-87.7051800,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0054,Toman,Library,Chicago Public Library,2708 S. Pulaski Road,60623,41.8418100,-87.7248300,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0055,Budlong Woods,Library,Chicago Public Library,5630 N. Lincoln Avenue,60659,41.9839300,-87.6964700,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0056,Near North,Library,Chicago Public Library,310 W. Division Street,60610,41.9037900,-87.6366300,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0057,Wrightwood-Ashburn,Library,Chicago Public Library,8530 S. Kedzie Avenue,60652,41.7374200,-87.7025000,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0058,West Lawn,Library,Chicago Public Library,4020 W. 63rd Street,60629,41.7786600,-87.7238400,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0059,Greater Grand Crossing,Library,Chicago Public Library,1000 East 73rd Street,60619,41.7622900,-87.6004100,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0060,Brainerd,Library,Chicago Public Library,1350 W. 89th Street,60620,41.7323200,-87.6577400,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0061,Lincoln Belmont,Library,Chicago Public Library,1659 W. Melrose Street,60657,41.9405600,-87.6709200,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0062,North Pulaski,Library,Chicago Public Library,4300 W. North Avenue,60639,41.9100300,-87.7340400,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0063,Edgebrook,Library,Chicago Public Library,5331 W. Devon Avenue,60646,41.9972700,-87.7619700,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0064,Jeffery Manor,Library,Chicago Public Library,2401 E. 100th Street,60617,41.7135200,-87.5655600,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0065,Beverly,Library,Chicago Public Library,1962 W. 95th Street,60643,41.7211400,-87.6723000,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0066,Austin,Library,Chicago Public Library,5615 W. Race Avenue,60644,41.8892900,-87.7659700,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0067,Portage-Cragin,Library,Chicago Public Library,5108 W. Belmont Avenue,60641,41.9387300,-87.7547000,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0068,"Daley, Richard J.-Bridgeport",Library,Chicago Public Library,3400 S. Halsted Street,60608,41.8325700,-87.6461500,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0069,Kelly,Library,Chicago Public Library,6151 S. Normal Boulevard,60621,41.7822000,-87.6372500,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0070,North Austin,Library,Chicago Public Library,5724 W. North Avenue,60639,41.9093300,-87.7688600,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0071,Woodson Regional,Library,Chicago Public Library,9525 S. Halsted Street,60628,41.7204800,-87.6428500,true,true,false,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0072,Dunning,Library,Chicago Public Library,7455 W. Cornelia Avenue,60634,41.9430700,-87.8136800,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0073,Harold Washington-HWLC,Library,Chicago Public Library,400 S. State Street,60605,41.8763300,-87.6276300,true,true,false,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0074,Brighton Park,Library,Chicago Public Library,4314 S. Archer Avenue,60632,41.8148300,-87.7030300,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0075,Northtown,Library,Chicago Public Library,6800 N. Western Avenue,60645,42.0050300,-87.6903300,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0076,King,Library,Chicago Public Library,3436 S. King Drive,60616,41.8319800,-87.6173200,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0077,"Whitney M. Young, Jr.",Library,Chicago Public Library,415 E. 79th Street,60619,41.7511100,-87.6142500,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0078,Hall,Library,Chicago Public Library,4801 S. Michigan Avenue,60615,41.8073000,-87.6228000,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0079,Independence,Library,Chicago Public Library,4024 N. Elston Avenue,60618,41.9543200,-87.7200900,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0080,Clearing,Library,Chicago Public Library,6423 W. 63rd Place,60638,41.7765900,-87.7822000,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0081,Chicago Lawn,Library,Chicago Public Library,6120 S. Kedzie Avenue,60629,41.7818600,-87.7032100,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0082,Bezazian,Library,Chicago Public Library,1226 W. Ainslie Street,60640,41.9718100,-87.6602000,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0083,Douglass,Library,Chicago Public Library,3353 W. 13th Street,60623,41.8645400,-87.7096700,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0084,Walker,Library,Chicago Public Library,11071 S. Hoyne Avenue,60643,41.6922000,-87.6741200,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0085,Back of the Yards,Library,Chicago Public Library,2111 W. 47th Street,60609,41.8084900,-87.6779300,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0086,Humboldt Park,Library,Chicago Public Library,1605 N. Troy St.,60647,41.9107300,-87.7053100,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0087,West Loop,Library,Chicago Public Library,122 N. Aberdeen Street,60607,41.8838700,-87.6547700,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0088,Legler Regional,Library,Chicago Public Library,115 S. Pulaski Road,60624,41.8793200,-87.7256100,true,true,false,"M-TH: 9AM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0089,Manning,Library,Chicago Public Library,6 S. Hoyne Avenue,60612,41.8808100,-87.6795700,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0090,Gage Park,Library,Chicago Public Library,2807 W. 55th Street,60632,41.7936900,-87.6941800,true,true,false,"M, W: 10AM-6PM; TU, TH: 12PM-8PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0091,Altgeld,Library,Chicago Public Library,955 E. 131st Street,60827,41.6573200,-87.5986000,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM; CLOSED 7/16",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0092,Canaryville,Library,Chicago Public Library,642 W. 43rd Street,60609,41.8162400,-87.6425700,true,true,false,"M, W: 12PM-8PM; TU, TH: 10AM-6PM; F, SA: 9AM-5PM; SU: 1PM-5PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0093,Ada Park,Park District Facility,Chicago Park District,11250 S. Ada St.,60643,41.6883400,-87.6556800,true,true,false,M-F 10AM-10PM; Sat 10AM-6PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0094,Amundsen Park,Park District Facility,Chicago Park District,6200 W. Bloomingdale Ave,60639,41.9128400,-87.7802400,true,true,false,M-W 9AM-8pm; Th-F 9AM-6PM; Sat 9AM-4PM; Sun 9AM-2PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0095,Brooks Park,Park District Facility,Chicago Park District,7100 N. Harlem Ave.,60631,42.0094400,-87.8073000,true,true,false,"M,Th 9AM-9PM; T,W 9AM-10PM; F 9AM-8PM; Sat & Sun 9AM-2PM",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0096,Chase Park,Park District Facility,Chicago Park District,4701 N. Ashland Ave.,60640,41.9679900,-87.6687900,true,true,false,M-F 6:30AM-10PM; Sat & Sun 8AM-4PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0097,Clark Park,Park District Facility,Chicago Park District,3400 N. Rockwell St.,60618,41.9413600,-87.6931000,true,true,false,M-F 8AM-8PM; Sat 8AM-4PM; Sun 8AM-3PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0098,Columbus Park,Park District Facility,Chicago Park District,500 S. Central Ave.,60644,41.8744500,-87.7657200,true,true,false,M-F 8AM- 8PM; Sat 9:30AM-6PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0099,Davis Square,Park District Facility,Chicago Park District,4430 S Marshfield,60609,41.8131000,-87.6663300,true,true,false,"M,T, TH 9AM-7PM; W&F 9am-8PM; Sat 9AM-5PM; Sun Closed",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0100,Douglass Park,Park District Facility,Chicago Park District,1401 S. Sacramento Dr.,60623,41.8629900,-87.6996200,true,true,false,M-F 9AM- 8PM; Sat 9AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0101,Ellis Park,Park District Facility,Chicago Park District,3520 S. Cottage,60653,41.8300300,-87.6104200,true,true,false,M-F 7:30AM-7:30PM; Sat 9AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0102,Fernwood Park,Park District Facility,Chicago Park District,10436 S. Wallace St.,60628,41.7046300,-87.6385700,true,true,false,"M-W 7:30AM-5PM, Th-F 7:30AM-8PM, Sat and Sun Closed",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0103,Fosco Park,Park District Facility,Chicago Park District,1312 S. Racine Ave.,60608,41.8649500,-87.6566200,true,true,false,M-F 7AM-8PM; Sat and Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0104,Foster Park,Park District Facility,Chicago Park District,1400 W. 84th St.,60620,41.7413400,-87.6575200,true,true,false,M-F 7AM-8PM; Sat and Sun 9AM-5PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0105,Garfield Park,Park District Facility,Chicago Park District,100 N. Central Park,60624,41.8832000,-87.7160700,true,true,false,M-F 9AM- 9PM; Sat 8:30AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0106,Gill Park,Park District Facility,Chicago Park District,825 W. Sheridan,60613,41.9527100,-87.6506000,true,true,false,M-F 7AM-9:30PM; Sat 9AM-5PM; Sun 9AM-3PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0107,Harrison Park,Park District Facility,Chicago Park District,1824 S. Wood St.,60608,41.8568200,-87.6710400,true,true,false,"M,W,F 8AM-8:30PM; T&Th 8am-9pm; Sat 9AM-5PM; Sun Closed",msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0108,Hayes Park,Park District Facility,Chicago Park District,2936 W. 85th St.,60652,41.7386300,-87.6968200,true,true,false,M-F 7AM-9PM; Sat 8:30AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0109,Hiawatha Park,Park District Facility,Chicago Park District,8029 W. Forest Preserve Ave.,60634,41.9440300,-87.8277300,true,true,false,M-F 8AM-8PM; Sat 9AM-4PM; Sun 9AM-2PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0110,Homan Square Park,Park District Facility,Chicago Park District,3559 W. Arthington St.,60624,41.8695300,-87.7138100,true,true,false,M-F 9AM- 8PM; Sat 9AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0111,Jesse Owens Park,Park District Facility,Chicago Park District,8800 S. Clyde Ave.,60617,41.7349900,-87.5740300,true,true,false,M-F 9AM-7PM; Sat 10AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0112,Jesse White Center,Park District Facility,Chicago Park District,410 W. Chicago Ave.,60610,41.8965200,-87.6391600,true,true,false,M-F 9AM-5PM; Sat & Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0113,Lindblom Park,Park District Facility,Chicago Park District,6054 S. Damen Ave.,60636,41.7836000,-87.6745900,true,true,false,M-F 9AM-8PM; Sat and Sun 9AM-5PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0114,Marquette Park,Park District Facility,Chicago Park District,6743 S. Kedzie Ave.,60629,41.7706300,-87.7029500,true,true,false,M-F 9AM-9PM; Sat and Sun 9AM-5PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0115,McFetridge Sports Center,Park District Facility,Chicago Park District,3843 N. California Ave.,60618,41.9510600,-87.6982100,true,true,false,M-F 6AM-11PM; Sat & Sun 6AM-11PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0116,McGuane Park,Park District Facility,Chicago Park District,2901 S. Poplar Ave.,60608,41.8409300,-87.6493000,true,true,false,M-F 8AM-9PM; Sat 9AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0117,Mozart Park,Park District Facility,Chicago Park District,2036 N Avers,60647,41.9179000,-87.7228900,true,true,false,M-F 8AM-8PM; Sat 10AM-3PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0118,Mt. Greenwood,Park District Facility,Chicago Park District,3721 W. 111th St.,60655,41.6912000,-87.7139900,true,true,false,M-F 8:30AM-9PM; Sat and Sun 9AM-5PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0119,Nash Community Center,Park District Facility,Chicago Park District,1833 E. 71st St.,60649,41.7660400,-87.5799500,true,true,false,M-F 7AM-8PM; Sat 9AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0120,Ogden Park,Park District Facility,Chicago Park District,6500 S. Racine Ave.,60636,41.7756000,-87.6541700,true,true,false,M-F 10AM-8PM; Sat and Sun 9AM-5PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0121,Olympia Park,Park District Facility,Chicago Park District,6566 N Avondale Ave.,60631,41.9996600,-87.8148800,true,true,false,M-F 8:30AM-9PM; Sat 9AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0122,Ping Tom Park,Park District Facility,Chicago Park District,1700 S. Wentworth,60616,41.8595400,-87.6324000,true,true,false,M-F 9AM-8PM; Sat 9AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0123,Pottawattomie Park,Park District Facility,Chicago Park District,7340 N. Rogers Ave.,60626,42.0152800,-87.6778300,true,true,false,M 9AM-9PM; T-TH 9AM-8:30PM; F 9AM-9PM; Sat 9AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0124,Rowan Park,Park District Facility,Chicago Park District,11546 S. Avenue L,60617,41.6855000,-87.5364600,true,true,false,M-F 10AM-6:30PM; Sat and Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0125,Scottsdale Park,Park District Facility,Chicago Park District,4637 W. 83rd St.,60652,41.7420500,-87.7363500,true,true,false,M-F 9AM-9PM; Sat 9AM-5PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0126,Sheridan Park,Park District Facility,Chicago Park District,910 S. Aberdeen St.,60607,41.8701200,-87.6542200,true,true,false,M-F 7AM-9PM; Sat 9AM-4:30PM; Sun 9am-3:30pm,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0127,Smith Park,Park District Facility,Chicago Park District,2526 W. Grand Ave.,60612,41.8917300,-87.6901100,true,true,false,M-F 9AM-8PM; Sat 10AM-2PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0128,South Shore Cultural Center,Park District Facility,Chicago Park District,7059 S. South Shore Dr.,60649,41.7666100,-87.5664700,true,true,false,M-Sun 7AM-7PM; Sat-hours can vary depending on special event schedule,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0129,Taylor-Lauridson Park,Park District Facility,Chicago Park District,704 W. 42nd St.,60609,41.8180800,-87.6439500,true,true,false,M-F 8AM-8PM; Sat 9AM-4PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0130,Vittum Park,Park District Facility,Chicago Park District,5010 W. 50th St.,60638,41.8024400,-87.7485300,true,true,false,M-F 9:30AM-7PM; Sat and Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0131,Warren Park,Park District Facility,Chicago Park District,6601 N. Western Ave.,60645,42.0015000,-87.6899700,true,true,false,M-F 9AM-8:30PM; Sat & Sun 9AM-3:30PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0132,Washington Park,Park District Facility,Chicago Park District,5531 S King Drive,60637,41.7935500,-87.6159500,true,true,false,M-F 9AM-8PM; Sat 9AM-4PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0133,West Lawn Park,Park District Facility,Chicago Park District,4233 W. 65th St.,60629,41.7749200,-87.7282600,true,true,false,M-F 9AM-9PM; Sat and Sun 9AM-5PM,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0134,Williams Park,Park District Facility,Chicago Park District,2820 S. State St.,60616,41.8428300,-87.6268800,true,true,false,M-F 9AM-6PM; Sat 10AM-3PM; Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0135,Willye White Park,Park District Facility,Chicago Park District,1610 W. Howard St.,60626,42.0193400,-87.6715700,true,true,false,M-F 9AM-9PM; Sat and Sun Closed,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0136,Abbott (Robert),Park District Spray Feature,Chicago Park District,49 E 95Th St,,41.7217600,-87.6223800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0137,Ada (Sawyer Garrett),Park District Spray Feature,Chicago Park District,11250 S Ada St,,41.6883400,-87.6556800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0138,Athletic Field,Park District Spray Feature,Chicago Park District,3546 W Addison St,,41.9465100,-87.7170000,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0139,Avalon,Park District Spray Feature,Chicago Park District,1215 E 83Rd St,,41.7442200,-87.5946900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0140,Back Of The Yards,Park District Spray Feature,Chicago Park District,4920 S Throop St,,41.8043600,-87.6575700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0141,Beehive,Park District Spray Feature,Chicago Park District,6156 S Dorchester Ave,,41.7828000,-87.5914300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0142,Bessemer (Henry),Park District Spray Feature,Chicago Park District,8930 S Muskegon Ave,,41.7327700,-87.5554700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0143,Beverly,Park District Spray Feature,Chicago Park District,2460 W 102Nd St,,41.7082100,-87.6831900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0144,Brainerd,Park District Spray Feature,Chicago Park District,1246 W 92Nd St,,41.7267700,-87.6549100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0145,Broncho Billy,Park District Spray Feature,Chicago Park District,4437 N Magnolia Ave,,41.9627100,-87.6609200,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0146,Burnside (Ambrose),Park District Spray Feature,Chicago Park District,9400 S Greenwood Ave,,41.7240200,-87.5972900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0147,California,Park District Spray Feature,Chicago Park District,3843 N California Ave,,41.9510600,-87.6982100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0148,Catalpa,Park District Spray Feature,Chicago Park District,4330 S Kedvale Ave,,41.8141500,-87.7281100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0149,Cedar,Park District Spray Feature,Chicago Park District,5315 N Winthrop Ave,,41.9785600,-87.6577900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0150,Chopin (Frederic),Park District Spray Feature,Chicago Park District,3420 N Long Ave,,41.9432000,-87.7617700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0151,Commercial Club Pgd. Of Chicago,Park District Spray Feature,Chicago Park District,1845 W Rice St,,41.8968800,-87.6742000,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0152,Cornell (Paul) Square,Park District Spray Feature,Chicago Park District,1809 W 50Th St,,41.8030800,-87.6699400,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0153,Cragin,Park District Spray Feature,Chicago Park District,2611 N Lockwood Ave,,41.9281100,-87.7587700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0154,Davis (Dr. Nathan) Square,Park District Spray Feature,Chicago Park District,4430 S Marshfield Ave,,41.8131000,-87.6663300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0155,Dawes (Charles G.),Park District Spray Feature,Chicago Park District,8052 S Damen Av,,41.7471600,-87.6730600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0156,Dickinson (Arthur),Park District Spray Feature,Chicago Park District,4117 N Lavergne Ave,,41.9554200,-87.7522600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0157,Douglas (Stephen),Park District Spray Feature,Chicago Park District,1401 S Sacramento,,41.8629900,-87.6996200,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0158,Dunham (Robert),Park District Spray Feature,Chicago Park District,4640 N Melvina Ave,,41.9657000,-87.7826500,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0159,Durkin (Martin),Park District Spray Feature,Chicago Park District,8445 S Kolin Ave,,41.7386500,-87.7292600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0160,Ellis (Samuel),Park District Spray Feature,Chicago Park District,3520 S Cottage Grove,,41.8300300,-87.6104200,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0161,Fellger (Charles),Park District Spray Feature,Chicago Park District,2012 W Belmont Ave,,41.9395800,-87.6786200,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0162,Fernwood,Park District Spray Feature,Chicago Park District,10436 S Wallace St,,41.7046300,-87.6385700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0163,Field (Eugene),Park District Spray Feature,Chicago Park District,5100 N Ridgeway Ave,,41.9739100,-87.7232800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0164,Flower (Lucy),Park District Spray Feature,Chicago Park District,2554 W Moffat St,,41.9148000,-87.6917400,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0165,Fosco (Peter),Park District Spray Feature,Chicago Park District,1313 S Throop St,,41.8647700,-87.6588500,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0166,Fuller (Melville),Park District Spray Feature,Chicago Park District,331 W 45Th St,,41.8125100,-87.6343000,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0167,Galewood,Park District Spray Feature,Chicago Park District,5729 W Bloomingdale Ave,,41.9126200,-87.7687300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0168,Golden Gate,Park District Spray Feature,Chicago Park District,13000 S Eberhart Ave,,41.6589400,-87.6106400,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0169,Grand Crossing,Park District Spray Feature,Chicago Park District,7655 S Ingleside Ave,,41.7556600,-87.6016500,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0170,Greenebaum (Henry),Park District Spray Feature,Chicago Park District,4300 W Wabansia Ave,,41.9116100,-87.7336900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0171,Haas (Joseph),Park District Spray Feature,Chicago Park District,2402 N Washtenaw Ave,,41.9251700,-87.6949800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0172,Hamilton (Alexander),Park District Spray Feature,Chicago Park District,513 W 72Nd St,,41.7636000,-87.6376800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0173,Hayes (Francis),Park District Spray Feature,Chicago Park District,2936 W 85Th St,,41.7386300,-87.6968200,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0174,Hermitage,Park District Spray Feature,Chicago Park District,5839 S Wood St,,41.7871900,-87.6692600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0175,Hiawatha,Park District Spray Feature,Chicago Park District,8029 W Forest Preserve Ave,,41.9440300,-87.8277300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0176,Holly,Park District Spray Feature,Chicago Park District,4052 S Ellis Ave,,41.8207000,-87.6030200,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0177,Humboldt (Alexander Von),Park District Spray Feature,Chicago Park District,1400 N Humboldt Dr,,41.9064600,-87.7014000,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0178,Indian Boundary,Park District Spray Feature,Chicago Park District,2500 W Lunt Ave,,42.0086100,-87.6923800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0179,Indian Road,Park District Spray Feature,Chicago Park District,6010 W Matson Ave,,41.9927400,-87.7783200,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0180,Jefferson (Thomas) Meml.,Park District Spray Feature,Chicago Park District,4822 N Long Ave,,41.9687500,-87.7625800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0181,Juniper,Park District Spray Feature,Chicago Park District,3656 N Greenview Ave,,41.9487000,-87.6664800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0182,Kedvale,Park District Spray Feature,Chicago Park District,4140 W Hirsch St,,41.9062100,-87.7304000,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0183,Kelvyn (William),Park District Spray Feature,Chicago Park District,4438 W Wrightwood Ave,,41.9286400,-87.7381600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0184,Kennedy (Dennis),Park District Spray Feature,Chicago Park District,11320 S Western Ave,,41.6871700,-87.6810000,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0185,Kenwood Comm.,Park District Spray Feature,Chicago Park District,1330 E 50Th St,,41.8042000,-87.5942000,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0186,"King (Martin Luther, Jr.)",Park District Spray Feature,Chicago Park District,1200 W 77Th St,,41.7541300,-87.6540100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0187,Krause (Francis Vernon),Park District Spray Feature,Chicago Park District,10558 S Avenue L,,41.7028900,-87.5364500,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0188,La Villita,Park District Spray Feature,Chicago Park District,2800 S Sacramento,,41.8404200,-87.6998200,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0189,Lawler (Michael),Park District Spray Feature,Chicago Park District,5210 W 64Th St,,41.7759800,-87.7517400,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0190,Limas (Juliann Hope),Park District Spray Feature,Chicago Park District,2410 S Trumbull Ave,,41.8475400,-87.7112100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0191,Mann (James),Park District Spray Feature,Chicago Park District,2949 E 131St St,,41.6573500,-87.5527800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0192,Marquette (Jacques),Park District Spray Feature,Chicago Park District,6734 S Kedzie Ave,,41.7713700,-87.7029700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0193,Mather (Stephen Tyng),Park District Spray Feature,Chicago Park District,5941 N Richmond St,,41.9889700,-87.7029700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0194,Mayfair,Park District Spray Feature,Chicago Park District,4550 W Sunnyside Ave,,41.9626100,-87.7420500,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0195,Mckiernan (David),Park District Spray Feature,Chicago Park District,10714 S Sawyer Ave,,41.6983600,-87.7022600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0196,Micek (Frank),Park District Spray Feature,Chicago Park District,5311 S Hamilton Ave,,41.7968700,-87.6779800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0197,Moore (Maurice),Park District Spray Feature,Chicago Park District,5085 W Adams St,,41.8784900,-87.7527600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0198,Mount Greenwood,Park District Spray Feature,Chicago Park District,3721 W 111Th St,,41.6912000,-87.7139900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0199,Mulberry,Park District Spray Feature,Chicago Park District,3150 S Robinson Ct,,41.8364300,-87.6663800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0200,Ninebark,Park District Spray Feature,Chicago Park District,1447-1453 S Harding Ave,,41.8610900,-87.7238400,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0201,Ohio,Park District Spray Feature,Chicago Park District,4712 W Ohio St,,41.8913900,-87.7440100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0202,Oriole,Park District Spray Feature,Chicago Park District,5430 N Olcott Ave,,41.9784100,-87.8144700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0203,Owens (Jesse),Park District Spray Feature,Chicago Park District,8800 S Clyde,,41.7349900,-87.5740300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0204,Palmer (Potter),Park District Spray Feature,Chicago Park District,201 E 111Th St,,41.6921200,-87.6162100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0205,Park No. 422,Park District Spray Feature,Chicago Park District,3200 W Congress Pkwy,,41.8749100,-87.7061300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0206,Park No. 534,Park District Spray Feature,Chicago Park District,1301 S St Louis Ave,,41.8639600,-87.7128900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0207,Park No. 546,Park District Spray Feature,Chicago Park District,450 E Benton Place,,41.8855200,-87.6167000,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0208,Park No. 574,Park District Spray Feature,Chicago Park District,2554 W Jackson Blvd,,41.8775200,-87.6897900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0209,Parsons (Lucy),Park District Spray Feature,Chicago Park District,4701 W Belmont Ave,,41.9387100,-87.7447100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0210,Pendleton (Hadiya),Park District Spray Feature,Chicago Park District,4347 S Calumet Ave,,41.8150800,-87.6183400,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0211,Periwinkle,Park District Spray Feature,Chicago Park District,30 W 66Th St,,41.7745300,-87.6278000,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0212,Pottawattomie,Park District Spray Feature,Chicago Park District,7340 N Rogers Ave,,42.0152800,-87.6778300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0213,Rosenblum (J. Leslie),Park District Spray Feature,Chicago Park District,7547 S Euclid Ave,,41.7574900,-87.5769100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0214,Rowan (William),Park District Spray Feature,Chicago Park District,11546 S Avenue L,,41.6855000,-87.5364600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0215,Rutherford Sayre,Park District Spray Feature,Chicago Park District,6871 W Belden Ave,,41.9211500,-87.7973300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0216,Saint Louis,Park District Spray Feature,Chicago Park District,347 N St Louis Ave,,41.8876000,-87.7136200,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0217,Schreiber,Park District Spray Feature,Chicago Park District,1552 W Schreiber Ave,,41.9990100,-87.6694100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0218,"Senka (Edward ""Duke"")",Park District Spray Feature,Chicago Park District,5656 S St Louis Ave,,41.7903600,-87.7108100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0219,Senn (Nicholas),Park District Spray Feature,Chicago Park District,5887 N Ridge Ave,,41.9887700,-87.6684700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0220,Shabbona,Park District Spray Feature,Chicago Park District,6935 W Addison,,41.9453900,-87.8002800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0221,Sherman (John),Park District Spray Feature,Chicago Park District,1301 W 52Nd St,,41.7995900,-87.6575300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0222,Sherwood (Jesse),Park District Spray Feature,Chicago Park District,5705 S Shields Ave,,41.7908700,-87.6340600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0223,Skinner (Mark),Park District Spray Feature,Chicago Park District,1331 W Monroe St,,41.8802600,-87.6602700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0224,Smith (Joseph Higgins),Park District Spray Feature,Chicago Park District,2526 W Grand Ave,,41.8917300,-87.6901100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0225,Stanton (Edwin),Park District Spray Feature,Chicago Park District,618 W Scott St,,41.9050500,-87.6437900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0226,Stars & Stripes,Park District Spray Feature,Chicago Park District,5100 S Nordica Ave,,41.7987700,-87.7978200,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0227,Strohacker (Howard),Park District Spray Feature,Chicago Park District,4347 W 54Th St,,41.7949500,-87.7323900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0228,Throop (Amos Gager),Park District Spray Feature,Chicago Park District,1811 S Throop St,,41.8575100,-87.6588300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0229,Tilton (George),Park District Spray Feature,Chicago Park District,305 N Kostner,,41.8846900,-87.7356000,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0230,Trumbull (Lyman),Park District Spray Feature,Chicago Park District,2400 E 105Th St,,41.7045800,-87.5644900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0231,Tuley (Murray),Park District Spray Feature,Chicago Park District,501 E 90Th Pl,,41.7304900,-87.6103700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0232,Veterans' Memorial,Park District Spray Feature,Chicago Park District,2820 E 98Th St,,41.7172800,-87.5558400,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0233,Violet,Park District Spray Feature,Chicago Park District,4120 W Taylor St,,41.8690500,-87.7286800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0234,Vittum (Harriet Elizabeth),Park District Spray Feature,Chicago Park District,5010 W 50Th St,,41.8024400,-87.7485300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0235,Ward (A. Montgomery),Park District Spray Feature,Chicago Park District,630 N Kingsbury Ave,,41.8935000,-87.6414600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0236,Weisman (Albert),Park District Spray Feature,Chicago Park District,901 W Oakdale Ave,,41.9354000,-87.6517100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0237,Welles (Gideon),Park District Spray Feature,Chicago Park District,2333 W Sunnyside Ave,,41.9631600,-87.6864300,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0238,Wentworth (John),Park District Spray Feature,Chicago Park District,5625 S Mobile Ave,,41.7894400,-87.7793600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0239,West Chatham,Park District Spray Feature,Chicago Park District,8223 S Princeton Ave,,41.7445400,-87.6313100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0240,West Lawn,Park District Spray Feature,Chicago Park District,4233 W 65Th St,,41.7749200,-87.7282600,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0241,West Pullman,Park District Spray Feature,Chicago Park District,401 W 123Rd St,,41.6706400,-87.6323900,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0242,White (Edward),Park District Spray Feature,Chicago Park District,1120 W 122Nd St,,41.6725100,-87.6500500,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0243,Williams (Daniel Hale),Park District Spray Feature,Chicago Park District,2820 S State St,,41.8428300,-87.6268800,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0244,Wilson (John),Park District Spray Feature,Chicago Park District,1122 W 34Th Pl,,41.8315600,-87.6545100,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0245,Wolfe (Richard),Park District Spray Feature,Chicago Park District,3325 E 108Th St,,41.6991400,-87.5431700,true,false,false,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0246,1st District,Police District,Chicago Police Department,1718 S State St,60616,41.8584800,-87.6272900,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0247,2nd District,Police District,Chicago Police Department,5101 S Wentworth Ave,60609,41.8010700,-87.6303500,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0248,3rd District,Police District,Chicago Police Department,7040 S Cottage Grove Ave,60637,41.7668400,-87.6061600,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0249,4th District,Police District,Chicago Police Department,2255 E 103rd St,60617,41.7075600,-87.5689400,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0250,5th District,Police District,Chicago Police Department,727 E 111th St,60628,41.6926300,-87.6035600,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0251,6th District,Police District,Chicago Police Department,7808 S Halsted St,60620,41.7520700,-87.6440600,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0252,7th District,Police District,Chicago Police Department,1438 W 63rd St,60636,41.7795100,-87.6600700,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0253,8th District,Police District,Chicago Police Department,3420 W 63rd St,60629,41.7788900,-87.7087500,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0254,9th District,Police District,Chicago Police Department,3120 S Halsted St,60608,41.8371900,-87.6462600,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0255,10th District,Police District,Chicago Police Department,3315 W Ogden Ave,60623,41.8566500,-87.7085900,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0256,11th District,Police District,Chicago Police Department,3151 W Harrison St,60612,41.8737000,-87.7053800,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0257,12th District,Police District,Chicago Police Department,1412 S Blue Island Ave,60608,41.8628700,-87.6568900,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0258,14th District,Police District,Chicago Police Department,2150 N California Ave,60647,41.9215600,-87.6979700,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0259,15th District,Police District,Chicago Police Department,5701 W Madison St,60644,41.8801600,-87.7684900,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0260,16th District,Police District,Chicago Police Department,5151 N Milwaukee Ave,60630,41.9744300,-87.7659400,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0261,17th District,Police District,Chicago Police Department,4650 N Pulaski Rd,60630,41.9661600,-87.7279800,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0262,18th District,Police District,Chicago Police Department,1160 N Larrabee St,60610,41.9032500,-87.6432100,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0263,19th District,Police District,Chicago Police Department,850 W Addison St,60613,41.9472900,-87.6512000,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0264,20th District,Police District,Chicago Police Department,5400 N Lincoln Ave,60625,41.9800600,-87.6927600,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0265,22nd District,Police District,Chicago Police Department,1900 W Monterey Ave,60643,41.6920200,-87.6688700,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0266,24th District,Police District,Chicago Police Department,6464 N Clark St,60626,42.0001900,-87.6717700,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0267,25th District,Police District,Chicago Police Department,5555 W Grand Ave,60639,41.9183900,-87.7646300,true,true,true,,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0268,Southeast,Regional Senior Center,DFSS,1767 E. 79th Street,60649,41.7515600,-87.5806300,true,true,false,M-F: 8:30 a.m. to 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0269,Southwest,Regional Senior Center,DFSS,6117 S. Kedzie Avenue,60629,41.7819700,-87.7029800,true,true,false,M-F: 8:30 a.m. to 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0270,Central West,Regional Senior Center,DFSS,2102 W. Ogden Avenue,60612,41.8709000,-87.6786200,true,true,false,M-F: 8:30 a.m. to 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0271,Northeast,Regional Senior Center,DFSS,2019 W. Lawrence Avenue,60625,41.9687500,-87.6800400,true,true,false,M-F: 8:30 a.m. to 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0272,Northwest,Regional Senior Center,DFSS,3160 N. Milwaukee Avenue,60618,41.9383300,-87.7225600,true,true,false,M-F: 8:30 a.m. to 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0273,Renaissance Court,Regional Senior Center,DFSS,78 E. Washington Street,60602,41.8832500,-87.6251600,true,true,false,M-F: 10:00 a.m. to 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0274,Austin Satellite,Satellite Senior Center,DFSS,5071 West Congress,60644,41.8739800,-87.7523500,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0275,Pilsen Satellite,Satellite Senior Center,DFSS,2121 South Morgan,60608,41.8536700,-87.6514400,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0276,West Town Satellite,Satellite Senior Center,DFSS,1615 West Chicago Ave.,60622,41.8957200,-87.6677900,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0277,Norwood Park Satellite,Satellite Senior Center,DFSS,5801 North Natoma,60631,41.9865600,-87.7941400,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0278,Portage Park Satellite,Satellite Senior Center,DFSS,4100 North Long,60639,41.9098500,-87.7289700,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0279,Abbott Park Satellite,Satellite Senior Center,DFSS,49 East 95th St.,60619,41.7217600,-87.6223800,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0280,Chatham Satellite,Satellite Senior Center,DFSS,8300 South Cottage Grove,60619,41.7436800,-87.6050200,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0281,Roseland Satellite,Satellite Senior Center,DFSS,10426 South Michigan,60628,41.7045100,-87.6211600,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0282,Garfield Ridge Satellite,Satellite Senior Center,DFSS,5674-B South Archer,60638,41.7972100,-87.7526700,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0283,Kelvyn Park Satellite,Satellite Senior Center,DFSS,2715 North Cicero,60639,41.9300900,-87.7465400,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0284,Auburn Gresham Satellite,Satellite Senior Center,DFSS,1040 West 79th St.,60620,41.7505400,-87.6503100,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0285,Englewood Satellite,Satellite Senior Center,DFSS,653-657 West 63rd St.,60621,41.7798000,-87.6422000,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0286,Edgewater Satellite,Satellite Senior Center,DFSS,5917 North Broadway,60621,41.9894400,-87.6595400,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cool-0287,South Chicago Satellite,Satellite Senior Center,DFSS,9233 South Burley,60617,41.7273100,-87.5455700,true,true,false,M-F 8:30 a.m. - 4:30 p.m.,msrk-w9ih,2026-11-17T19:36:03+00:00
+cps-400052,NOBLE - COMER,CPS High School (candidate),Chicago Public Schools,7131 S SOUTH CHICAGO AVE,,41.7652523,-87.6041637,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400157,NOBLE - BAKER HS,CPS High School (candidate),Chicago Public Schools,2710 E 89TH ST,,41.7346224,-87.5562014,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609674,CHICAGO VOCATIONAL HS,CPS High School (candidate),Chicago Public Schools,2100 E 87TH ST,,41.7371739,-87.5732675,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609676,DUNBAR HS,CPS High School (candidate),Chicago Public Schools,3000 S KING DR,,41.8402256,-87.6176374,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609692,SIMEON HS,CPS High School (candidate),Chicago Public Schools,8147 S VINCENNES AVE,,41.7457812,-87.6354104,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609698,BOGAN HS,CPS High School (candidate),Chicago Public Schools,3939 W 79TH ST,,41.7493756,-87.7210975,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609705,FENGER HS,CPS High School (candidate),Chicago Public Schools,11220 S WALLACE ST,,41.6899507,-87.6375721,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609710,HARLAN HS,CPS High School (candidate),Chicago Public Schools,9652 S MICHIGAN AVE,,41.7183724,-87.6206234,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609712,HIRSCH HS,CPS High School (candidate),Chicago Public Schools,7740 S INGLESIDE AVE,,41.7537480,-87.6017273,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609713,HYDE PARK HS,CPS High School (candidate),Chicago Public Schools,6220 S STONY ISLAND AVE,,41.7822569,-87.5866150,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609725,MORGAN PARK HS,CPS High School (candidate),Chicago Public Schools,1744 W PRYOR AVE,,41.6920350,-87.6656576,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609727,PHILLIPS HS,CPS High School (candidate),Chicago Public Schools,244 E PERSHING RD,,41.8238800,-87.6197964,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609753,CHICAGO AGRICULTURE HS,CPS High School (candidate),Chicago Public Schools,3857 W 111TH ST,,41.6912207,-87.7177697,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609754,CHICAGO MILITARY HS,CPS High School (candidate),Chicago Public Schools,3519 S GILES AVE,,41.8305550,-87.6192155,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609762,JULIAN HS,CPS High School (candidate),Chicago Public Schools,10330 S ELIZABETH ST,,41.7058589,-87.6537492,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610323,BOWEN HS,CPS High School (candidate),Chicago Public Schools,2710 E 89TH ST,,41.7346267,-87.5575500,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610547,SOUTH SHORE INTL HS,CPS High School (candidate),Chicago Public Schools,1955 E 75TH ST,,41.7587917,-87.5763526,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610558,GOODE HS,CPS High School (candidate),Chicago Public Schools,7651 S HOMAN AVE,,41.7537498,-87.7073453,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610587,DYETT ARTS HS,CPS High School (candidate),Chicago Public Schools,555 E 51ST ST,,41.8012042,-87.6122391,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610592,ENGLEWOOD STEM HS,CPS High School (candidate),Chicago Public Schools,6835 S NORMAL BLVD,,41.7702500,-87.6368508,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400105,URBAN PREP - BRONZEVILLE HS,CPS High School (candidate),Chicago Public Schools,521 E 35TH ST,,41.8311175,-87.6136286,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400156,NOBLE - BUTLER HS,CPS High School (candidate),Chicago Public Schools,821 E 103RD ST,,41.7066669,-87.6025733,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609726,BROOKS HS,CPS High School (candidate),Chicago Public Schools,250 E 111TH ST,,41.6927625,-87.6163526,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609739,WASHINGTON HS,CPS High School (candidate),Chicago Public Schools,3535 E 114TH ST,,41.6881369,-87.5375703,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609746,KENWOOD HS,CPS High School (candidate),Chicago Public Schools,5015 S BLACKSTONE AVE,,41.8037721,-87.5904209,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609751,KING HS,CPS High School (candidate),Chicago Public Schools,4445 S DREXEL BLVD,,41.8136754,-87.6038739,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609760,CARVER MILITARY HS,CPS High School (candidate),Chicago Public Schools,13100 S DOTY AVE,,41.6562900,-87.5906204,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609761,CORLISS HS,CPS High School (candidate),Chicago Public Schools,821 E 103RD ST,,41.7066596,-87.6012159,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609679,PROSSER HS,CPS High School (candidate),Chicago Public Schools,2148 N LONG AVE,,41.9200594,-87.7610483,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609691,NORTH-GRAND HS,CPS High School (candidate),Chicago Public Schools,4338 W WABANSIA AVE,,41.9116737,-87.7352376,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609708,FOREMAN HS,CPS High School (candidate),Chicago Public Schools,3235 N LECLAIRE AVE,,41.9397968,-87.7541665,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609716,KELVYN PARK HS,CPS High School (candidate),Chicago Public Schools,4343 W WRIGHTWOOD AVE,,41.9279184,-87.7359988,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609720,LANE TECH HS,CPS High School (candidate),Chicago Public Schools,2501 W ADDISON ST,,41.9466446,-87.6910126,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609728,ROOSEVELT HS,CPS High School (candidate),Chicago Public Schools,3436 W WILSON AVE,,41.9648279,-87.7148186,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609732,STEINMETZ HS,CPS High School (candidate),Chicago Public Schools,3030 N MOBILE AVE,,41.9356336,-87.7835152,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609737,VON STEUBEN HS,CPS High School (candidate),Chicago Public Schools,5039 N KIMBALL AVE,,41.9731850,-87.7133862,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609780,MARINE LEADERSHIP AT AMES HS,CPS High School (candidate),Chicago Public Schools,1920 N HAMLIN AVE,,41.9160446,-87.7217423,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610390,RICKOVER MILITARY HS,CPS High School (candidate),Chicago Public Schools,5700 W BERTEAU AVE,,41.9575990,-87.7699375,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610340,CHICAGO ACADEMY HS,CPS High School (candidate),Chicago Public Schools,3400 N AUSTIN AVE,,41.9430545,-87.7768466,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610564,DISNEY II HS,CPS High School (candidate),Chicago Public Schools,3900 N LAWNDALE AVE,,41.9524877,-87.7213635,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609694,HANCOCK HS,CPS High School (candidate),Chicago Public Schools,5437 W 64TH PL,,41.7753660,-87.7582376,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609704,FARRAGUT HS,CPS High School (candidate),Chicago Public Schools,2345 S CHRISTIANA AVE,,41.8485599,-87.7087056,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609709,GAGE PARK HS,CPS High School (candidate),Chicago Public Schools,5630 S ROCKWELL ST,,41.7910128,-87.6889539,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609715,KELLY HS,CPS High School (candidate),Chicago Public Schools,4136 S CALIFORNIA AVE,,41.8187291,-87.6946387,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609741,HUBBARD HS,CPS High School (candidate),Chicago Public Schools,6200 S HAMLIN AVE,,41.7805264,-87.7180137,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609756,CURIE HS,CPS High School (candidate),Chicago Public Schools,4959 S ARCHER AVE,,41.8030602,-87.7220416,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609764,JUAREZ HS,CPS High School (candidate),Chicago Public Schools,1450 W CERMAK RD,,41.8526701,-87.6643393,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610392,WORLD LANGUAGE HS,CPS High School (candidate),Chicago Public Schools,3120 S KOSTNER AVE,,41.8343966,-87.7352922,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610357,SPRY HS,CPS High School (candidate),Chicago Public Schools,2400 S MARSHALL BLVD,,41.8477617,-87.6989461,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610383,SOCIAL JUSTICE HS,CPS High School (candidate),Chicago Public Schools,3120 S KOSTNER AVE,,41.8335073,-87.7352995,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610384,INFINITY HS,CPS High School (candidate),Chicago Public Schools,3120 S KOSTNER AVE,,41.8361688,-87.7352780,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610385,MULTICULTURAL ARTS HS,CPS High School (candidate),Chicago Public Schools,3120 S KOSTNER AVE,,41.8352819,-87.7352833,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610543,SOLORIO HS,CPS High School (candidate),Chicago Public Schools,5400 S ST LOUIS AVE,,41.7952006,-87.7110588,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610563,BACK OF THE YARDS HS,CPS High School (candidate),Chicago Public Schools,2111 W 47TH ST,,41.8084125,-87.6775414,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609719,LAKE VIEW HS,CPS High School (candidate),Chicago Public Schools,4015 N ASHLAND AVE,,41.9547641,-87.6689527,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609724,MATHER HS,CPS High School (candidate),Chicago Public Schools,5835 N LINCOLN AVE,,41.9875887,-87.7024964,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609729,SCHURZ HS,CPS High School (candidate),Chicago Public Schools,3601 N MILWAUKEE AVE,,41.9463645,-87.7356121,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609734,TAFT HS,CPS High School (candidate),Chicago Public Schools,6530 W BRYN MAWR AVE,,41.9829610,-87.7915472,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609738,LINCOLN PARK HS,CPS High School (candidate),Chicago Public Schools,2001 N ORCHARD ST,,41.9182683,-87.6460094,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609749,NORTHSIDE PREP HS,CPS High School (candidate),Chicago Public Schools,5501 N KEDZIE AVE,,41.9813153,-87.7087078,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610524,ALCOTT HS,CPS High School (candidate),Chicago Public Schools,2957 N HOYNE AVE,,41.9357946,-87.6805620,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609718,KENNEDY HS,CPS High School (candidate),Chicago Public Schools,6325 W 56TH ST,,41.7899612,-87.7808398,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400059,NLCP - COLLINS HS,CPS High School (candidate),Chicago Public Schools,1615 S CHRISTIANA AVE,,41.8575640,-87.7089860,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609678,JONES HS,CPS High School (candidate),Chicago Public Schools,700 S STATE ST,,41.8730659,-87.6276753,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609680,PAYTON HS,CPS High School (candidate),Chicago Public Schools,1034 N WELLS ST,,41.9015752,-87.6353848,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609682,RICHARDS HS,CPS High School (candidate),Chicago Public Schools,5009 S LAFLIN ST,,41.8028814,-87.6622778,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609693,WESTINGHOUSE HS,CPS High School (candidate),Chicago Public Schools,3223 W FRANKLIN BLVD,,41.8899772,-87.7073323,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609722,MANLEY HS,CPS High School (candidate),Chicago Public Schools,2935 W POLK ST,,41.8709390,-87.6998956,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609723,MARSHALL HS,CPS High School (candidate),Chicago Public Schools,3250 W ADAMS ST,,41.8784441,-87.7080501,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609735,TILDEN HS,CPS High School (candidate),Chicago Public Schools,4747 S UNION AVE,,41.8075101,-87.6429665,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609740,WELLS HS,CPS High School (candidate),Chicago Public Schools,936 N ASHLAND AVE,,41.8989947,-87.6674829,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609755,YOUNG HS,CPS High School (candidate),Chicago Public Schools,211 S LAFLIN ST,,41.8786025,-87.6642333,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609759,CLEMENTE HS,CPS High School (candidate),Chicago Public Schools,1147 N WESTERN AVE,,41.9026258,-87.6869061,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610391,LINDBLOM HS,CPS High School (candidate),Chicago Public Schools,6130 S WOLCOTT AVE,,41.7820408,-87.6716619,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610244,CLARK HS,CPS High School (candidate),Chicago Public Schools,5101 W HARRISON ST,,41.8728850,-87.7533249,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610245,DOUGLASS HS,CPS High School (candidate),Chicago Public Schools,543 N WALLER AVE,,41.8903686,-87.7676685,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610304,PHOENIX MILITARY HS,CPS High School (candidate),Chicago Public Schools,145 S CAMPBELL AVE,,41.8791182,-87.6869602,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610334,RABY HS,CPS High School (candidate),Chicago Public Schools,3545 W FULTON BLVD,,41.8862101,-87.7154231,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610380,WILLIAMS HS,CPS High School (candidate),Chicago Public Schools,4934 S WABASH AVE,,41.8061176,-87.6250300,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610381,BRONZEVILLE HS,CPS High School (candidate),Chicago Public Schools,4934 S WABASH AVE,,41.8052042,-87.6250045,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610389,ORR HS,CPS High School (candidate),Chicago Public Schools,730 N PULASKI RD,,41.8945467,-87.7266596,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610499,COLLINS STEAM HS,CPS High School (candidate),Chicago Public Schools,1313 S SACRAMENTO DR,,41.8641486,-87.7020416,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610513,AIR FORCE HS,CPS High School (candidate),Chicago Public Schools,3630 S WELLS ST,,41.8281453,-87.6327570,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610518,AUSTIN CCA HS,CPS High School (candidate),Chicago Public Schools,231 N PINE AVE,,41.8859933,-87.7619164,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610529,OGDEN HS,CPS High School (candidate),Chicago Public Schools,1250 W ERIE ST,,41.8935476,-87.6594047,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610561,CRANE MEDICAL HS,CPS High School (candidate),Chicago Public Schools,2245 W JACKSON BLVD,,41.8769474,-87.6833013,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609695,AMUNDSEN HS,CPS High School (candidate),Chicago Public Schools,5110 N DAMEN AVE,,41.9750673,-87.6794842,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609730,SENN HS,CPS High School (candidate),Chicago Public Schools,5900 N GLENWOOD AVE,,41.9890285,-87.6671362,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609733,SULLIVAN HS,CPS High School (candidate),Chicago Public Schools,6631 N BOSWORTH AVE,,42.0026876,-87.6691922,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610394,UPLIFT HS,CPS High School (candidate),Chicago Public Schools,900 W WILSON AVE,,41.9655475,-87.6524733,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400032,CICS - ELLISON HS,CPS High School (candidate),Chicago Public Schools,1817 W 80TH ST,,41.7483824,-87.6689796,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400033,CICS - LONGWOOD,CPS High School (candidate),Chicago Public Schools,1309 W 95TH ST,,41.7212214,-87.6557681,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400061,PERSPECTIVES - LEADERSHIP HS,CPS High School (candidate),Chicago Public Schools,8522 S LAFAYETTE AVE,,41.7387909,-87.6265013,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400062,PERSPECTIVES - TECH HS,CPS High School (candidate),Chicago Public Schools,8522 S LAFAYETTE AVE,,41.7375247,-87.6264948,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400066,PERSPECTIVES - MATH & SCI HS,CPS High School (candidate),Chicago Public Schools,3663 S WABASH AVE,,41.8277839,-87.6247877,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400077,U OF C - WOODLAWN HS,CPS High School (candidate),Chicago Public Schools,6300 S UNIVERSITY AVE,,41.7804119,-87.5973797,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400106,NOBLE - JOHNSON HS,CPS High School (candidate),Chicago Public Schools,6350 S STEWART AVE,,41.7783695,-87.6351167,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400117,NOBLE - HANSBERRY HS,CPS High School (candidate),Chicago Public Schools,8748 S ABERDEEN ST,,41.7344416,-87.6509867,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400129,YCCS - PROGRESSIVE LEADERSHIP,CPS High School (candidate),Chicago Public Schools,6620 S DR MARTIN LUTHER KING JR DR,,41.7741696,-87.6158421,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400130,YCCS - YOUTH DEVELOPMENT,CPS High School (candidate),Chicago Public Schools,7836 S UNION AVE,,41.7513771,-87.6417312,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400139,YCCS - SULLIVAN,CPS High School (candidate),Chicago Public Schools,8164 S SOUTH CHICAGO AVE,,41.7462866,-87.5784917,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400147,CHICAGO EXCEL HS,CPS High School (candidate),Chicago Public Schools,1257 W 111TH ST,,41.6919693,-87.6537265,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400150,YCCS - CHATHAM,CPS High School (candidate),Chicago Public Schools,9035 S LANGLEY AVE,,41.7301314,-87.6069799,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610557,PATHWAYS - ASHBURN HS,CPS High School (candidate),Chicago Public Schools,3284 W 87TH ST,,41.7352390,-87.7040601,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400181,ART IN MOTION,CPS High School (candidate),Chicago Public Schools,7415 S EAST END AVE,,41.7600343,-87.5833277,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610593,OMBUDSMAN - ROSELAND HS,CPS High School (candidate),Chicago Public Schools,10928 S HALSTED ST,,41.6951053,-87.6428162,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400094,EPIC HS,CPS High School (candidate),Chicago Public Schools,8255 S HOUSTON AVE,,41.7448491,-87.5502224,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400136,YCCS - OLIVE HARVEY,CPS High School (candidate),Chicago Public Schools,10001 S WOODLAWN AVE,,41.7129221,-87.5923332,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400161,CHICAGO COLLEGIATE,CPS High School (candidate),Chicago Public Schools,11816 S INDIANA AVE,,41.6793184,-87.6179679,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400175,EXCEL SOUTH SHORE HS,CPS High School (candidate),Chicago Public Schools,7530 S SOUTH SHORE DR,,41.7597486,-87.5564871,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610573,SAFE ACHIEVE HS,CPS High School (candidate),Chicago Public Schools,7877 S COLES AVE,,41.7531149,-87.5518036,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400013,ASPIRA - EARLY COLLEGE HS,CPS High School (candidate),Chicago Public Schools,3986 W BARRY AVE,,41.9372983,-87.7270957,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400022,CHIARTS HS,CPS High School (candidate),Chicago Public Schools,2714 W AUGUSTA BLVD,,41.8993766,-87.6949450,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400054,NOBLE - PRITZKER HS,CPS High School (candidate),Chicago Public Schools,4131 W CORTLAND ST,,41.9152141,-87.7301267,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400125,YCCS - ASPIRA PANTOJA,CPS High School (candidate),Chicago Public Schools,3121 N PULASKI RD,,41.9381866,-87.7271374,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400126,YCCS - ASSOCIATION HOUSE,CPS High School (candidate),Chicago Public Schools,1116 N KEDZIE AVE,,41.9015724,-87.7068599,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400131,YCCS - CAMPOS,CPS High School (candidate),Chicago Public Schools,2739 W DIVISION ST,,41.9028497,-87.6960060,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400162,INTRINSIC HS,CPS High School (candidate),Chicago Public Schools,4540 W BELMONT AVE,,41.9389884,-87.7411286,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400169,NOBLE - ITW SPEER HS,CPS High School (candidate),Chicago Public Schools,5321 W GRAND AVE,,41.9172664,-87.7596752,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609766,VAUGHN HS,CPS High School (candidate),Chicago Public Schools,4355 N LINDER AVE,,41.9603638,-87.7646632,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610568,PATHWAYS - AVONDALE HS,CPS High School (candidate),Chicago Public Schools,3100 W BELMONT AVE,,41.9394332,-87.7052063,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400172,ASPIRA - BUSINESS & FINANCE HS,CPS High School (candidate),Chicago Public Schools,2989 N MILWAUKEE AVE,,41.9357265,-87.7182041,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610594,PATHWAYS - HUMBOLDT PARK HS,CPS High School (candidate),Chicago Public Schools,2421 W DIVISION ST,,41.9028408,-87.6879464,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400085,ACERO - GARCIA HS,CPS High School (candidate),Chicago Public Schools,4248 W 47TH ST,,41.8091708,-87.7304668,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400104,INSTITUTO - HEALTH HS,CPS High School (candidate),Chicago Public Schools,2520 S WESTERN AVE,,41.8459666,-87.6872402,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400135,YCCS - LATINO YOUTH,CPS High School (candidate),Chicago Public Schools,2001 S CALIFORNIA AVE,,41.8546647,-87.6954300,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400145,YCCS - YOUTH CONNECTION,CPS High School (candidate),Chicago Public Schools,5101 S KEELER AVE,,41.8572080,-87.6448880,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400164,INSTITUTO - JUSTICE HS,CPS High School (candidate),Chicago Public Schools,2570 S BLUE ISLAND AVE,,41.8454460,-87.6840649,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400149,ACERO - SOTO HS,CPS High School (candidate),Chicago Public Schools,5025 S SAINT LOUIS AVE,,41.8017623,-87.7110250,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400173,PATHWAYS - BRIGHTON PARK HS,CPS High School (candidate),Chicago Public Schools,3124 W 47TH STREET,,41.8082258,-87.7026448,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609748,YORK HS,CPS High School (candidate),Chicago Public Schools,2700 S CALIFORNIA AVE,,41.8425333,-87.6952610,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610386,PEACE AND EDUCATION HS,CPS High School (candidate),Chicago Public Schools,4946 S PAULINA ST,,41.8035147,-87.6673778,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400179,NOBLE - MANSUETO HS,CPS High School (candidate),Chicago Public Schools,2911 W 47TH ST,,41.8079872,-87.6970575,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400034,CICS - NORTHTOWN HS,CPS High School (candidate),Chicago Public Schools,3900 W PETERSON AVE,,41.9902450,-87.7265043,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609744,NORTHSIDE LEARNING HS,CPS High School (candidate),Chicago Public Schools,3730 W BRYN MAWR AVE,,41.9829725,-87.7223862,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610402,DEVRY HS,CPS High School (candidate),Chicago Public Schools,1900 W LAWRENCE AVE,,41.9688196,-87.6763265,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400051,NOBLE - NOBLE HS,CPS High School (candidate),Chicago Public Schools,1010 N NOBLE ST,,41.9001905,-87.6626278,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400053,NOBLE - GOLDER HS,CPS High School (candidate),Chicago Public Schools,1454 W SUPERIOR ST,,41.8952822,-87.6644830,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400055,NOBLE - RAUNER HS,CPS High School (candidate),Chicago Public Schools,1337 W OHIO ST,,41.8924250,-87.6608589,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400056,NOBLE - ROWE CLARK HS,CPS High School (candidate),Chicago Public Schools,3645 W CHICAGO AVE,,41.8953623,-87.7180468,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400057,NOBLE - UIC HS,CPS High School (candidate),Chicago Public Schools,1231 S DAMEN AVE,,41.8658174,-87.6761109,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400058,NLCP - CHRISTIANA HS,CPS High School (candidate),Chicago Public Schools,1615 S CHRISTIANA AVE,,41.8585635,-87.7089871,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400064,PERSPECTIVES - JOSLIN HS,CPS High School (candidate),Chicago Public Schools,1930 S ARCHER AVE,,41.8559991,-87.6285309,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400091,CHICAGO TECH HS,CPS High School (candidate),Chicago Public Schools,1301 W 14TH ST,,41.8633014,-87.6590948,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400097,NOBLE - BULLS HS,CPS High School (candidate),Chicago Public Schools,2040 W ADAMS ST,,41.8788088,-87.6781953,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400098,NOBLE - MUCHIN HS,CPS High School (candidate),Chicago Public Schools,1 N STATE ST,,41.8827403,-87.6263383,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400118,NOBLE - DRW HS,CPS High School (candidate),Chicago Public Schools,931 S HOMAN AVE,,41.8693281,-87.7116542,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400119,LEGAL PREP HS,CPS High School (candidate),Chicago Public Schools,4319 W WASHINGTON BLVD,,41.8817328,-87.7337784,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400123,YCCS - SCHOLASTIC ACHIEVEMENT,CPS High School (candidate),Chicago Public Schools,4651 W MADISON ST,,41.8804472,-87.7425389,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400124,YCCS - MCKINLEY,CPS High School (candidate),Chicago Public Schools,2920 S WABASH AVE,,41.8413312,-87.6253308,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400128,YCCS - CCA ACADEMY,CPS High School (candidate),Chicago Public Schools,1231 S PULASKI RD,,41.8649433,-87.7236622,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400133,YCCS - INNOVATIONS,CPS High School (candidate),Chicago Public Schools,17 N STATE ST,,41.8830472,-87.6277341,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400143,YCCS - WEST TOWN,CPS High School (candidate),Chicago Public Schools,500 N SACRAMENTO BLVD,,41.8908031,-87.7020528,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400144,YCCS - WEST,CPS High School (candidate),Chicago Public Schools,4909 W DIVISION ST,,41.9022400,-87.7488103,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400170,NOBLE - ACADEMY HS,CPS High School (candidate),Chicago Public Schools,1443 N OGDEN AVE,,41.9068788,-87.6455769,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400176,EXCEL SOUTHWEST HS,CPS High School (candidate),Chicago Public Schools,7050 S WASHTENAW AVE,,41.7649880,-87.6909574,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609745,SOUTHSIDE HS,CPS High School (candidate),Chicago Public Schools,7342 S HOYNE AVE,,41.7598524,-87.6759468,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609750,SIMPSON HS,CPS High School (candidate),Chicago Public Schools,1321 S PAULINA ST,,41.8643655,-87.6687222,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609769,GRAHAM HS,CPS High School (candidate),Chicago Public Schools,2347 S WABASH AVE,,41.8496754,-87.6253148,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-609783,JEFFERSON HS,CPS High School (candidate),Chicago Public Schools,1100 S HAMILTON AVE,,41.8678323,-87.6804176,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610565,EXCEL ENGLEWOOD HS,CPS High School (candidate),Chicago Public Schools,7141 S MORGAN ST,,41.7638960,-87.6491243,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610570,OMBUDSMAN - SOUTH HS,CPS High School (candidate),Chicago Public Schools,6057 S WESTERN AVE,,41.7830266,-87.6836345,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610571,OMBUDSMAN - WEST HS,CPS High School (candidate),Chicago Public Schools,3210 W ROOSEVELT AVE,,41.8664260,-87.7061370,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400182,CATALYST - MARIA HS,CPS High School (candidate),Chicago Public Schools,6727 S CALIFORNIA AVE,,41.7702494,-87.6930710,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400086,URBAN PREP - ENGLEWOOD HS,CPS High School (candidate),Chicago Public Schools,6201 S STEWART AVE,,41.7814978,-87.6343567,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400035,CHICAGO MATH & SCIENCE HS,CPS High School (candidate),Chicago Public Schools,7212 N CLARK ST,,42.0130315,-87.6748184,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-400141,YCCS - TRUMAN,CPS High School (candidate),Chicago Public Schools,1145 W WILSON AVE,,41.9652948,-87.6592393,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610569,OMBUDSMAN - NORTHWEST HS,CPS High School (candidate),Chicago Public Schools,7500 N HARLEM AVE,,42.0171712,-87.8066818,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610601,SAFE ACHIEVE WEST HS,CPS High School (candidate),Chicago Public Schools,230 N KOLMAR AVE,,41.8843000,-87.7392500,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
+cps-610597,VIRTUAL ACADEMY HS,CPS High School (candidate),Chicago Public Schools,1326 W 14TH ST,,41.8634518,-87.6599457,false,,false,,pb6d-zzuh,2026-11-17T19:36:03+00:00
