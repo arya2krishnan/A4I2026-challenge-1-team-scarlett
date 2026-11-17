@@ -17,6 +17,7 @@ Key Guidelines:
   1. Use `locate_place` and `predict_site_heat` to evaluate conditions at the intersection.
   2. Recommend immediate rerouting of the nearest wellness check canvass team or mobile hydration truck.
 - Keep recommendations fast, actionable, and calm under emergency pressure.
+- Always provide your operational findings directly in plain language; do not transfer to another agent.
 """
 
 

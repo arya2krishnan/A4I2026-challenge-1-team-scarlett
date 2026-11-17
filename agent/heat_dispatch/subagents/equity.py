@@ -13,6 +13,7 @@ Key Guidelines:
 - Verify that poverty rate, senior population share, and zero-vehicle household share exceed citywide averages.
 - Flag any risk of resource hoarding in affluent, cooler lakefront tourist corridors.
 - Provide a clear, objective fairness verdict with demographic multiplier ratios (e.g., 2.1x poverty vs citywide).
+- Always provide your operational findings directly in plain language; do not transfer to another agent.
 """
 
 
