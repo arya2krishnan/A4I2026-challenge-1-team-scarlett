@@ -11,7 +11,8 @@
 #   venv     .venv (Python 3.11) + requirements-dev.txt, .env from .env.example
 #   auth     gcloud project + application-default credentials (+ quota project)
 #   gcp      APIs, service accounts, roles                  (scripts/setup_gcp.sh, needs project admin)
-#   data     3 source tables from the GCS snapshot, City of Chicago facilities, high schools, boundaries
+#   data     3 source tables from the GCS snapshot, City of Chicago facilities, high schools, boundaries,
+#            heat-relief sites (chi_site_* tables the console needs)
 #   osm      OpenStreetMap land cover -> osm_chicago        (~3 GB scanned; skipped if the table exists, FORCE_OSM=1 redoes)
 #   model    sql/01..06: grid, vulnerability, site context, TRAIN BQML, evaluate, validate
 #   tools    run every Toolbox tool's SQL against BigQuery (catches a broken tool before deploying it)
@@ -19,6 +20,8 @@
 #   agent    agent -> Agent Runtime
 #   client   Streamlit client -> Cloud Run
 #   api      dispatch approval API -> Cloud Run + Firestore + signing key in Secret Manager
+#   web      Heat Dispatch Console -> Cloud Run behind IAP  (WEB_USERS=user:a@x.org,... grants access;
+#            WEB_IAP=false if IAP is unavailable in the project)
 #   smoke    end-to-end test of the deployed dispatch API
 #
 # Written for macOS bash 3.2 as well as Cloud Shell (it does not call scripts/load.sh, which needs bash 4).
@@ -26,7 +29,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-STEPS="venv auth gcp data osm model tools toolbox agent client api smoke"
+STEPS="venv auth gcp data osm model tools toolbox agent client api web smoke"
 SNAPSHOT="gs://class-demo/a4i-2026/challenge-1-walkability/chicago"
 SOURCE_TABLES="heat_observations station_daily_temps tract_demographics"
 
@@ -40,7 +43,7 @@ while [ $# -gt 0 ]; do
     --only) ONLY="${2:-}"; shift 2 ;;
     --yes|-y) YES=1; shift ;;
     --list) echo "$STEPS" | tr ' ' '\n'; exit 0 ;;
-    -h|--help) sed -n '2,24p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h|--help) sed -n '2,27p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) die "unknown argument: $1 (try --help)" ;;
   esac
 done
@@ -71,7 +74,7 @@ bold "Plan"
 echo "  project : $PROJECT"
 echo "  region  : $REGION   (BigQuery: $DATASET in $BQ_LOC)"
 echo "  steps   :$RUN"
-echo "  This creates billable resources (Cloud Run x3 with one warm Toolbox instance, Agent Runtime,"
+echo "  This creates billable resources (Cloud Run x4 with one warm Toolbox instance, Agent Runtime,"
 echo "  Firestore, Secret Manager, BigQuery storage + a ~3 GB OSM scan)."
 if [ -z "$YES" ]; then
   printf '  Continue? [y/N] '; read -r ans
@@ -117,6 +120,7 @@ step_data() {
   "$PY" scripts/load_chicago_facilities.py
   "$PY" scripts/load_chicago_high_schools.py   # after facilities: it appends High School rows to cooling_facilities
   "$PY" scripts/load_chicago_boundaries.py
+  bash tools/load_chicago_sites_bq.sh
   bq --project_id="$PROJECT" --location="$BQ_LOC" query --use_legacy_sql=false --format=pretty \
     "SELECT COUNT(*) AS street_readings, ROUND(MAX(temp_f) - MIN(temp_f), 1) AS spread_f
      FROM \`$PROJECT.$DATASET.heat_observations\`"
@@ -135,6 +139,7 @@ step_toolbox() { bash scripts/deploy_toolbox.sh; }
 step_agent()   { bash scripts/deploy_agent.sh; }
 step_client()  { bash scripts/deploy_client.sh; }
 step_api()     { bash scripts/deploy_api.sh; }
+step_web()     { bash scripts/deploy_web.sh; }
 step_smoke()   { set -a; . ./.env; set +a; "$PY" scripts/smoke_dispatch_api.py; }
 
 # Not `if ! step_x`: bash disables set -e inside a function called from a condition, hiding mid-step failures.
@@ -160,4 +165,5 @@ bold "Done"
 echo "  Toolbox : ${TOOLBOX_URL:-}"
 echo "  Agent   : ${AGENT_RESOURCE_NAME:-}"
 echo "  API     : ${DISPATCH_API_URL:-}"
+echo "  Console : ${WEB_URL:-}"
 echo "  Client  : gcloud run services proxy ${CLIENT_SERVICE_NAME:-heat-dispatch-client} --region $REGION --project $PROJECT"
