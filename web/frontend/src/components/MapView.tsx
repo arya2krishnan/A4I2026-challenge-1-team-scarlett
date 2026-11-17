@@ -24,10 +24,21 @@ function SiteShape({ k, x, y, s }: { k: SiteLayer; x: number; y: number; s: numb
   }
 }
 
-export function MapView({ layers, plan, lens, siteLayers, selected, onPick }: {
+export interface ViewToggles {
+  showLeft: boolean;
+  showRight: boolean;
+  isFocus: boolean;
+  onToggleLeft: () => void;
+  onToggleRight: () => void;
+  onToggleFocus: () => void;
+}
+
+export function MapView({ layers, plan, lens, siteLayers, selected, onPick, viewToggles }: {
   layers: Layers | null; plan: Plan | null; lens: LensKey; siteLayers: Record<SiteLayer, boolean>;
   selected: string | null; onPick: (key: string) => void;
+  viewToggles?: ViewToggles;
 }) {
+
   const svgRef = useRef<SVGSVGElement>(null);
   const [vb, setVb] = useState<VB>({ x: 0, y: 0, w: W, h: H });
   const [tip, setTip] = useState<Tip | null>(null);
@@ -152,7 +163,21 @@ export function MapView({ layers, plan, lens, siteLayers, selected, onPick }: {
         })()}
       </svg>
       {!feats.length && <div className="mapmsg">{layers ? 'No tract geometry returned' : 'Loading map…'}</div>}
+      {viewToggles && (
+        <div className="map-view-controls">
+          <button type="button" onClick={viewToggles.onToggleLeft} title="Toggle Left Sidebar">
+            {viewToggles.showLeft ? '◧ Hide Sidebar' : '◨ Show Sidebar'}
+          </button>
+          <button type="button" className={viewToggles.isFocus ? 'active' : ''} onClick={viewToggles.onToggleFocus} title="Toggle Edge-to-Edge Full Map">
+            {viewToggles.isFocus ? '✕ Exit Full Map' : '⛶ Full Map'}
+          </button>
+          <button type="button" onClick={viewToggles.onToggleRight} title="Toggle Recommendations Panel">
+            {viewToggles.showRight ? 'Hide Recs ◨' : 'Show Recs ◧'}
+          </button>
+        </div>
+      )}
       <div className="badge-mock real">REAL · BigQuery ML · ACS · City sites · NWS</div>
+
       <div className="zoom"><button onClick={() => zoom(0.7)} aria-label="zoom in">+</button><button onClick={() => zoom(1.4)} aria-label="zoom out">−</button><button onClick={() => setVb({ x: 0, y: 0, w: W, h: H })} aria-label="reset view">⌂</button></div>
       <Legend lens={lens} plan={plan} stats={stats} siteLayers={siteLayers} />
       {tip && <div className="tip" style={{ display: 'block', left: Math.min(tip.x + 14, window.innerWidth - 300), top: tip.y + 14 }}>{tip.body}</div>}

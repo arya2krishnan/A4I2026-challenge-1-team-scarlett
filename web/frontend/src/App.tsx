@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { api } from './api';
 import { Chat, type Msg } from './components/Chat';
 import { LeftPanel } from './components/LeftPanel';
@@ -91,22 +91,53 @@ export default function App() {
     }
   };
 
+  const [showLeft, setShowLeft] = useState(true);
+  const [showRight, setShowRight] = useState(true);
+  const [showChat, setShowChat] = useState(true);
+
   const libName = plan?.items.find(i => i.kind === 'lib')?.name;
   const suggestions = ['Half the trucks are down (fuel shortage)', '2 drivers called in sick', ...(libName ? [`${libName} library has no power`] : []),
     'Rank by vulnerability first', 'We got 3 extra wellness teams', 'How many people are covered?'];
 
+  const gridStyle = useMemo(() => {
+    if (!showLeft && !showRight) return { gridTemplateColumns: '1fr' };
+    if (!showLeft) return { gridTemplateColumns: '1fr 440px' };
+    if (!showRight) return { gridTemplateColumns: '290px 1fr' };
+    return { gridTemplateColumns: '290px 1fr 440px' };
+  }, [showLeft, showRight]);
+
+  const viewToggles = useMemo(() => ({
+    showLeft,
+    showRight,
+    isFocus: !showLeft && !showRight,
+    onToggleLeft: () => setShowLeft(v => !v),
+    onToggleRight: () => setShowRight(v => !v),
+    onToggleFocus: () => {
+      if (!showLeft && !showRight) {
+        setShowLeft(true);
+        setShowRight(true);
+      } else {
+        setShowLeft(false);
+        setShowRight(false);
+      }
+    },
+  }), [showLeft, showRight]);
+
   return (
-    <div className="app">
-      <LeftPanel plan={plan} days={days} lens={lens} setLens={setLens} siteLayers={siteLayers} setSiteLayers={setSiteLayers} onConstraints={onConstraints} onDay={onDay} />
+    <div className="app" style={gridStyle}>
+      {showLeft && <LeftPanel plan={plan} days={days} lens={lens} setLens={setLens} siteLayers={siteLayers} setSiteLayers={setSiteLayers} onConstraints={onConstraints} onDay={onDay} />}
       <main className="center">
         <Strip plan={plan} />
-        <MapView layers={layers} plan={plan} lens={lens} siteLayers={siteLayers} selected={selected} onPick={setSelected} />
+        <MapView layers={layers} plan={plan} lens={lens} siteLayers={siteLayers} selected={selected} onPick={setSelected} viewToggles={viewToggles} />
       </main>
-      <RecPanel plan={plan} tab={tab} setTab={setTab} selected={selected} onPick={setSelected} onAct={onAct} busy={busy}>
-        <Chat msgs={msgs} onSend={send} suggestions={suggestions} busy={busy} agentLabel={agentLabel} />
-      </RecPanel>
+      {showRight && (
+        <RecPanel plan={plan} tab={tab} setTab={setTab} selected={selected} onPick={setSelected} onAct={onAct} busy={busy} showChat={showChat} onToggleChat={() => setShowChat(v => !v)}>
+          <Chat msgs={msgs} onSend={send} suggestions={suggestions} busy={busy} agentLabel={agentLabel} onToggleChat={() => setShowChat(false)} />
+        </RecPanel>
+      )}
       {error && <div className="toast" style={{ display: 'block', background: '#b3261e' }}>{error}</div>}
       {toast && <div className="toast" style={{ display: 'block' }}>{toast}</div>}
     </div>
   );
 }
+

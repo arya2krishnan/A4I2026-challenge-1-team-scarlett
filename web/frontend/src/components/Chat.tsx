@@ -41,8 +41,9 @@ export function DiffView({ plan, onSend }: { plan: Plan; onSend?: (t: string) =>
   );
 }
 
-export function Chat({ msgs, onSend, suggestions, busy, agentLabel }: {
+export function Chat({ msgs, onSend, suggestions, busy, agentLabel, onToggleChat }: {
   msgs: Msg[]; onSend: (t: string) => void; suggestions: string[]; busy: boolean; agentLabel: string;
+  onToggleChat?: () => void;
 }) {
   const [text, setText] = useState('');
   const [showTriage, setShowTriage] = useState(false);
@@ -57,8 +58,14 @@ export function Chat({ msgs, onSend, suggestions, busy, agentLabel }: {
             {showTriage ? 'Hide 311' : '⚡ A2UI 311 Triage'}
           </button>
           <span className="note">ADK agent · {agentLabel}</span>
+          {onToggleChat && (
+            <button type="button" onClick={onToggleChat} title="Hide Chat" style={{ border: '1px solid var(--line)', background: '#fff', borderRadius: '6px', padding: '1px 6px', fontSize: '10px', cursor: 'pointer' }}>
+              ▼
+            </button>
+          )}
         </div>
       </div>
+
       {showTriage && (
         <div style={{ padding: '6px 12px', background: '#fff6e5', borderBottom: '1px solid #ecd499', display: 'flex', gap: '6px', overflowX: 'auto' }}>
           {TRIAGE_EVENTS.map(t => (

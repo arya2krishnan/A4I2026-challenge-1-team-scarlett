@@ -24,11 +24,12 @@ function Num({ it }: { it: PlanItem }) {
   return <div className="num">{fmt(it.served_population)}<small>residents</small></div>;
 }
 
-export function RecPanel({ plan, tab, setTab, selected, onPick, onAct, busy, children }: {
+export function RecPanel({ plan, tab, setTab, selected, onPick, onAct, busy, showChat = true, onToggleChat, children }: {
   plan: Plan | null; tab: Tab; setTab: (t: Tab) => void; selected: string | null; onPick: (k: string) => void;
   onAct: (action: 'approve' | 'unapprove' | 'approve_all' | 'skip', keys?: string[], kind?: string) => void;
-  busy: boolean; children: React.ReactNode;
+  busy: boolean; showChat?: boolean; onToggleChat?: () => void; children: React.ReactNode;
 }) {
+
   const items = plan?.items ?? [];
   const shown = items.filter(i => tab === 'all' || i.kind === tab);
   const ap = items.filter(i => i.approval).length;
@@ -83,7 +84,15 @@ export function RecPanel({ plan, tab, setTab, selected, onPick, onAct, busy, chi
         ))}
         {plan && !shown.length && <div className="note">Nothing to dispatch with these settings.</div>}
       </div>
-      {children}
+      {showChat ? children : (
+        <div style={{ padding: '8px 16px', borderTop: '1px solid var(--line)', background: '#fbfaf7', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span className="kicker">Operator assistant</span>
+          <button type="button" onClick={onToggleChat} style={{ border: '1px solid var(--line)', background: '#fff', borderRadius: '6px', padding: '3px 8px', fontSize: '11px', cursor: 'pointer' }}>
+            ▲ Show Chat
+          </button>
+        </div>
+      )}
     </aside>
+
   );
 }
