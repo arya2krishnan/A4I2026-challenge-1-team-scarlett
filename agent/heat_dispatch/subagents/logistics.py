@@ -18,7 +18,7 @@ Key Guidelines:
 """
 
 
-def build_logistics_agent(model: Any, toolbox_tools: Any = None) -> Agent:
+def build_logistics_agent(model: Any, toolbox_tools: Any = None, before_callback: Any = None, after_callback: Any = None) -> Agent:
     tools: list[Any] = [locate_place]
     if toolbox_tools:
         tools.append(toolbox_tools)
@@ -28,4 +28,6 @@ def build_logistics_agent(model: Any, toolbox_tools: Any = None) -> Agent:
         description="Logistics & Facilities specialist: sites hydration trucks and identifies libraries and high school gyms for cooling shelter.",
         instruction=LOGISTICS_INSTRUCTION,
         tools=tools,
+        before_tool_callback=before_callback,
+        after_tool_callback=after_callback,
     )

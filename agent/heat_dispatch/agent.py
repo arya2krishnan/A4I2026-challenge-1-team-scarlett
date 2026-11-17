@@ -69,11 +69,11 @@ def _model() -> Gemini:
 
 toolbox = build_toolbox_toolset(S)
 
-spatial_risk_agent = build_spatial_risk_agent(_model(), toolbox)
-logistics_agent = build_logistics_agent(_model(), toolbox)
-outreach_agent = build_outreach_agent(_model(), toolbox)
-triage_agent = build_triage_agent(_model(), toolbox)
-equity_agent = build_equity_agent(_model(), toolbox)
+spatial_risk_agent = build_spatial_risk_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
+logistics_agent = build_logistics_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
+outreach_agent = build_outreach_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
+triage_agent = build_triage_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
+equity_agent = build_equity_agent(_model(), toolbox, guard_point_tools, stash_tool_results)
 
 root_agent = Agent(
     name="heat_dispatch_agent",

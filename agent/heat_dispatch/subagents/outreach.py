@@ -18,7 +18,7 @@ Key Guidelines:
 """
 
 
-def build_outreach_agent(model: Any, toolbox_tools: Any = None) -> Agent:
+def build_outreach_agent(model: Any, toolbox_tools: Any = None, before_callback: Any = None, after_callback: Any = None) -> Agent:
     tools: list[Any] = [locate_place]
     if toolbox_tools:
         tools.append(toolbox_tools)
@@ -28,4 +28,6 @@ def build_outreach_agent(model: Any, toolbox_tools: Any = None) -> Agent:
         description="Community Outreach specialist: prioritizes census tracts with isolated seniors and zero-vehicle households for wellness checks.",
         instruction=OUTREACH_INSTRUCTION,
         tools=tools,
+        before_tool_callback=before_callback,
+        after_tool_callback=after_callback,
     )
