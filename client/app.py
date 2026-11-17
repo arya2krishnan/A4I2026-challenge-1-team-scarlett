@@ -141,6 +141,8 @@ picked = None
 with st.sidebar:
     st.markdown("### 🌡️ Heat Dispatch")
     st.caption(f"Agent: {be.label}")
+    if getattr(be, "code_version", None):
+        st.caption(f"Loaded code: {be.code_version}  (restart Streamlit if this is not the latest commit)")
     forecast = st.number_input("Forecast high (°F)", min_value=70, max_value=125, value=102, step=1,
                                help="Sent with every message so the agent never has to guess the forecast.")
     if st.button("＋ New chat", width="stretch", type="primary"):

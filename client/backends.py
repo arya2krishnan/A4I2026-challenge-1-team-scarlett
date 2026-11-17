@@ -29,11 +29,24 @@ def _get(obj: Any, *names: str, default: Any = None) -> Any:
     return default
 
 
+def code_version() -> str:
+    """Short git commit of the code this process loaded (plus '+edits' if the working tree differs)."""
+    import subprocess
+    root = Path(__file__).resolve().parents[1]
+    try:
+        sha = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=root, capture_output=True, text=True, timeout=5).stdout.strip()
+        dirty = subprocess.run(["git", "status", "--porcelain", "--", "agent", "client"], cwd=root, capture_output=True, text=True,
+                               timeout=5).stdout.strip()
+        return (sha or "unknown") + ("+edits" if dirty else "")
+    except Exception:
+        return "unknown"
+
+
 def make_backend():
     resource = os.environ.get("AGENT_RESOURCE_NAME", "").strip()
-    if resource:
-        return RemoteBackend(resource)
-    return LocalBackend()
+    be = RemoteBackend(resource) if resource else LocalBackend()
+    be.code_version = code_version()      # captured when the backend (and, locally, the agent code) was loaded
+    return be
 
 
 class LocalBackend:
