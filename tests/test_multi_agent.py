@@ -87,3 +87,12 @@ def test_render_sheet_includes_high_schools():
     assert "## 4. Emergency high school cooling gymnasiums" in sheet
     assert "Dunbar Vocational Career Academy High School" in sheet
     assert "3000 S King Dr" in sheet
+
+
+def test_every_specialist_has_the_guard_and_stash_callbacks():
+    """Callbacks are per agent: a specialist without them silently loses its ranking and skips the Chicago guard."""
+    from heat_dispatch.agent import guard_point_tools, root_agent, stash_tool_results
+    assert root_agent.sub_agents
+    for a in (root_agent, *root_agent.sub_agents):
+        assert a.before_tool_callback is guard_point_tools, a.name
+        assert a.after_tool_callback is stash_tool_results, a.name

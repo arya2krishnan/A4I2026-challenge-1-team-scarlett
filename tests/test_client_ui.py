@@ -43,3 +43,14 @@ def test_app_renders_plan(monkeypatch):
     assert not at.exception, at.exception
     assert fake.sent and fake.sent[0].startswith("[Planner context: forecast high 102°F]")
     assert any("Here is the plan." in m.value for m in at.markdown)
+
+
+def test_user_message_is_visible_after_rerun_and_context_line_is_hidden(monkeypatch):
+    """Regression: the user's bubble rendered blank because user-authored blocks were skipped on replay."""
+    fake = FakeBackend()
+    monkeypatch.setattr(backends, "make_backend", lambda: fake)
+    at = AppTest.from_file(str(Path(__file__).resolve().parents[1] / "client" / "app.py"), default_timeout=30).run()
+    at.chat_input[0].set_value("Plan tomorrow please").run()
+    shown = [m.value for m in at.markdown]
+    assert "Plan tomorrow please" in shown
+    assert not any("[Planner context" in v for v in shown)
