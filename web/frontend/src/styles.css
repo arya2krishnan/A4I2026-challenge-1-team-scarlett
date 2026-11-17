@@ -122,6 +122,13 @@ details[open].box summary::after{content:"▾"}
 .msg.a{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
 .msg.a .diff{margin-top:6px;font-size:11.8px}
 .msg.a .diff div{padding:1px 0}
+.chat-md p{margin:0 0 6px}
+.chat-md p:last-child{margin-bottom:0}
+.chat-md ul,.chat-md ol{margin:4px 0 6px 18px;padding:0}
+.chat-md li{margin-bottom:2px}
+.chat-md strong{font-weight:600}
+.chat-md code{background:rgba(0,0,0,0.06);padding:1px 4px;border-radius:3px;font-size:11.5px}
+.chat-md h1,.chat-md h2,.chat-md h3,.chat-md h4{margin:6px 0 3px;font-size:13px;font-weight:700}
 .msg .qr{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
 .msg .qr button,.sugg button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 9px;font-size:11.5px}
 .sugg{display:flex;gap:5px;overflow-x:auto;padding:0 16px 6px;scrollbar-width:none}

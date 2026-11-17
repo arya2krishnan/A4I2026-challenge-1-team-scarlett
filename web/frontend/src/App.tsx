@@ -65,7 +65,23 @@ export default function App() {
       if (action === 'approve_all') flash('All shown recommendations approved');
     });
 
-  const onConstraints = (c: Partial<Constraints>) => run(() => api.replan({ constraints: c }), warnInChat);
+  const onConstraints = (c: Partial<Constraints>) =>
+    run(() => api.replan({ constraints: c }), p => {
+      const parts: string[] = [];
+      if (c.trucks !== undefined) parts.push(`${c.trucks} trucks`);
+      if (c.wellness_teams !== undefined) parts.push(`${c.wellness_teams} wellness teams`);
+      if (c.libraries !== undefined) parts.push(`${c.libraries} libraries`);
+      if (c.cutoff_f !== undefined) parts.push(`+${c.cutoff_f}°F cutoff`);
+      if (c.ranking !== undefined) parts.push(`${c.ranking} ranking`);
+
+      const changeDesc = parts.length ? parts.join(', ') : 'constraints';
+      say({
+        who: 'a',
+        text: `Operator updated ${changeDesc}. Plan recomputed to v${p.version}: ${p.summary?.counts.truck ?? 0} trucks, ${p.summary?.counts.well ?? 0} canvass teams, reaching ${pct(p.summary?.share_of_hot_65_plus_reached)} of seniors in hot tracts.`,
+        plan: p.warnings.length ? p : undefined,
+        qr: QR_AFTER_REPLAN,
+      });
+    });
   const onDay = (d: Day) => run(() => api.replan({ day: d }), warnInChat);
 
   const onToggleMode = async (m: 'historic' | 'current') => {
@@ -223,6 +239,7 @@ export default function App() {
             mode={mode}
             onToggleMode={onToggleMode}
             onScenario={send}
+            layers={layers}
           />
         )}
         <main className="center">
