@@ -87,4 +87,4 @@ def test_render_toolbox_resolves_env_and_defaults():
     with pytest.raises(KeyError):
         render_toolbox.resolve("${P}", {})
     full = render_toolbox.resolve((ROOT / "toolbox" / "tools.yaml").read_text(), {"GOOGLE_CLOUD_PROJECT": "proj"})
-    assert "${" not in full and "proj.a4i_climate.heat_offset_model" in full
+    assert "${" not in full and "proj.a4i_climate.heat_offset_lst" in full
