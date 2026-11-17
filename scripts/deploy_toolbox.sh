@@ -8,7 +8,9 @@ IMAGE="${TOOLBOX_IMAGE:-us-central1-docker.pkg.dev/database-toolbox/toolbox/tool
 TB_SA="${TOOLBOX_SERVICE_ACCOUNT:-heat-toolbox@${PROJECT}.iam.gserviceaccount.com}"
 AG_SA="${AGENT_SERVICE_ACCOUNT:-}"
 
-"$PY" "$ROOT/scripts/render_toolbox.py" --out "$ROOT/toolbox/tools.rendered.yaml"
+TOOLS_SRC="${TOOLS_SRC:-$ROOT/toolbox/tools.yaml}"   # e.g. TOOLS_SRC=toolbox/tools.enriched.yaml
+echo ">> tool definitions: $TOOLS_SRC"
+"$PY" "$ROOT/scripts/render_toolbox.py" --src "$TOOLS_SRC" --out "$ROOT/toolbox/tools.rendered.yaml"
 echo ">> uploading tool definitions to Secret Manager ($SECRET)"
 if gcloud secrets describe "$SECRET" --project "$PROJECT" >/dev/null 2>&1; then
   gcloud secrets versions add "$SECRET" --project "$PROJECT" --data-file="$ROOT/toolbox/tools.rendered.yaml" >/dev/null
