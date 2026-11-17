@@ -3,9 +3,7 @@ VENV ?= .venv
 PY   := $(VENV)/bin/python
 CITY ?= chicago
 
-
-.PHONY: help setup test data osm model validate-model toolbox-yaml toolbox-local smoke adk-web run-local check-models gcp-setup deploy-toolbox deploy-agent deploy-client enrich-data enrich-weather enrich-vulnerability enrich-geography enrich-environment enrich-transit enrich-cooling enrich-walkability enrich-load typecheck load-sites test-web web-build run-web web-dev deploy-web
-
+.PHONY: help setup test data osm model validate-model toolbox-yaml toolbox-local smoke adk-web run-local check-models gcp-setup deploy-toolbox deploy-agent deploy-client api-local deploy-api smoke-api setup-all enrich-data enrich-weather enrich-vulnerability enrich-geography enrich-environment enrich-transit enrich-cooling enrich-walkability enrich-load typecheck load-sites test-web web-build run-web web-dev deploy-web
 
 help:  ## list targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/' | column -t -s "$$(printf '\t')"
@@ -110,6 +108,9 @@ deploy-api:  ## dispatch approval API -> Cloud Run (private) + Firestore databas
 
 smoke-api:  ## end-to-end test of the deployed dispatch API (URL=http://127.0.0.1:8080 NOAUTH=1 for api-local)
 	$(PY) scripts/smoke_dispatch_api.py $(if $(URL),--url $(URL)) $(if $(NOAUTH),--no-auth)
+
+setup-all:  ## empty project -> everything deployed, in order (FROM=<step> to resume, ONLY=<step>, YES=1 no prompt)
+	bash scripts/setup_all.sh $(if $(FROM),--from $(FROM)) $(if $(ONLY),--only $(ONLY)) $(if $(YES),--yes)
 
 web-build:  ## build the console frontend into web/frontend/dist
 	cd web/frontend && npm ci --no-audit --no-fund && npm run build
