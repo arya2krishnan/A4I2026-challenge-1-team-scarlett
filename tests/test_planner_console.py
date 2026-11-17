@@ -144,6 +144,11 @@ def test_bad_ranking_rejected_and_status_reports_counts():
     assert asyncio.run(console.set_operator_constraints(ranking="vibes", tool_context=c))["status"] == "error"
     s = console.get_dispatch_status(tool_context=c)
     assert s["plan_version"] == 3 and s["planned"]["truck"] == 4
+    assert "coverage" in s
+    assert "total_estimated_residents_served" in s["coverage"]
+    assert "total_seniors_65_plus_served" in s["coverage"]
+    assert "share_of_hot_65_plus_reached_pct" in s["coverage"]
+
 
 
 def test_replan_reports_toolbox_failure(monkeypatch):
@@ -153,3 +158,12 @@ def test_replan_reports_toolbox_failure(monkeypatch):
     c = seeded()
     out = asyncio.run(console.replan_dispatch(tool_context=c))
     assert out["status"] == "error" and console.STATE_PLAN not in c.state
+
+
+def test_sub_80_stand_down():
+    from heat_dispatch.planner import build_plan
+    plan = build_plan({}, [], [], [], day={"high_f": 72, "weekday": "sun"})
+    assert plan["stand_down"] is True
+    assert plan["items"] == []
+    assert "72°F < 80°F" in plan["stand_down_reason"]
+

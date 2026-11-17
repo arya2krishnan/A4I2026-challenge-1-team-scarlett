@@ -37,6 +37,7 @@ export interface Plan {
   day: Day; constraints: Constraints; items: PlanItem[]; approved: Record<string, Approval>;
   skipped: string[]; warnings: Warning[]; diff: PlanDiff; changes: string[]; summary: Summary | null;
   can_undo: boolean; ranking_presets: Record<string, number>; limits: Record<string, number>;
+  stand_down?: boolean; stand_down_reason?: string | null;
 }
 
 export interface TractProps {

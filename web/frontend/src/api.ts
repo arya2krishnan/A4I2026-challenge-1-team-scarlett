@@ -12,7 +12,7 @@ async function j<T>(path: string, init?: RequestInit): Promise<T> {
 
 export const api = {
   me: () => j<{ user: string; agent: string }>('/api/me'),
-  days: () => j<{ source: string; days: Day[] }>('/api/days'),
+  days: (mode?: string) => j<{ source: string; mode?: string; days: Day[]; historic?: Day[]; current?: Day[] }>(mode && mode !== 'historic' ? `/api/days?mode=${mode}` : '/api/days'),
   layers: () => j<Layers>('/api/layers'),
   plan: () => j<Plan>('/api/plan'),
   replan: (body: { constraints?: Partial<Constraints>; day?: Day }) =>

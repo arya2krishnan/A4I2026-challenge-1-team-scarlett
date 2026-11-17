@@ -74,7 +74,7 @@ export function lensFill(lens: LensKey, t: TractProps, s: LensStats, assigned: M
     default: {
       const a = assigned.get(t.tract_geo_id);
       if (a) return COLOR[a];
-      return t.predicted_offset_f >= cutoff ? 'url(#hh)' : '#ece8e0';
+      return t.predicted_offset_f >= cutoff ? '#fce8dc' : '#ece8e0';
     }
   }
 }

@@ -12,6 +12,7 @@
 """
 from __future__ import annotations
 
+import inspect
 import json
 import logging
 import uuid
@@ -63,7 +64,7 @@ def create_app(settings: Settings | None = None, toolbox: ToolInvoker | None = N
     tb = toolbox or ToolboxGateway(s.toolbox_url)
     st = store or (BigQueryStore(s.project, s.dataset) if s.store == "bigquery" else MemoryStore())
     board = Board(tb, st)
-    days_fn = days_provider or (lambda: planning_days(s.nws_user_agent))
+    days_fn = days_provider or (lambda mode="historic": planning_days(s.nws_user_agent, mode=mode))
     agent_box: dict[str, AgentGateway | None] = {"agent": agent}
     sessions: dict[tuple[str, str], bool] = {}
 
@@ -86,9 +87,12 @@ def create_app(settings: Settings | None = None, toolbox: ToolInvoker | None = N
 
     async def ready(request: Request) -> Board:
         if board.state is None:
-            days = (await days_fn())["days"]
+            res = days_fn()
+            days_res = await res if inspect.iscoroutinefunction(days_fn) or inspect.isawaitable(res) else res
+            days = days_res.get("days", []) if isinstance(days_res, dict) else []
+            default_day = next((d for d in days if d.get("high_f") == 102), days[0] if days else None)
             try:
-                await board.ensure(user(request), days[0])
+                await board.ensure(user(request), default_day)
             except BoardError as exc:
                 raise HTTPException(503, str(exc)) from exc
         return board
@@ -106,8 +110,13 @@ def create_app(settings: Settings | None = None, toolbox: ToolInvoker | None = N
         return {"user": user(request), "agent": "deployed" if s.agent_resource_name else "local"}
 
     @app.get("/api/days")
-    async def days():
-        return await days_fn()
+    async def days(mode: str = "historic"):
+        try:
+            res = days_fn(mode=mode)
+            return await res if inspect.iscoroutinefunction(days_fn) or inspect.isawaitable(res) else res
+        except TypeError:
+            res = days_fn()
+            return await res if inspect.iscoroutinefunction(days_fn) or inspect.isawaitable(res) else res
 
     @app.get("/api/layers")
     async def layers():

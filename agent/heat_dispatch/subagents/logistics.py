@@ -25,9 +25,10 @@ def build_logistics_agent(model: Any, toolbox_tools: Any = None, before_callback
     return Agent(
         name="logistics_agent",
         model=model,
-        description="Logistics & Facilities specialist: sites hydration trucks and identifies libraries and high school gyms for cooling shelter.",
+        description="Logistics specialist: answers questions about specific intersection cross-streets, truck staging feasibility, and CPS High School cooling gyms. Do NOT use for console capacity adjustments, driver changes, or plan re-ranking.",
         instruction=LOGISTICS_INSTRUCTION,
         tools=tools,
         before_tool_callback=before_callback,
         after_tool_callback=after_callback,
     )
+

@@ -275,9 +275,21 @@ def _name(key: str) -> str:
 
 
 def build_plan(constraints: dict, sites: list[dict], tracts: list[dict], libraries: list[dict],
-               approved: dict | None = None, skipped: Iterable[str] = (), weekday: str = "mon") -> dict:
+               approved: dict | None = None, skipped: Iterable[str] = (), weekday: str = "mon",
+               day: dict | None = None) -> dict:
     """Assemble a plan. `approved` maps item key -> approval record; it is returned pruned by capacity rules."""
     c = normalize_constraints(constraints)
+    if day and day.get("high_f") is not None and day.get("high_f") < 80:
+        return {
+            "constraints": c,
+            "weekday": weekday[:3].lower(),
+            "items": [],
+            "approved": {},
+            "skipped": [],
+            "warnings": [],
+            "stand_down": True,
+            "stand_down_reason": f"Normal weather ({day['high_f']}°F < 80°F). No heat emergency dispatch required. Mobile hydration trucks, wellness teams, and extended cooling library hours are standing down.",
+        }
     closed = set(c["closed_sites"])
     skipped = set(skipped)
     approved = dict(approved or {})
