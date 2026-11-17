@@ -154,4 +154,39 @@ describe('Heat Dispatch Console', () => {
     fireEvent.change(slider, { target: { value: '5' } });
     await waitFor(() => expect(calls.find(c => c.path === 'POST /api/plan')?.body).toEqual({ constraints: { trucks: 5 } }), { timeout: 2000 });
   });
+
+  it('approve button in chat diff approves only the changed keys in the diff, not the whole plan', async () => {
+    const newItem = item('truck', 3);
+    const v2 = makePlan(2, [...v1Items, newItem], {
+      source: 'chat',
+      changes: ['trucks: 3 -> 4'],
+      diff: { truck: { added: [{ key: newItem.key, name: newItem.name }], removed: [] } },
+    });
+    routes['POST /api/chat'] = () => sse([
+      { type: 'session', session_id: 's1' },
+      { type: 'text', text: 'Added 1 truck.' },
+      { type: 'plan', plan: v2 },
+      { type: 'done' },
+    ]);
+    routes['POST /api/actions'] = body => {
+      expect(body).toEqual({ action: 'approve', keys: [newItem.key] });
+      return {
+        ...v2,
+        approved: {
+          [newItem.key]: { by: 'duty@city.gov', at: '2026-07-13T14:10:00Z', plan_version: 2, kind: 'truck', name: newItem.name },
+        },
+      };
+    };
+
+    await boot();
+    await userEvent.type(screen.getByLabelText('message'), 'add 1 truck{enter}');
+    const diff = await screen.findByTestId('plan-diff');
+    expect(diff).toHaveTextContent('+ 🚚 Hoodtruck3');
+    const approveBtn = within(diff).getByRole('button', { name: /approve changes/i });
+    await userEvent.click(approveBtn);
+
+    const actionCall = calls.find(c => c.path === 'POST /api/actions');
+    expect(actionCall).toBeDefined();
+    expect(actionCall?.body).toEqual({ action: 'approve', keys: [newItem.key] });
+  });
 });

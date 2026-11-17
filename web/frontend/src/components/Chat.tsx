@@ -13,8 +13,17 @@ const TRIAGE_EVENTS = [
   { label: '🚨 Transit Heat Distress', prompt: 'Midday Emergency Alert (311 Incident #311-HEAT-403): Multiple 311 calls reporting heat exhaustion at unshaded transit corridor Pulaski & Madison in East Garfield Park. Recommend immediate dispatch rerouting.' },
 ];
 
-export function DiffView({ plan, onSend }: { plan: Plan; onSend?: (t: string) => void }) {
+export function DiffView({ plan, onSend, onApproveDiff }: {
+  plan: Plan;
+  onSend?: (t: string) => void;
+  onApproveDiff?: (keys: string[], names?: string[]) => void;
+}) {
   const lines: { color: string; text: string }[] = [];
+  const diffAdded = (['truck', 'well', 'lib'] as Kind[]).flatMap(k => plan.diff?.[k]?.added || []);
+  const diffKeys = diffAdded.map(x => x.key);
+  const diffNames = diffAdded.map(x => x.name);
+  const unapprovedKeys = diffKeys.filter(k => !plan.approved?.[k]);
+
   for (const k of ['truck', 'well', 'lib'] as Kind[]) {
     const d = plan.diff?.[k]; if (!d) continue;
     const list = (a: { name: string }[]) => a.slice(0, 5).map(x => x.name).join(', ') + (a.length > 5 ? ` +${a.length - 5} more` : '');
@@ -41,23 +50,43 @@ export function DiffView({ plan, onSend }: { plan: Plan; onSend?: (t: string) =>
         )
       )}
       {lines.length ? lines.map((l, i) => <div key={i} style={{ color: l.color, fontWeight: 500 }}>{l.text}</div>) : <div className="note">No sites changed.</div>}
-      {onSend && (
+      {(onApproveDiff || onSend) && (
         <div style={{ display: 'flex', gap: '6px', marginTop: '8px' }}>
-          <button type="button" onClick={() => onSend('approve all')} style={{ background: '#13803f', color: '#fff', border: 'none', borderRadius: '6px', padding: '4px 9px', fontSize: '11px', cursor: 'pointer', fontWeight: 600 }}>
-            ✓ Approve Plan v{plan.version}
-          </button>
-          <button type="button" onClick={() => onSend('undo')} style={{ background: '#fff', color: '#57609a', border: '1px solid #d0d7de', borderRadius: '6px', padding: '4px 9px', fontSize: '11px', cursor: 'pointer' }}>
-            ↺ Undo
-          </button>
+          {diffKeys.length === 0 ? (
+            <button type="button" disabled style={{ background: '#e9ecef', color: '#6c757d', border: '1px solid #ced4da', borderRadius: '6px', padding: '4px 9px', fontSize: '11px', fontWeight: 600, cursor: 'default' }}>
+              No added sites to approve
+            </button>
+          ) : unapprovedKeys.length === 0 ? (
+            <button type="button" disabled style={{ background: '#eef8f2', color: '#13803f', border: '1px solid #7fe0a3', borderRadius: '6px', padding: '4px 9px', fontSize: '11px', fontWeight: 600 }}>
+              ✓ Diff approved
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => {
+                if (onApproveDiff) onApproveDiff(diffKeys, diffNames);
+                else onSend?.('approve changes');
+              }}
+              style={{ background: '#13803f', color: '#fff', border: 'none', borderRadius: '6px', padding: '4px 9px', fontSize: '11px', cursor: 'pointer', fontWeight: 600 }}
+            >
+              ✓ Approve changes ({diffKeys.length})
+            </button>
+          )}
+          {onSend && (
+            <button type="button" onClick={() => onSend('undo')} style={{ background: '#fff', color: '#57609a', border: '1px solid #d0d7de', borderRadius: '6px', padding: '4px 9px', fontSize: '11px', cursor: 'pointer' }}>
+              ↺ Undo
+            </button>
+          )}
         </div>
       )}
     </div>
   );
 }
 
-export function Chat({ msgs, onSend, suggestions, busy, agentLabel, onToggleChat }: {
+export function Chat({ msgs, onSend, suggestions, busy, agentLabel, onToggleChat, onApproveDiff }: {
   msgs: Msg[]; onSend: (t: string) => void; suggestions: string[]; busy: boolean; agentLabel: string;
   onToggleChat?: () => void;
+  onApproveDiff?: (keys: string[], names?: string[]) => void;
 }) {
   const [text, setText] = useState('');
   const [showTriage, setShowTriage] = useState(false);
@@ -100,7 +129,7 @@ export function Chat({ msgs, onSend, suggestions, busy, agentLabel, onToggleChat
               )
             )}
             {m.pending && <div className="note">{m.pending}</div>}
-            {m.plan && <DiffView plan={m.plan} onSend={onSend} />}
+            {m.plan && <DiffView plan={m.plan} onSend={onSend} onApproveDiff={onApproveDiff} />}
             {m.qr && <div className="qr">{m.qr.map(q => <button key={q} disabled={busy} onClick={() => onSend(q)}>{q}</button>)}</div>}
           </div>
         ))}
