@@ -158,3 +158,12 @@ def test_replan_reports_toolbox_failure(monkeypatch):
     c = seeded()
     out = asyncio.run(console.replan_dispatch(tool_context=c))
     assert out["status"] == "error" and console.STATE_PLAN not in c.state
+
+
+def test_sub_80_stand_down():
+    from heat_dispatch.planner import build_plan
+    plan = build_plan({}, [], [], [], day={"high_f": 72, "weekday": "sun"})
+    assert plan["stand_down"] is True
+    assert plan["items"] == []
+    assert "72°F < 80°F" in plan["stand_down_reason"]
+

@@ -89,10 +89,13 @@ class Board:
         plan = planner.build_plan(c, sites, tracts, libs,
                                   approved=approved if approved is not None else cur.get("approved") or {},
                                   skipped=skipped if skipped is not None else cur.get("skipped") or [],
-                                  weekday=day.get("weekday") or "mon")
+                                  weekday=day.get("weekday") or "mon",
+                                  day=day)
         payload = {
             "day": day, "constraints": plan["constraints"], "items": plan["items"], "approved": plan["approved"],
             "skipped": plan["skipped"], "warnings": plan["warnings"],
+            "stand_down": plan.get("stand_down", False),
+            "stand_down_reason": plan.get("stand_down_reason"),
             "diff": planner.diff_plans(cur.get("items"), plan["items"]) if cur else {},
             "changes": planner.constraint_changes(cur.get("constraints"), plan["constraints"]) if cur else [],
             **(extra or {}),
